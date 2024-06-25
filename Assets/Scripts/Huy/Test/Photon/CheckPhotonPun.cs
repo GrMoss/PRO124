@@ -4,8 +4,9 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class CheckPhotonPun : MonoBehaviour
+public class CheckPhotonPun : MonoBehaviourPunCallbacks
 {
+    // Gọi kết nối tới Photon với các thiết lập trong PhotonServerSettings
     void Start()
     {
         ConnectToPhoton();
@@ -19,20 +20,20 @@ public class CheckPhotonPun : MonoBehaviour
     }
 
     // Callback khi kết nối thành công tới máy chủ chính
-    public void OnConnectedToMaster()
+    public override void OnConnectedToMaster()
     {
         Debug.Log("Kết nối thành công tới Photon! Server: " + PhotonNetwork.CloudRegion + " Ping: " + PhotonNetwork.GetPing());
         PhotonNetwork.JoinLobby(); // Tham gia vào lobby mặc định
     }
 
-    //// Callback khi tham gia thành công vào lobby
-    //public void OnJoinedLobby()
-    //{
-    //    Debug.Log("Đã tham gia vào lobby: " + PhotonNetwork.CurrentLobby.Name);
-    //}
+    // Callback khi tham gia thành công vào lobby
+    public override void OnJoinedLobby()
+    {
+        Debug.Log("Đã tham gia vào lobby: " + PhotonNetwork.CurrentLobby.Name);
+    }
 
     // Callback khi bị ngắt kết nối
-    public void OnDisconnected(DisconnectCause cause)
+    public override void OnDisconnected(DisconnectCause cause)
     {
         Debug.LogError("Đã ngắt kết nối khỏi Photon. Lý do: " + cause.ToString());
     }
