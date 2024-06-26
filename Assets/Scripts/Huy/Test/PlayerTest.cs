@@ -103,7 +103,6 @@ public class PlayerTest : MonoBehaviour
 {
     public static bool climbLadder = true;
     public float runSpeed = 6f;
-    private int jumpCount = 0;
     private Vector2 moveInput;
     private Rigidbody2D myRigidbody;
     private SpriteRenderer mySpriteRenderer;
