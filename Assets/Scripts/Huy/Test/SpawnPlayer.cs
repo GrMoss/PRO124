@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 
-public class SpawnPlayer : MonoBehaviourPunCallbacks
+public class SpawnPlayer : MonoBehaviour
 {
     public GameObject playerPrefab;
 

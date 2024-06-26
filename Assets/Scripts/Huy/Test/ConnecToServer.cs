@@ -4,11 +4,22 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
-public class ConnecToServer : MonoBehaviour
+public class ConnecToServer : MonoBehaviourPunCallbacks
 {
     private void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        PhotonNetwork.JoinLobby();
+    }
+
+    public override void OnJoinedLobby()
+    {
+        SceneManager.LoadScene("Lobby");
     }
 }
