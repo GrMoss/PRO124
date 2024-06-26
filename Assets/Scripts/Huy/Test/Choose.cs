@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class Choose : MonoBehaviourPunCallbacks
 {
+    [SerializeField] TMP_Text notificationText;
+    [SerializeField] float timeWayNotificationText = 2f;
 
     // Callback khi vào phòng thành công
     public override void OnJoinedRoom()
@@ -20,6 +22,8 @@ public class Choose : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         Debug.Log("Người chơi mới đã vào phòng: " + newPlayer.NickName);
+        notificationText.text = "Người chơi mới đã vào phòng: " + newPlayer.NickName;
+        StartCoroutine(NotificationText());
     }
 
     // Thoát khỏi phòng
@@ -41,6 +45,8 @@ public class Choose : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         Debug.Log("Người chơi đã rời phòng: " + otherPlayer.NickName);
+        notificationText.text = "Người chơi đã rời phòng: " + otherPlayer.NickName;
+        StartCoroutine(NotificationText());
         HandleHostLeaving(otherPlayer);
     }
 
@@ -50,6 +56,8 @@ public class Choose : MonoBehaviourPunCallbacks
         {
             // Nếu chính người chơi này là chủ phòng, chọn người chơi khác làm host
             Debug.Log("Chủ phòng đã rời. Đang chọn chủ phòng mới...");
+            notificationText.text = "Chủ phòng đã rời. Đang chọn chủ phòng mới...";
+            StartCoroutine(NotificationText());
             ChooseNewHost();
         }
     }
@@ -63,6 +71,14 @@ public class Choose : MonoBehaviourPunCallbacks
             Player newHost = players[0];
             PhotonNetwork.SetMasterClient(newHost);
             Debug.Log("Chủ phòng mới là: " + newHost.NickName);
+            notificationText.text = "Chủ phòng mới là: " + newHost.NickName;
+            StartCoroutine(NotificationText());
         }
+    }
+
+    private IEnumerator NotificationText()
+    {
+        yield return new WaitForSeconds(timeWayNotificationText);
+        notificationText.text = null;
     }
 }
