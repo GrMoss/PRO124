@@ -11,19 +11,43 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_InputField createInput;
     [SerializeField] TMP_InputField joinInput;
+    [SerializeField] TMP_Text notificationText;
+    [SerializeField] float timeWayNotificationText = 2f;
 
     public void CreateRoom()
     {
-        PhotonNetwork.CreateRoom(createInput.text);
+        if (createInput.text == "")
+        {
+            notificationText.text = "Xin vui lòng nhập tên phòng!";
+            StartCoroutine(NotificationText());
+        }
+        else
+        {
+            notificationText.text = "Đang tạo phòng, chờ mình chút nhé!";
+            StartCoroutine(NotificationText());
+            PhotonNetwork.CreateRoom(createInput.text);
+        }
     }
 
     public void JointRoom()
     {
-        PhotonNetwork.JoinRoom(joinInput.text);
+        if (joinInput.text == "")
+        {
+            notificationText.text = "Xin vui lòng nhập tên phòng!";
+            StartCoroutine(NotificationText());
+        }
+        else
+        {
+            notificationText.text = "Đang tìm phòng, chờ mình chút nhé!";
+            StartCoroutine(NotificationText());
+            PhotonNetwork.JoinRoom(joinInput.text);
+        }
     }
 
     public void JointRandomRoom()
     {
+        notificationText.text = "Đang tìm phòng!";
+        StartCoroutine(NotificationText());
         PhotonNetwork.JoinRandomRoom();
     }
 
@@ -39,5 +63,11 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     {
         Debug.Log("Nguoi choi moi da vao phong: " + newPlayer.NickName);
         
+    }
+
+    private IEnumerator NotificationText()
+    {
+        yield return new WaitForSeconds(timeWayNotificationText);
+        notificationText.text = null;
     }
 }
