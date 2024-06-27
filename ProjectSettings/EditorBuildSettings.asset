@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Huy/Loanding.unity
+    guid: 9740d08c0bb2745109b406ef2ecdc278
+  - enabled: 1
+    path: Assets/Scenes/Huy/Home.unity
+    guid: ae0616d4473dd488c9f6984317250b91
+  - enabled: 1
+    path: Assets/Scenes/Huy/Game1.unity
+    guid: bd1fa026f4b5c4b25898bd5e70f2702a
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
