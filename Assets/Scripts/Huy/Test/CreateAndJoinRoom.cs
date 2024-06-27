@@ -12,7 +12,17 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     [SerializeField] TMP_InputField createInput;
     [SerializeField] TMP_InputField joinInput;
     [SerializeField] TMP_Text notificationText;
+    [SerializeField] TMP_Text pingText;
     [SerializeField] float timeWayNotificationText = 2f;
+
+    private void Start()
+    {
+        CheckPing();
+    }
+    private void FixedUpdate()
+    {
+        CheckPing();
+    }
 
     public void CreateRoom()
     {
@@ -69,5 +79,18 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(timeWayNotificationText);
         notificationText.text = null;
+    }
+
+    // Phương thức kiểm tra ping
+    public void CheckPing()
+    {
+        int ping = PhotonNetwork.GetPing();  // Lấy giá trị ping từ Photon
+        Debug.Log("Ping hiện tại: " + ping + " ms");
+        pingText.text = "Ping: " + ping + " ms";  // Cập nhật giá trị ping trên giao diện người dùng
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

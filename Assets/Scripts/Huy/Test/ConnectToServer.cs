@@ -12,12 +12,6 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 
     [SerializeField] float timeWayNotificationText = 2f;
 
-    private void Start()
-    {
-        notificationText.text = "Đang tải.";
-        PhotonNetwork.ConnectUsingSettings();
-    }
-
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();

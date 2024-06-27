@@ -7,5 +7,6 @@ using Photon.Realtime;
 
 public class GameVar : MonoBehaviour
 {
+    public static string NamePlayer;
 
 }
