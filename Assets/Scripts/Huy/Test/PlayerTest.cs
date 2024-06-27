@@ -152,8 +152,8 @@ public class PlayerTest : MonoBehaviour
             {
                 score += 1;
 
-                // Đồng bộ hóa điểm số với các người chơi khác
-                PhotonNetwork.RaiseEvent(0, score, Photon.Realtime.RaiseEventOptions.Default, ExitGames.Client.Photon.SendOptions.SendReliable);
+                //// Đồng bộ hóa điểm số với các người chơi khác
+                //PhotonNetwork.RaiseEvent(0, score, Photon.Realtime.RaiseEventOptions.Default, ExitGames.Client.Photon.SendOptions.SendReliable);
             }
         }
     }

@@ -10,7 +10,18 @@ using UnityEngine.SceneManagement;
 public class Choose : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_Text notificationText;
+    [SerializeField] TMP_Text pingText;
+
     [SerializeField] float timeWayNotificationText = 2f;
+
+    private void Start()
+    {
+        CheckPing();
+    }
+    private void FixedUpdate()
+    {
+        CheckPing();
+    }
 
     // Callback khi vào phòng thành công
     public override void OnJoinedRoom()
@@ -80,5 +91,12 @@ public class Choose : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(timeWayNotificationText);
         notificationText.text = null;
+    }
+
+    // Phương thức kiểm tra ping
+    public void CheckPing()
+    {
+        int ping = PhotonNetwork.GetPing();  // Lấy giá trị ping từ Photon
+        pingText.text = "Ping: " + ping + " ms";  // Cập nhật giá trị ping trên giao diện người dùng
     }
 }
