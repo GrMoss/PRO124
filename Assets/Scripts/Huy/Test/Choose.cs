@@ -97,7 +97,6 @@ public class Choose : MonoBehaviourPunCallbacks
     public void CheckPing()
     {
         int ping = PhotonNetwork.GetPing();  // Lấy giá trị ping từ Photon
-        Debug.Log("Ping hiện tại: " + ping + " ms");
         pingText.text = "Ping: " + ping + " ms";  // Cập nhật giá trị ping trên giao diện người dùng
     }
 }

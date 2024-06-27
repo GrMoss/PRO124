@@ -28,9 +28,8 @@ public class SpawnPlayer : MonoBehaviour
     private void Start()
     {
         Vector2 randomPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-        PhotonNetwork.Instantiate(playerPrefab.name, randomPosition, Quaternion.identity);
         GameObject player = PhotonNetwork.Instantiate(playerPrefab.name, randomPosition, Quaternion.identity);
-
+       
         // Gọi hàm để cập nhật mục tiêu của Virtual Camera
         UpdateVirtualCameraTarget(player.transform);
     }

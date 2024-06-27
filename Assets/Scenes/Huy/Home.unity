@@ -2766,6 +2766,8 @@ MonoBehaviour:
   notificationText: {fileID: 1447658940}
   pingText: {fileID: 1121360378}
   timeWayNotificationText: 2
+  phongRiengTuButtonOn: {fileID: 517387656}
+  phongRiengTuButtonOff: {fileID: 522088490}
 --- !u!4 &783142180
 Transform:
   m_ObjectHideFlags: 0
