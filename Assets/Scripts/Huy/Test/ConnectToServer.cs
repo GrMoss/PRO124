@@ -9,8 +9,12 @@ using UnityEngine.SceneManagement;
 public class ConnectToServer : MonoBehaviourPunCallbacks
 {
     [SerializeField] TMP_Text notificationText;
-
     [SerializeField] float timeWayNotificationText = 2f;
+
+    private void Start()
+    {
+        notificationText.text = "Đang tải...";
+    }
 
     public override void OnConnectedToMaster()
     {

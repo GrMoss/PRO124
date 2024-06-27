@@ -27,7 +27,7 @@ public class Login : MonoBehaviourPunCallbacks
     // Kết nối đến Photon với vùng đã chọn
     public void ConnectToPhoton()
     {
-        string[] regionCodes = { "asia", "hk", "us" };  // Mã vùng tương ứng với các tùy chọn trong Dropdown
+        string[] regionCodes = { "hk","asia", "us" };  // Mã vùng tương ứng với các tùy chọn trong Dropdown
         int selectedIndex = vungDropdown.value;  // Lấy chỉ mục đã chọn từ Dropdown
         string selectedRegion = regionCodes[selectedIndex];  // Lấy mã vùng dựa trên chỉ mục
 
