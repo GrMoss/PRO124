@@ -12,11 +12,41 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     [SerializeField] TMP_InputField createInput;
     [SerializeField] TMP_InputField joinInput;
     [SerializeField] TMP_Text notificationText;
+    [SerializeField] TMP_Text pingText;
     [SerializeField] float timeWayNotificationText = 2f;
+    [SerializeField] Button phongRiengTuButtonOn; // Sử dụng Button
+    [SerializeField] Button phongRiengTuButtonOff; // Sử dụng Button
+
+    private bool phongRiengTu = false;
+
+    private void Start()
+    {
+        CheckPing();
+        
+    }
+
+    private void FixedUpdate()
+    {
+        CheckPing();
+        phongRiengTuButtonOn.onClick.AddListener(TogglePhongRiengTuOn); // Liên kết sự kiện OnClick
+        phongRiengTuButtonOff.onClick.AddListener(TogglePhongRiengTuOff); // Liên kết sự kiện OnClick
+    }
+
+    // Phương thức để chuyển đổi trạng thái của phongRiengTu
+    private void TogglePhongRiengTuOn()
+    {
+        phongRiengTu = true;
+        Debug.Log("Phòng riêng tư: " + phongRiengTu);
+    }
+    private void TogglePhongRiengTuOff()
+    {
+        phongRiengTu = false;
+        Debug.Log("Phòng riêng tư: " + phongRiengTu);
+    }
 
     public void CreateRoom()
     {
-        if (createInput.text == "")
+        if (string.IsNullOrEmpty(createInput.text))
         {
             notificationText.text = "Xin vui lòng nhập tên phòng!";
             StartCoroutine(NotificationText());
@@ -25,7 +55,15 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
         {
             notificationText.text = "Đang tạo phòng, chờ mình chút nhé!";
             StartCoroutine(NotificationText());
-            PhotonNetwork.CreateRoom(createInput.text);
+
+            RoomOptions roomOptions = new RoomOptions
+            {
+                IsVisible = !phongRiengTu,
+                IsOpen = true,
+                MaxPlayers = 5
+            };
+
+            PhotonNetwork.CreateRoom(createInput.text, roomOptions);
         }
     }
 
@@ -55,7 +93,6 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel("Game1");
-        Debug.Log("Da vao phong: " + PhotonNetwork.CurrentRoom.Name);
     }
 
     // Callback khi có người chơi khác vào phòng
@@ -69,5 +106,17 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(timeWayNotificationText);
         notificationText.text = null;
+    }
+
+    // Phương thức kiểm tra ping
+    public void CheckPing()
+    {
+        int ping = PhotonNetwork.GetPing();  // Lấy giá trị ping từ Photon
+        pingText.text = "Ping: " + ping + " ms";  // Cập nhật giá trị ping trên giao diện người dùng
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }
