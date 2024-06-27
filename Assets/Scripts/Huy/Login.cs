@@ -47,6 +47,10 @@ public class Login : MonoBehaviourPunCallbacks
         PhotonNetwork.PhotonServerSettings.AppSettings.FixedRegion = selectedRegion;
         PhotonNetwork.ConnectUsingSettings();
 
+        Debug.Log("Trạng thái kết nối: " + PhotonNetwork.NetworkClientState);
+        Debug.Log("Máy chủ hiện tại: " + PhotonNetwork.Server.ToString());
+        Debug.Log("Ping hiện tại: " + PhotonNetwork.GetPing() + " ms");
+
         SceneManager.LoadScene("Loading");
     }
 

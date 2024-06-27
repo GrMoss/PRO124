@@ -64,7 +64,7 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     // Callback khi vào phòng thành công
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("Game1");
+        PhotonNetwork.LoadLevel("Lobby");
         Debug.Log("Da vao phong: " + PhotonNetwork.CurrentRoom.Name);
     }
 
@@ -73,6 +73,13 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     {
         Debug.Log("Nguoi choi moi da vao phong: " + newPlayer.NickName);
         
+    }
+
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        Debug.Log("Không thể tham gia phòng ngẫu nhiên: " + message);
+        notificationText.text = "Không tìm thấy phòng trống!";
+        StartCoroutine(NotificationText());
     }
 
     private IEnumerator NotificationText()
@@ -88,6 +95,8 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
         Debug.Log("Ping hiện tại: " + ping + " ms");
         pingText.text = "Ping: " + ping + " ms";  // Cập nhật giá trị ping trên giao diện người dùng
     }
+
+ 
 
     public void Exit()
     {

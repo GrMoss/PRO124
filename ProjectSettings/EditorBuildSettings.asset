@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Huy/Home.unity
     guid: ae0616d4473dd488c9f6984317250b91
   - enabled: 1
+    path: Assets/Scenes/Huy/Lobby.unity
+    guid: 4c8f84f958f784072aed3a4d87f3b5d7
+  - enabled: 1
     path: Assets/Scenes/Huy/Game1.unity
     guid: bd1fa026f4b5c4b25898bd5e70f2702a
   - enabled: 0
