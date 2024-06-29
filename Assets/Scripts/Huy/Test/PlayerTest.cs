@@ -21,14 +21,29 @@
 
 //    void Start()
 //    {
-//        BXHText.text = "Bảng xếp hạng:";
+//        // Tìm và gán ScoreText và BXHText
+//        scoreText = GameObject.Find("ScoreText")?.GetComponent<TMP_Text>();
+//        BXHText = GameObject.Find("BXHText")?.GetComponent<TMP_Text>();
+
+//        // Nếu không tìm thấy, không báo lỗi, chỉ ghi nhật ký thông tin
+//        if (scoreText == null)
+//        {
+//            Debug.Log("Không tìm thấy ScoreText trong cảnh. Vui lòng kiểm tra tên đối tượng.");
+//        }
+
+//        if (BXHText == null)
+//        {
+//            Debug.Log("Không tìm thấy BXHText trong cảnh. Vui lòng kiểm tra tên đối tượng.");
+//        }
+//        else
+//        {
+//            BXHText.text = "Bảng xếp hạng:";
+//        }
+
 //        score = 0;
 //        myRigidbody = GetComponent<Rigidbody2D>();
 //        mySpriteRenderer = GetComponent<SpriteRenderer>();
 //        view = GetComponent<PhotonView>();
-
-//        scoreText = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
-//        BXHText = GameObject.Find("BXHText").GetComponent<TMP_Text>();
 
 //        // Thêm điểm của player vào từ điển
 //        if (!playerScores.ContainsKey(view.Owner.ActorNumber))
@@ -42,9 +57,15 @@
 //        if (view.IsMine)
 //        {
 //            Flip();
-//            scoreText.text = score.ToString();
+
+//            // Chỉ cập nhật scoreText nếu không phải là null
+//            if (scoreText != null)
+//            {
+//                scoreText.text = score.ToString();
+//            }
 //        }
 //    }
+
 //    void Update()
 //    {
 //        if (view.IsMine)
@@ -116,8 +137,11 @@
 //            }
 //        }
 
-//        // Cập nhật lên UI
-//        BXHText.text = leaderboardText;
+//        // Chỉ cập nhật BXHText nếu không phải là null
+//        if (BXHText != null)
+//        {
+//            BXHText.text = leaderboardText;
+//        }
 //    }
 
 //    void Flip()
@@ -214,7 +238,6 @@ public class PlayerTest : MonoBehaviourPunCallbacks
         if (view.IsMine)
         {
             Run();
-            //Flip();
         }
     }
 
@@ -274,10 +297,6 @@ public class PlayerTest : MonoBehaviourPunCallbacks
             {
                 leaderboardText += $"{player.NickName}: {scoreEntry.Value} điểm\n";
             }
-            else
-            {
-                //leaderboardText += $"Player {scoreEntry.Key}: {scoreEntry.Value} điểm\n"; // Trường hợp player đã rời phòng
-            }
         }
 
         // Chỉ cập nhật BXHText nếu không phải là null
@@ -306,5 +325,40 @@ public class PlayerTest : MonoBehaviourPunCallbacks
 
         Vector2 playerHorizontal = new Vector2(myRigidbody.velocity.x, moveInput.y * runSpeed);
         myRigidbody.velocity = playerHorizontal;
+    }
+
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        ResetPlayerScores();
+    }
+
+    private void ResetPlayerScores()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            // Xóa hết các giá trị đã lưu trong từ điển
+            playerScores.Clear();
+
+            // Đồng bộ hóa điểm số với các player khác
+            photonView.RPC("SyncScores", RpcTarget.All, new Dictionary<int, int>());
+        }
+    }
+
+    [PunRPC]
+    void SyncScores(Dictionary<int, int> scores)
+    {
+        playerScores = scores;
+        UpdateLeaderboard();
+    }
+
+    // Gọi hàm này khi bắt đầu trò chơi
+    public void StartGame()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            ResetPlayerScores();
+            PhotonNetwork.LoadLevel("GameScene"); // Thay đổi với tên scene của bạn
+        }
     }
 }
