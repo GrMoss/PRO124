@@ -12,9 +12,10 @@ public class Chilli : Food
 
     }
 
-    private void Start()
+    public override void Start()
     {
         base.speedFly = speedFly;
         base.damage = damage;
+        base.Start();
     }
 }
