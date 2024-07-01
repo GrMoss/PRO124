@@ -747,7 +747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c55223f872d054f6ea0189e0bbd7d51e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 6
+  runSpeed: 4
+  objectName: PanelOverTime
 --- !u!114 &5555504818447721608
 MonoBehaviour:
   m_ObjectHideFlags: 0
