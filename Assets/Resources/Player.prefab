@@ -124,12 +124,12 @@ SpriteRenderer:
   m_SortingLayerID: 1588823209
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 551660136, guid: a801725ff4817cc49b691873cfbfc5c5, type: 3}
+  m_Sprite: {fileID: 1782422039, guid: a801725ff4817cc49b691873cfbfc5c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.4285715, y: 1.4285715}
+  m_Size: {x: 1.6666666, y: 1.6670735}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -208,12 +208,12 @@ SpriteRenderer:
   m_SortingLayerID: 1588823209
   m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 848832807, guid: e049f1e95a410484eae4325f8888efdf, type: 3}
+  m_Sprite: {fileID: -892926882, guid: e049f1e95a410484eae4325f8888efdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.4285715, y: 1.4285715}
+  m_Size: {x: 1.6666666, y: 1.6670735}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -292,12 +292,12 @@ SpriteRenderer:
   m_SortingLayerID: 1588823209
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -260760101, guid: 4a380c3e44d7bfe469fa20771930edb6, type: 3}
+  m_Sprite: {fileID: -194007363, guid: b9ae4546a48491b4197af9ef0692bd33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.4285715, y: 1.4285715}
+  m_Size: {x: 1.6666666, y: 1.6670735}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -376,12 +376,12 @@ SpriteRenderer:
   m_SortingLayerID: 1588823209
   m_SortingLayer: 2
   m_SortingOrder: -1
-  m_Sprite: {fileID: 51901491, guid: cb9164ef2f27ab548ab476c3722175a4, type: 3}
+  m_Sprite: {fileID: -1606872484, guid: cb9164ef2f27ab548ab476c3722175a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.4285715, y: 1.4285715}
+  m_Size: {x: 1.6666666, y: 1.6670735}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -460,12 +460,12 @@ SpriteRenderer:
   m_SortingLayerID: 1588823209
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: -392389712, guid: c55ca7449288f434fae048145ff87d23, type: 3}
+  m_Sprite: {fileID: 855183316, guid: c48f3609687a8c742b2366dd68aa4bb0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.4285715, y: 1.4285715}
+  m_Size: {x: 1.6666666, y: 1.6670735}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -544,12 +544,12 @@ SpriteRenderer:
   m_SortingLayerID: 1588823209
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -260760101, guid: 4a380c3e44d7bfe469fa20771930edb6, type: 3}
+  m_Sprite: {fileID: -194007363, guid: b9ae4546a48491b4197af9ef0692bd33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.4285715, y: 1.4285715}
+  m_Size: {x: 1.6666666, y: 1.6670735}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -628,12 +628,12 @@ SpriteRenderer:
   m_SortingLayerID: 1588823209
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1962729883, guid: 4d0b39a08ecde064dbccf4c24f18dab8, type: 3}
+  m_Sprite: {fileID: 901095909, guid: 4d0b39a08ecde064dbccf4c24f18dab8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.4285715, y: 1.4285715}
+  m_Size: {x: 1.6666666, y: 1.6670735}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -748,7 +748,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 4
-  objectName: PanelOverTime
 --- !u!114 &5555504818447721608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -878,8 +877,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1588823209
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

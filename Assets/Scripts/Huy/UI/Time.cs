@@ -51,7 +51,6 @@ public class Timer : MonoBehaviourPunCallbacks
                 {
                     TimeOver = true;
                     onPanel.SetActive(true);
-                    if (PlayerTest.showBXH) { Time.timeScale = 0; }
                     
                 }
                 Debug.Log("Hết thời gian!");
