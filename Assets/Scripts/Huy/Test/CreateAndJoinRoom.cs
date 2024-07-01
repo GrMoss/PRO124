@@ -17,10 +17,12 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     [SerializeField] Button phongRiengTuButtonOn; // Sử dụng Button
     [SerializeField] Button phongRiengTuButtonOff; // Sử dụng Button
 
+
     private bool phongRiengTu = false;
 
     private void Start()
     {
+
         CheckPing();
         
     }
