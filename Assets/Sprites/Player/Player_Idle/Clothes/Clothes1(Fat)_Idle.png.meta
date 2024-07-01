@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 4a380c3e44d7bfe469fa20771930edb6
+guid: 6f2d1a2afc25cd541a038f48f0f2dd78
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 350
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LArm1_Idle_0
+      name: Clothes1(Fat)_Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b98c2752648d094ea3c39021c4d2d15
-      internalID: -260760101
+      spriteID: cea177610c5548840aeffdcfc29e919e
+      internalID: -1183203696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_1
+      name: Clothes1(Fat)_Idle_1
       rect:
         serializedVersion: 2
         x: 500
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 672a9cb6cda8aa247a4080a82f39df82
-      internalID: 1670296843
+      spriteID: b3fbcfd39c06c45429b12357ebbbcbf9
+      internalID: 1567031810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_2
+      name: Clothes1(Fat)_Idle_2
       rect:
         serializedVersion: 2
         x: 1000
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89f644eb96de1744c9d4827de426a27c
-      internalID: 1864725571
+      spriteID: f2f7da3afb4f55643bd62afe944fc72e
+      internalID: 991692890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_3
+      name: Clothes1(Fat)_Idle_3
       rect:
         serializedVersion: 2
         x: 1500
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cbb598e7ac696e4e8fae98734d0f887
-      internalID: 1305858521
+      spriteID: 4757b9266bf4f794c875b83df103501d
+      internalID: -1232775567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_4
+      name: Clothes1(Fat)_Idle_4
       rect:
         serializedVersion: 2
         x: 2000
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 036213315170aa446889d5f5e0cdf95b
-      internalID: 1773501301
+      spriteID: 36d2434b9774e3c4e9f9315af2f1a29e
+      internalID: 1477784631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_5
+      name: Clothes1(Fat)_Idle_5
       rect:
         serializedVersion: 2
         x: 2500
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 394185ce51a8c604f9f4d008c3eb044c
-      internalID: 1116984605
+      spriteID: 0b03f30c6f42fee47b79f581ed7c227f
+      internalID: 38536187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_6
+      name: Clothes1(Fat)_Idle_6
       rect:
         serializedVersion: 2
         x: 3000
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cacffeabe5d59714581e2604e081b93d
-      internalID: -1475985539
+      spriteID: 8123f63f8725b994a966be1dcdf24974
+      internalID: -718582834
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_7
+      name: Clothes1(Fat)_Idle_7
       rect:
         serializedVersion: 2
         x: 3500
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e98516396d310534db8359c76aa4058d
-      internalID: -276111505
+      spriteID: 8558026e798b2aa4aa9140a3872bb9aa
+      internalID: -2078672499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_8
+      name: Clothes1(Fat)_Idle_8
       rect:
         serializedVersion: 2
         x: 4000
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f95dfbd96ee9534da4a9916d6dd3115
-      internalID: 1237986146
+      spriteID: e432d35ecd952494c97df9a14b2bba53
+      internalID: 1466584082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_9
+      name: Clothes1(Fat)_Idle_9
       rect:
         serializedVersion: 2
         x: 4500
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd8d31479c4c90b49bc13e690a687567
-      internalID: 1630478933
+      spriteID: f16a359323d4c7e49ba4c2ca3aa4a674
+      internalID: -206057689
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_10
+      name: Clothes1(Fat)_Idle_10
       rect:
         serializedVersion: 2
         x: 5000
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1152e090edcf03748890df119cc01cf6
-      internalID: 1560346282
+      spriteID: 3b9a26e5502250c478289489b822425a
+      internalID: -1950632702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_11
+      name: Clothes1(Fat)_Idle_11
       rect:
         serializedVersion: 2
         x: 5500
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53d2d5a6fe563544e90dc7e11888c9c9
-      internalID: -1519686535
+      spriteID: 3a9aa4dd4a6bec7428d81968e49b657c
+      internalID: 33518991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_12
+      name: Clothes1(Fat)_Idle_12
       rect:
         serializedVersion: 2
         x: 6000
@@ -376,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8512e7ae07651b48ac8da14e4eccb4d
-      internalID: 1868928175
+      spriteID: f2ed813e88a70be4099f9cefca80159e
+      internalID: 1380973663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_13
+      name: Clothes1(Fat)_Idle_13
       rect:
         serializedVersion: 2
         x: 6500
@@ -397,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e85d8b2fa1a763d4bba4bae59b65fa95
-      internalID: 874194146
+      spriteID: b2f5e19bb047fb64bbfb87fdfc0f0b15
+      internalID: -1129691540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_14
+      name: Clothes1(Fat)_Idle_14
       rect:
         serializedVersion: 2
         x: 7000
@@ -418,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e5a34fea58e39746b33e18c15634cd1
-      internalID: -472169477
+      spriteID: e500190ba942f8d46b8e415dc0417fee
+      internalID: 718243678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LArm1_Idle_15
+      name: Clothes1(Fat)_Idle_15
       rect:
         serializedVersion: 2
         x: 7500
@@ -439,8 +439,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d27665fc0cf65cd4f874951b558b4168
-      internalID: -1416105881
+      spriteID: 9b663da4694f643488ebad739e954202
+      internalID: 152577082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clothes1(Fat)_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5130774c3799544d809e9ef8cf48b24
+      internalID: 667031163
       vertices: []
       indices: 
       edges: []
@@ -456,22 +477,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      LArm1_Idle_0: -260760101
-      LArm1_Idle_1: 1670296843
-      LArm1_Idle_10: 1560346282
-      LArm1_Idle_11: -1519686535
-      LArm1_Idle_12: 1868928175
-      LArm1_Idle_13: 874194146
-      LArm1_Idle_14: -472169477
-      LArm1_Idle_15: -1416105881
-      LArm1_Idle_2: 1864725571
-      LArm1_Idle_3: 1305858521
-      LArm1_Idle_4: 1773501301
-      LArm1_Idle_5: 1116984605
-      LArm1_Idle_6: -1475985539
-      LArm1_Idle_7: -276111505
-      LArm1_Idle_8: 1237986146
-      LArm1_Idle_9: 1630478933
+      Clothes1(Fat)_Idle_0: -1183203696
+      Clothes1(Fat)_Idle_1: 1567031810
+      Clothes1(Fat)_Idle_10: -1950632702
+      Clothes1(Fat)_Idle_11: 33518991
+      Clothes1(Fat)_Idle_12: 1380973663
+      Clothes1(Fat)_Idle_13: -1129691540
+      Clothes1(Fat)_Idle_14: 718243678
+      Clothes1(Fat)_Idle_15: 152577082
+      Clothes1(Fat)_Idle_16: 667031163
+      Clothes1(Fat)_Idle_2: 991692890
+      Clothes1(Fat)_Idle_3: -1232775567
+      Clothes1(Fat)_Idle_4: 1477784631
+      Clothes1(Fat)_Idle_5: 38536187
+      Clothes1(Fat)_Idle_6: -718582834
+      Clothes1(Fat)_Idle_7: -2078672499
+      Clothes1(Fat)_Idle_8: 1466584082
+      Clothes1(Fat)_Idle_9: -206057689
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
