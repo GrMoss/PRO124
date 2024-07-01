@@ -17,8 +17,6 @@ public class PlayerTest : MonoBehaviourPunCallbacks
     private TMP_Text scoreText;
     public static int score;
     public static bool showBXH = false;
-    // Tên của GameObject mà bạn muốn bật
-    public string objectName = "PanelOverTime";
 
     private static Dictionary<int, int> playerScores = new Dictionary<int, int>(); // Lưu trữ điểm số
     PhotonView view;
@@ -29,8 +27,8 @@ public class PlayerTest : MonoBehaviourPunCallbacks
         // Tìm và gán ScoreText và BXHText
         scoreText = GameObject.Find("ScoreText")?.GetComponent<TMP_Text>();
         BXHText = GameObject.Find("BXHText")?.GetComponent<TMP_Text>();
-       
- 
+        BXHText2 = GameObject.Find("BXHText2")?.GetComponent<TMP_Text>();
+
 
         score = 0;
         scoreText.text = "0";
@@ -68,7 +66,6 @@ public class PlayerTest : MonoBehaviourPunCallbacks
         else
         {
             BXHText2.text = "Bảng xếp hạng:";
-            showBXH = true;
 
         }
 
@@ -81,24 +78,23 @@ public class PlayerTest : MonoBehaviourPunCallbacks
             Flip();
             //scoreText.text = score.ToString();
         }
+
+
+        if (Timer.TimeOver)
+        {
+
+            // Cập nhật điểm số trong từ điển
+            playerScores[view.Owner.ActorNumber] = score;
+
+            // Đồng bộ hóa điểm số với các player khác
+            photonView.RPC("UpdateScore", RpcTarget.All, view.Owner.ActorNumber, score);
+
+            showBXH = true;
+
+        }
         if (PhotonNetwork.IsMasterClient)
         {
-            if (Timer.TimeOver)
-            {
-                Debug.Log("TimeOver: " + Timer.TimeOver);
-                // Gọi hàm đệ quy để tìm và bật GameObject
-                GameObject obj = FindInactiveObjectByName(gameObject, objectName);
-                if (obj != null)
-                {
-                    obj.SetActive(true);
-                    Debug.Log($"Đã bật GameObject: {obj.name}");
-                    BXHText2 = GameObject.Find("BXHText2")?.GetComponent<TMP_Text>();
-                }
-                else
-                {
-                    Debug.Log($"Không tìm thấy GameObject với tên: {objectName}");
-                }
-            }
+           
         }
     }
 
@@ -184,7 +180,7 @@ public class PlayerTest : MonoBehaviourPunCallbacks
         sortedScores.Sort((x, y) => y.Value.CompareTo(x.Value));
 
         // Cập nhật bảng xếp hạng
-        string leaderboardText = "Bảng xếp hạng:\n";
+        string leaderboardText = "BẢNG XẾP HẠNG:\n";
         int i = 1;
         foreach (var scoreEntry in sortedScores)
         {
@@ -268,4 +264,5 @@ public class PlayerTest : MonoBehaviourPunCallbacks
             PhotonNetwork.LoadLevel("GameScene"); // Thay đổi với tên scene của bạn
         }
     }
+    //BẢNG XẾP HẠNG
 }

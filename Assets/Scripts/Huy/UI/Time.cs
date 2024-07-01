@@ -49,8 +49,8 @@ public class Timer : MonoBehaviourPunCallbacks
                 timeRemaining = 0;
                 if (timeRemaining == 0)
                 {
-                    onPanel.SetActive(true);
                     TimeOver = true;
+                    onPanel.SetActive(true);
                     if (PlayerTest.showBXH) { Time.timeScale = 0; }
                     
                 }
