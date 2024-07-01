@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Chilli : Food
+{
+    [SerializeField] private float speedFly;
+    [SerializeField] private float damage;
+
+    public override void SpecialEffects()
+    {
+
+    }
+
+    private void Start()
+    {
+        base.speedFly = speedFly;
+        base.damage = damage;
+    }
+}
