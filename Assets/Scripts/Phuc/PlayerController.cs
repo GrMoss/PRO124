@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = moveVector * moveSpeed;
-        Debug.Log(moveVector);
     }
 
     private void OnEnable()

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Coin
   - ScoreText
+  - Chilli
+  - Egg
   layers:
   - Default
   - TransparentFX
