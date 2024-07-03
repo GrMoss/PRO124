@@ -5,7 +5,7 @@ using UnityEngine;
 public class Chilli : Food
 {
     [SerializeField] private float speedFly;
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
 
     public override void SpecialEffects()
     {

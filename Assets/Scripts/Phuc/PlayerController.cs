@@ -1,10 +1,12 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPun
 {
+    public int health = 100;
     private InputSystem input;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb;
@@ -18,7 +20,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = moveVector * moveSpeed;
+        if(photonView.IsMine)
+        {
+            rb.velocity = moveVector * moveSpeed;
+        }
     }
 
     private void OnEnable()
@@ -43,5 +48,22 @@ public class PlayerController : MonoBehaviour
     private void OnMovementCancelled(InputAction.CallbackContext value)
     {
         moveVector = Vector2.zero;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if(photonView.IsMine)
+        {
+            health -= damage;
+            if(health <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    private void Die()
+    {
+
     }
 }

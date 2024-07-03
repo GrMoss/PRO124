@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876a9a740cd31433485f2edfef7d750c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 30
+  timeRemaining: 300
   timeText: {fileID: 2083972245}
   onPanel: {fileID: 2093232824}
 --- !u!4 &280903617
@@ -5032,7 +5032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abf25b89f591f4e75a2b22435ac55360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6995737177167333358, guid: fc61c23f07d724a94b30f8c8f21e140f, type: 3}
+  playerPrefab: {fileID: 1673446536752421944, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
   virtualCamera: {fileID: 1672201488}
   minX: -7.4
   maxX: 7.4

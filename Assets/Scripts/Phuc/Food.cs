@@ -1,11 +1,12 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Food : MonoBehaviour
+public abstract class Food : MonoBehaviourPun
 {
     public float speedFly { get; set; }
-    public float damage { get; set; }
+    public int damage { get; set; }
     private Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rig;
@@ -30,8 +31,21 @@ public abstract class Food : MonoBehaviour
 
     public virtual void Update()
     {
-        if (Vector3.Distance(startPosition, transform.position) > maxDistance)
+        if (photonView.IsMine)
         {
+            if (Vector3.Distance(startPosition, transform.position) > maxDistance)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(photonView.IsMine && collision.gameObject.CompareTag("Player"))
+        {
+            if(collision.gameObject.GetComponent<PlayerController>() != null)
+            collision.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

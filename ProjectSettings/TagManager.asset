@@ -8,6 +8,7 @@ TagManager:
   - ScoreText
   - Chilli
   - Egg
+  - PhotonView
   layers:
   - Default
   - TransparentFX
