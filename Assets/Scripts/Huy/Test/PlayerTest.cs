@@ -23,7 +23,8 @@ public class PlayerTest : MonoBehaviourPunCallbacks
 
     void Start()
     {
-        
+        Time.timeScale = 1;
+
         // Tìm và gán ScoreText và BXHText
         scoreText = GameObject.Find("ScoreText")?.GetComponent<TMP_Text>();
         BXHText = GameObject.Find("BXHText")?.GetComponent<TMP_Text>();
@@ -63,11 +64,6 @@ public class PlayerTest : MonoBehaviourPunCallbacks
         {
             Debug.Log("Không tìm thấy BXHText2 trong cảnh. Vui lòng kiểm tra tên đối tượng.");
         }
-        else
-        {
-            BXHText2.text = "Bảng xếp hạng:";
-
-        }
 
     }
 
@@ -79,22 +75,16 @@ public class PlayerTest : MonoBehaviourPunCallbacks
             //scoreText.text = score.ToString();
         }
 
-
-        if (Timer.TimeOver)
-        {
-
-            // Cập nhật điểm số trong từ điển
-            playerScores[view.Owner.ActorNumber] = score;
-
-            // Đồng bộ hóa điểm số với các player khác
-            photonView.RPC("UpdateScore", RpcTarget.All, view.Owner.ActorNumber, score);
-
-            showBXH = true;
-
-        }
         if (PhotonNetwork.IsMasterClient)
         {
-           
+            if (Timer.TimeOver)
+            {
+                if (BXHText != null)
+                {
+                    BXHText2.text = BXHText.text;
+                    Time.timeScale = 0;
+                }
+            }
         }
     }
 
@@ -110,30 +100,6 @@ public class PlayerTest : MonoBehaviourPunCallbacks
         {
             scoreText.text = score.ToString();
         }
-    }
-
-    // Hàm đệ quy để tìm GameObject đã bị tắt theo tên
-    GameObject FindInactiveObjectByName(GameObject parent, string name)
-    {
-        // Kiểm tra các con của GameObject hiện tại
-        foreach (Transform child in parent.transform)
-        {
-            // Nếu tên khớp, trả về GameObject đó
-            if (child.gameObject.name == name)
-            {
-                return child.gameObject;
-            }
-
-            // Gọi đệ quy để kiểm tra các con của GameObject hiện tại
-            GameObject foundObj = FindInactiveObjectByName(child.gameObject, name);
-            if (foundObj != null)
-            {
-                return foundObj;
-            }
-        }
-
-        // Nếu không tìm thấy, trả về null
-        return null;
     }
 
     void OnMove(InputValue value)
@@ -201,11 +167,6 @@ public class PlayerTest : MonoBehaviourPunCallbacks
         if (BXHText != null)
         {
             BXHText.text = leaderboardText;
-        }
-
-        if (BXHText2 != null)
-        {
-            BXHText2.text = leaderboardText;
         }
     }
 
