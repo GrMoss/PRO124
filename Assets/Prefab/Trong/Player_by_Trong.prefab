@@ -637,6 +637,7 @@ GameObject:
   - component: {fileID: 8108983860095811471}
   - component: {fileID: 5911212343988633497}
   - component: {fileID: 138479499594462465}
+  - component: {fileID: 8270320065794594913}
   m_Layer: 0
   m_Name: Player_by_Trong
   m_TagString: Untagged
@@ -745,6 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050947a4d389b4146980924f975307af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   moveSpeed: 6
   animator: {fileID: 8108983860095811471}
 --- !u!95 &8108983860095811471
@@ -846,6 +848,28 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 82e2c852ae2559c4081eb144aa5861b7, type: 2}
     bodyPartNameTextComponent: {fileID: 0}
     bodyPartCurrentIndex: 0
+--- !u!114 &8270320065794594913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542143062886163617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8656957021044181063
 GameObject:
   m_ObjectHideFlags: 0

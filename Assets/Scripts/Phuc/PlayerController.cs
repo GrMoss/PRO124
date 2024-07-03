@@ -25,16 +25,17 @@ public class PlayerController : MonoBehaviourPun
         if(photonView.IsMine)
         {
             rb.velocity = moveVector * moveSpeed;
-             if (Mathf.Abs(moveVector.x) > 0.1f)
-        {
-            animator.SetBool("isMoving", true);
 
-            animator.SetFloat("moveX", moveVector.x);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-        }
+            if (Mathf.Abs(moveVector.x) > 0.1f)
+            {
+                animator.SetBool("isMoving", true);
+
+                animator.SetFloat("moveX", moveVector.x);
+            }
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
         }
     }
 
