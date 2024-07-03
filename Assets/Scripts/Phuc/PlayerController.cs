@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb;
     public float moveSpeed;
+    public Animator animator;
 
     private void Awake()
     {
@@ -19,6 +20,19 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = moveVector * moveSpeed;
+
+
+        if (Mathf.Abs(moveVector.x) > 0.1f)
+        {
+            animator.SetBool("isMoving", true);
+
+            animator.SetFloat("moveX", moveVector.x);
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+        }
+        Debug.Log(moveVector.x);
     }
 
     private void OnEnable()
