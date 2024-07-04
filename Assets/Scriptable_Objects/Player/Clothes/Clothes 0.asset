@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a487e8abdb42b243b2eebee420596d8, type: 3}
-  m_Name: Face 1
+  m_Name: Clothes 0
   m_EditorClassIdentifier: 
-  bodyPartName: Sad
-  bodyPartAnimationID: 1
+  bodyPartName: Default Clothes
+  bodyPartAnimationID: 0
   allBodyPartAnimations:
-  - {fileID: 7400000, guid: 864dba6f424994a47aaf01356be3d2a7, type: 2}
-  - {fileID: 7400000, guid: acb794174b9ead74ea0c90ad5d1211eb, type: 2}
-  - {fileID: 7400000, guid: 81568307a0929474ea75a9201026ec03, type: 2}
-  - {fileID: 7400000, guid: 47dddf8112382cf40b217f8853e35eb8, type: 2}
+  - {fileID: 7400000, guid: 05cadc03b629e134a813568a95b66db9, type: 2}
+  - {fileID: 7400000, guid: 064e7f851cbeb834fb0da8845fd75608, type: 2}
+  - {fileID: 7400000, guid: a577a2c57227c8e4f865576640a669dd, type: 2}
+  - {fileID: 7400000, guid: 3487110b19e721f45beb087c7f7922be, type: 2}

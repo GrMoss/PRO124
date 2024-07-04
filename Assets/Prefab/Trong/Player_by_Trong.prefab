@@ -826,6 +826,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 57f7ecf1c925d2b4889437ec6f7241f7, type: 2}
     - {fileID: 11400000, guid: 32bbd603b5634444d857bb7496cf7f1e, type: 2}
     - {fileID: 11400000, guid: f9592c94505c8dd4cb9ee400d68b69e7, type: 2}
+    - {fileID: 11400000, guid: cdd1b0a162d8458408a42605cd99f164, type: 2}
+    - {fileID: 11400000, guid: 28aab1300d8447f448b499a859314b6f, type: 2}
+    - {fileID: 11400000, guid: a7f1f8aaa4f2fe644a82bc0b09adf2a9, type: 2}
     bodyPartNameTextComponent: {fileID: 0}
     bodyPartCurrentIndex: 0
   - bodyPartName: Clothes
@@ -867,7 +870,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 1
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &8656957021044181063
