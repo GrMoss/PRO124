@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a487e8abdb42b243b2eebee420596d8, type: 3}
   m_Name: RArm 0
   m_EditorClassIdentifier: 
-  bodyPartName: Default RArm
+  bodyPartName: Default Arms
   bodyPartAnimationID: 0
   allBodyPartAnimations:
-  - {fileID: 7400000, guid: b514e0f05e2a56f458af997dcd7f9858, type: 2}
-  - {fileID: 7400000, guid: 8e597ee2b17d4244ba509cf3cabd17ef, type: 2}
-  - {fileID: 7400000, guid: c40b197bd2be6c441a6fac060cac65d2, type: 2}
-  - {fileID: 7400000, guid: 17e400ca64e40c349843540edeb9b422, type: 2}
+  - {fileID: 7400000, guid: 266c621d3a9873a47a23f92a286515a4, type: 2}
+  - {fileID: 7400000, guid: 244024a4f0abcf845923e9882ab61d1c, type: 2}
+  - {fileID: 7400000, guid: 54e9544f6bd243748b14466caec252fc, type: 2}
+  - {fileID: 7400000, guid: 4dacf9ac374703c40892b6fe7ba73068, type: 2}

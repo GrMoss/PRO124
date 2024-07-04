@@ -70,7 +70,10 @@ public class BodyPartsSelector : MonoBehaviour
     private void GetCurrentBodyParts(int partIndex)
     {
         // Get Current Body Part Name
-        bodyPartSelections[partIndex].bodyPartNameTextComponent.text = characterBody.characterBodyParts[partIndex].bodyPart.bodyPartName;
+        if (bodyPartSelections[partIndex].bodyPartNameTextComponent != null)
+        {
+            bodyPartSelections[partIndex].bodyPartNameTextComponent.text = characterBody.characterBodyParts[partIndex].bodyPart.bodyPartName;
+        }
 
         // Get Current Body Part Animation ID
         bodyPartSelections[partIndex].bodyPartCurrentIndex = characterBody.characterBodyParts[partIndex].bodyPart.bodyPartAnimationID;
