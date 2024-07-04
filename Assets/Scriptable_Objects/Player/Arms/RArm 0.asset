@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a487e8abdb42b243b2eebee420596d8, type: 3}
-  m_Name: Hat 1
+  m_Name: RArm 0
   m_EditorClassIdentifier: 
-  bodyPartName: Default Hat
+  bodyPartName: Default RArm
   bodyPartAnimationID: 0
   allBodyPartAnimations:
-  - {fileID: 7400000, guid: dce31e59833538447ada6ec63f260be1, type: 2}
-  - {fileID: 7400000, guid: 712a29386e827144b846d8df1203ee65, type: 2}
-  - {fileID: 7400000, guid: c204c39a245523948b14d84fa73f1933, type: 2}
-  - {fileID: 7400000, guid: 587c998cccd9996449d24f8cb70092f8, type: 2}
+  - {fileID: 7400000, guid: b514e0f05e2a56f458af997dcd7f9858, type: 2}
+  - {fileID: 7400000, guid: 8e597ee2b17d4244ba509cf3cabd17ef, type: 2}
+  - {fileID: 7400000, guid: c40b197bd2be6c441a6fac060cac65d2, type: 2}
+  - {fileID: 7400000, guid: 17e400ca64e40c349843540edeb9b422, type: 2}

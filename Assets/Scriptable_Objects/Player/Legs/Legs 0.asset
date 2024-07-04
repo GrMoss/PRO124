@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a487e8abdb42b243b2eebee420596d8, type: 3}
-  m_Name: RArm 1
+  m_Name: Legs 0
   m_EditorClassIdentifier: 
-  bodyPartName: Default RArm
+  bodyPartName: Default Legs
   bodyPartAnimationID: 0
   allBodyPartAnimations:
-  - {fileID: 7400000, guid: b514e0f05e2a56f458af997dcd7f9858, type: 2}
-  - {fileID: 7400000, guid: 8e597ee2b17d4244ba509cf3cabd17ef, type: 2}
-  - {fileID: 7400000, guid: c40b197bd2be6c441a6fac060cac65d2, type: 2}
-  - {fileID: 7400000, guid: 17e400ca64e40c349843540edeb9b422, type: 2}
+  - {fileID: 7400000, guid: 02572bd02124ef841b6a2f46a2b156d4, type: 2}
+  - {fileID: 7400000, guid: 83494f6511ceb634da67f0c5a3a63def, type: 2}
+  - {fileID: 7400000, guid: 4b2dbbf7cd416ef429b3a9bda0ae520a, type: 2}
+  - {fileID: 7400000, guid: 77488d1310af0d0439cccd93ec98f389, type: 2}

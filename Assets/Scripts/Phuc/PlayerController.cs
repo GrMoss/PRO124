@@ -26,11 +26,17 @@ public class PlayerController : MonoBehaviourPun
         {
             rb.velocity = moveVector * moveSpeed;
 
-            if (Mathf.Abs(moveVector.x) > 0.1f)
+            if (Mathf.Abs(moveVector.x) > 0)
             {
                 animator.SetBool("isMoving", true);
 
                 animator.SetFloat("moveX", moveVector.x);
+            }
+            else if (Mathf.Abs(moveVector.y) > 0)
+            {
+                animator.SetBool("isMoving", true);
+
+                animator.SetFloat("moveY", moveVector.y);
             }
             else
             {
