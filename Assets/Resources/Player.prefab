@@ -439,6 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   moveSpeed: 8
+  animator: {fileID: 0}
 --- !u!114 &2856658907536181937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,6 +843,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2483600325694806406}
   - component: {fileID: 5340820673962084000}
+  - component: {fileID: 4688734488061185949}
+  - component: {fileID: 5966436726146126500}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: Untagged
@@ -899,6 +902,40 @@ CapsuleCollider2D:
   m_Offset: {x: 0.016649246, y: 0.43765736}
   m_Size: {x: 0.43561935, y: 0.8670864}
   m_Direction: 0
+--- !u!114 &4688734488061185949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281962237158851057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d5446d2e4194bf4af79aa733081191, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5966436726146126500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281962237158851057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6618512926878103092
 GameObject:
   m_ObjectHideFlags: 0
