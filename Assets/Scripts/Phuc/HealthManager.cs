@@ -16,7 +16,9 @@ public class HealthManager : MonoBehaviour
 
     private void Update()
     {
-        if(view.IsMine)
+        if (view.IsMine)
         sprite.size = new Vector2(GetComponentInParent<PlayerController>().health, 1);
     }
 }
+
+
