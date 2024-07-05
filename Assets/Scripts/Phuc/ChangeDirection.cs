@@ -3,13 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeDirection : MonoBehaviourPun
+public class ChangeDirection : MonoBehaviour
 {
     public GameObject player;
+    private PhotonView view;
+
+    private void Start()
+    {
+        view = GetComponentInParent<PhotonView>();
+    }
 
     private void Update()
     {
-        if (photonView.IsMine)
+        if (view.IsMine)
         {
             if (transform.position.x <= player.transform.position.x)
             {
