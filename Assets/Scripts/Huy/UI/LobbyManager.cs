@@ -95,9 +95,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             PhotonNetwork.CurrentRoom.IsVisible = false;
 
             // Chuyển tất cả người chơi vào scene game chính
-            roomGame.SetActive(true);
-            roomlobby.SetActive(false);
+            photonView.RPC("ChangeRoomState", RpcTarget.All, true);
         }
+    }
+
+    [PunRPC]
+    private void ChangeRoomState(bool isGameActive)
+    {
+        roomGame.SetActive(isGameActive);
+        roomlobby.SetActive(!isGameActive);
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
@@ -117,6 +123,4 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene("Home");
     }
-
-    
 }
