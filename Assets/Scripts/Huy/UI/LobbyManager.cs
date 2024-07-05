@@ -14,6 +14,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        roomGame.SetActive(false);
+        roomlobby.SetActive(true);
+
         // Cập nhật danh sách người chơi và kiểm tra nếu người chơi là chủ phòng
         UpdatePlayersList();
         CheckIfMasterClient();
@@ -92,19 +95,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             PhotonNetwork.CurrentRoom.IsVisible = false;
 
             // Chuyển tất cả người chơi vào scene game chính
-            //sceneGame.SetActive(true);
-
-
-
-
-            //PhotonNetwork.LoadLevel(gameSceneName);
-
-
-
-
-
-
-
+            roomGame.SetActive(true);
+            roomlobby.SetActive(false);
         }
     }
 

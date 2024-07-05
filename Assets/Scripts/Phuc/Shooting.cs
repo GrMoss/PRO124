@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class Shooting : MonoBehaviourPun
 {
     private Camera mainCam;
     private Vector3 mousePos;
@@ -12,18 +12,16 @@ public class Shooting : MonoBehaviour
     private bool canFire = true;
     private float timer;
     public float timeBetweenFiring;
-    public GameObject player;
     private PhotonView view;
 
     private void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        view = GetComponentInParent<PhotonView>();
     }
 
     private void Update()
     {
-        if (view.IsMine)
+        if (photonView.IsMine)
         {
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
