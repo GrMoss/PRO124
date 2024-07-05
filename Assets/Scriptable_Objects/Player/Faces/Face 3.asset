@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a487e8abdb42b243b2eebee420596d8, type: 3}
   m_Name: Face 3
   m_EditorClassIdentifier: 
-  bodyPartName: Cocky
-  bodyPartAnimationID: 3
+  bodyPartName: Face 3
+  bodyPartAnimationID: 2
   allBodyPartAnimations:
-  - {fileID: 7400000, guid: e3651298eb15f3b4d86665b2f3821cf5, type: 2}
-  - {fileID: 7400000, guid: ad3cdba5be97cdc40bb7a010c14f95a8, type: 2}
-  - {fileID: 7400000, guid: 45762904cb646834fae501d36ca99322, type: 2}
-  - {fileID: 7400000, guid: 5188909c9a7811244a2c4bdcfb61269e, type: 2}
+  - {fileID: 7400000, guid: 28bea8ba4c3cf474dbb46c73b72f4176, type: 2}
+  - {fileID: 7400000, guid: b9c74a459080e8a4b881b75088157314, type: 2}
+  - {fileID: 7400000, guid: cd4108e0f21a26d46b11cd4623f8bdce, type: 2}
+  - {fileID: 7400000, guid: 3117c4052c323cd48a5b8a7c7f89cd6b, type: 2}

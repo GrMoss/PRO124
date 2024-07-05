@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a487e8abdb42b243b2eebee420596d8, type: 3}
   m_Name: Face 2
   m_EditorClassIdentifier: 
-  bodyPartName: Gentlement
-  bodyPartAnimationID: 2
+  bodyPartName: Face 2
+  bodyPartAnimationID: 1
   allBodyPartAnimations:
-  - {fileID: 7400000, guid: 28bea8ba4c3cf474dbb46c73b72f4176, type: 2}
-  - {fileID: 7400000, guid: b9c74a459080e8a4b881b75088157314, type: 2}
-  - {fileID: 7400000, guid: cd4108e0f21a26d46b11cd4623f8bdce, type: 2}
-  - {fileID: 7400000, guid: 3117c4052c323cd48a5b8a7c7f89cd6b, type: 2}
+  - {fileID: 7400000, guid: 864dba6f424994a47aaf01356be3d2a7, type: 2}
+  - {fileID: 7400000, guid: acb794174b9ead74ea0c90ad5d1211eb, type: 2}
+  - {fileID: 7400000, guid: 81568307a0929474ea75a9201026ec03, type: 2}
+  - {fileID: 7400000, guid: 47dddf8112382cf40b217f8853e35eb8, type: 2}

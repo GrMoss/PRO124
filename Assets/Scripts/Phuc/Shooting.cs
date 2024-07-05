@@ -43,8 +43,10 @@ public class Shooting : MonoBehaviourPun
             if (Input.GetMouseButton(0) && canFire)
             {
                 canFire = false;
-                Instantiate(food, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
+                GameObject foodObject = PhotonNetwork.Instantiate(food.name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
                     transform.position.z), Quaternion.identity);
+                foodObject.GetComponent<Food>().ownerId = view.ViewID;
+                Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
             }
         }
     }

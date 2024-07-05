@@ -3,19 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviourPun
+public class HealthManager : MonoBehaviour
 {
+    private PhotonView view;
     private SpriteRenderer sprite;
-    public PlayerController player;
 
     private void Start()
     {
+        view = GetComponentInParent<PhotonView>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if(photonView.IsMine)
-        sprite.size = new Vector2(player.health, 1);
+        if(view.IsMine)
+        sprite.size = new Vector2(GetComponentInParent<PlayerController>().health, 1);
     }
 }
