@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a487e8abdb42b243b2eebee420596d8, type: 3}
   m_Name: Face 1
   m_EditorClassIdentifier: 
-  bodyPartName: Sad
-  bodyPartAnimationID: 1
+  bodyPartName: Default Face
+  bodyPartAnimationID: 0
   allBodyPartAnimations:
-  - {fileID: 7400000, guid: 864dba6f424994a47aaf01356be3d2a7, type: 2}
-  - {fileID: 7400000, guid: acb794174b9ead74ea0c90ad5d1211eb, type: 2}
-  - {fileID: 7400000, guid: 81568307a0929474ea75a9201026ec03, type: 2}
-  - {fileID: 7400000, guid: 47dddf8112382cf40b217f8853e35eb8, type: 2}
+  - {fileID: 7400000, guid: b1a94000794a378448d17a0db992ead6, type: 2}
+  - {fileID: 7400000, guid: b15aac7405de4124fb4495e4535a2c20, type: 2}
+  - {fileID: 7400000, guid: b72c6f47df4e804448268bad1189eecb, type: 2}
+  - {fileID: 7400000, guid: 659c0ca5718a7864ab8e08a8a6afd71c, type: 2}
