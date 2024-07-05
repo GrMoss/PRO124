@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 using Cinemachine;
 
 public class SpawnPlayer : MonoBehaviour
@@ -12,10 +11,6 @@ public class SpawnPlayer : MonoBehaviour
     public GameObject playerPrefab;
     public CinemachineVirtualCamera virtualCamera;
 
-    public float minX;
-    public float maxX;
-    public float minY;
-    public float maxY;
 
     private void UpdateVirtualCameraTarget(Transform playerTransform)
     {
@@ -25,6 +20,10 @@ public class SpawnPlayer : MonoBehaviour
             virtualCamera.LookAt = playerTransform;
         }
     }
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
 
     private void Start()
     {

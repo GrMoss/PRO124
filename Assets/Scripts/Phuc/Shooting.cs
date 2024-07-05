@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting : MonoBehaviourPun
+public class Shooting : MonoBehaviour
 {
     private Camera mainCam;
     private Vector3 mousePos;
@@ -12,15 +12,18 @@ public class Shooting : MonoBehaviourPun
     private bool canFire = true;
     private float timer;
     public float timeBetweenFiring;
+    public GameObject player;
+    private PhotonView view;
 
     private void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        view = GetComponentInParent<PhotonView>();
     }
 
     private void Update()
     {
-        if (photonView.IsMine)
+        if (view.IsMine)
         {
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
@@ -43,8 +46,10 @@ public class Shooting : MonoBehaviourPun
             if (Input.GetMouseButton(0) && canFire)
             {
                 canFire = false;
-                Instantiate(food, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
+                GameObject foodObject = PhotonNetwork.Instantiate(food.name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
                     transform.position.z), Quaternion.identity);
+                foodObject.GetComponent<Food>().ownerId = view.ViewID;
+                Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
             }
         }
     }
