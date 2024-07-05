@@ -1,23 +1,19 @@
-using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public int id;
     public int health = 100;
     private InputSystem input;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb;
     public float moveSpeed;
     public Animator animator;
-    private PhotonView view;
+    public PhotonView view;
 
     private void Awake()
     {
-        id = Random.Range(0, 1000);
         input = new InputSystem();
         view = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody2D>();
@@ -25,12 +21,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        if(view.IsMine)
+        if (view.IsMine)
         {
             rb.velocity = moveVector * moveSpeed;
 
-            if (Mathf.Abs(moveVector.x) > 0.1f)
+            /*if (Mathf.Abs(moveVector.x) > 0.1f)
             {
                 animator.SetBool("isMoving", true);
 
@@ -39,7 +34,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 animator.SetBool("isMoving", false);
-            }
+            }*/
         }
     }
 
@@ -67,12 +62,13 @@ public class PlayerController : MonoBehaviour
         moveVector = Vector2.zero;
     }
 
+    [PunRPC]
     public void TakeDamage(int damage)
     {
-        if(view.IsMine)
+        if (view.IsMine)
         {
             health -= damage;
-            if(health <= 0)
+            if (health <= 0)
             {
                 Die();
             }
@@ -81,6 +77,6 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
-
+        Debug.Log("Player died");
     }
 }

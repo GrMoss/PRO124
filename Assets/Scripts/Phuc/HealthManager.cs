@@ -6,18 +6,17 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
     private PhotonView view;
-    public GameObject player;
     private SpriteRenderer sprite;
 
     private void Start()
     {
-        view = player.GetComponent<PhotonView>();
+        view = GetComponentInParent<PhotonView>();
         sprite = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
         if(view.IsMine)
-        sprite.size = new Vector2(player.GetComponent<PlayerController>().health, 1);
+        sprite.size = new Vector2(GetComponentInParent<PlayerController>().health, 1);
     }
 }
