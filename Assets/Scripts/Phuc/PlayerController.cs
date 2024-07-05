@@ -4,25 +4,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviourPun
+public class PlayerController : MonoBehaviour
 {
+    public int id;
     public int health = 100;
     private InputSystem input;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb;
     public float moveSpeed;
     public Animator animator;
+    private PhotonView view;
 
     private void Awake()
     {
+        id = Random.Range(0, 1000);
         input = new InputSystem();
+        view = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
     {
 
-        if(photonView.IsMine)
+        if(view.IsMine)
         {
             rb.velocity = moveVector * moveSpeed;
 
@@ -65,7 +69,7 @@ public class PlayerController : MonoBehaviourPun
 
     public void TakeDamage(int damage)
     {
-        if(photonView.IsMine)
+        if(view.IsMine)
         {
             health -= damage;
             if(health <= 0)

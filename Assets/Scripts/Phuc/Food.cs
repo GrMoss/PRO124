@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Food : MonoBehaviourPun
+public abstract class Food : MonoBehaviour
 {
+    private int idPlayer;
     public float speedFly { get; set; }
     public int damage { get; set; }
     private Vector3 mousePos;
@@ -12,11 +13,15 @@ public abstract class Food : MonoBehaviourPun
     private Rigidbody2D rig;
     private Vector3 startPosition;
     private float maxDistance = 7;
+    private PhotonView view;
+    public GameObject player;
 
     public abstract void SpecialEffects();
 
     public virtual void Start()
     {
+        idPlayer = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().id;
+        view = GameObject.FindGameObjectWithTag("Player").GetComponent<PhotonView>();
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rig = GetComponent<Rigidbody2D>();
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -31,7 +36,7 @@ public abstract class Food : MonoBehaviourPun
 
     public virtual void Update()
     {
-        if (photonView.IsMine)
+        if (view.IsMine)
         {
             if (Vector3.Distance(startPosition, transform.position) > maxDistance)
             {
@@ -42,10 +47,10 @@ public abstract class Food : MonoBehaviourPun
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(photonView.IsMine && collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("PlayerHitBox") && collision.gameObject.GetComponent<PlayerController>().id != idPlayer)
         {
-            if(collision.gameObject.GetComponent<PlayerController>() != null)
-            collision.gameObject.GetComponent<PlayerController>().TakeDamage(damage);
+            if(collision.gameObject.GetComponentInParent<PlayerController>() != null)
+            collision.gameObject.GetComponentInParent<PlayerController>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

@@ -18,7 +18,7 @@ public class ConnectToAPI : MonoBehaviour
     public TMP_InputField emailInputField;
 
     private string urlEmailInput;
-    public static bool nextStep = false;
+    public static bool nextStep = true;
 
     public void StartButton()
     {
