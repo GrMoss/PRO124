@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4446041247803047317}
   - component: {fileID: 6550276919050882723}
   - component: {fileID: -4979751668706714292}
+  - component: {fileID: 68370183344816948}
   m_Layer: 0
   m_Name: Ot-Spawn
   m_TagString: Untagged
@@ -250,6 +251,18 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &68370183344816948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084607502742239532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7e67bd139ac4681aea7aa5036cd023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6281465947573469746
 GameObject:
   m_ObjectHideFlags: 0
