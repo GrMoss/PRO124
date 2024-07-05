@@ -92,7 +92,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             PhotonNetwork.CurrentRoom.IsVisible = false;
 
             // Chuyển tất cả người chơi vào scene game chính
-            sceneGame.SetActive(true);
+            //sceneGame.SetActive(true);
 
 
 
