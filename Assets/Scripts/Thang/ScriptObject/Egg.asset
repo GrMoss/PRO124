@@ -16,4 +16,4 @@ MonoBehaviour:
   itemName: Egg
   count: 0
   value: 20
-  image: {fileID: 21300000, guid: 88b4d12d9ca2ad1438f42e124302d831, type: 3}
+  image: {fileID: 21300000, guid: 81c8e6ba7b74e4ca4955cd78f0533e44, type: 3}
