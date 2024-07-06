@@ -2515,6 +2515,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &784405633 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8105145404701658771, guid: 7450556ab60e3c84db1bdbf4ba0bf41c, type: 3}
+  m_PrefabInstance: {fileID: 6482160954195242005}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &801070517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3981,7 +3986,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 784405633}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 4
