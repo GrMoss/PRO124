@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿
+using Photon.Pun;
 using UnityEngine;
 
 public abstract class Food : MonoBehaviour

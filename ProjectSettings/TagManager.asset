@@ -9,7 +9,6 @@ TagManager:
   - Chilli
   - Egg
   - PhotonView
-  - PlayerHitBox
   layers:
   - Default
   - TransparentFX
