@@ -18,7 +18,7 @@ MonoBehaviour:
   - bodyPartName: Default Head
     bodyPart: {fileID: 11400000, guid: 24a4744c4650ad547a4f4b6ef3bcc0e2, type: 2}
   - bodyPartName: Default Face
-    bodyPart: {fileID: 11400000, guid: 57f7ecf1c925d2b4889437ec6f7241f7, type: 2}
+    bodyPart: {fileID: 11400000, guid: f9592c94505c8dd4cb9ee400d68b69e7, type: 2}
   - bodyPartName: Default Clothes
     bodyPart: {fileID: 11400000, guid: ccc3f777c683fcf4294342ea80f28f2f, type: 2}
   - bodyPartName: Default RArm

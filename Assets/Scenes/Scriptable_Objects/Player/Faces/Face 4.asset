@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a487e8abdb42b243b2eebee420596d8, type: 3}
-  m_Name: Face 1
+  m_Name: Face 4
   m_EditorClassIdentifier: 
-  bodyPartName: Default Face
-  bodyPartAnimationID: 0
+  bodyPartName: Dio Brando
+  bodyPartAnimationID: 4
   allBodyPartAnimations:
-  - {fileID: 7400000, guid: b1a94000794a378448d17a0db992ead6, type: 2}
-  - {fileID: 7400000, guid: b15aac7405de4124fb4495e4535a2c20, type: 2}
-  - {fileID: 7400000, guid: b72c6f47df4e804448268bad1189eecb, type: 2}
-  - {fileID: 7400000, guid: 659c0ca5718a7864ab8e08a8a6afd71c, type: 2}
+  - {fileID: 7400000, guid: 911ebf3aa7b92064e90856776e246f86, type: 2}
+  - {fileID: 7400000, guid: 26eb9dfe9270412428292bb271badc85, type: 2}
+  - {fileID: 7400000, guid: b0b61304232d11a40b3460e02744cc70, type: 2}
+  - {fileID: 7400000, guid: 53e869bfefe60b14a903222ef290c7db, type: 2}

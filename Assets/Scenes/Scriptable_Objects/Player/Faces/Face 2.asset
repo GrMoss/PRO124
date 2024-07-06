@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a487e8abdb42b243b2eebee420596d8, type: 3}
-  m_Name: Legs 1
+  m_Name: Face 2
   m_EditorClassIdentifier: 
-  bodyPartName: Default Legs
-  bodyPartAnimationID: 0
+  bodyPartName: Gentlement
+  bodyPartAnimationID: 2
   allBodyPartAnimations:
-  - {fileID: 7400000, guid: 02572bd02124ef841b6a2f46a2b156d4, type: 2}
-  - {fileID: 7400000, guid: 83494f6511ceb634da67f0c5a3a63def, type: 2}
-  - {fileID: 7400000, guid: 4b2dbbf7cd416ef429b3a9bda0ae520a, type: 2}
-  - {fileID: 7400000, guid: 77488d1310af0d0439cccd93ec98f389, type: 2}
+  - {fileID: 7400000, guid: 28bea8ba4c3cf474dbb46c73b72f4176, type: 2}
+  - {fileID: 7400000, guid: b9c74a459080e8a4b881b75088157314, type: 2}
+  - {fileID: 7400000, guid: cd4108e0f21a26d46b11cd4623f8bdce, type: 2}
+  - {fileID: 7400000, guid: 3117c4052c323cd48a5b8a7c7f89cd6b, type: 2}
