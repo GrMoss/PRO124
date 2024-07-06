@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: -6046503894659747894}
   - component: {fileID: 4379573004458646109}
   - component: {fileID: -2536227293900640883}
+  - component: {fileID: 7118186500480701733}
+  - component: {fileID: -7727544168734012115}
   m_Layer: 0
   m_Name: Cucumber-Spawn
   m_TagString: Untagged
@@ -253,6 +255,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7e67bd139ac4681aea7aa5036cd023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7118186500480701733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2825982756860624678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1967c85e1fd0747abfa579d61ed835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7727544168734012115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2825982756860624678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210855a08ead42b428e47bbe0730265d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 4b59edf294466764f8ef9906f6cb9563, type: 2}
 --- !u!1 &7095541495273611365
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,8 +9,11 @@ public class InventoryManager : MonoBehaviour
     public List<Item> items = new List<Item>();
     public Transform itemHolder;
     public GameObject itemPrefab;
+
     private Dictionary<string, int> itemCounts = new Dictionary<string, int>(); // Dictionary để lưu trữ số lượng vật phẩm theo tên
     public Toggle enableRemoveItem;
+
+    private Text txtPoint;
     private void Awake()
     {
         if (Instance != null && Instance != this)
