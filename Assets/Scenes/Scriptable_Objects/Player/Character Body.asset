@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41e8d35b5152be645b0dc0f9bed1c655, type: 3}
+  m_Name: Character Body
+  m_EditorClassIdentifier: 
+  characterBodyParts:
+  - bodyPartName: Default Hat
+    bodyPart: {fileID: 11400000, guid: ecbb62b077714fa4280264893445196b, type: 2}
+  - bodyPartName: Default Head
+    bodyPart: {fileID: 11400000, guid: 24a4744c4650ad547a4f4b6ef3bcc0e2, type: 2}
+  - bodyPartName: Default Face
+    bodyPart: {fileID: 11400000, guid: f9592c94505c8dd4cb9ee400d68b69e7, type: 2}
+  - bodyPartName: Default Clothes
+    bodyPart: {fileID: 11400000, guid: ccc3f777c683fcf4294342ea80f28f2f, type: 2}
+  - bodyPartName: Default RArm
+    bodyPart: {fileID: 11400000, guid: 3f3528ca2fd29f142abfab92b56a4a93, type: 2}
+  - bodyPartName: Default LArm
+    bodyPart: {fileID: 11400000, guid: ce8bbc0162a8ca24bb197e31c5135fc4, type: 2}
+  - bodyPartName: Default Legs
+    bodyPart: {fileID: 11400000, guid: 82e2c852ae2559c4081eb144aa5861b7, type: 2}
