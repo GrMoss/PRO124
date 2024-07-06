@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Egg : Food
+public class Carrot : Food
 {
     [SerializeField] private float speedFly;
     [SerializeField] private int damage;

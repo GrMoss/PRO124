@@ -9,6 +9,12 @@ TagManager:
   - Chilli
   - Egg
   - PhotonView
+  - PlayerHitBox
+  - Carrot
+  - Cucumber
+  - Bread
+  - Omelet
+  - ChiliSauce
   layers:
   - Default
   - TransparentFX
