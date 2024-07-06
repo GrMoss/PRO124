@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7597282471786562068
+--- !u!1 &8035272716970646527
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5908066971696697013}
-  - component: {fileID: 6593966893978235890}
-  - component: {fileID: 1504171567763162778}
-  - component: {fileID: 90524509104633334}
+  - component: {fileID: 2193691686707417285}
+  - component: {fileID: 1384651396217198369}
+  - component: {fileID: 4851078049887581983}
+  - component: {fileID: 7820761605881479377}
   m_Layer: 5
   m_Name: ShowInGameMenuInventoryButton
   m_TagString: Untagged
@@ -19,13 +19,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &5908066971696697013
+--- !u!224 &2193691686707417285
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7597282471786562068}
+  m_GameObject: {fileID: 8035272716970646527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.00008, y: 1.00008, z: 1.00008}
@@ -38,21 +38,21 @@ RectTransform:
   m_AnchoredPosition: {x: 1329, y: -1019.00006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6593966893978235890
+--- !u!222 &1384651396217198369
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7597282471786562068}
+  m_GameObject: {fileID: 8035272716970646527}
   m_CullTransparentMesh: 1
---- !u!114 &1504171567763162778
+--- !u!114 &4851078049887581983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7597282471786562068}
+  m_GameObject: {fileID: 8035272716970646527}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -76,13 +76,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &90524509104633334
+--- !u!114 &7820761605881479377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7597282471786562068}
+  m_GameObject: {fileID: 8035272716970646527}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -116,7 +116,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1504171567763162778}
+  m_TargetGraphic: {fileID: 4851078049887581983}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -144,7 +144,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7597282471786562068}
+      - m_Target: {fileID: 8035272716970646527}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
