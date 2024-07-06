@@ -48,7 +48,6 @@ public class SkinManager : MonoBehaviour
                 for (int directionIndex = 0; directionIndex < characterDirections.Length; directionIndex++)
                 {
                     string direction = characterDirections[directionIndex];
-                    Debug.Log("Animations/" + "Player/" + partType + "/" + partType + partID + "_" + state + "_" + direction);
                     // Get players animation from player body
                     // ***NOTE: Unless Changed Here, Animation Naming Must Be: "[Type]_[Index]_[state]_[direction]" (Ex. Body_0_idle_down)
                     animationClip = Resources.Load<AnimationClip>("Animations/" + "Player/" + partType + "/" + partType + partID + "_" + state + "_" + direction);
