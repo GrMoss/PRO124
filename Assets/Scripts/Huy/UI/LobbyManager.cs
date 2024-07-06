@@ -11,6 +11,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] private Button startGameButton; // Nút bắt đầu game
     [SerializeField] private GameObject roomGame;
     [SerializeField] private GameObject roomlobby;
+    public static bool offLobby = false; 
 
     private void Start()
     {
@@ -104,6 +105,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         roomGame.SetActive(isGameActive);
         roomlobby.SetActive(!isGameActive);
+        offLobby = true;
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)

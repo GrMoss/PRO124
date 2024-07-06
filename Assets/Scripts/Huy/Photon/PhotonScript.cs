@@ -13,11 +13,50 @@ public class PhotonScript : MonoBehaviourPunCallbacks
     private TMP_Text scoreText;
     public static int score;
     public static bool showBXH = false;
+    private bool canStart = true;
+
 
     private static Dictionary<int, int> playerScores = new Dictionary<int, int>(); // Lưu trữ điểm số
     PhotonView view;
 
-    void Start()
+   
+
+    private void FixedUpdate()
+    {
+        if (view.IsMine)
+        {
+            //scoreText.text = score.ToString();
+        }
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if (Timer.TimeOver)
+            {
+                if (BXHText != null)
+                {
+                    BXHText2.text = BXHText.text;
+                    Time.timeScale = 0;
+                }
+            }
+        }
+    }
+
+    void Update()
+    {
+
+        if (scoreText != null)
+        {
+            scoreText.text = score.ToString();
+        }
+
+        if (canStart && LobbyManager.offLobby)
+        {
+            CanStart();
+            canStart = false;
+        }
+    }
+
+    void CanStart()
     {
         Time.timeScale = 1;
 
@@ -60,37 +99,6 @@ public class PhotonScript : MonoBehaviourPunCallbacks
         }
 
     }
-
-    private void FixedUpdate()
-    {
-        if (view.IsMine)
-        {
-            //scoreText.text = score.ToString();
-        }
-
-        if (PhotonNetwork.IsMasterClient)
-        {
-            if (Timer.TimeOver)
-            {
-                if (BXHText != null)
-                {
-                    BXHText2.text = BXHText.text;
-                    Time.timeScale = 0;
-                }
-            }
-        }
-    }
-
-    void Update()
-    {
-
-        if (scoreText != null)
-        {
-            scoreText.text = score.ToString();
-        }
-    }
-
-
 
     void OnTriggerEnter2D(Collider2D collision)
     {
