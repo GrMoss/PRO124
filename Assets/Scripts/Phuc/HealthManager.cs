@@ -2,22 +2,34 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
     private PhotonView view;
-    private SpriteRenderer sprite;
+    private Slider health;
+    private PlayerController player;
 
     private void Start()
     {
         view = GetComponentInParent<PhotonView>();
-        sprite = GetComponent<SpriteRenderer>();
+        health = GetComponent<Slider>();
+        player = GetComponentInParent<PlayerController>();
     }
 
     private void Update()
     {
         if (view.IsMine)
-        sprite.size = new Vector2(GetComponentInParent<PlayerController>().health, 1);
+        {
+            UpdateHealth();
+            view.RPC("UpdateHealth", RpcTarget.AllBuffered);
+        }
+    }
+
+    [PunRPC]
+    private void UpdateHealth()
+    {
+        health.value = player.health;
     }
 }
 

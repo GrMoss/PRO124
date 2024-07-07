@@ -14,15 +14,18 @@ public class Shooting : MonoBehaviour
     public float timeBetweenFiring;
     public GameObject player;
     private PhotonView view;
+    private SpriteRenderer spriteFood;
 
     private void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         view = GetComponentInParent<PhotonView>();
+        spriteFood = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
     {
+        spriteFood.sprite = food.GetComponent<SpriteRenderer>().sprite;
         if (view.IsMine)
         {
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -43,12 +46,21 @@ public class Shooting : MonoBehaviour
                 }
             }
 
-            if (Input.GetMouseButton(0) && canFire)
+            if (Input.GetMouseButton(0) && canFire && food != null)
             {
                 canFire = false;
                 GameObject foodObject = PhotonNetwork.Instantiate(food.name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
                     transform.position.z), Quaternion.identity);
                 foodObject.GetComponent<Food>().ownerId = view.ViewID;
+                Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
+            }
+
+            if (Input.GetMouseButton(1) && canFire && food != null)
+            {
+                canFire = false;
+                GameObject foodObject = PhotonNetwork.Instantiate(food.name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
+                    transform.position.z), Quaternion.identity);
+                foodObject.GetComponent<Food>().ownerId = 1;
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
             }
         }
