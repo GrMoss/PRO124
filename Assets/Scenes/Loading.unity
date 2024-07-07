@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 724640903}
   - component: {fileID: 724640902}
   m_Layer: 5
-  m_Name: Scorlling-Image
+  m_Name: Scrolling-Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
