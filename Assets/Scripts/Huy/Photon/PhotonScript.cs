@@ -23,10 +23,10 @@ public class PhotonScript : MonoBehaviourPunCallbacks
 
     private void FixedUpdate()
     {
-        if (view.IsMine)
-        {
+        //if (view.IsMine)
+        //{
             //scoreText.text = score.ToString();
-        }
+        //}
 
         if (PhotonNetwork.IsMasterClient)
         {

@@ -8,6 +8,5 @@ public class Item : ScriptableObject
     public int id;
     public string itemName;
     public int count = 0;
-    public int value;// gia trij tang
     public Sprite image;
 }

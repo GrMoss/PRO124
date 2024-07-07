@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -7727544168734012115}
   m_Layer: 0
   m_Name: Cucumber-Spawn
-  m_TagString: Untagged
+  m_TagString: dualeo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

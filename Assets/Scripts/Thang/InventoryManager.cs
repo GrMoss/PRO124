@@ -27,12 +27,33 @@ public class InventoryManager : MonoBehaviour
     public void Add(Item item)
     {
         items.Add(item);
+
+        if (itemCounts.ContainsKey(item.itemName))
+        {
+            itemCounts[item.itemName]++;
+        }
+        else
+        {
+            itemCounts.Add(item.itemName, 1);
+        }
+
         DisplayInventory();
     }
 
     public void Remove(Item item)
     {
         items.Remove(item);
+
+        if (itemCounts.ContainsKey(item.itemName))
+        {
+            itemCounts[item.itemName]--;
+            if (itemCounts[item.itemName] <= 0)
+            {
+                itemCounts.Remove(item.itemName);
+            }
+        }
+
+        DisplayInventory();
     }
 
     public void DisplayInventory()
@@ -45,26 +66,10 @@ public class InventoryManager : MonoBehaviour
         foreach (Item item in items)
         {
             GameObject obj = Instantiate(itemPrefab, itemHolder);
-            var itemName = item.itemName;
-
             var itemImage = obj.transform.Find("Image").GetComponent<Image>();
-
             itemImage.sprite = item.image;
-
             obj.GetComponent<ItemController>().SetItem(item);
-
-            // Đếm vật phẩm theo tên
-            if (itemCounts.ContainsKey(itemName))
-            {
-                itemCounts[itemName]++;
-            }
-            else
-            {
-                itemCounts.Add(itemName, 1);
-            }
         }
-
-        EnableRemoveButton();
 
         // Hiển thị số lượng vật phẩm đã nhặt theo tên
         foreach (var kvp in itemCounts)
@@ -73,12 +78,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        // Xử lý khi có va chạm với vật phẩm (nếu cần)
-    }
-
-    void EnableRemoveButton()
+    /*void EnableRemoveButton()
     {
         if (enableRemoveItem.isOn)
         {
@@ -95,5 +95,5 @@ public class InventoryManager : MonoBehaviour
             }
         }
         
-    }
+    }*/
 }
