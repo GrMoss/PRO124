@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 8270320065794594913}
   m_Layer: 0
   m_Name: Player_by_Trong
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -749,6 +749,7 @@ MonoBehaviour:
   health: 100
   moveSpeed: 6
   animator: {fileID: 8108983860095811471}
+  view: {fileID: 0}
 --- !u!95 &8108983860095811471
 Animator:
   serializedVersion: 5

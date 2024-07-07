@@ -6,15 +6,18 @@ TagManager:
   tags:
   - Coin
   - ScoreText
-  - Chilli
-  - Egg
   - PhotonView
   - PlayerHitBox
-  - Carrot
   - Cucumber
   - Bread
   - Omelet
   - ChiliSauce
+  - carot
+  - dualeo
+  - trung
+  - ot
+  - Chilli
+  - Egg
   layers:
   - Default
   - TransparentFX
