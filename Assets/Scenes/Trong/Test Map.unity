@@ -803,10 +803,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1296735612492726859, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 784405633}
+    - target: {fileID: 2861422446725035161, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 784405633}
+    - target: {fileID: 3388517422379859224, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 784405633}
     - target: {fileID: 3822837412175297727, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: m_Name
       value: Map Island 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5957549182896263642, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 784405633}
+    - target: {fileID: 5968727882478633618, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 784405633}
     - target: {fileID: 6149135384209942175, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -847,6 +867,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6483901406696321922, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 784405633}
+    - target: {fileID: 6568605947465880695, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 784405633}
+    - target: {fileID: 7419416707946186869, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 784405633}
+    - target: {fileID: 8159381486161624461, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 784405633}
+    - target: {fileID: 8196671827864213182, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 784405633}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
