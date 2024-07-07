@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
-    /*[SerializeField]
+    [SerializeField]
     private UIInventoryPage inventoryUI;
 
     public int inventorySize = 10;
 
     private void Start()
     {
-        inventoryUI.InitializeInventoryUI(inventorySize);
+        inventoryUI.InitiallizeInventoryUI(inventorySize);
     }
 
     public void Update()
@@ -28,5 +28,5 @@ public class InventoryController : MonoBehaviour
                 inventoryUI.Hide();
             }
         }
-    }*/
+    }
 }
