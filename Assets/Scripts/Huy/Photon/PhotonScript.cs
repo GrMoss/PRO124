@@ -100,7 +100,7 @@ public class PhotonScript : MonoBehaviourPunCallbacks
 
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Coin"))
         {
@@ -116,6 +116,23 @@ public class PhotonScript : MonoBehaviourPunCallbacks
             }
         }
     }
+
+    //void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Coin"))
+    //    {
+    //        if (view.IsMine)
+    //        {
+    //            score += 1;
+
+    //            // Cập nhật điểm số trong từ điển
+    //            playerScores[view.Owner.ActorNumber] = score;
+
+    //            // Đồng bộ hóa điểm số với các player khác
+    //            photonView.RPC("UpdateScore", RpcTarget.All, view.Owner.ActorNumber, score);
+    //        }
+    //    }
+    //}
 
     [PunRPC]
     void UpdateScore(int actorNumber, int newScore)
