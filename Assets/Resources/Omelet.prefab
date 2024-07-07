@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1857520856239300619}
   - component: {fileID: 5147135178740866003}
   - component: {fileID: 272501819961094972}
-  - component: {fileID: 1609918469934813131}
   - component: {fileID: 6211180948525425027}
   - component: {fileID: 3663620981995485721}
+  - component: {fileID: -2244041113265953987}
   m_Layer: 0
   m_Name: Omelet
   m_TagString: Omelet
@@ -135,43 +135,10 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 1609918469934813131}
+  - {fileID: -2244041113265953987}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1609918469934813131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042992391601930969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PositionModel:
-    SynchronizeEnabled: 1
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
-    ExtrapolateOption: 2
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 1
-    InterpolateOption: 0
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 5
-  m_ScaleModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
 --- !u!114 &6211180948525425027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,8 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownerId: 0
-  speedFly: 8
-  damage: 10
+  speedFly: 9
+  damage: 20
 --- !u!60 &3663620981995485721
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -297,3 +264,19 @@ PolygonCollider2D:
       - {x: 0.060000002, y: -0.54333335}
       - {x: 0.093333334, y: -0.5266667}
   m_UseDelaunayMesh: 0
+--- !u!114 &-2244041113265953987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042992391601930969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 1
+  m_TeleportIfDistanceGreaterThan: 3
