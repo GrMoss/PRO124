@@ -69,12 +69,6 @@ public class InventoryManager : MonoBehaviour
             var itemImage = obj.transform.Find("Image").GetComponent<Image>();
             itemImage.sprite = item.image;
             obj.GetComponent<ItemController>().SetItem(item);
-
-            if(itemCounts.ContainsKey(item.itemName))
-            {
-                Text txtPoint = obj.transform.Find("txtPoint").GetComponent<Text>();
-                txtPoint.text = "Số lượng: " + itemCounts[item.itemName];
-            }
         }
 
         // Hiển thị số lượng vật phẩm đã nhặt theo tên
