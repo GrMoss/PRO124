@@ -63,7 +63,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void UpdatePlayersList()
     {
-        playersListText.text = "Players in room:\n";
+        playersListText.text = "Người chơi trong phòng:\n";
         foreach (Player player in PhotonNetwork.PlayerList)
         {
             playersListText.text += player.NickName + "\n";
