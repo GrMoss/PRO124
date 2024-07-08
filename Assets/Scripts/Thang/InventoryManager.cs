@@ -13,7 +13,7 @@ public class InventoryManager : MonoBehaviour
     private Dictionary<string, int> itemCounts = new Dictionary<string, int>(); // Dictionary để lưu trữ số lượng vật phẩm theo tên
     public Toggle enableRemoveItem;
 
-    private Text txtPoint;
+    public Text txtPoint;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -69,6 +69,12 @@ public class InventoryManager : MonoBehaviour
             var itemImage = obj.transform.Find("Image").GetComponent<Image>();
             itemImage.sprite = item.image;
             obj.GetComponent<ItemController>().SetItem(item);
+
+            if(itemCounts.ContainsKey(item.itemName))
+            {
+                Text txtPoint = obj.transform.Find("txtPoint").GetComponent<Text>();
+                txtPoint.text = "Số lượng: " + itemCounts[item.itemName];
+            }
         }
 
         // Hiển thị số lượng vật phẩm đã nhặt theo tên
