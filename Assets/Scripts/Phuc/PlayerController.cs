@@ -1,16 +1,21 @@
 ﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public int health = 100;
+    public int health = 0;
+    private int healthMax = 100;
     private InputSystem input;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb;
     public float moveSpeed;
     public Animator animator;
     public PhotonView view;
+    public GameObject hitBox;
+    private bool isDie = false;
+    public GameObject rotatePoint;
 
     private void Awake()
     {
@@ -21,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (view.IsMine)
+        if (view.IsMine && !isDie)
         {
             rb.velocity = moveVector * moveSpeed;
 
@@ -73,16 +78,30 @@ public class PlayerController : MonoBehaviour
     {
         if (view.IsMine)
         {
-            health -= damage;
-            if (health <= 0)
+            health += damage;
+            if (health >= healthMax)
             {
-                Die();
+                health = 0;
+                view.RPC("Die", RpcTarget.AllBuffered);
             }
         }
     }
 
+    [PunRPC]
     private void Die()
     {
-        Debug.Log("Player died");
+        isDie = true;
+        rb.velocity = Vector2.zero;
+        rotatePoint.SetActive(false);
+        hitBox.SetActive(false);
+        StartCoroutine(RevivalTime());
+    }
+
+    private IEnumerator RevivalTime()
+    {
+        yield return new WaitForSeconds(10);
+        isDie = false;
+        rotatePoint.SetActive(true);
+        hitBox.SetActive(true);
     }
 }
