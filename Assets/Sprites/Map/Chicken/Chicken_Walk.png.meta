@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1abd27c4dcd8f2b4dbaab0aa2baf737d
+guid: 87868a97e00bb874199cf480e5d18385
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Chicken_Idle_0
+      name: Chicken_Walk_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eba00984e84e5ee4e9f80ed4ea94789f
-      internalID: 72724528
+      spriteID: 4a2fa2ee82ff33b4398b88d7f4bb1810
+      internalID: -944452708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_1
+      name: Chicken_Walk_1
       rect:
         serializedVersion: 2
         x: 500
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 243d906ae4b7b754aa2b3c187ff30e6f
-      internalID: -994951391
+      spriteID: 332478185f1381c43be46af7c3c5a7a5
+      internalID: 1731720073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_2
+      name: Chicken_Walk_2
       rect:
         serializedVersion: 2
         x: 1000
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1188385902cdf4148b60a4fe3d964f14
-      internalID: -290043202
+      spriteID: c773973d74efd0547bc67e249dc4698f
+      internalID: -1003290751
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_3
+      name: Chicken_Walk_3
       rect:
         serializedVersion: 2
         x: 1500
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9906ce0f84c9e13479384043e90fd401
-      internalID: 546259000
+      spriteID: 47435f4bb8bd07640890274e5f5ea528
+      internalID: -774656974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_4
+      name: Chicken_Walk_4
       rect:
         serializedVersion: 2
         x: 2000
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 086cd38b17827d548bde2f62a636142e
-      internalID: 2103091371
+      spriteID: 67dac758f7dccc34b9b863f8e0198f88
+      internalID: 1931345040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_5
+      name: Chicken_Walk_5
       rect:
         serializedVersion: 2
         x: 2500
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80838217de422df43bb13adec24035b6
-      internalID: 811240550
+      spriteID: dd58e515c1f3ebd478851480bfe18e6d
+      internalID: 2023976917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_6
+      name: Chicken_Walk_6
       rect:
         serializedVersion: 2
         x: 3000
@@ -250,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f95616005e89ca24e8f1ed0ab57f476d
-      internalID: 250653931
+      spriteID: 7a34a3b9358d36243ac41f198ed40ff6
+      internalID: -642849209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_7
+      name: Chicken_Walk_7
       rect:
         serializedVersion: 2
         x: 3500
@@ -271,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f023aeff79d727408c64e7a4a7acde4
-      internalID: -28123133
+      spriteID: 13ddaa83781526e4089b020f66090b2f
+      internalID: 504221548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_8
+      name: Chicken_Walk_8
       rect:
         serializedVersion: 2
         x: 4000
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f17de7d3385eb014895d7ae3f12c667c
-      internalID: -2118564809
+      spriteID: 978e0f6714db98f49a66f359f6f91b4d
+      internalID: -1260661514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_9
+      name: Chicken_Walk_9
       rect:
         serializedVersion: 2
         x: 4500
@@ -313,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d805f93ec2cec1e4c8d3ad05e798bef7
-      internalID: -1179065449
+      spriteID: ee093f239f293724c90cff743274064d
+      internalID: -1816202864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_10
+      name: Chicken_Walk_10
       rect:
         serializedVersion: 2
         x: 5000
@@ -334,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0035724cc79ac44db2426f870a2810c
-      internalID: 1326402657
+      spriteID: eddc5f3dedda10445bcc13c44b6b41bf
+      internalID: 1941992861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_11
+      name: Chicken_Walk_11
       rect:
         serializedVersion: 2
         x: 5500
@@ -355,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 919104546a5ca3b47ba7aefedbd13df8
-      internalID: -1568717107
+      spriteID: adf51efa073f7b44d885676736b92e51
+      internalID: -1394828568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_12
+      name: Chicken_Walk_12
       rect:
         serializedVersion: 2
         x: 6000
@@ -376,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28b0b0146314e374a9e20842a3663b3a
-      internalID: 692699604
+      spriteID: f47423aa81184504dbe496196533846d
+      internalID: 929293100
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Chicken_Idle_13
+      name: Chicken_Walk_13
       rect:
         serializedVersion: 2
         x: 6500
@@ -397,92 +397,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4142be14bf380348ac37e1bbe5c7835
-      internalID: 632056502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Idle_14
-      rect:
-        serializedVersion: 2
-        x: 7000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a20905161d6f6f34597fde3428e926e7
-      internalID: -1528970024
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Idle_15
-      rect:
-        serializedVersion: 2
-        x: 7500
-        y: 0
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1ff0131b34deeb4e820e4eacd01e97f
-      internalID: 1994751735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Idle_16
-      rect:
-        serializedVersion: 2
-        x: 8000
-        y: 0
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af00c1088ca8fa24881da1c5fe042cd9
-      internalID: -1389959267
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Chicken_Idle_17
-      rect:
-        serializedVersion: 2
-        x: 8500
-        y: 0
-        width: 500
-        height: 500
-      alignment: 9
-      pivot: {x: 0.5, y: 0.2}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa90f5780e801134ebe6c4093afca11d
-      internalID: -119132698
+      spriteID: 73e6b3694db173d43941f5fee7388c97
+      internalID: -160888450
       vertices: []
       indices: 
       edges: []
@@ -498,24 +414,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Chicken_Idle_0: 72724528
-      Chicken_Idle_1: -994951391
-      Chicken_Idle_10: 1326402657
-      Chicken_Idle_11: -1568717107
-      Chicken_Idle_12: 692699604
-      Chicken_Idle_13: 632056502
-      Chicken_Idle_14: -1528970024
-      Chicken_Idle_15: 1994751735
-      Chicken_Idle_16: -1389959267
-      Chicken_Idle_17: -119132698
-      Chicken_Idle_2: -290043202
-      Chicken_Idle_3: 546259000
-      Chicken_Idle_4: 2103091371
-      Chicken_Idle_5: 811240550
-      Chicken_Idle_6: 250653931
-      Chicken_Idle_7: -28123133
-      Chicken_Idle_8: -2118564809
-      Chicken_Idle_9: -1179065449
+      Chicken_Walk_0: -944452708
+      Chicken_Walk_1: 1731720073
+      Chicken_Walk_10: 1941992861
+      Chicken_Walk_11: -1394828568
+      Chicken_Walk_12: 929293100
+      Chicken_Walk_13: -160888450
+      Chicken_Walk_2: -1003290751
+      Chicken_Walk_3: -774656974
+      Chicken_Walk_4: 1931345040
+      Chicken_Walk_5: 2023976917
+      Chicken_Walk_6: -642849209
+      Chicken_Walk_7: 504221548
+      Chicken_Walk_8: -1260661514
+      Chicken_Walk_9: -1816202864
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
