@@ -54,7 +54,7 @@ public class ChickenBehavior : MonoBehaviour
         {
             isRunning = true;
             ani.SetBool("IsRunning", true);
-            moveSpeed = 1f * (4f - distanceToPlayer) * 1.1f + 2f;
+            moveSpeed = 2f * (4f - distanceToPlayer) + 2.5f;
             // Calculate the direction away from the player
 
             Vector2 directionAwayFromPlayer = Vector2.zero;

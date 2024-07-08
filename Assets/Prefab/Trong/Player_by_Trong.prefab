@@ -747,9 +747,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  moveSpeed: 6
+  moveSpeed: 4
   animator: {fileID: 8108983860095811471}
   view: {fileID: 0}
+  hitBox: {fileID: 0}
+  rotatePoint: {fileID: 0}
 --- !u!95 &8108983860095811471
 Animator:
   serializedVersion: 5
@@ -871,7 +873,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &8656957021044181063
