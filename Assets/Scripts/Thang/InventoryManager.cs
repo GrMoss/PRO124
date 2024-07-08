@@ -13,7 +13,7 @@ public class InventoryManager : MonoBehaviour
     private Dictionary<string, int> itemCounts = new Dictionary<string, int>(); // Dictionary để lưu trữ số lượng vật phẩm theo tên
     public Toggle enableRemoveItem;
 
-    private Text txtPoint;
+    public Text txtPoint;
     private void Awake()
     {
         if (Instance != null && Instance != this)

@@ -23,7 +23,7 @@ public class SpawnItem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (canSpawn)
+        if (canSpawn && LobbyManager.offLobby)
         {
             StartCoroutine(TimeSpawnItem());
             canSpawn = false;
