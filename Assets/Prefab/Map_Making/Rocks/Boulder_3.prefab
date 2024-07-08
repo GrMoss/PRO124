@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 5934052638492057226}
   - component: {fileID: 2888816389917252615}
   - component: {fileID: 7779727728303905628}
+  - component: {fileID: -8189885671820079681}
+  - component: {fileID: -8484007117335306728}
   m_Layer: 0
   m_Name: Boulder_3
   m_TagString: Untagged
@@ -139,6 +141,54 @@ PolygonCollider2D:
       - {x: 2.8847156, y: 0.3863256}
       - {x: 2.3805237, y: 0.61294395}
   m_UseDelaunayMesh: 0
+--- !u!114 &-8189885671820079681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5707609981370356621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c70ab04fd785a41ce928d91b2784abfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRendererColorA: 0.7
+--- !u!70 &-8484007117335306728
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5707609981370356621}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.29596972, y: 1.3478185}
+  m_Size: {x: 3.5117364, y: 3.6038268}
+  m_Direction: 0
 --- !u!1 &9209899780101026004
 GameObject:
   m_ObjectHideFlags: 0

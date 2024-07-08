@@ -106,6 +106,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         roomGame.SetActive(isGameActive);
         roomlobby.SetActive(!isGameActive);
         offLobby = true;
+        Timer.timerIsRunning = true;
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)

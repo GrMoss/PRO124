@@ -60,17 +60,10 @@ public class Timer : MonoBehaviourPunCallbacks
                 Debug.Log("Hết thời gian!");
             }
             Debug.Log("LobbyManager.offLobby: " + LobbyManager.offLobby);
-            if (canResetTime && LobbyManager.offLobby)
-            {
-
-                timerIsRunning = true;
-                canResetTime = false;
-            }
-
-            if (!timerIsRunning)
-            {
-                ResetTime();
-            }
+        }
+        if (!timerIsRunning)
+        {
+            ResetTime();
         }
     }
 
