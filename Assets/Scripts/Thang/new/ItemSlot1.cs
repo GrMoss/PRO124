@@ -17,7 +17,7 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
 
 
 
-    [SerializeReference]
+    [SerializeField]
     private int maxNumberOfItems;
 
     //========ITEM SLOT========//
