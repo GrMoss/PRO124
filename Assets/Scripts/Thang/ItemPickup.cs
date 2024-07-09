@@ -9,18 +9,27 @@ public class ItemPickup : MonoBehaviour
     void PickUp()
     {
         // Hủy đối tượng hiện tại
-        Destroy(this.gameObject);
+        Destroy(gameObject);
 
         // Thêm vật phẩm vào Inventory
         InventoryManager.Instance.Add(item);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //if (collision.CompareTag("Player")) // Kiểm tra nếu Collider là của nhân vật
-        //{
-            PickUp(); // Gọi hàm nhặt vật phẩm
-        //}
 
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    //if (collision.CompareTag("Player")) // Kiểm tra nếu Collider là của nhân vật
+    //    //{
+    //        PickUp(); // Gọi hàm nhặt vật phẩm
+    //    //}
+
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PickUp();
+        }
     }
 }

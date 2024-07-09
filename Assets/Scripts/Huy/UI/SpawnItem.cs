@@ -2,33 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-
-public class SpawnItem : MonoBehaviour
+public class SpawnItem : MonoBehaviourPunCallbacks
 {
     [SerializeField] List<GameObject> itemSpawn; // Danh sách các prefab item để spawn
     [SerializeField] int soLuongItemSpawn; // Số lượng item muốn spawn
     [SerializeField] float spawnRadius; // Bán kính spawn item
     [SerializeField] Color gizmoColor = Color.green; // Màu của Gizmo
     [SerializeField] float timeSpawnItem = 60f;
-    private bool canSpawn = false;
 
-    private void Start()
-    {
-        SpawnItems();
-    }
+    private bool canSpawn = true;
 
     private void FixedUpdate()
     {
-        if (canSpawn)
+        if (PhotonNetwork.IsMasterClient)
         {
-            StartCoroutine(TimeSpawnItem());
-            canSpawn = false;
+            if (canSpawn && LobbyManager.offLobby)
+            {
+                StartCoroutine(TimeSpawnItem());
+            }
         }
-
     }
 
     // Hàm spawn các item
@@ -46,10 +43,9 @@ public class SpawnItem : MonoBehaviour
             Vector2 randomPosition = Random.insideUnitCircle * spawnRadius;
             Vector3 spawnPosition = new Vector3(randomPosition.x, randomPosition.y, 0) + transform.position;
 
-            // Spawn item sử dụng Unity's Instantiate
-            Instantiate(itemToSpawn, spawnPosition, Quaternion.identity);
+            // Spawn item sử dụng PhotonNetwork.Instantiate
+            PhotonNetwork.Instantiate(itemToSpawn.name, spawnPosition, Quaternion.identity);
         }
-        canSpawn = true;
     }
 
     // Vẽ Gizmo để hiển thị bán kính spawn trên Scene
@@ -61,7 +57,9 @@ public class SpawnItem : MonoBehaviour
 
     private IEnumerator TimeSpawnItem()
     {
-        yield return new WaitForSeconds(timeSpawnItem);
         SpawnItems();
+        canSpawn = false;
+        yield return new WaitForSeconds(timeSpawnItem);
+        canSpawn = true;
     }
 }

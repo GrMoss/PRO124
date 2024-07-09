@@ -15,9 +15,12 @@ GameObject:
   - component: {fileID: 3935129876092024468}
   - component: {fileID: 5784789317572833462}
   - component: {fileID: -2540078600194653587}
+  - component: {fileID: -8887429660350574823}
+  - component: {fileID: 7036462225018247399}
+  - component: {fileID: 1314993079453202463}
   m_Layer: 0
   m_Name: Chicken
-  m_TagString: Untagged
+  m_TagString: Chicken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,12 +81,12 @@ SpriteRenderer:
   m_SortingLayerID: 1588823209
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2055995767, guid: 89227f2e8e8dc2d4c91fe575459c1662, type: 3}
+  m_Sprite: {fileID: 72724528, guid: 1abd27c4dcd8f2b4dbaab0aa2baf737d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.7857143, y: 1.7857143}
+  m_Size: {x: 1.7861503, y: 1.7857143}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -127,7 +130,6 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
-  player: {fileID: 0}
 --- !u!61 &3935129876092024468
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,8 +166,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.2}
-    oldSize: {x: 1.7857143, y: 1.7857143}
-    newSize: {x: 1.7857143, y: 1.7857143}
+    oldSize: {x: 1.7861503, y: 1.7857143}
+    newSize: {x: 1.7861503, y: 1.7857143}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -235,3 +237,77 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4
+--- !u!114 &-8887429660350574823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4306336678517806601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6857fa42dad574955bca0f3ebedb82ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSpawn:
+  - {fileID: 7633757597279608523, guid: 14e95992e726344519dcf61adda6fbed, type: 3}
+  soLuongItemSpawn: 1
+  spawnRadius: 0.3
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  timeSpawnItem: 60
+--- !u!114 &7036462225018247399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4306336678517806601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 1
+    TeleportIfDistanceGreaterThan: 3
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 0
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 1
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
+--- !u!114 &1314993079453202463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4306336678517806601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 7036462225018247399}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

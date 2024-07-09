@@ -20,16 +20,20 @@ public class Timer : MonoBehaviourPunCallbacks
     public GameObject onPanel;
 
     public static bool TimeOver = false;
+    private bool canResetTime = true;
 
     void Start()
     {
         Time.timeScale = 1;
-        timerIsRunning = true;
         // Lưu trữ thời gian ban đầu
         initialTime = timeRemaining;
         DisplayTime(timeRemaining); // Hiển thị thời gian ban đầu khi khởi động
     }
 
+    private void FixedUpdate()
+    {
+        
+    }
     void Update()
     {
         // Chỉ chủ phòng mới thực hiện việc đếm ngược thời gian
@@ -51,12 +55,12 @@ public class Timer : MonoBehaviourPunCallbacks
                 {
                     TimeOver = true;
                     onPanel.SetActive(true);
-                    
+
                 }
                 Debug.Log("Hết thời gian!");
             }
+            Debug.Log("LobbyManager.offLobby: " + LobbyManager.offLobby);
         }
-
         if (!timerIsRunning)
         {
             ResetTime();
