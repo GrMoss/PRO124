@@ -254,7 +254,7 @@ MonoBehaviour:
   soLuongItemSpawn: 1
   spawnRadius: 0.3
   gizmoColor: {r: 0, g: 1, b: 0, a: 1}
-  timeSpawnItem: 60
+  timeSpawnItem: 120
 --- !u!114 &7036462225018247399
 MonoBehaviour:
   m_ObjectHideFlags: 0
