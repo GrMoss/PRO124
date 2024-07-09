@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 4576727644964415592}
   - component: {fileID: -3558559635188315486}
   - component: {fileID: -3952412541961402833}
-  - component: {fileID: 1061109079124713373}
   - component: {fileID: 6777008221091071017}
   - component: {fileID: 2830057856341186261}
   m_Layer: 0
@@ -161,9 +160,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -447407161
-  m_SortingLayer: 1
-  m_SortingOrder: 10
+  m_SortingLayerID: 1588823209
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 81c8e6ba7b74e4ca4955cd78f0533e44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -174,7 +173,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!60 &4576727644964415592
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -308,18 +307,6 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &1061109079124713373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7633757597279608523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7e67bd139ac4681aea7aa5036cd023, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6777008221091071017
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 3935129876092024468}
   - component: {fileID: 5784789317572833462}
   - component: {fileID: -2540078600194653587}
+  - component: {fileID: -8887429660350574823}
   m_Layer: 0
   m_Name: Chicken
-  m_TagString: Untagged
+  m_TagString: Chicken
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,3 +235,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4
+--- !u!114 &-8887429660350574823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4306336678517806601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6857fa42dad574955bca0f3ebedb82ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSpawn:
+  - {fileID: 7633757597279608523, guid: 14e95992e726344519dcf61adda6fbed, type: 3}
+  soLuongItemSpawn: 1
+  spawnRadius: 0.3
+  gizmoColor: {r: 0, g: 1, b: 0, a: 1}
+  timeSpawnItem: 60
