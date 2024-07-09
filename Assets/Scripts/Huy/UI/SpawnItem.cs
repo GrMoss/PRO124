@@ -7,28 +7,25 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-
-public class SpawnItem : MonoBehaviour
+public class SpawnItem : MonoBehaviourPunCallbacks
 {
     [SerializeField] List<GameObject> itemSpawn; // Danh sách các prefab item để spawn
     [SerializeField] int soLuongItemSpawn; // Số lượng item muốn spawn
     [SerializeField] float spawnRadius; // Bán kính spawn item
     [SerializeField] Color gizmoColor = Color.green; // Màu của Gizmo
     [SerializeField] float timeSpawnItem = 60f;
-    private bool canSpawn = true;
 
-    private void Start()
-    {
-        
-    }
+    private bool canSpawn = true;
 
     private void FixedUpdate()
     {
-        if (canSpawn && LobbyManager.offLobby)
+        if (PhotonNetwork.IsMasterClient)
         {
-            StartCoroutine(TimeSpawnItem());
+            if (canSpawn && LobbyManager.offLobby)
+            {
+                StartCoroutine(TimeSpawnItem());
+            }
         }
-
     }
 
     // Hàm spawn các item
@@ -46,8 +43,8 @@ public class SpawnItem : MonoBehaviour
             Vector2 randomPosition = Random.insideUnitCircle * spawnRadius;
             Vector3 spawnPosition = new Vector3(randomPosition.x, randomPosition.y, 0) + transform.position;
 
-            // Spawn item sử dụng Unity's Instantiate
-            Instantiate(itemToSpawn, spawnPosition, Quaternion.identity);
+            // Spawn item sử dụng PhotonNetwork.Instantiate
+            PhotonNetwork.Instantiate(itemToSpawn.name, spawnPosition, Quaternion.identity);
         }
     }
 
