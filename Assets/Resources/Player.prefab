@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8643049395186130816}
   - component: {fileID: 4796200711410819530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2091592047322244470}
   - component: {fileID: 8550758142576251919}
   - component: {fileID: 8022561720485144555}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FoodTrans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6628401579871161358}
   - component: {fileID: 252432021880811723}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6869855960478773174}
   - component: {fileID: 4146123245455333829}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RotatePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 2536017459025032445}
   - component: {fileID: 2409822407838851544}
   - component: {fileID: 7020580203821079411}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 6857314525580590424}
   - component: {fileID: 1185304855779272854}
   - component: {fileID: 7057139001380894918}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339629746959355985}
   - component: {fileID: 4239177348747466552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8697188374775651466}
   - component: {fileID: 5694541962443051685}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Clothes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 6437583995578733660}
   - component: {fileID: 5529217398949635540}
   - component: {fileID: 599444086024050010}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 2655306489187039611}
   - component: {fileID: 3768743416027953796}
   - component: {fileID: 4150149996787924614}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,7 +990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2873912218761735996}
   - component: {fileID: 6107746586449058303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1074,7 +1074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2483600325694806406}
   - component: {fileID: 5340820673962084000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hitbox
   m_TagString: PlayerHitBox
   m_Icon: {fileID: 0}
@@ -1140,7 +1140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8565664013030412186}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1177,7 +1177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8854937195274399889}
   - component: {fileID: 5459609935304745406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1263,7 +1263,7 @@ GameObject:
   - component: {fileID: 5176970887888083700}
   - component: {fileID: 1349775213379519406}
   - component: {fileID: 6743834401696625721}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1386,7 +1386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5781095203206337283}
   - component: {fileID: 7511339936475651151}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1470,7 +1470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3710178234435892791}
   - component: {fileID: 2865273254884035434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player_Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
