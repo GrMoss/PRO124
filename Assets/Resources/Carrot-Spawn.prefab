@@ -97,9 +97,9 @@ GameObject:
   - component: {fileID: 3673907460242025557}
   - component: {fileID: 5190144129027054044}
   - component: {fileID: 2558989409446271426}
-  - component: {fileID: -3854990049516151682}
   - component: {fileID: -2659766895267215341}
   - component: {fileID: 329500803863646020}
+  - component: {fileID: 160422525867123789}
   m_Layer: 0
   m_Name: Carrot-Spawn
   m_TagString: carot
@@ -335,19 +335,6 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &-3854990049516151682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8757761002965729230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad1967c85e1fd0747abfa579d61ed835, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
 --- !u!114 &-2659766895267215341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,3 +392,19 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &160422525867123789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757761002965729230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894b5f3e6b1b4fb478e56c43b52a4120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Carrot
+  quantity: 1
+  sprite: {fileID: 21300000, guid: 1388de0dea9bf4e019edfc2ff793cb11, type: 3}
+  itemDescription: Carrot......
