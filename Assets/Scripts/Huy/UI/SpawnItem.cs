@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
@@ -14,11 +15,11 @@ public class SpawnItem : MonoBehaviour
     [SerializeField] float spawnRadius; // Bán kính spawn item
     [SerializeField] Color gizmoColor = Color.green; // Màu của Gizmo
     [SerializeField] float timeSpawnItem = 60f;
-    private bool canSpawn = false;
+    private bool canSpawn = true;
 
     private void Start()
     {
-        SpawnItems();
+        
     }
 
     private void FixedUpdate()
@@ -26,7 +27,6 @@ public class SpawnItem : MonoBehaviour
         if (canSpawn && LobbyManager.offLobby)
         {
             StartCoroutine(TimeSpawnItem());
-            canSpawn = false;
         }
 
     }
@@ -49,7 +49,6 @@ public class SpawnItem : MonoBehaviour
             // Spawn item sử dụng Unity's Instantiate
             Instantiate(itemToSpawn, spawnPosition, Quaternion.identity);
         }
-        canSpawn = true;
     }
 
     // Vẽ Gizmo để hiển thị bán kính spawn trên Scene
@@ -61,7 +60,9 @@ public class SpawnItem : MonoBehaviour
 
     private IEnumerator TimeSpawnItem()
     {
-        yield return new WaitForSeconds(timeSpawnItem);
         SpawnItems();
+        canSpawn = false;
+        yield return new WaitForSeconds(timeSpawnItem);
+        canSpawn = true;
     }
 }

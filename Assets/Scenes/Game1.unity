@@ -972,7 +972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8758072551212660330, guid: 741ab0f15805d41429ebad02af9da6b8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6588,7 +6588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8758072551212660330, guid: 741ab0f15805d41429ebad02af9da6b8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7332,7 +7332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8758072551212660330, guid: 741ab0f15805d41429ebad02af9da6b8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7352,6 +7352,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 789943579}
     m_Modifications:
+    - target: {fileID: -3648429114666349998, guid: 30f991a6fd20e4ba0980369dbcc24e1e, type: 3}
+      propertyPath: sceneViewId
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2246281150738771030, guid: 30f991a6fd20e4ba0980369dbcc24e1e, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -7480,7 +7484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8758072551212660330, guid: 741ab0f15805d41429ebad02af9da6b8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9532,6 +9536,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 467910833}
     m_Modifications:
+    - target: {fileID: 1573307487557844738, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: sceneViewId
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118447712908834435, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: sceneViewId
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 2656716690888301570, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: m_ColliderPaths.Array.size
       value: 0
@@ -9544,9 +9556,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.59
       objectReference: {fileID: 0}
+    - target: {fileID: 3111145519465807953, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: sceneViewId
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3822837412175297727, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: m_Name
       value: Map Island 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409810440936543396, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: sceneViewId
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469655066723712919, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: sceneViewId
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6149135384209942175, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9588,9 +9612,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6639709210501155439, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: sceneViewId
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6795728605495969345, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: m_ColliderPaths.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060391013689087597, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: sceneViewId
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7145134048120058264, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: sceneViewId
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371478840227766266, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: m_PositionModel.SynchronizeEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495892021738946696, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: sceneViewId
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7529626173048345536, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
+      propertyPath: sceneViewId
+      value: 19
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9763,7 +9811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8758072551212660330, guid: 741ab0f15805d41429ebad02af9da6b8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10364,7 +10412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8758072551212660330, guid: 741ab0f15805d41429ebad02af9da6b8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10854,7 +10902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8758072551212660330, guid: 741ab0f15805d41429ebad02af9da6b8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10928,7 +10976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8758072551212660330, guid: 741ab0f15805d41429ebad02af9da6b8, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12513,6 +12561,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 81973667}
     m_Modifications:
+    - target: {fileID: -2943978278800068947, guid: 4a97946049faa45beb83c9c3a8b14044, type: 3}
+      propertyPath: sceneViewId
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 2706008265802710340, guid: 4a97946049faa45beb83c9c3a8b14044, type: 3}
       propertyPath: m_SortingLayer
       value: 2
