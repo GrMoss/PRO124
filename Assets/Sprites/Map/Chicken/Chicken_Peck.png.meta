@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2af585c51584a449ab6b8638cc4a0f0
-      internalID: -2055995767
+      spriteID: 890506f33fba2f740bfa274ac6ce3e0c
+      internalID: -502802913
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 033c766286314064ab35d468b9905e6d
-      internalID: 1798138881
+      spriteID: 9d9303fb49c94c644b50039ea5902bc4
+      internalID: -147652081
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bfd30cc3f258844b973a72751a8ef1c
-      internalID: -947056359
+      spriteID: 0379ef6fb01900b4d997816ddfa72dd5
+      internalID: 1794545991
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b43fceb235856d94da1d0c1f8b92bd48
-      internalID: -765678603
+      spriteID: 2a85bb8e17d98574bb7d34548c85baf8
+      internalID: 21031852
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e375116514752c469dace3c189833ba
-      internalID: -787132607
+      spriteID: 01b36ab2d51ac4c4bb9ee6e3905c4fb8
+      internalID: 1377476067
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d80864ac96590384dba5d035f4c293d8
-      internalID: -1913351274
+      spriteID: 3184f2f3d11a0644ca647590500634b9
+      internalID: -1911143053
       vertices: []
       indices: 
       edges: []
@@ -250,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f915f52bd36bfdb4a823426a1ae04ba6
-      internalID: 1894200333
+      spriteID: 511aa8d05d8a38e4bbf40b1140d04825
+      internalID: -1532408057
       vertices: []
       indices: 
       edges: []
@@ -267,13 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Chicken_Peck_0: -2055995767
-      Chicken_Peck_1: 1798138881
-      Chicken_Peck_2: -947056359
-      Chicken_Peck_3: -765678603
-      Chicken_Peck_4: -787132607
-      Chicken_Peck_5: -1913351274
-      Chicken_Peck_6: 1894200333
+      Chicken_Peck_0: -502802913
+      Chicken_Peck_1: -147652081
+      Chicken_Peck_2: 1794545991
+      Chicken_Peck_3: 21031852
+      Chicken_Peck_4: 1377476067
+      Chicken_Peck_5: -1911143053
+      Chicken_Peck_6: -1532408057
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

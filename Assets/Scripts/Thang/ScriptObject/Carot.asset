@@ -15,5 +15,4 @@ MonoBehaviour:
   id: 3
   itemName: Carot
   count: 0
-  value: 0
-  image: {fileID: 21300000, guid: 1388de0dea9bf4e019edfc2ff793cb11, type: 3}
+  image: {fileID: 21300000, guid: 3f8ce064f169040a3a0adb496d17a696, type: 3}

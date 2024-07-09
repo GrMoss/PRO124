@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UIInventorypage : MonoBehaviour
+public class UIInventoryPage : MonoBehaviour
 {
     [SerializeField]
     private UIInventoryItem itemPrefab;

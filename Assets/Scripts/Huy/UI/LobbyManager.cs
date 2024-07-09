@@ -63,10 +63,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void UpdatePlayersList()
     {
-        playersListText.text = "Players in room:\n";
+        playersListText.text = "Người chơi trong phòng:\n";
         foreach (Player player in PhotonNetwork.PlayerList)
         {
-            playersListText.text += player.NickName + "\n";
+            playersListText.text += "- " + player.NickName + "\n";
         }
     }
 
@@ -106,6 +106,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         roomGame.SetActive(isGameActive);
         roomlobby.SetActive(!isGameActive);
         offLobby = true;
+        Timer.timerIsRunning = true;
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
