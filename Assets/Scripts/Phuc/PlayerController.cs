@@ -11,17 +11,19 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb;
     public float moveSpeed;
-    public Animator animator;
     public PhotonView view;
     public GameObject hitBox;
     private bool isDie = false;
     public GameObject rotatePoint;
+
+    private PlayerAnimatorController aniController;
 
     private void Awake()
     {
         input = new InputSystem();
         view = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody2D>();
+        aniController = GetComponent<PlayerAnimatorController>();
     }
 
     private void FixedUpdate()
@@ -29,23 +31,8 @@ public class PlayerController : MonoBehaviour
         if (view.IsMine && !isDie)
         {
             rb.velocity = moveVector * moveSpeed;
-
-            if (Mathf.Abs(moveVector.x) > 0.1f)
-            {
-                animator.SetBool("isMoving", true);
-
-                animator.SetFloat("moveX", moveVector.x);
-            }
-            else if (Mathf.Abs(moveVector.y) > 0.1f)
-            {
-                animator.SetBool("isMoving", true);
-
-                animator.SetFloat("moveY", moveVector.y);
-            }
-            else
-            {
-                animator.SetBool("isMoving", false);
-            }
+            //Call Animation
+            aniController.RunAnimation(moveVector);
         }
     }
 
@@ -83,6 +70,14 @@ public class PlayerController : MonoBehaviour
             {
                 health = 0;
                 view.RPC("Die", RpcTarget.AllBuffered);
+
+                //Call Animation
+                aniController.FaintedAnimation();
+            }
+            else
+            {
+                //Call Animation
+                aniController.HurtAnimation();
             }
         }
     }
@@ -91,6 +86,8 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         isDie = true;
+        //Call Animation
+        aniController.FaintedIdleAnimation(isDie);
         rb.velocity = Vector2.zero;
         rotatePoint.SetActive(false);
         hitBox.SetActive(false);
@@ -101,6 +98,8 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(10);
         isDie = false;
+        //Call Animation
+        aniController.FaintedIdleAnimation(isDie);
         rotatePoint.SetActive(true);
         hitBox.SetActive(true);
     }
