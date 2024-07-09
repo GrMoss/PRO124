@@ -57,6 +57,7 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
 
         //UpdateImage
         this.itemSprite = itemSprite;
+        itemImage.sprite = itemSprite;
 
         //Update Descriptiom
         this.itemDescription = itemDescription;
