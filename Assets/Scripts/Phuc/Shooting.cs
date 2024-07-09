@@ -25,7 +25,14 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        spriteFood.sprite = food.GetComponent<SpriteRenderer>().sprite;
+        if(food.GetComponent<SpriteRenderer>() != null)
+        {
+            spriteFood.sprite = food.GetComponent<SpriteRenderer>().sprite;
+        }
+        else
+        {
+            spriteFood.sprite = null;
+        }
         if (view.IsMine)
         {
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
