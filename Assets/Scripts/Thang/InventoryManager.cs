@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,10 @@ public class InventoryManager : MonoBehaviour
     private Dictionary<string, int> itemCounts = new Dictionary<string, int>(); // Dictionary để lưu trữ số lượng vật phẩm theo tên
     public Toggle enableRemoveItem;
 
-    public Text txtPoint;
+    private float itemHeightOffset = 0.1f; // Độ cao mỗi vật phẩm so với vật phẩm trước đó
+    private float currentYPosition = 0f; // Vị trí Y hiện tại để đặt vật phẩm mới
+
+    public TextMeshProUGUI txtPoint; // Tham chiếu đến TextMeshPro để hiển thị số lượng vật phẩm
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -63,19 +67,23 @@ public class InventoryManager : MonoBehaviour
             Destroy(item.gameObject);
         }
 
+        currentYPosition = 0f; // Reset vị trí Y cho vật phẩm đầu tiên
+
         foreach (Item item in items)
         {
             GameObject obj = Instantiate(itemPrefab, itemHolder);
             var itemImage = obj.transform.Find("Image").GetComponent<Image>();
             itemImage.sprite = item.image;
             obj.GetComponent<ItemController>().SetItem(item);
+
+            // Đặt vị trí của vật phẩm theo chiều Y
+            obj.transform.position = new Vector3(obj.transform.position.x, currentYPosition, obj.transform.position.z);
+
+            currentYPosition += itemHeightOffset; // Tăng vị trí Y cho vật phẩm tiếp theo
         }
 
-        // Hiển thị số lượng vật phẩm đã nhặt theo tên
-        foreach (var kvp in itemCounts)
-        {
-            Debug.Log("Số lượng vật phẩm " + kvp.Key + " đã nhặt: " + kvp.Value);
-        }
+        // Gán số lượng vật phẩm đã đếm được vào TextMeshPro
+        txtPoint.text = "Số lượng vật phẩm đã đếm: " + itemCounts.Count; // itemCounts.Count lấy số lượng các vật phẩm khác nhau
     }
 
     /*void EnableRemoveButton()
