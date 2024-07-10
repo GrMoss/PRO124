@@ -45,6 +45,7 @@ public class InventoryManager1 : MonoBehaviour
         {
             itemSlot1[i].selectedShader.SetActive(false);
             itemSlot1[i].thisItemSelected = false;
+            itemSlot1[i].Choose.SetActive(false);
         }
     }
 }

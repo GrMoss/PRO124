@@ -29,6 +29,7 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     private Image itemImage;
 
 
+
     public GameObject ButtonPanel;
 
 
@@ -38,7 +39,7 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     public TMP_Text ItemDescriptionText;
 
 
-
+    public GameObject Choose;
     public GameObject selectedShader;
     public bool thisItemSelected;
     private InventoryManager1 inventoryManager1;
@@ -99,7 +100,6 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     public void OnLeftClick()
     {
         inventoryManager1.DeselectAllSlots();
-        DisableButtonPanel(); // tat hien thi panel
         selectedShader.SetActive(true);
         thisItemSelected = true;
         ItemDescriptionNameText.text = itemName;
@@ -112,15 +112,12 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     }
     public void OnRightClick()
     {
-        ButtonPanel.SetActive(true);
-    }
-    public void DisableButtonPanel()
-    {
-        if (ButtonPanel != null)
-        {
-            ButtonPanel.SetActive(false);
-        }
+        Choose.SetActive(true);
     }
 
+    public void ButtonChoose()
+    {
+        Choose.SetActive(false);
+    }
 }
 
