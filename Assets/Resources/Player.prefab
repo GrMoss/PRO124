@@ -311,7 +311,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a3baecb2c7cc65439c8e0b149bf3d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: {fileID: 3302168835374250081, guid: f8ff56c80adb291458608ff5e9f23798, type: 3}
+  food:
+  - {fileID: 3302168835374250081, guid: f8ff56c80adb291458608ff5e9f23798, type: 3}
+  - {fileID: 3384243539361141428, guid: 68b6cd98fff71984584287f69cead8a3, type: 3}
+  - {fileID: 4632993946142706576, guid: 8cbdf86c0a754334eadebc37a8aa7cdd, type: 3}
+  - {fileID: 4518967110364090595, guid: 0e82ea38e81129d44913776724193bf6, type: 3}
+  - {fileID: 2042992391601930969, guid: 16b000de2cd9c0e4bb050cc509bdd34c, type: 3}
+  - {fileID: 7041695829422858743, guid: fd4adad7a5f205644bf18cb31f273108, type: 3}
   foodTrans: {fileID: 3004390625690532763, guid: f8ff56c80adb291458608ff5e9f23798, type: 3}
   timeBetweenFiring: 1
   player: {fileID: 1673446536752421944}
@@ -521,10 +527,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   moveSpeed: 4
-  view: {fileID: 0}
+  view: {fileID: 6903585598850195347}
   hitBox: {fileID: 5281962237158851057}
   rotatePoint: {fileID: 1028001305761444298}
-  healthManager: {fileID: 1349775213379519406}
 --- !u!114 &6903585598850195347
 MonoBehaviour:
   m_ObjectHideFlags: 0

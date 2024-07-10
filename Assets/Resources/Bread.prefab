@@ -154,6 +154,9 @@ MonoBehaviour:
   ownerId: 11
   targetPhotonView: {fileID: 0}
   playerController: {fileID: 0}
+  PhotonScript: {fileID: 0}
+  congDiem: 20
+  truDiem: 20
   speedFly: 7
   damage: 30
 --- !u!60 &4186624892055029995
