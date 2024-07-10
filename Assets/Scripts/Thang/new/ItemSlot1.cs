@@ -28,11 +28,6 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private Image itemImage;
 
-
-
-    public GameObject ButtonPanel;
-
-
     //=========ITEAM DESCRIPTION SLOT===========//
     public Image ItemDescriptionImage;
     public TMP_Text ItemDescriptionNameText;
@@ -113,11 +108,6 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     public void OnRightClick()
     {
         Choose.SetActive(true);
-    }
-
-    public void ButtonChoose()
-    {
-        Choose.SetActive(false);
     }
 }
 
