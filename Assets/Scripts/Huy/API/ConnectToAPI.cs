@@ -92,7 +92,7 @@ public class ConnectToAPI : MonoBehaviour
         }
         else
         {
-            nameInputField.textComponent.color = Color.white;
+            nameInputField.textComponent.color = Color.black;
         }
 
         // Kiểm tra định dạng email
@@ -103,7 +103,7 @@ public class ConnectToAPI : MonoBehaviour
         }
         else
         {
-            emailInputField.textComponent.color = Color.white;
+            emailInputField.textComponent.color = Color.black;
         }
 
         // Kiểm tra định dạng số điện thoại
@@ -114,7 +114,7 @@ public class ConnectToAPI : MonoBehaviour
         }
         else
         {
-            phoneInputField.textComponent.color = Color.white;
+            phoneInputField.textComponent.color = Color.black;
         }
 
         // Nếu không có lỗi, thực hiện gửi dữ liệu

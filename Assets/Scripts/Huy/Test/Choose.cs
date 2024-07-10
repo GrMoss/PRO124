@@ -16,7 +16,7 @@ public class Choose : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        CheckPing();
+
     }
     private void FixedUpdate()
     {
