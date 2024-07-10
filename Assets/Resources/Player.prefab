@@ -315,6 +315,7 @@ MonoBehaviour:
   foodTrans: {fileID: 3004390625690532763, guid: f8ff56c80adb291458608ff5e9f23798, type: 3}
   timeBetweenFiring: 1
   player: {fileID: 1673446536752421944}
+  directionY: 0
 --- !u!1 &1333013052825468992
 GameObject:
   m_ObjectHideFlags: 0
