@@ -11,7 +11,11 @@ public class Chilli : Food
 
     public override void SpecialEffects()
     {
-        StartCoroutine(Bleeding());
+        if (playerController != null)
+        {
+            targetPhotonView.RPC("StartBleeding", RpcTarget.All, damageBleeding, 1f);
+            Debug.Log("Skill");
+        }
     }
 
     public override void Start()
@@ -19,28 +23,5 @@ public class Chilli : Food
         base.speedFly = speedFly;
         base.damage = damage;
         base.Start();
-    }
-
-    private IEnumerator Bleeding()
-    {
-        if (targetPhotonView != null)
-        {
-            Debug.Log("oke");
-            yield return new WaitForSeconds(1);
-            targetPhotonView.RPC("TakeDamage", RpcTarget.All, damageBleeding);
-            Debug.Log("oke");
-            yield return new WaitForSeconds(1);
-            targetPhotonView.RPC("TakeDamage", RpcTarget.All, damageBleeding);
-            Debug.Log("oke");
-            yield return new WaitForSeconds(1);
-            targetPhotonView.RPC("TakeDamage", RpcTarget.All, damageBleeding);
-            Debug.Log("oke");
-            yield return new WaitForSeconds(1);
-            targetPhotonView.RPC("TakeDamage", RpcTarget.All, damageBleeding);
-            Debug.Log("oke");
-            yield return new WaitForSeconds(1);
-            targetPhotonView.RPC("TakeDamage", RpcTarget.All, damageBleeding);
-
-        }
     }
 }

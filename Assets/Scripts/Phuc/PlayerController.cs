@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public GameObject rotatePoint;
 
     private PlayerAnimatorController aniController;
+    private HealthManager healthManager;
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
         view = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody2D>();
         aniController = GetComponent<PlayerAnimatorController>();
+        healthManager = GetComponentInChildren<HealthManager>();
     }
 
     private void FixedUpdate()
@@ -66,19 +68,46 @@ public class PlayerController : MonoBehaviour
         if (view.IsMine)
         {
             health += damage;
+            healthManager.UpdateHealthSlider();
+            view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
             if (health >= healthMax)
             {
                 health = 0;
                 view.RPC("Die", RpcTarget.AllBuffered);
-
-                //Call Animation
+                healthManager.UpdateHealthSlider();
+                view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
                 aniController.FaintedAnimation();
             }
             else
             {
-                //Call Animation
-                aniController.HurtAnimation();
+                //aniController.HurtAnimation();
+                view.RPC("PlayHurtAnimation", RpcTarget.AllBuffered);
             }
+        }
+    }
+
+    [PunRPC]
+    public void PlayHurtAnimation()
+    {
+        aniController.HurtAnimation();
+    }
+
+    [PunRPC]
+    public void StartBleeding(int damage, float time)
+    {
+        StartCoroutine(Bleeding(damage, time));
+    }
+
+    private IEnumerator Bleeding(int damage, float time)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            yield return new WaitForSeconds(time);
+            if (view.IsMine)
+            {
+                TakeDamage(damage);
+            }
+            Debug.Log(i + " Bleeding");
         }
     }
 

@@ -152,8 +152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ownerId: 0
+  targetPhotonView: {fileID: 0}
+  playerController: {fileID: 0}
   speedFly: 7
   damage: 15
+  damageBleeding: 1
 --- !u!60 &4652195352204225400
 PolygonCollider2D:
   m_ObjectHideFlags: 0

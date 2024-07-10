@@ -157,7 +157,6 @@ MonoBehaviour:
   speedFly: 8
   damage: 5
   damageBleeding: 1
-  bleedingDuration: 5
 --- !u!60 &6455113870308852416
 PolygonCollider2D:
   m_ObjectHideFlags: 0
