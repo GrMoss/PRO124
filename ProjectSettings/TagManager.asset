@@ -19,6 +19,9 @@ TagManager:
   - Chilli
   - Egg
   - Chicken
+  - Bullet
+  - Carrot
+  - DropArea
   layers:
   - Default
   - TransparentFX

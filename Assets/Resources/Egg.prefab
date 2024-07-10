@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d44cdaa479c58e4cb739498dfee1680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownerId: 0
+  ownerId: 3
   speedFly: 9
   damage: 8
 --- !u!50 &9121132243581299088

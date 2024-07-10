@@ -1,9 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Item1 : MonoBehaviour
 {
+    [SerializeField]
+    private int id;
+
     [SerializeField]
     private string itemName;
 
@@ -29,7 +32,7 @@ public class Item1 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            int leftOverItems = inventoryManager1.AddItem(itemName, quantity, sprite, itemDescription);
+            int leftOverItems = inventoryManager1.AddItem(id, itemName, quantity, sprite, itemDescription);
             if(leftOverItems <= 0)           
                 Destroy(gameObject);
             else
