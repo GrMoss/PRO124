@@ -97,10 +97,9 @@ GameObject:
   - component: {fileID: 4576727644964415592}
   - component: {fileID: -3558559635188315486}
   - component: {fileID: -3952412541961402833}
-  - component: {fileID: 6777008221091071017}
-  - component: {fileID: 2830057856341186261}
   - component: {fileID: 2558571475168711185}
   - component: {fileID: 7470976730615522848}
+  - component: {fileID: 4651953057368247156}
   m_Layer: 0
   m_Name: Egg-Spawn
   m_TagString: trung
@@ -310,32 +309,6 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &6777008221091071017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7633757597279608523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad1967c85e1fd0747abfa579d61ed835, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
---- !u!114 &2830057856341186261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7633757597279608523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 210855a08ead42b428e47bbe0730265d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 1c184eabff2282f418a637dd549f1387, type: 2}
 --- !u!114 &2558571475168711185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,3 +366,19 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &4651953057368247156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633757597279608523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 894b5f3e6b1b4fb478e56c43b52a4120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Egg
+  quantity: 1
+  sprite: {fileID: 21300000, guid: 81c8e6ba7b74e4ca4955cd78f0533e44, type: 3}
+  itemDescription: "Ch\u1ECDi nhau \u0111au l\u1EAFm"

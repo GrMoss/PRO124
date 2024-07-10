@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 6857314525580590424}
   - component: {fileID: 1185304855779272854}
   - component: {fileID: 7057139001380894918}
+  - component: {fileID: 4007303823979238534}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -520,7 +521,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   moveSpeed: 4
-  animator: {fileID: 1185304855779272854}
   view: {fileID: 0}
   hitBox: {fileID: 5281962237158851057}
   rotatePoint: {fileID: 1028001305761444298}
@@ -584,6 +584,15 @@ MonoBehaviour:
   - Type: 4
     SynchronizeType: 1
     Name: isMoving
+  - Type: 9
+    SynchronizeType: 1
+    Name: Hurt
+  - Type: 9
+    SynchronizeType: 1
+    Name: Fainted
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsFainted
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
@@ -636,6 +645,18 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 1
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &4007303823979238534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673446536752421944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24b8ce8782e8e44a9c93e6ab5657d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1797927577406460301
 GameObject:
   m_ObjectHideFlags: 0
