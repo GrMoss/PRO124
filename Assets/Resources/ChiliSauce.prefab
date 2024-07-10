@@ -151,9 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782ec3025d1404947bc6a36bd543112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownerId: 12
+  ownerId: 0
+  targetPhotonView: {fileID: 0}
+  playerController: {fileID: 0}
   speedFly: 7
   damage: 15
+  damageBleeding: 1
 --- !u!60 &4652195352204225400
 PolygonCollider2D:
   m_ObjectHideFlags: 0

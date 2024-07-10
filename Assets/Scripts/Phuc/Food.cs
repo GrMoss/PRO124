@@ -58,7 +58,6 @@ public abstract class Food : MonoBehaviour
 
                 if (playerController.view != null && playerController.view.ViewID != ownerId && ownerId != 0)
                 {
-                    Debug.Log("Damage is being applied");
                     targetPhotonView.RPC("TakeDamage", RpcTarget.All, damage);
                     SpecialEffects();
                     if (view.IsMine)

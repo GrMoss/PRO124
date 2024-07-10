@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -447407161
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 50b9c33b5501f41d0b0c626a2d0a5aac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -151,9 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40fd31a5112cc148b941c7c6f1e7117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownerId: 2
+  ownerId: 0
+  targetPhotonView: {fileID: 0}
+  playerController: {fileID: 0}
   speedFly: 8
   damage: 5
+  damageBleeding: 1
 --- !u!60 &6455113870308852416
 PolygonCollider2D:
   m_ObjectHideFlags: 0
