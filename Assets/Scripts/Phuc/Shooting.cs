@@ -15,6 +15,7 @@ public class Shooting : MonoBehaviour
     public GameObject player;
     private PhotonView view;
     private SpriteRenderer spriteFood;
+    public float directionY;
 
     private void Start()
     {
@@ -58,6 +59,11 @@ public class Shooting : MonoBehaviour
                 canFire = false;
                 GameObject foodObject = PhotonNetwork.Instantiate(food.name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
                     transform.position.z), Quaternion.identity);
+                foodObject.transform.localScale = new Vector3(
+                foodObject.transform.localScale.x,
+                foodObject.transform.localScale.y * directionY,
+                foodObject.transform.localScale.z);
+                Debug.Log(directionY);
                 foodObject.GetComponent<Food>().ownerId = view.ViewID;
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
             }

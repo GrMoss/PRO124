@@ -13,6 +13,8 @@ public abstract class Food : MonoBehaviour
     private float maxDistance = 9;
     private PhotonView view;
     public int ownerId;
+    public PhotonView targetPhotonView = null;
+    public PlayerController playerController;
 
     public abstract void SpecialEffects();
 
@@ -47,8 +49,8 @@ public abstract class Food : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerHitBox"))
         {
-            PhotonView targetPhotonView = collision.gameObject.GetComponentInParent<PhotonView>();
-            PlayerController playerController = collision.gameObject.GetComponentInParent<PlayerController>();
+            targetPhotonView = collision.gameObject.GetComponentInParent<PhotonView>();
+            playerController = collision.gameObject.GetComponentInParent<PlayerController>();
 
             if (targetPhotonView != null && playerController != null)
             {
@@ -58,7 +60,7 @@ public abstract class Food : MonoBehaviour
                 {
                     Debug.Log("Damage is being applied");
                     targetPhotonView.RPC("TakeDamage", RpcTarget.All, damage);
-
+                    SpecialEffects();
                     if (view.IsMine)
                     {
                         PhotonNetwork.Destroy(gameObject);
