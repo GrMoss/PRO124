@@ -22,8 +22,6 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-
-        CheckPing();
         
     }
 
@@ -55,7 +53,7 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
         }
         else
         {
-            notificationText.text = "Đang tạo phòng, chờ mình chút nhé!";
+            notificationText.text = "Đang tạo phòng, chờ chút nhé!";
             StartCoroutine(NotificationText());
 
             RoomOptions roomOptions = new RoomOptions
@@ -78,7 +76,7 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
         }
         else
         {
-            notificationText.text = "Đang tìm phòng, chờ mình chút nhé!";
+            notificationText.text = "Đang tìm phòng, chờ chút nhé!";
             StartCoroutine(NotificationText());
             PhotonNetwork.JoinRoom(joinInput.text);
         }
@@ -100,7 +98,7 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     // Callback khi có người chơi khác vào phòng
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        Debug.Log("Nguoi choi moi da vao phong: " + newPlayer.NickName);
+        Debug.Log("Người chơi mới vào phòng: " + newPlayer.NickName);
         
     }
 
