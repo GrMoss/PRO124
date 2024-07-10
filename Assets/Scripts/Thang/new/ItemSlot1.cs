@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
 {
     //========ITEM DATA========//
+    public int id;
     public string itemName;
     public int quantity;
     public Sprite itemSprite;
@@ -27,8 +28,8 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private Image itemImage;
 
-    
 
+    public GameObject ButtonPanel;
 
 
     //=========ITEAM DESCRIPTION SLOT===========//
@@ -46,11 +47,12 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     {
         inventoryManager1 = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager1>();
     }
-    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
+    public int AddItem(int id, string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
         //Kiểm tra vị trí đã dầy hay chưa
         if (isFull)
             return quantity;
+        this.id = id;
 
         //Update NAME
         this.itemName = itemName;
@@ -97,6 +99,7 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     public void OnLeftClick()
     {
         inventoryManager1.DeselectAllSlots();
+        DisableButtonPanel(); // tat hien thi panel
         selectedShader.SetActive(true);
         thisItemSelected = true;
         ItemDescriptionNameText.text = itemName;
@@ -109,6 +112,15 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     }
     public void OnRightClick()
     {
-
+        ButtonPanel.SetActive(true);
     }
+    public void DisableButtonPanel()
+    {
+        if (ButtonPanel != null)
+        {
+            ButtonPanel.SetActive(false);
+        }
+    }
+
 }
+

@@ -22,16 +22,16 @@ public class InventoryManager1 : MonoBehaviour
     }
 
 
-    public int AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription )
+    public int AddItem(int id, string itemName, int quantity, Sprite itemSprite, string itemDescription )
     {
         for (int i = 0; i < itemSlot1.Length; i++)
         {
             if (itemSlot1[i].isFull == false && itemSlot1[i].itemName == itemName || itemSlot1[i].quantity == 0 )
             {
-                int leftOverItems = itemSlot1[i].AddItem(itemName, quantity, itemSprite, itemDescription);
+                int leftOverItems = itemSlot1[i].AddItem(id, itemName, quantity, itemSprite, itemDescription);
                 if (leftOverItems > 0)
                 {
-                    leftOverItems = AddItem(itemName, leftOverItems, itemSprite, itemDescription);
+                    leftOverItems = AddItem(id, itemName, leftOverItems, itemSprite, itemDescription);
                 }
                 return leftOverItems;
             }
