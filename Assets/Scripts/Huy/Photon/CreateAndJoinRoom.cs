@@ -115,6 +115,11 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
         pingText.text = "Ping: " + ping + " ms";  // Cập nhật giá trị ping trên giao diện người dùng
     }
 
+    public void ExitToLogin()
+    {
+        SceneManager.LoadScene("Login");
+    }
+
     public void Exit()
     {
         Application.Quit();

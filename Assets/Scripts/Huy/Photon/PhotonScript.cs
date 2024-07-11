@@ -16,17 +16,23 @@ public class PhotonScript : MonoBehaviourPunCallbacks
     public static int score;
     public static bool showBXH = false;
     private bool canStart = true;
+    public Inventory_Manager inventory_Manager;
+
 
     private static Dictionary<int, int> playerScores = new Dictionary<int, int>(); // Lưu trữ điểm số
     PhotonView view;
 
     private void FixedUpdate()
     {
+  
+
         if (PhotonNetwork.IsMasterClient)
         {
+
             photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, LobbyManager.offLobby);
         }
-
+        
+        
         if (PhotonNetwork.IsMasterClient)
         {
             if (Timer.TimeOver)
@@ -38,6 +44,19 @@ public class PhotonScript : MonoBehaviourPunCallbacks
                 }
             }
         }
+        Debug.Log("ID: 1 | Sl: " + inventory_Manager.GetQuatityItem(1));
+    }
+
+    public void SetATShootingOn()
+    {
+        setATInLobby.SetActive(false);
+        setATIHPInLobby.SetActive(false);
+    }
+
+    public void SetATShootingOff()
+    {
+        setATInLobby.SetActive(true);
+        setATIHPInLobby.SetActive(true);
     }
 
     void Update()

@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public PhotonView view;
     public GameObject hitBox;
-    public static bool isDie = false;
+    public bool isDie = false;
     public GameObject rotatePoint;
 
     private PlayerAnimatorController aniController;
@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        if (view.IsMine)
+        {
+            isDie = false;
+        }
+
         healthSlider.maxValue = healthMax;  
     }
 
