@@ -60,6 +60,7 @@ public abstract class Food : MonoBehaviour
                 {
                     targetPhotonView.RPC("TakeDamage", RpcTarget.All, damage);
                     SpecialEffects();
+                    //Add score
                     if (view.IsMine)
                     {
                         PhotonNetwork.Destroy(gameObject);

@@ -14,7 +14,6 @@ public class Chilli : Food
         if (playerController != null)
         {
             targetPhotonView.RPC("StartBleeding", RpcTarget.All, damageBleeding, 1f);
-            Debug.Log("Skill");
         }
     }
 

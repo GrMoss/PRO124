@@ -70,13 +70,11 @@ public class PlayerController : MonoBehaviour
             health += damage;
             healthManager.UpdateHealthSlider();
             view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
-            if (health >= healthMax)
+            if (health >= healthMax && !isDie)
             {
-                health = 0;
                 view.RPC("Die", RpcTarget.AllBuffered);
-                healthManager.UpdateHealthSlider();
-                view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
                 aniController.FaintedAnimation();
+                Debug.Log("Die");
             }
             else
             {
@@ -102,12 +100,14 @@ public class PlayerController : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            yield return new WaitForSeconds(time);
-            if (view.IsMine)
+            if (!isDie)
             {
-                TakeDamage(damage);
+                yield return new WaitForSeconds(time);
+                if (view.IsMine)
+                {
+                    TakeDamage(damage);
+                }
             }
-            Debug.Log(i + " Bleeding");
         }
     }
 
@@ -126,6 +126,9 @@ public class PlayerController : MonoBehaviour
     private IEnumerator RevivalTime()
     {
         yield return new WaitForSeconds(10);
+        health = 0;
+        healthManager.UpdateHealthSlider();
+        view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
         isDie = false;
         //Call Animation
         aniController.FaintedIdleAnimation(isDie);
