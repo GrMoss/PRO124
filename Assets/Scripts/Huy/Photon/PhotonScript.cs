@@ -16,6 +16,8 @@ public class PhotonScript : MonoBehaviourPunCallbacks
     public static int score;
     public static bool showBXH = false;
     private bool canStart = true;
+    public Inventory_Manager inventory_Manager;
+
 
     private static Dictionary<int, int> playerScores = new Dictionary<int, int>(); // Lưu trữ điểm số
     PhotonView view;
@@ -24,16 +26,12 @@ public class PhotonScript : MonoBehaviourPunCallbacks
     {
   
 
-        if (PhotonNetwork.IsMasterClient && !PlayerController.isDie && !LobbyManager.offLobby)
+        if (PhotonNetwork.IsMasterClient)
         {
 
-            photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, false);
+            photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, LobbyManager.offLobby);
         }
-        else if (PhotonNetwork.IsMasterClient && !PlayerController.isDie && LobbyManager.offLobby)
-        {
-
-                photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, true);
-        }
+        
         
         if (PhotonNetwork.IsMasterClient)
         {
@@ -46,19 +44,19 @@ public class PhotonScript : MonoBehaviourPunCallbacks
                 }
             }
         }
+        Debug.Log("ID: 1 | Sl: " + inventory_Manager.GetQuatityItem(1));
+    }
 
-        if (view.IsMine)
-        {
-            if (PlayerController.isDie && LobbyManager.offLobby)
-            {
-                photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, false);
-            }
-            else
-            {
-                photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, true);
-            }
-        }
+    public void SetATShootingOn()
+    {
+        setATInLobby.SetActive(false);
+        setATIHPInLobby.SetActive(false);
+    }
 
+    public void SetATShootingOff()
+    {
+        setATInLobby.SetActive(true);
+        setATIHPInLobby.SetActive(true);
     }
 
     void Update()

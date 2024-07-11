@@ -49,5 +49,9 @@ public class Login : MonoBehaviourPunCallbacks
        
     }
 
-    
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
 }

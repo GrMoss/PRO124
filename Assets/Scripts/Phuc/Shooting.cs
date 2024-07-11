@@ -5,9 +5,15 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
+    [Header("index Choose Start")]
+    [SerializeField] int indexChooseFoodStart;
+
+    [Header("Item object")]
+    public GameObject[] food;
+
+
     private Camera mainCam;
     private Vector3 mousePos;
-    public GameObject[] food;
     public Transform foodTrans;
     private bool canFire = true;
     private float timer;
@@ -17,9 +23,11 @@ public class Shooting : MonoBehaviour
     private SpriteRenderer spriteFood;
     public float directionY;
     public static int indexChooseFood;
+ 
 
     private void Start()
     {
+        indexChooseFood = indexChooseFoodStart;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         view = GetComponentInParent<PhotonView>();
         spriteFood = GetComponentInChildren<SpriteRenderer>();
