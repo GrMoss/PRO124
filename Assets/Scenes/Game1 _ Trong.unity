@@ -1782,7 +1782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &467910833
 Transform:
   m_ObjectHideFlags: 0
@@ -3523,7 +3523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &824890985
 Transform:
   m_ObjectHideFlags: 0
@@ -8287,27 +8287,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1573307487557844738, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: sceneViewId
-      value: 23
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2118447712908834435, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: sceneViewId
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 2656716690888301570, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3063584641580454634, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 3063584641580454634, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.59
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3111145519465807953, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: sceneViewId
-      value: 20
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 3822837412175297727, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: m_Name
@@ -8315,11 +8303,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5409810440936543396, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: sceneViewId
-      value: 16
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5469655066723712919, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: sceneViewId
-      value: 18
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6149135384209942175, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8363,31 +8351,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6639709210501155439, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: sceneViewId
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6795728605495969345, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7060391013689087597, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: sceneViewId
-      value: 21
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7145134048120058264, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: sceneViewId
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7371478840227766266, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
-      propertyPath: m_PositionModel.SynchronizeEnabled
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7495892021738946696, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: sceneViewId
-      value: 17
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7529626173048345536, guid: 6b5b07f808db4944a9244528dd52dc32, type: 3}
       propertyPath: sceneViewId
-      value: 19
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
