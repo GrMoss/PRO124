@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a40fd31a5112cc148b941c7c6f1e7117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownerId: 0
+  ownerId: 1
   targetPhotonView: {fileID: 6903585598850195347, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
   playerController: {fileID: 6104401279075716470, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
   PhotonScript: {fileID: 6753274346022096508, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}

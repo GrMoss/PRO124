@@ -22,6 +22,7 @@ public class ChooseItem : MonoBehaviour
     public void ItemID(int id, int quatity)
     {
         this.id = id;
+        textItemQuatity.text = quatity.ToString();
         Shooting.indexChooseFood = id;
     }
 
