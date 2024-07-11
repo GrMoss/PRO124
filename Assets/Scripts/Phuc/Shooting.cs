@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
 {
     private Camera mainCam;
     private Vector3 mousePos;
-    public GameObject food;
+    public GameObject[] food;
     public Transform foodTrans;
     private bool canFire = true;
     private float timer;
@@ -16,6 +16,7 @@ public class Shooting : MonoBehaviour
     private PhotonView view;
     private SpriteRenderer spriteFood;
     public float directionY;
+    public static int indexChooseFood;
 
     private void Start()
     {
@@ -26,14 +27,15 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
-        if(food.GetComponent<SpriteRenderer>() != null)
+        if (food[indexChooseFood].GetComponent<SpriteRenderer>() != null)
         {
-            spriteFood.sprite = food.GetComponent<SpriteRenderer>().sprite;
+            spriteFood.sprite = food[indexChooseFood].GetComponent<SpriteRenderer>().sprite;
         }
         else
         {
             spriteFood.sprite = null;
         }
+
         if (view.IsMine)
         {
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
@@ -57,7 +59,7 @@ public class Shooting : MonoBehaviour
             if (Input.GetMouseButton(0) && canFire && food != null)
             {
                 canFire = false;
-                GameObject foodObject = PhotonNetwork.Instantiate(food.name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
+                GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
                     transform.position.z), Quaternion.identity);
                 foodObject.transform.localScale = new Vector3(
                 foodObject.transform.localScale.x,
@@ -71,7 +73,7 @@ public class Shooting : MonoBehaviour
             if (Input.GetMouseButton(1) && canFire && food != null)
             {
                 canFire = false;
-                GameObject foodObject = PhotonNetwork.Instantiate(food.name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
+                GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
                     transform.position.z), Quaternion.identity);
                 foodObject.GetComponent<Food>().ownerId = 1;
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");

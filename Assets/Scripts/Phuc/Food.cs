@@ -1,5 +1,4 @@
-﻿
-using Photon.Pun;
+﻿using Photon.Pun;
 using UnityEngine;
 
 public abstract class Food : MonoBehaviour
@@ -15,6 +14,9 @@ public abstract class Food : MonoBehaviour
     public int ownerId;
     public PhotonView targetPhotonView = null;
     public PlayerController playerController;
+    public PhotonScript PhotonScript;
+    public int congDiem;
+    public int truDiem;
 
     public abstract void SpecialEffects();
 
@@ -30,8 +32,14 @@ public abstract class Food : MonoBehaviour
 
         startPosition = transform.position;
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         view = GetComponent<PhotonView>();
+
+        // Đảm bảo PhotonScript được gán đúng cách
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            PhotonScript = player.GetComponent<PhotonScript>();
+        }
     }
 
     public virtual void Update()
@@ -54,19 +62,26 @@ public abstract class Food : MonoBehaviour
 
             if (targetPhotonView != null && playerController != null)
             {
-                Debug.Log($"Collision detected: targetPhotonView.ViewID = {targetPhotonView.ViewID}, ownerId = {ownerId}");
+                Debug.Log($"Phát hiện va chạm: targetPhotonView.ViewID = {targetPhotonView.ViewID}, ownerId = {ownerId}");
 
                 if (playerController.view != null && playerController.view.ViewID != ownerId && ownerId != 0)
                 {
                     targetPhotonView.RPC("TakeDamage", RpcTarget.All, damage);
                     SpecialEffects();
-                    //Add score
+
+                    if (PhotonScript != null)
+                    {
+                        PhotonScript.CongDiem(congDiem);
+                    }
+
                     if (view.IsMine)
                     {
                         PhotonNetwork.Destroy(gameObject);
                     }
                 }
+                
             }
+           
         }
     }
 }
