@@ -21,11 +21,12 @@ public class Item1 : MonoBehaviour
     private string itemDescription;
 
     private InventoryManager1 inventoryManager1;
-
+    private Inventory_Manager inventory_Manager;
 
     void Start()
     {
         inventoryManager1 = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager1>();
+        inventory_Manager = GameObject.Find("Inventory_Manager").GetComponent<Inventory_Manager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -37,7 +38,7 @@ public class Item1 : MonoBehaviour
                 Destroy(gameObject);
             else
                 quantity = leftOverItems;
-
+            inventory_Manager.AddItemInList(id,quantity);
         }
     }
 }

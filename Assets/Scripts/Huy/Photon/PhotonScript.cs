@@ -16,8 +16,6 @@ public class PhotonScript : MonoBehaviourPunCallbacks
     public static int score;
     public static bool showBXH = false;
     private bool canStart = true;
-    public Inventory_Manager inventory_Manager;
-
 
     private static Dictionary<int, int> playerScores = new Dictionary<int, int>(); // Lưu trữ điểm số
     PhotonView view;
@@ -44,7 +42,6 @@ public class PhotonScript : MonoBehaviourPunCallbacks
                 }
             }
         }
-        Debug.Log("ID: 1 | Sl: " + inventory_Manager.GetQuatityItem(1));
     }
 
     public void SetATShootingOn()
