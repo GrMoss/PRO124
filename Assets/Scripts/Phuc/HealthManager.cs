@@ -1,21 +1,19 @@
-using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthManager : MonoBehaviour
 {
-    private Slider healthSlider;
-    private PlayerController player;
+    //public Slider healthSlider;
 
-    private void Start()
-    {
-        healthSlider = GetComponent<Slider>();
-        player = GetComponentInParent<PlayerController>();
-    }
+    //private PlayerController playerController;
 
-    [PunRPC]
-    public void UpdateHealthSlider()
-    {
-        healthSlider.value = player.health;
-    }
+    //private void Awake()
+    //{
+    //    playerController = GetComponentInParent<PlayerController>();
+    //}
+
+    //public void UpdateHealthSlider()
+    //{
+    //    healthSlider.value = (float)playerController.health / playerController.healthMax;
+    //}
 }

@@ -2,22 +2,26 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     public int health = 0;
     private int healthMax = 100;
+    public Slider healthSlider;
+
     private InputSystem input;
     private Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb;
     public float moveSpeed;
     public PhotonView view;
     public GameObject hitBox;
-    private bool isDie = false;
+    public static bool isDie = false;
     public GameObject rotatePoint;
 
     private PlayerAnimatorController aniController;
-    private HealthManager healthManager;
+    //private HealthManager healthManager;
 
     private void Awake()
     {
@@ -25,7 +29,12 @@ public class PlayerController : MonoBehaviour
         view = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody2D>();
         aniController = GetComponent<PlayerAnimatorController>();
-        healthManager = GetComponentInChildren<HealthManager>();
+        //healthManager = GetComponentInChildren<HealthManager>();
+    }
+
+    private void Start()
+    {
+        healthSlider.maxValue = healthMax;  
     }
 
     private void FixedUpdate()
@@ -35,6 +44,18 @@ public class PlayerController : MonoBehaviour
             rb.velocity = moveVector * moveSpeed;
             //Call Animation
             aniController.RunAnimation(moveVector);
+        }
+    }
+
+    private void Update()
+    {
+        if (view.IsMine)
+        {
+            healthSlider.value = health;
+            if (health >= healthMax)
+            {
+                isDie = true;
+            }
         }
     }
 
@@ -65,16 +86,18 @@ public class PlayerController : MonoBehaviour
     [PunRPC]
     public void TakeDamage(int damage)
     {
-        if (view.IsMine)
+        if (view.IsMine && isDie == false)
         {
             health += damage;
-            healthManager.UpdateHealthSlider();
+            view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered, health);
+            //healthManager.UpdateHealthSlider();
             view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
             if (health >= healthMax)
             {
                 health = 0;
                 view.RPC("Die", RpcTarget.AllBuffered);
-                healthManager.UpdateHealthSlider();
+                view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered, health);
+                //healthManager.UpdateHealthSlider();
                 view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
                 aniController.FaintedAnimation();
             }
@@ -84,6 +107,12 @@ public class PlayerController : MonoBehaviour
                 view.RPC("PlayHurtAnimation", RpcTarget.AllBuffered);
             }
         }
+    }
+
+    [PunRPC]
+    private void UpdateHealthSlider(int updatedHealth)
+    {
+        healthSlider.value = updatedHealth;
     }
 
     [PunRPC]
