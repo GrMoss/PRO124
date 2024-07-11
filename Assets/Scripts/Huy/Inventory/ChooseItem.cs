@@ -6,16 +6,27 @@ using TMPro;
 
 public class ChooseItem : MonoBehaviour
 {
-    [SerializeField] Image[] imageItemChoose;
+    [SerializeField] Sprite[] spriteItemChoose;
+    [SerializeField] Image imageItem;
+    [SerializeField] TMP_Text textItemQuatity;
+
     private int id;
 
-    public void ItemID(int id)
+ 
+    private void FixedUpdate()
+    {
+        ChooseItemHand();
+
+    }
+
+    public void ItemID(int id, int quatity)
     {
         this.id = id;
+        Shooting.indexChooseFood = id;
     }
 
     public void ChooseItemHand()
     {
-        //item1.GetInstanceID
+        imageItem.sprite = spriteItemChoose[id];
     }
 }
