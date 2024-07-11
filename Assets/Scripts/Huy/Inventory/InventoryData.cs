@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryData
 {
@@ -8,14 +9,14 @@ public class InventoryData
     public int ItemID { get; set; }
     public string ItemName { get; set; }
     public int QuantityItem { get; set; }
-    public GameObject ItemObject { get; set; }
+    public Image ImageItem { get; set; }
 
-    public InventoryData(int itemID, string itemName, int quantity, GameObject itemObject)
+    public InventoryData(int itemID, string itemName, int quantityItem, Image imageItem)
     {
         ItemID = itemID;
         ItemName = itemName;
-        QuantityItem = quantity;
-        ItemObject = itemObject;
+        QuantityItem = quantityItem;
+        ImageItem = imageItem;
     }
 
     public InventoryData(int itemID, string itemName, int quantity)
@@ -25,6 +26,12 @@ public class InventoryData
         QuantityItem = quantity;
     }
 
+    public InventoryData(int itemID, Image imageItem)
+    {
+        ItemID = itemID;
+        ImageItem = imageItem;
+    }
+
     public InventoryData(int itemID, int quantity)
     {
         ItemID = itemID;
@@ -32,4 +39,6 @@ public class InventoryData
     }
 
     public InventoryData() {}
+
+    
 }
