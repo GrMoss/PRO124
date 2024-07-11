@@ -34,6 +34,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        if (view.IsMine)
+        {
+            isDie = false;
+        }
+
         healthSlider.maxValue = healthMax;  
     }
 

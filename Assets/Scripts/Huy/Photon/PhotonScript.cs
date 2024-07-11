@@ -22,11 +22,19 @@ public class PhotonScript : MonoBehaviourPunCallbacks
 
     private void FixedUpdate()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, LobbyManager.offLobby);
-        }
+  
 
+        if (PhotonNetwork.IsMasterClient && !PlayerController.isDie && !LobbyManager.offLobby)
+        {
+
+            photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, false);
+        }
+        else if (PhotonNetwork.IsMasterClient && !PlayerController.isDie && LobbyManager.offLobby)
+        {
+
+                photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, true);
+        }
+        
         if (PhotonNetwork.IsMasterClient)
         {
             if (Timer.TimeOver)
@@ -38,6 +46,19 @@ public class PhotonScript : MonoBehaviourPunCallbacks
                 }
             }
         }
+
+        if (view.IsMine)
+        {
+            if (PlayerController.isDie && LobbyManager.offLobby)
+            {
+                photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, false);
+            }
+            else
+            {
+                photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, true);
+            }
+        }
+
     }
 
     void Update()

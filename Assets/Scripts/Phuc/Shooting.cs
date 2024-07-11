@@ -56,7 +56,7 @@ public class Shooting : MonoBehaviour
                 }
             }
 
-            if (Input.GetMouseButton(0) && canFire && food != null && !PlayerController.isDie)
+            if (Input.GetMouseButton(0) && canFire && food != null)
             {
                 canFire = false;
                 GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
@@ -70,7 +70,7 @@ public class Shooting : MonoBehaviour
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
             }
 
-            if (Input.GetMouseButton(1) && canFire && food != null && !PlayerController.isDie)
+            if (Input.GetMouseButton(1) && canFire && food != null)
             {
                 canFire = false;
                 GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
