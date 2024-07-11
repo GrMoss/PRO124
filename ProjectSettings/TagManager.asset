@@ -22,6 +22,7 @@ TagManager:
   - Bullet
   - Carrot
   - DropArea
+  - Cooker
   layers:
   - Default
   - TransparentFX
