@@ -2637,7 +2637,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 783142179}
         m_TargetAssemblyTypeName: CreateAndJoinRoom, Assembly-CSharp
-        m_MethodName: Exit
+        m_MethodName: ExitToLogin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

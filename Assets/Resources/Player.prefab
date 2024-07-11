@@ -311,7 +311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a3baecb2c7cc65439c8e0b149bf3d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indexChooseFoodStart: 1
   food:
+  - {fileID: 4720068831496077756, guid: 43186bb7da0a343f3b8c06aef458f9f9, type: 3}
   - {fileID: 3302168835374250081, guid: f8ff56c80adb291458608ff5e9f23798, type: 3}
   - {fileID: 3384243539361141428, guid: 68b6cd98fff71984584287f69cead8a3, type: 3}
   - {fileID: 4632993946142706576, guid: 8cbdf86c0a754334eadebc37a8aa7cdd, type: 3}
@@ -473,6 +475,7 @@ GameObject:
   - component: {fileID: 1185304855779272854}
   - component: {fileID: 7057139001380894918}
   - component: {fileID: 4007303823979238534}
+  - component: {fileID: 8650304931642827574}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -588,6 +591,7 @@ MonoBehaviour:
   moveSpeed: 4
   view: {fileID: 6903585598850195347}
   hitBox: {fileID: 5281962237158851057}
+  isDie: 0
   rotatePoint: {fileID: 1028001305761444298}
 --- !u!114 &6903585598850195347
 MonoBehaviour:
@@ -627,6 +631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setATInLobby: {fileID: 1028001305761444298}
   setATIHPInLobby: {fileID: 2934878473935095082}
+  inventory_Manager: {fileID: 8650304931642827574}
 --- !u!114 &6857314525580590424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,6 +727,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d24b8ce8782e8e44a9c93e6ab5657d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8650304931642827574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673446536752421944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c11bde17f574c8cbee8863615f297d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1797927577406460301
