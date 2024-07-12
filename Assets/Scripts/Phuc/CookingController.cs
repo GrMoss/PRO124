@@ -11,11 +11,15 @@ public class CookingController : MonoBehaviour
 
     public void OmeletButton()
     {
-        if(inventory.GetQuatityItem(4) > 0)
+        if (view.IsMine)
         {
-            inventory.QuitItemInList(4, 1);
-            inventory.AddItemInList(5, 1);
+            if (inventory.GetQuatityItem(4) > 0)
+            {
+                inventory.QuitItemInList(4, 1);
+                inventory.AddItemInList(5, 1);
+            }
         }
+        
     }
 
     public void ChiliSauceButton()

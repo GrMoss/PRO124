@@ -43,6 +43,7 @@ public class Choose : MonoBehaviourPunCallbacks
         Debug.Log("Đang thoát khỏi phòng.");
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene("Home");
+        LobbyManager.offLobby = false;
     }
 
     public override void OnLeftRoom()
