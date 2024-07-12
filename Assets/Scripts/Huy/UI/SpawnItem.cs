@@ -33,7 +33,7 @@ public class SpawnItem : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < soLuongItemSpawn; i++)
         {
-            Debug.Log("Spawn Item");
+            //Debug.Log("Spawn Item");
 
             // Chọn một item ngẫu nhiên từ danh sách itemSpawn
             int randomIndex = Random.Range(0, itemSpawn.Count);

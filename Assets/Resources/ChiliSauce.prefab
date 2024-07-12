@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 782ec3025d1404947bc6a36bd543112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownerId: 7
+  ownerId: 0
   targetPhotonView: {fileID: 0}
   playerController: {fileID: 0}
   PhotonScript: {fileID: 0}
