@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,8 +37,19 @@ public class ButtonCooker : MonoBehaviour
 
     private void UpdateButtonState()
     {
-        buttonCooker[5].interactable = inventory_Manager.GetQuatityItem(4) > 0;
-        buttonCooker[7].interactable = inventory_Manager.GetQuatityItem(1) > 0;
-        buttonCooker[6].interactable = inventory_Manager.GetQuatityItem(2) > 0 && inventory_Manager.GetQuatityItem(3) > 0 && inventory_Manager.GetQuatityItem(4) > 0;
+        if (inventory_Manager != null)
+        {
+            // Chỉ cho phép nhấn nút nếu số lượng tồn kho đủ
+            buttonCooker[5].interactable = inventory_Manager.GetQuatityItem(4) > 0;
+            buttonCooker[7].interactable = inventory_Manager.GetQuatityItem(1) > 0;
+            buttonCooker[6].interactable = inventory_Manager.GetQuatityItem(2) > 0 && inventory_Manager.GetQuatityItem(3) > 0 && inventory_Manager.GetQuatityItem(4) > 0;
+        }
+        else
+        {
+            // Nếu inventory_Manager chưa được gán, tất cả nút sẽ không thể nhấn
+            buttonCooker[5].interactable = false;
+            buttonCooker[7].interactable = false;
+            buttonCooker[6].interactable = false;
+        }
     }
 }

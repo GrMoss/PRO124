@@ -96,10 +96,9 @@ GameObject:
   - component: {fileID: 6812292348142478888}
   - component: {fileID: 2106179668569932341}
   - component: {fileID: 2696520134482450503}
-  - component: {fileID: -4551332512388214870}
   - component: {fileID: -117057408483424093}
   - component: {fileID: -7896997866194390937}
-  - component: {fileID: 7128019216334984728}
+  - component: {fileID: -7168551103433992269}
   m_Layer: 0
   m_Name: CarrotTree
   m_TagString: Untagged
@@ -322,19 +321,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.46328956, y: 0.34079003}
   m_EdgeRadius: 0
---- !u!114 &-4551332512388214870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835968554875617050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 210855a08ead42b428e47bbe0730265d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: ba5fd4746c198ae4dbfe8bfb1d1e1a33, type: 2}
 --- !u!114 &-117057408483424093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,7 +377,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &7128019216334984728
+--- !u!114 &-7168551103433992269
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -400,11 +386,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1835968554875617050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 894b5f3e6b1b4fb478e56c43b52a4120, type: 3}
+  m_Script: {fileID: 11500000, guid: 3711bdc4d2d354ce48867486266d1616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
-  itemName: Carot
+  itemID: 2
   quantity: 1
-  sprite: {fileID: 21300000, guid: 1388de0dea9bf4e019edfc2ff793cb11, type: 3}
-  itemDescription: ca rot an sang mat.

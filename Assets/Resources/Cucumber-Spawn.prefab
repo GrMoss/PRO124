@@ -10,12 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7462742481323660453}
   - component: {fileID: 4714920151103201953}
-  - component: {fileID: -6046503894659747894}
-  - component: {fileID: 4379573004458646109}
   - component: {fileID: 1859303011149911939}
   - component: {fileID: 3005697325712254320}
   - component: {fileID: 2801997474551245946}
-  - component: {fileID: 2281446659414224625}
+  - component: {fileID: -8697668926300981702}
   m_Layer: 0
   m_Name: Cucumber-Spawn
   m_TagString: dualeo
@@ -91,63 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &-6046503894659747894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2825982756860624678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 4379573004458646109}
-  - {fileID: 2801997474551245946}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &4379573004458646109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2825982756860624678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PositionModel:
-    SynchronizeEnabled: 1
-    TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 2
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 1
-    ExtrapolateOption: 0
-    ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
-    ExtrapolateNumberOfStoredPositions: 1
-  m_RotationModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 5
-  m_ScaleModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 0
-    InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 0
 --- !u!60 &1859303011149911939
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -177,7 +118,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -263,7 +204,6 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
-  - {fileID: 4379573004458646109}
   - {fileID: 2801997474551245946}
   sceneViewId: 0
   InstantiationId: 0
@@ -301,7 +241,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &2281446659414224625
+--- !u!114 &-8697668926300981702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -310,14 +250,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2825982756860624678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 894b5f3e6b1b4fb478e56c43b52a4120, type: 3}
+  m_Script: {fileID: 11500000, guid: 3711bdc4d2d354ce48867486266d1616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3
-  itemName: Cucumber
+  itemID: 3
   quantity: 1
-  sprite: {fileID: 21300000, guid: 0cefe55b24cb34d1fbc12608eba46911, type: 3}
-  itemDescription: "Ch\u1EA5m mu\u1ED1i h\u1EA3o h\u1EA3o \u0103n si\xEAu ngon"
 --- !u!1 &7095541495273611365
 GameObject:
   m_ObjectHideFlags: 0

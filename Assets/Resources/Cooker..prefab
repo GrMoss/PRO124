@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7991380675474403612}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CookingController, Assembly-CSharp
         m_MethodName: ChiliSauceButton
         m_Mode: 1
@@ -1827,7 +1827,6 @@ GameObject:
   - component: {fileID: 5513207605205887626}
   - component: {fileID: 6875032835739071449}
   - component: {fileID: 1427625589823949345}
-  - component: {fileID: 7991380675474403612}
   - component: {fileID: 3908644092947888179}
   - component: {fileID: 3392395130995571658}
   m_Layer: 0
@@ -1920,19 +1919,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7991380675474403612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4424431319401851635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71367469913474043bf5bf8bfd6cc6ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewCooker: {fileID: 6976056987406292518}
 --- !u!114 &3908644092947888179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2721,7 +2707,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7991380675474403612}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CookingController, Assembly-CSharp
         m_MethodName: BreadButton
         m_Mode: 1
@@ -3197,7 +3183,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7991380675474403612}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CookingController, Assembly-CSharp
         m_MethodName: OmeletButton
         m_Mode: 1

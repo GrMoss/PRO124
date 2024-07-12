@@ -139,7 +139,7 @@ public class Item1 : MonoBehaviour
         {
             // Thêm item vào kho đồ của người chơi hiện tại
             int leftOverItems = inventoryManager1.AddItem(id, itemName, quantity, sprite, itemDescription);
-
+            
             // Nếu số lượng item còn lại sau khi thêm vào kho là 0, hủy đối tượng item
             if (leftOverItems <= 0)
             {

@@ -1,155 +1,8 @@
-//using System.Collections.Generic;
-//using System.Linq;
-//using UnityEngine;
-//using Photon.Pun;
-//using UnityEngine.UI;
 
-//public class Inventory_Manager : MonoBehaviour
-//{
-//    [SerializeField] Sprite[] spritesItem;
-//    private PhotonView view;
-//    private List<InventoryData> lisInventoryDatas = new List<InventoryData>();
-
-
-//    private void Awake()
-//    {
-//        view = GetComponent<PhotonView>();
-//    }
-
-//    private void Start()
-//    {
-//        KhoiTao();
-//    }
-
-//    public void KhoiTao()
-//    {
-//        if (view != null && view.IsMine)
-//        {
-//            lisInventoryDatas.Add(new InventoryData(0, "Null", 0, spritesItem[0]));
-//            lisInventoryDatas.Add(new InventoryData(1, "Chilli", 0, spritesItem[1]));
-//            lisInventoryDatas.Add(new InventoryData(2, "Carrot", 0, spritesItem[2]));
-//            lisInventoryDatas.Add(new InventoryData(3, "Cucumber", 0, spritesItem[3]));
-//            lisInventoryDatas.Add(new InventoryData(4, "Egg", 0, spritesItem[4]));
-//            lisInventoryDatas.Add(new InventoryData(5, "Omelet", 0, spritesItem[5]));
-//            lisInventoryDatas.Add(new InventoryData(6, "Bread", 0, spritesItem[6]));
-//            lisInventoryDatas.Add(new InventoryData(7, "ChinSo", 0, spritesItem[7]));
-//        }
-//    }
-
-//    public void AddItemInList(int id, int quantity)
-//    {
-//        if (view != null && view.IsMine)
-//        {
-//            var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
-//            if (item != null)
-//            {
-//                item.QuantityItem += quantity;
-//                view.RPC("SyncAddItemInList", RpcTarget.Others, id, quantity);
-//            }
-//        }
-//    }
-
-//    [PunRPC]
-//    private void SyncAddItemInList(int id, int quantity)
-//    {
-//        var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
-//        if (item != null)
-//        {
-//            item.QuantityItem += quantity;
-//        }
-//    }
-
-//    public void QuitItemInList(int id, int quantity)
-//    {
-//        if (view != null && view.IsMine)
-//        {
-//            var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
-//            if (item != null)
-//            {
-//                item.QuantityItem -= quantity;
-//                view.RPC("SyncQuitItemInList", RpcTarget.Others, id, quantity);
-//            }
-//        }
-//    }
-
-//    [PunRPC]
-//    private void SyncQuitItemInList(int id, int quantity)
-//    {
-//        var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
-//        if (item != null)
-//        {
-//            item.QuantityItem -= quantity;
-//        }
-//    }
-
-//    public int GetQuatityItem(int id)
-//    {
-//        if (view != null && view.IsMine)
-//        {
-//            var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
-//            return item != null ? item.QuantityItem : 0;
-//        }
-//        return 0;
-//    }
-
-//    public void ShowAllInventoryData()
-//    {
-//        if (view != null && view.IsMine)
-//        {
-//            foreach (var item in lisInventoryDatas)
-//            {
-//                Debug.Log($"ID: {item.ItemID} | Name: {item.ItemName} | Quality: {item.QuantityItem}");
-//            }
-//        }
-//        else
-//        {
-//            Debug.LogWarning("Không phải kho của người chơi này hoặc view chưa được khởi tạo.");
-//        }
-//    }
-//}
-
-//[System.Serializable]
-//public class InventoryData
-//{
-//    public int ItemID { get; set; }
-//    public string ItemName { get; set; }
-//    public int QuantityItem { get; set; }
-//    public Sprite ImageItem { get; set; }
-
-//    public InventoryData(int itemID, string itemName, int quantityItem, Sprite imageItem)
-//    {
-//        ItemID = itemID;
-//        ItemName = itemName;
-//        QuantityItem = quantityItem;
-//        ImageItem = imageItem;
-//    }
-
-//    public InventoryData(int itemID, string itemName, int quantity)
-//    {
-//        ItemID = itemID;
-//        ItemName = itemName;
-//        QuantityItem = quantity;
-//    }
-
-//    public InventoryData(int itemID, Sprite imageItem)
-//    {
-//        ItemID = itemID;
-//        ImageItem = imageItem;
-//    }
-
-//    public InventoryData(int itemID, int quantity)
-//    {
-//        ItemID = itemID;
-//        QuantityItem = quantity;
-//    }
-
-//    public InventoryData() { }
-//}
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Photon.Pun;
-using UnityEngine.UI;
 
 public class Inventory_Manager : MonoBehaviour
 {
@@ -190,7 +43,7 @@ public class Inventory_Manager : MonoBehaviour
 
     public void AddItemInList(int id, int quantity)
     {
-        if (view != null && view.IsMine)
+        if (view != null && view.Owner != null && view.Owner.IsLocal)
         {
             var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
             if (item != null)
@@ -201,19 +54,9 @@ public class Inventory_Manager : MonoBehaviour
         }
     }
 
-    [PunRPC]
-    private void SyncAddItemInList(int id, int quantity)
-    {
-        var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
-        if (item != null)
-        {
-            item.QuantityItem += quantity;
-        }
-    }
-
     public void QuitItemInList(int id, int quantity)
     {
-        if (view != null && view.IsMine)
+        if (view != null && view.Owner != null && view.Owner.IsLocal)
         {
             var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
             if (item != null)
@@ -221,6 +64,17 @@ public class Inventory_Manager : MonoBehaviour
                 item.QuantityItem -= quantity;
                 view.RPC("SyncQuitItemInList", RpcTarget.Others, id, quantity);
             }
+        }
+    }
+
+
+    [PunRPC]
+    private void SyncAddItemInList(int id, int quantity)
+    {
+        var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
+        if (item != null)
+        {
+            item.QuantityItem += quantity;
         }
     }
 

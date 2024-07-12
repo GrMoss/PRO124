@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2731474851248696175}
   - component: {fileID: 4652195352204225400}
   - component: {fileID: 1025703159252978049}
-  - component: {fileID: -3529296097402589739}
   m_Layer: 0
   m_Name: ChiliSauce
   m_TagString: ChiliSauce
@@ -266,16 +265,3 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 1
   m_TeleportIfDistanceGreaterThan: 3
---- !u!114 &-3529296097402589739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4669582879378079937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 210855a08ead42b428e47bbe0730265d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: eaf5a600cbd36514a8992fa2b7193af1, type: 2}

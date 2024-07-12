@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 4576727644964415592}
   - component: {fileID: -3558559635188315486}
   - component: {fileID: -3952412541961402833}
+  - component: {fileID: -9161954421110020358}
   m_Layer: 0
   m_Name: BanhMi-Item
   m_TagString: Untagged
@@ -305,3 +306,17 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &-9161954421110020358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633757597279608523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3711bdc4d2d354ce48867486266d1616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 6
+  quantity: 1
