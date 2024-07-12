@@ -141,7 +141,6 @@ public class PlayerController : MonoBehaviour
             {
                 TakeDamage(damage);
             }
-            Debug.Log(i + " Bleeding");
         }
     }
 

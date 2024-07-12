@@ -52,9 +52,9 @@ public class Timer : MonoBehaviourPunCallbacks
                     LobbyManager.offLobby = false;
                     photonView.RPC("ShowPanelForAll", RpcTarget.All);
                 }
-                Debug.Log("Hết thời gian!");
+                //Debug.Log("Hết thời gian!");
             }
-            Debug.Log("LobbyManager.offLobby: " + LobbyManager.offLobby);
+            //Debug.Log("LobbyManager.offLobby: " + LobbyManager.offLobby);
         }
         if (!timerIsRunning)
         {
