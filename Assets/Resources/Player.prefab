@@ -631,7 +631,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setATInLobby: {fileID: 1028001305761444298}
   setATIHPInLobby: {fileID: 2934878473935095082}
-  inventory_Manager: {fileID: 8650304931642827574}
 --- !u!114 &6857314525580590424
 MonoBehaviour:
   m_ObjectHideFlags: 0
