@@ -638,6 +638,9 @@ GameObject:
   - component: {fileID: 5911212343988633497}
   - component: {fileID: 138479499594462465}
   - component: {fileID: 8270320065794594913}
+  - component: {fileID: 2659136108790512892}
+  - component: {fileID: 8246791171110802244}
+  - component: {fileID: 8009781221451029520}
   m_Layer: 0
   m_Name: Player_by_Trong
   m_TagString: Player
@@ -725,8 +728,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.15}
-    oldSize: {x: 1.6666666, y: 1.6670735}
-    newSize: {x: 1.6666666, y: 1.6670735}
+    oldSize: {x: 1.6666666, y: 1.6666666}
+    newSize: {x: 1.6666666, y: 1.6666666}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -747,10 +750,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  healthSlider: {fileID: 0}
   moveSpeed: 4
-  animator: {fileID: 8108983860095811471}
   view: {fileID: 0}
   hitBox: {fileID: 0}
+  isDie: 0
   rotatePoint: {fileID: 0}
 --- !u!95 &8108983860095811471
 Animator:
@@ -877,6 +881,91 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &2659136108790512892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542143062886163617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24b8ce8782e8e44a9c93e6ab5657d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &8246791171110802244
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542143062886163617}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -282021238, guid: 7921d35159dcb1642993efbd0dcf8395, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.6666666, y: 1.6666666}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!114 &8009781221451029520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8542143062886163617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2533f9cf18fc4eb4d94c5ccc8e8bc03b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSound: {fileID: 0}
+  fainted1: {fileID: 8300000, guid: 8d23aa51d2e3326439bfe5640ef6f82f, type: 3}
+  fainted2: {fileID: 8300000, guid: 96cace673ff97cc4495b3e6cafe9965c, type: 3}
+  fainted3: {fileID: 8300000, guid: 45231afd3e2c4f3469e735fcd506a6b7, type: 3}
+  hurt1: {fileID: 8300000, guid: 56d73ef02016cf948935260c251e9212, type: 3}
+  hurt2: {fileID: 8300000, guid: 07808bbcfbfd06f48ac5bbfe119421fc, type: 3}
+  hurt3: {fileID: 8300000, guid: 0e296213b7b5437499de0faa7408a9e6, type: 3}
+  run: {fileID: 8300000, guid: 6503be50bdb457b4f9cbacb9e817872b, type: 3}
+  attack: {fileID: 8300000, guid: a6fd4f17925c1794ca73f88f341a267e, type: 3}
 --- !u!1 &8656957021044181063
 GameObject:
   m_ObjectHideFlags: 0

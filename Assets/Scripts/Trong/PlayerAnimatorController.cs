@@ -17,16 +17,19 @@ public class PlayerAnimatorController : MonoBehaviour
             ani.SetBool("isMoving", true);
 
             ani.SetFloat("moveX", moveVector.x);
+
         }
         else if (Mathf.Abs(moveVector.y) > 0.1f)
         {
             ani.SetBool("isMoving", true);
 
             ani.SetFloat("moveY", moveVector.y);
+
         }
         else
         {
             ani.SetBool("isMoving", false);
+
         }
     }
     public void HurtAnimation()

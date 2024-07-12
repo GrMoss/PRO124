@@ -21,14 +21,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip buttonPressed2;
     public AudioClip logo;
 
-    [Header("Player Effects")]
-    public AudioClip fainted1;
-    public AudioClip fainted2;
-    public AudioClip fainted3;
-    public AudioClip hurt1;
-    public AudioClip hurt2;
-    public AudioClip hurt3;
-
     private static AudioManager instance;
     private void Awake()
     {
@@ -107,4 +99,6 @@ public class AudioManager : MonoBehaviour
     {
         SFX.PlayOneShot(clip);
     }
+
+    
 }

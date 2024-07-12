@@ -23,12 +23,16 @@ public class PlayerController : MonoBehaviour
     private PlayerAnimatorController aniController;
     //private HealthManager healthManager;
 
+    //Audio
+    private PlayerAudio audi;
+
     private void Awake()
     {
         input = new InputSystem();
         view = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody2D>();
         aniController = GetComponent<PlayerAnimatorController>();
+        audi = FindObjectOfType<PlayerAudio>();
         //healthManager = GetComponentInChildren<HealthManager>();
     }
 
@@ -49,6 +53,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = moveVector * moveSpeed;
             //Call Animation
             aniController.RunAnimation(moveVector);
+            audi.PlayerRunning((moveVector.x > 0.1f || moveVector.x < -0.1f));
         }
     }
 
@@ -105,11 +110,15 @@ public class PlayerController : MonoBehaviour
                 //healthManager.UpdateHealthSlider();
                 view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
                 aniController.FaintedAnimation();
+
+                audi.PlayerFainted();
             }
             else
             {
                 //aniController.HurtAnimation();
                 view.RPC("PlayHurtAnimation", RpcTarget.AllBuffered);
+
+                audi.PlayerHurt();
             }
         }
     }
