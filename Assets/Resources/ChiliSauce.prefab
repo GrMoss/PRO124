@@ -156,8 +156,6 @@ MonoBehaviour:
   targetPhotonView: {fileID: 0}
   playerController: {fileID: 0}
   PhotonScript: {fileID: 0}
-  congDiem: 0
-  truDiem: 0
   speedFly: 7
   damage: 15
   damageBleeding: 1

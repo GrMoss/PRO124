@@ -1,3 +1,150 @@
+//using System.Collections.Generic;
+//using System.Linq;
+//using UnityEngine;
+//using Photon.Pun;
+//using UnityEngine.UI;
+
+//public class Inventory_Manager : MonoBehaviour
+//{
+//    [SerializeField] Sprite[] spritesItem;
+//    private PhotonView view;
+//    private List<InventoryData> lisInventoryDatas = new List<InventoryData>();
+
+
+//    private void Awake()
+//    {
+//        view = GetComponent<PhotonView>();
+//    }
+
+//    private void Start()
+//    {
+//        KhoiTao();
+//    }
+
+//    public void KhoiTao()
+//    {
+//        if (view != null && view.IsMine)
+//        {
+//            lisInventoryDatas.Add(new InventoryData(0, "Null", 0, spritesItem[0]));
+//            lisInventoryDatas.Add(new InventoryData(1, "Chilli", 0, spritesItem[1]));
+//            lisInventoryDatas.Add(new InventoryData(2, "Carrot", 0, spritesItem[2]));
+//            lisInventoryDatas.Add(new InventoryData(3, "Cucumber", 0, spritesItem[3]));
+//            lisInventoryDatas.Add(new InventoryData(4, "Egg", 0, spritesItem[4]));
+//            lisInventoryDatas.Add(new InventoryData(5, "Omelet", 0, spritesItem[5]));
+//            lisInventoryDatas.Add(new InventoryData(6, "Bread", 0, spritesItem[6]));
+//            lisInventoryDatas.Add(new InventoryData(7, "ChinSo", 0, spritesItem[7]));
+//        }
+//    }
+
+//    public void AddItemInList(int id, int quantity)
+//    {
+//        if (view != null && view.IsMine)
+//        {
+//            var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
+//            if (item != null)
+//            {
+//                item.QuantityItem += quantity;
+//                view.RPC("SyncAddItemInList", RpcTarget.Others, id, quantity);
+//            }
+//        }
+//    }
+
+//    [PunRPC]
+//    private void SyncAddItemInList(int id, int quantity)
+//    {
+//        var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
+//        if (item != null)
+//        {
+//            item.QuantityItem += quantity;
+//        }
+//    }
+
+//    public void QuitItemInList(int id, int quantity)
+//    {
+//        if (view != null && view.IsMine)
+//        {
+//            var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
+//            if (item != null)
+//            {
+//                item.QuantityItem -= quantity;
+//                view.RPC("SyncQuitItemInList", RpcTarget.Others, id, quantity);
+//            }
+//        }
+//    }
+
+//    [PunRPC]
+//    private void SyncQuitItemInList(int id, int quantity)
+//    {
+//        var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
+//        if (item != null)
+//        {
+//            item.QuantityItem -= quantity;
+//        }
+//    }
+
+//    public int GetQuatityItem(int id)
+//    {
+//        if (view != null && view.IsMine)
+//        {
+//            var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
+//            return item != null ? item.QuantityItem : 0;
+//        }
+//        return 0;
+//    }
+
+//    public void ShowAllInventoryData()
+//    {
+//        if (view != null && view.IsMine)
+//        {
+//            foreach (var item in lisInventoryDatas)
+//            {
+//                Debug.Log($"ID: {item.ItemID} | Name: {item.ItemName} | Quality: {item.QuantityItem}");
+//            }
+//        }
+//        else
+//        {
+//            Debug.LogWarning("Không phải kho của người chơi này hoặc view chưa được khởi tạo.");
+//        }
+//    }
+//}
+
+//[System.Serializable]
+//public class InventoryData
+//{
+//    public int ItemID { get; set; }
+//    public string ItemName { get; set; }
+//    public int QuantityItem { get; set; }
+//    public Sprite ImageItem { get; set; }
+
+//    public InventoryData(int itemID, string itemName, int quantityItem, Sprite imageItem)
+//    {
+//        ItemID = itemID;
+//        ItemName = itemName;
+//        QuantityItem = quantityItem;
+//        ImageItem = imageItem;
+//    }
+
+//    public InventoryData(int itemID, string itemName, int quantity)
+//    {
+//        ItemID = itemID;
+//        ItemName = itemName;
+//        QuantityItem = quantity;
+//    }
+
+//    public InventoryData(int itemID, Sprite imageItem)
+//    {
+//        ItemID = itemID;
+//        ImageItem = imageItem;
+//    }
+
+//    public InventoryData(int itemID, int quantity)
+//    {
+//        ItemID = itemID;
+//        QuantityItem = quantity;
+//    }
+
+//    public InventoryData() { }
+//}
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,6 +153,7 @@ using UnityEngine.UI;
 
 public class Inventory_Manager : MonoBehaviour
 {
+    [SerializeField] Sprite[] spritesItem;
     private PhotonView view;
     private List<InventoryData> lisInventoryDatas = new List<InventoryData>();
 
@@ -23,14 +171,21 @@ public class Inventory_Manager : MonoBehaviour
     {
         if (view != null && view.IsMine)
         {
-            lisInventoryDatas.Add(new InventoryData(0, "Null", 0));
-            lisInventoryDatas.Add(new InventoryData(1, "Chilli", 0));
-            lisInventoryDatas.Add(new InventoryData(3, "Cucumber", 0));
-            lisInventoryDatas.Add(new InventoryData(4, "Egg", 0));
-            lisInventoryDatas.Add(new InventoryData(5, "Omelet", 0));
-            lisInventoryDatas.Add(new InventoryData(6, "Bread", 0));
-            lisInventoryDatas.Add(new InventoryData(7, "ChinSo", 0));
+            lisInventoryDatas.Add(new InventoryData(0, "Null", 0, spritesItem[0]));
+            lisInventoryDatas.Add(new InventoryData(1, "Chilli", 0, spritesItem[1]));
+            lisInventoryDatas.Add(new InventoryData(2, "Carrot", 0, spritesItem[2]));
+            lisInventoryDatas.Add(new InventoryData(3, "Cucumber", 0, spritesItem[3]));
+            lisInventoryDatas.Add(new InventoryData(4, "Egg", 0, spritesItem[4]));
+            lisInventoryDatas.Add(new InventoryData(5, "Omelet", 0, spritesItem[5]));
+            lisInventoryDatas.Add(new InventoryData(6, "Bread", 0, spritesItem[6]));
+            lisInventoryDatas.Add(new InventoryData(7, "ChinSo", 0, spritesItem[7]));
         }
+    }
+
+    // Thêm phương thức để trả về danh sách các mục trong kho
+    public List<InventoryData> GetInventoryItems()
+    {
+        return lisInventoryDatas;
     }
 
     public void AddItemInList(int id, int quantity)
@@ -38,9 +193,21 @@ public class Inventory_Manager : MonoBehaviour
         if (view != null && view.IsMine)
         {
             var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
-            if (item != null) item.QuantityItem += quantity;
-            // Tùy chọn, đồng bộ hóa thay đổi này với các client khác
-            //view.RPC("DongBoThemVatPham", RpcTarget.Others, id, soLuong);
+            if (item != null)
+            {
+                item.QuantityItem += quantity;
+                view.RPC("SyncAddItemInList", RpcTarget.Others, id, quantity);
+            }
+        }
+    }
+
+    [PunRPC]
+    private void SyncAddItemInList(int id, int quantity)
+    {
+        var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
+        if (item != null)
+        {
+            item.QuantityItem += quantity;
         }
     }
 
@@ -49,9 +216,21 @@ public class Inventory_Manager : MonoBehaviour
         if (view != null && view.IsMine)
         {
             var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
-            if (item != null) item.QuantityItem -= quantity;
-            // Tùy chọn, đồng bộ hóa thay đổi này với các client khác
-            // view.RPC("DongBoXoaVatPham", RpcTarget.Others, id, soLuong);
+            if (item != null)
+            {
+                item.QuantityItem -= quantity;
+                view.RPC("SyncQuitItemInList", RpcTarget.Others, id, quantity);
+            }
+        }
+    }
+
+    [PunRPC]
+    private void SyncQuitItemInList(int id, int quantity)
+    {
+        var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
+        if (item != null)
+        {
+            item.QuantityItem -= quantity;
         }
     }
 
@@ -79,23 +258,6 @@ public class Inventory_Manager : MonoBehaviour
             Debug.LogWarning("Không phải kho của người chơi này hoặc view chưa được khởi tạo.");
         }
     }
-
-    // Ví dụ về các phương thức RPC để đồng bộ hóa (tùy chọn)
-    /*
-    [PunRPC]
-    private void DongBoThemVatPham(int id, int soLuong)
-    {
-        var vatPham = danhSachDuLieuKho.SingleOrDefault(x => x.ItemID == id);
-        if (vatPham != null) vatPham.QuantityItem += soLuong;
-    }
-
-    [PunRPC]
-    private void DongBoXoaVatPham(int id, int soLuong)
-    {
-        var vatPham = danhSachDuLieuKho.SingleOrDefault(x => x.ItemID == id);
-        if (vatPham != null) vatPham.QuantityItem -= soLuong;
-    }
-    */
 }
 
 [System.Serializable]
@@ -134,5 +296,4 @@ public class InventoryData
     }
 
     public InventoryData() { }
-
 }
