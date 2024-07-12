@@ -20,6 +20,7 @@ public class Inventory_Manager : MonoBehaviour
         new InventoryData(4, "Egg", 0),
         new InventoryData(5, "Omelet", 0),
         new InventoryData(6, "Bread", 0),
+        new InventoryData(7, "ChinSo", 0)
 
     };
 

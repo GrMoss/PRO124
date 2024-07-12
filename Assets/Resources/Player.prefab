@@ -320,6 +320,7 @@ MonoBehaviour:
   - {fileID: 4518967110364090595, guid: 0e82ea38e81129d44913776724193bf6, type: 3}
   - {fileID: 2042992391601930969, guid: 16b000de2cd9c0e4bb050cc509bdd34c, type: 3}
   - {fileID: 7041695829422858743, guid: fd4adad7a5f205644bf18cb31f273108, type: 3}
+  - {fileID: 7041695829422858743, guid: fd4adad7a5f205644bf18cb31f273108, type: 3}
   foodTrans: {fileID: 3004390625690532763, guid: f8ff56c80adb291458608ff5e9f23798, type: 3}
   timeBetweenFiring: 1
   player: {fileID: 1673446536752421944}
@@ -631,7 +632,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setATInLobby: {fileID: 1028001305761444298}
   setATIHPInLobby: {fileID: 2934878473935095082}
-  inventory_Manager: {fileID: 8650304931642827574}
 --- !u!114 &6857314525580590424
 MonoBehaviour:
   m_ObjectHideFlags: 0

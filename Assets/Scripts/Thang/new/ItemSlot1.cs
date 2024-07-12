@@ -39,6 +39,9 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
     public bool thisItemSelected;
     private InventoryManager1 inventoryManager1;
 
+    //------------------------------------------//
+    public ChooseItem chooseItem;
+
     private void Start()
     {
         inventoryManager1 = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager1>();
@@ -104,6 +107,7 @@ public class ItemSlot1 : MonoBehaviour, IPointerClickHandler
         {
             ItemDescriptionImage.sprite = emptySprite;
         }
+        chooseItem.ItemID(id,quantity);
     }
     public void OnRightClick()
     {
