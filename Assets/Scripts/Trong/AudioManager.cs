@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource backgroundMusic;
-    [SerializeField] private AudioSource SFX;
+    public AudioSource backgroundMusic;
+    public AudioSource SFX;
+    public float playerSound = 0.5f;
+    public float playerFootstep = 0.5f;
 
     public float fadeDuration = 2f;
-
+    
     [Header("Background Musics")]
     public AudioClip lobby;
     public AudioClip login;

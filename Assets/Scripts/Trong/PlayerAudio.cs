@@ -18,8 +18,15 @@ public class PlayerAudio : MonoBehaviourPun
     public AudioClip run;
     public AudioClip attack;
 
+    private AudioManager audioManager;
     private void Awake()
     {
+        while (audioManager == null)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
+        }
+        playerRun.volume = audioManager.playerFootstep;
+        playerSound.volume = audioManager.playerSound;
         playerRun.clip = run;
     }
     public void PlayerHurt()
@@ -47,7 +54,7 @@ public class PlayerAudio : MonoBehaviourPun
     }
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
         photonView.RPC("_PlayerFainted", RpcTarget.AllBuffered);
 
     }
