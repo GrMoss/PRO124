@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4424431319401851635}
+      - m_Target: {fileID: 6976056987406292518}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -1830,14 +1830,13 @@ GameObject:
   - component: {fileID: 7991380675474403612}
   - component: {fileID: 3908644092947888179}
   - component: {fileID: 3392395130995571658}
-  - component: {fileID: 2658234522830524793}
   m_Layer: 0
   m_Name: Cooker.
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5316777636486862169
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1990,28 +1989,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2658234522830524793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4424431319401851635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24da518e5d34943048cfc1519f1a2ac4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonCooker:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 183334328187272496}
-  - {fileID: 3026914513285319152}
-  - {fileID: 2392631559316847564}
-  inventory_Manager: {fileID: 0}
 --- !u!1 &4492096399322873558
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,7 +3303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3527153265938210251
 RectTransform:
   m_ObjectHideFlags: 0
