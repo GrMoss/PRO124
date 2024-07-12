@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -117057408483424093}
   - component: {fileID: -7896997866194390937}
   - component: {fileID: -7168551103433992269}
-  - component: {fileID: 8367913632557473811}
+  - component: {fileID: 2223858123878653066}
   m_Layer: 0
   m_Name: CarrotTree
   m_TagString: 2
@@ -346,7 +346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 
   quantity: 
---- !u!114 &8367913632557473811
+--- !u!114 &2223858123878653066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4446041247803047317}
   - component: {fileID: 6550276919050882723}
   - component: {fileID: -4979751668706714292}
-  - component: {fileID: 6567634147793951725}
+  - component: {fileID: -5718517874730762822}
   m_Layer: 0
   m_Name: Chilli-Spawn
   m_TagString: 1
@@ -251,7 +251,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &6567634147793951725
+--- !u!114 &-5718517874730762822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

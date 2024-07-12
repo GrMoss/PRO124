@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -3558559635188315486}
   - component: {fileID: -3952412541961402833}
   - component: {fileID: -6466535455942337868}
-  - component: {fileID: 891964576425229987}
+  - component: {fileID: 5119386404091526120}
   m_Layer: 0
   m_Name: ChilliSauce-Item
   m_TagString: 7
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 
   quantity: 
---- !u!114 &891964576425229987
+--- !u!114 &5119386404091526120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

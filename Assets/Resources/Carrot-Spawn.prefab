@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 5190144129027054044}
   - component: {fileID: 329500803863646020}
   - component: {fileID: -2489904037821966242}
-  - component: {fileID: 330900230811031806}
+  - component: {fileID: 6126174736151609832}
   m_Layer: 0
   m_Name: Carrot-Spawn
   m_TagString: carot
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 
   quantity: 
---- !u!114 &330900230811031806
+--- !u!114 &6126174736151609832
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

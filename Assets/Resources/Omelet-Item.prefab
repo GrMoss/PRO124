@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -3558559635188315486}
   - component: {fileID: -3952412541961402833}
   - component: {fileID: -4822669976466478240}
-  - component: {fileID: -2782513589650995712}
+  - component: {fileID: 3899522584440110667}
   m_Layer: 0
   m_Name: Omelet-Item
   m_TagString: 5
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 
   quantity: 
---- !u!114 &-2782513589650995712
+--- !u!114 &3899522584440110667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

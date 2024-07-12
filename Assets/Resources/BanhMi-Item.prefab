@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -3558559635188315486}
   - component: {fileID: -3952412541961402833}
   - component: {fileID: -9161954421110020358}
-  - component: {fileID: 4662508334267381523}
+  - component: {fileID: -2349548361722780465}
   m_Layer: 0
   m_Name: BanhMi-Item
   m_TagString: 6
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 
   quantity: 
---- !u!114 &4662508334267381523
+--- !u!114 &-2349548361722780465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

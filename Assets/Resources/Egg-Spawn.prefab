@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: -3558559635188315486}
   - component: {fileID: -3952412541961402833}
   - component: {fileID: 4268695407161055931}
-  - component: {fileID: 6856750725312590411}
+  - component: {fileID: 9146757470688201454}
   m_Layer: 0
   m_Name: Egg-Spawn
   m_TagString: 4
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 
   quantity: 
---- !u!114 &6856750725312590411
+--- !u!114 &9146757470688201454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
