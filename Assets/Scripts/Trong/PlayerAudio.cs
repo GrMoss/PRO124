@@ -18,8 +18,15 @@ public class PlayerAudio : MonoBehaviourPun
     public AudioClip run;
     public AudioClip attack;
 
+    private AudioManager audioManager;
     private void Awake()
     {
+        while (audioManager == null)
+        {
+            audioManager = FindObjectOfType<AudioManager>();
+        }
+        playerRun.volume = audioManager.playerFootstep;
+        playerSound.volume = audioManager.playerSound;
         playerRun.clip = run;
     }
     public void PlayerHurt()
