@@ -49,6 +49,7 @@ public class Timer : MonoBehaviourPunCallbacks
                 if (timeRemaining == 0)
                 {
                     TimeOver = true;
+                    LobbyManager.offLobby = false;
                     photonView.RPC("ShowPanelForAll", RpcTarget.All);
                 }
                 //Debug.Log("Hết thời gian!");
