@@ -215,15 +215,6 @@ public class CookingController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        //if (view.IsMine && Input.GetButton("Q"))
-        //{
-        //    viewCooker.SetActive(true);
-        //    inventory_Manager?.ShowAllInventoryData(); // S? d?ng to?n t? null-conditional
-        //}
-    }
-
     public void OmeletButton()
     {
         if (view.IsMine && inventory_Manager != null)
