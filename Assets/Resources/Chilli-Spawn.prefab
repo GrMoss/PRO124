@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4446041247803047317}
   - component: {fileID: 6550276919050882723}
   - component: {fileID: -4979751668706714292}
-  - component: {fileID: -37804801596196408}
+  - component: {fileID: 6567634147793951725}
   m_Layer: 0
   m_Name: Chilli-Spawn
-  m_TagString: ot
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -251,7 +251,7 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &-37804801596196408
+--- !u!114 &6567634147793951725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,11 +260,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2084607502742239532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3711bdc4d2d354ce48867486266d1616, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d7e67bd139ac4681aea7aa5036cd023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 1
-  quantity: 1
 --- !u!1 &6281465947573469746
 GameObject:
   m_ObjectHideFlags: 0

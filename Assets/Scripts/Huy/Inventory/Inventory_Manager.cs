@@ -1,18 +1,16 @@
-
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Photon.Pun;
 using TMPro;
 
-public class Inventory_Manager : MonoBehaviour
+public class Inventory_Manager : MonoBehaviourPun
 {
     [SerializeField] Sprite[] spritesItem;
-    private PhotonView view;
     private List<InventoryData> lisInventoryDatas = new List<InventoryData>();
-
-    // Các biến khác đã được định nghĩa ở trước
     private TMP_Text debugLogText; // Biến để lưu trữ TMP_Text
+
+    private PhotonView view;
 
     private void Awake()
     {
@@ -38,22 +36,19 @@ public class Inventory_Manager : MonoBehaviour
             Debug.LogError("Không tìm thấy đối tượng có tên 'DebugLog' trong Scene.");
         }
 
-        KhoiTao();
+        KhoiTao(); // Khởi tạo kho hàng
     }
 
     public void KhoiTao()
     {
-        if (view != null && view.IsMine)
-        {
-            lisInventoryDatas.Add(new InventoryData(0, "Null", 0, spritesItem[0]));
-            lisInventoryDatas.Add(new InventoryData(1, "Chilli", 0, spritesItem[1]));
-            lisInventoryDatas.Add(new InventoryData(2, "Carrot", 0, spritesItem[2]));
-            lisInventoryDatas.Add(new InventoryData(3, "Cucumber", 0, spritesItem[3]));
-            lisInventoryDatas.Add(new InventoryData(4, "Egg", 0, spritesItem[4]));
-            lisInventoryDatas.Add(new InventoryData(5, "Omelet", 0, spritesItem[5]));
-            lisInventoryDatas.Add(new InventoryData(6, "Bread", 0, spritesItem[6]));
-            lisInventoryDatas.Add(new InventoryData(7, "ChinSo", 0, spritesItem[7]));
-        }
+        lisInventoryDatas.Add(new InventoryData(0, "Null", 0, spritesItem[0]));
+        lisInventoryDatas.Add(new InventoryData(1, "Chilli", 0, spritesItem[1]));
+        lisInventoryDatas.Add(new InventoryData(2, "Carrot", 0, spritesItem[2]));
+        lisInventoryDatas.Add(new InventoryData(3, "Cucumber", 0, spritesItem[3]));
+        lisInventoryDatas.Add(new InventoryData(4, "Egg", 0, spritesItem[4]));
+        lisInventoryDatas.Add(new InventoryData(5, "Omelet", 0, spritesItem[5]));
+        lisInventoryDatas.Add(new InventoryData(6, "Bread", 0, spritesItem[6]));
+        lisInventoryDatas.Add(new InventoryData(7, "ChinSo", 0, spritesItem[7]));
     }
 
     // Thêm phương thức để trả về danh sách các mục trong kho
@@ -64,30 +59,31 @@ public class Inventory_Manager : MonoBehaviour
 
     public void AddItemInList(int id, int quantity)
     {
-        if (view != null && view.Owner != null && view.Owner.IsLocal)
+        // Chỉ thực hiện thêm vật phẩm nếu đúng là kho hàng của người chơi hiện tại
+        if (view.IsMine)
         {
             var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
             if (item != null)
             {
                 item.QuantityItem += quantity;
-                view.RPC("SyncAddItemInList", RpcTarget.Others, id, quantity);
+                // Gọi RPC để đồng bộ hóa thay đổi với các người chơi khác
+                photonView.RPC("SyncAddItemInList", RpcTarget.Others, id, quantity);
+                // Cập nhật giao diện hiển thị
+                UpdateDebugLogText();
             }
         }
     }
 
-    public void QuitItemInList(int id, int quantity)
+    public int GetQuantityItem(int id)
     {
-        if (view != null && view.Owner != null && view.Owner.IsLocal)
+        // Lấy số lượng của vật phẩm theo ID
+        if (view.IsMine)
         {
             var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
-            if (item != null)
-            {
-                item.QuantityItem -= quantity;
-                view.RPC("SyncQuitItemInList", RpcTarget.Others, id, quantity);
-            }
+            return item != null ? item.QuantityItem : 0;
         }
+        return 0;
     }
-
 
     [PunRPC]
     private void SyncAddItemInList(int id, int quantity)
@@ -96,6 +92,25 @@ public class Inventory_Manager : MonoBehaviour
         if (item != null)
         {
             item.QuantityItem += quantity;
+            // Cập nhật giao diện hiển thị
+            UpdateDebugLogText();
+        }
+    }
+
+    public void QuitItemInList(int id, int quantity)
+    {
+        // Chỉ thực hiện xoá vật phẩm nếu đúng là kho hàng của người chơi hiện tại
+        if (view.IsMine)
+        {
+            var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
+            if (item != null)
+            {
+                item.QuantityItem -= quantity;
+                // Gọi RPC để đồng bộ hóa thay đổi với các người chơi khác
+                photonView.RPC("SyncQuitItemInList", RpcTarget.Others, id, quantity);
+                // Cập nhật giao diện hiển thị
+                UpdateDebugLogText();
+            }
         }
     }
 
@@ -106,43 +121,27 @@ public class Inventory_Manager : MonoBehaviour
         if (item != null)
         {
             item.QuantityItem -= quantity;
+            // Cập nhật giao diện hiển thị
+            UpdateDebugLogText();
         }
     }
 
-    public int GetQuatityItem(int id)
+    public void UpdateDebugLogText()
     {
-        if (view != null && view.IsMine)
+        // Xây dựng chuỗi để lưu trữ thông tin kho hàng
+        string inventoryInfo = "";
+        foreach (var item in lisInventoryDatas)
         {
-            var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
-            return item != null ? item.QuantityItem : 0;
+            inventoryInfo += $"ID: {item.ItemID} | Name: {item.ItemName} | Quantity: {item.QuantityItem}\n";
+            Debug.Log($"ID: {item.ItemID} | Name: {item.ItemName} | Quality: {item.QuantityItem}");
         }
-        return 0;
-    }
 
-    public void ShowAllInventoryData()
-    {
-        if (view != null && view.IsMine)
+        // Gán chuỗi này vào TMP_Text để hiển thị
+        if (debugLogText != null)
         {
-            // Xây dựng chuỗi để lưu trữ thông tin kho hàng
-            string inventoryInfo = "";
-            foreach (var item in lisInventoryDatas)
-            {
-                inventoryInfo += $"ID: {item.ItemID} | Name: {item.ItemName} | Quantity: {item.QuantityItem}\n";
-                Debug.Log($"ID: {item.ItemID} | Name: {item.ItemName} | Quality: {item.QuantityItem}");
-            }
-
-            // Gán chuỗi này vào TMP_Text để hiển thị
-            if (debugLogText != null)
-            {
-                debugLogText.text = inventoryInfo;
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Không phải kho của người chơi này hoặc view chưa được khởi tạo.");
+            debugLogText.text = inventoryInfo;
         }
     }
-
 }
 
 [System.Serializable]

@@ -23,6 +23,14 @@ TagManager:
   - Carrot
   - DropArea
   - Cooker
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
   layers:
   - Default
   - TransparentFX

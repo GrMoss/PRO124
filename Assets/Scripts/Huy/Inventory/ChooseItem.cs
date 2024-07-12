@@ -21,7 +21,7 @@ public class ChooseItem : MonoBehaviour
         if (view.IsMine)
         {
             ChooseItemHand();
-            textItemQuatity.text = inventory_Manager.GetQuatityItem(id).ToString();
+            textItemQuatity.text = inventory_Manager.GetQuantityItem(id).ToString();
         }
         
 

@@ -98,9 +98,10 @@ GameObject:
   - component: {fileID: -3558559635188315486}
   - component: {fileID: -3952412541961402833}
   - component: {fileID: -6466535455942337868}
+  - component: {fileID: 891964576425229987}
   m_Layer: 0
   m_Name: ChilliSauce-Item
-  m_TagString: Untagged
+  m_TagString: 7
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +203,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -313,10 +314,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7633757597279608523}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3711bdc4d2d354ce48867486266d1616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 7
-  quantity: 1
+  itemID: 
+  quantity: 
+--- !u!114 &891964576425229987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633757597279608523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7e67bd139ac4681aea7aa5036cd023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

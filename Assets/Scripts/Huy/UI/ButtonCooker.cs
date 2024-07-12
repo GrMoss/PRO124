@@ -40,9 +40,9 @@ public class ButtonCooker : MonoBehaviour
         if (inventory_Manager != null)
         {
             // Chỉ cho phép nhấn nút nếu số lượng tồn kho đủ
-            buttonCooker[5].interactable = inventory_Manager.GetQuatityItem(4) > 0;
-            buttonCooker[7].interactable = inventory_Manager.GetQuatityItem(1) > 0;
-            buttonCooker[6].interactable = inventory_Manager.GetQuatityItem(2) > 0 && inventory_Manager.GetQuatityItem(3) > 0 && inventory_Manager.GetQuatityItem(4) > 0;
+            buttonCooker[5].interactable = inventory_Manager.GetQuantityItem(4) > 0;
+            buttonCooker[7].interactable = inventory_Manager.GetQuantityItem(1) > 0;
+            buttonCooker[6].interactable = inventory_Manager.GetQuantityItem(2) > 0 && inventory_Manager.GetQuantityItem(3) > 0 && inventory_Manager.GetQuantityItem(4) > 0;
         }
         else
         {

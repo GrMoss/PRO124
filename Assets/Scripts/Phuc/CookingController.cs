@@ -207,11 +207,11 @@ public class CookingController : MonoBehaviour
 
         if (inventory_Manager != null)
         {
-            Debug.Log("?? g?n Inventory_Manager cho CookingController.");
+            Debug.Log("Inventory_Manager cho CookingController.");
         }
         else
         {
-            Debug.LogError("Kh?ng t?m th?y Inventory_Manager trong th? m?c n?y.");
+            Debug.LogError("khong tim thay Inventory_Manager.");
         }
     }
 
@@ -219,7 +219,7 @@ public class CookingController : MonoBehaviour
     {
         if (view.IsMine && inventory_Manager != null)
         {
-            if (inventory_Manager.GetQuatityItem(4) > 0)
+            if (inventory_Manager.GetQuantityItem(4) > 0)
             {
                 inventory_Manager.QuitItemInList(4, 1);
                 inventory_Manager.AddItemInList(5, 1);
@@ -231,7 +231,7 @@ public class CookingController : MonoBehaviour
     {
         if (view.IsMine && inventory_Manager != null)
         {
-            if (inventory_Manager.GetQuatityItem(1) > 0)
+            if (inventory_Manager.GetQuantityItem(1) > 0)
             {
                 inventory_Manager.QuitItemInList(1, 1);
                 inventory_Manager.AddItemInList(7, 1);
@@ -243,7 +243,7 @@ public class CookingController : MonoBehaviour
     {
         if (view.IsMine && inventory_Manager != null)
         {
-            if (inventory_Manager.GetQuatityItem(2) > 0 && inventory_Manager.GetQuatityItem(3) > 0 && inventory_Manager.GetQuatityItem(4) > 0)
+            if (inventory_Manager.GetQuantityItem(2) > 0 && inventory_Manager.GetQuantityItem(3) > 0 && inventory_Manager.GetQuantityItem(4) > 0)
             {
                 inventory_Manager.QuitItemInList(2, 1);
                 inventory_Manager.QuitItemInList(3, 1);
@@ -258,7 +258,7 @@ public class CookingController : MonoBehaviour
         if (view.IsMine && collision.gameObject.CompareTag("Cooker"))
         {
             viewCooker.SetActive(true);
-            inventory_Manager?.ShowAllInventoryData();
+            inventory_Manager?.UpdateDebugLogText();
         }
     }
 
