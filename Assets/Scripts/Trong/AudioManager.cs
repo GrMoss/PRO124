@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource backgroundMusic;
     [SerializeField] private AudioSource SFX;
 
-    [SerializeField] private float fadeDuration = 2f;
+    public float fadeDuration = 2f;
 
     [Header("Background Musics")]
     public AudioClip lobby;
@@ -33,14 +33,6 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-    }
-    private void Start()
-    {
-        if (SceneManager.GetActiveScene().name == "Login")
-        {
-            PlaySFX(logo);
-            PlayBackgroundMusic(lobby);
-        }
     }
 
     public void PlayBackgroundMusic(AudioClip clip)
@@ -100,5 +92,8 @@ public class AudioManager : MonoBehaviour
         SFX.PlayOneShot(clip);
     }
 
-    
+    public string GetCurrentSong()
+    {
+        return backgroundMusic.clip.name;
+    }
 }
