@@ -4,6 +4,7 @@ using Photon.Realtime;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
@@ -11,12 +12,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] private Button startGameButton; // Nút bắt đầu game
     [SerializeField] private GameObject roomGame;
     [SerializeField] private GameObject roomlobby;
-    public static bool offLobby = false; 
+    [SerializeField] private GameObject canvalobby;
+    [SerializeField] private CinemachineVirtualCamera setATCameraVS;
+    public static bool offLobby = false;
 
     private void Start()
     {
         roomGame.SetActive(false);
         roomlobby.SetActive(true);
+        canvalobby.SetActive(true);
+        setATCameraVS.gameObject.SetActive(false);
 
         // Cập nhật danh sách người chơi và kiểm tra nếu người chơi là chủ phòng
         UpdatePlayersList();
@@ -104,8 +109,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     private void ChangeRoomState(bool isGameActive)
     {
         roomGame.SetActive(isGameActive);
+        //setATCameraVS.SetActive(isGameActive);
         roomlobby.SetActive(!isGameActive);
         offLobby = true;
+        canvalobby.SetActive(false);
+        setATCameraVS.gameObject.SetActive(true);
         Timer.timerIsRunning = true;
     }
 
