@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &385942438880054763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -484,9 +484,9 @@ RectTransform:
   - {fileID: 4345416873841603237}
   m_Father: {fileID: 7727538527632999707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -500}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7825532217443381560
@@ -570,7 +570,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6218942254669838505}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3444816678389676905}
+        m_TargetAssemblyTypeName: CookingController, Assembly-CSharp
+        m_MethodName: BreadButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2830172899207812048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,9 +1178,9 @@ RectTransform:
   - {fileID: 5616609110180529053}
   m_Father: {fileID: 7727538527632999707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -300}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8512616881408413808
@@ -1252,7 +1264,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5371134530841521688}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3444816678389676905}
+        m_TargetAssemblyTypeName: CookingController, Assembly-CSharp
+        m_MethodName: ChiliSauceButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5411843620732456210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,9 +1313,9 @@ RectTransform:
   - {fileID: 8723946409293765104}
   m_Father: {fileID: 7727538527632999707}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -100}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6911859039591488927
@@ -1375,7 +1399,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5904125118995623605}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3444816678389676905}
+        m_TargetAssemblyTypeName: CookingController, Assembly-CSharp
+        m_MethodName: OmeletButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6621490435624670118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1578,7 +1614,7 @@ GameObject:
   - component: {fileID: 6176911138501759419}
   - component: {fileID: 8780829764589135593}
   m_Layer: 0
-  m_Name: Ot
+  m_Name: Trung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1593,8 +1629,8 @@ Transform:
   m_GameObject: {fileID: 6805395031353772366}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40, y: 0, z: -9720}
-  m_LocalScale: {x: 70, y: 70, z: 108}
+  m_LocalPosition: {x: 35, y: -25, z: -9720}
+  m_LocalScale: {x: 80, y: 80, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5616142867386832526}
@@ -1640,7 +1676,7 @@ SpriteRenderer:
   m_SortingLayerID: 1475675811
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 50b9c33b5501f41d0b0c626a2d0a5aac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 81c8e6ba7b74e4ca4955cd78f0533e44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2101,6 +2137,7 @@ GameObject:
   - component: {fileID: 1082857159240313799}
   - component: {fileID: 229601266217000090}
   - component: {fileID: 3444816678389676905}
+  - component: {fileID: 4048538149302850299}
   m_Layer: 0
   m_Name: Cooker
   m_TagString: Cooker
@@ -2162,8 +2199,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1475675811
-  m_SortingLayer: 4
+  m_SortingLayerID: -2029378745
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2234,3 +2271,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewCooker: {fileID: 88338158698964839}
+--- !u!114 &4048538149302850299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8789251690412902598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

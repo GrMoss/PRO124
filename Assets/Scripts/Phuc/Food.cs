@@ -15,8 +15,7 @@ public abstract class Food : MonoBehaviour
     public PhotonView targetPhotonView = null;
     public PlayerController playerController;
     public PhotonScript PhotonScript;
-    public int congDiem;
-    public int truDiem;
+    private PhotonScript targetPhotonScript;
 
     public abstract void SpecialEffects();
 
@@ -34,7 +33,6 @@ public abstract class Food : MonoBehaviour
 
         view = GetComponent<PhotonView>();
 
-        // Đảm bảo PhotonScript được gán đúng cách
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
@@ -59,19 +57,35 @@ public abstract class Food : MonoBehaviour
         {
             targetPhotonView = collision.gameObject.GetComponentInParent<PhotonView>();
             playerController = collision.gameObject.GetComponentInParent<PlayerController>();
+            targetPhotonScript = collision.gameObject.GetComponentInParent<PhotonScript>();
 
             if (targetPhotonView != null && playerController != null)
             {
                 Debug.Log($"Phát hiện va chạm: targetPhotonView.ViewID = {targetPhotonView.ViewID}, ownerId = {ownerId}");
 
-                if (playerController.view != null && playerController.view.ViewID != ownerId && ownerId != 0)
+                if (playerController.view != null && playerController.view.ViewID != ownerId && ownerId == 1)
                 {
                     targetPhotonView.RPC("TakeDamage", RpcTarget.All, damage);
+                    Debug.Log("An");
                     SpecialEffects();
 
-                    if (PhotonScript != null)
+                    if (view.IsMine)
                     {
-                        PhotonScript.CongDiem(congDiem);
+                        PhotonNetwork.Destroy(gameObject);
+                    }
+                }
+                    else if (playerController.view != null && playerController.view.ViewID != ownerId && ownerId != 0)
+                {
+                    targetPhotonView.RPC("TakeDamage", RpcTarget.All, damage);
+                    Debug.Log("owerid " + ownerId);
+                    Debug.Log("Nem");
+                    SpecialEffects();
+
+                    if (PhotonScript != null && targetPhotonScript != null)
+                    {
+                        //Cong va tru diem tuong duong voi so damage gay ra
+                        PhotonScript.CongDiem(damage);
+                        targetPhotonScript.TruDiem(damage);
                     }
 
                     if (view.IsMine)
@@ -79,7 +93,6 @@ public abstract class Food : MonoBehaviour
                         PhotonNetwork.Destroy(gameObject);
                     }
                 }
-                
             }
            
         }
