@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 
-  quantity: 
+  quantity: 0
 --- !u!1 &7095541495273611365
 GameObject:
   m_ObjectHideFlags: 0

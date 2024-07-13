@@ -64,6 +64,7 @@ MonoBehaviour:
   - AddItemToInventoryRPC
   - DestroyItem
   - SyncOnTriggerEnter2D
+  - SyncRemoveItemFromList
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
