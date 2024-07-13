@@ -104,18 +104,21 @@ public class Inventory_Manager : MonoBehaviourPun
 
     public void ShowItemInInventory()
     {
-        // Xây dựng chuỗi để lưu trữ thông tin kho hàng
-        string inventoryInfo = "";
-        foreach (var item in lisInventoryDatas)
+        if (photonView.IsMine)
         {
-            inventoryInfo += $"ID: {item.ItemID} | Name: {item.ItemName} | Quantity: {item.QuantityItem}\n";
-            Debug.Log($"ID: {item.ItemID} | Name: {item.ItemName} | Quality: {item.QuantityItem}");
-        }
+            // Xây dựng chuỗi để lưu trữ thông tin kho hàng
+            string inventoryInfo = "";
+            foreach (var item in lisInventoryDatas)
+            {
+                inventoryInfo += $"ID: {item.ItemID} | Name: {item.ItemName} | Quantity: {item.QuantityItem}\n";
+                Debug.Log($"ID: {item.ItemID} | Name: {item.ItemName} | Quality: {item.QuantityItem}");
+            }
 
-        // Gán chuỗi này vào TMP_Text để hiển thị
-        if (debugLogText != null)
-        {
-            debugLogText.text = inventoryInfo;
+            // Gán chuỗi này vào TMP_Text để hiển thị
+            if (debugLogText != null)
+            {
+                debugLogText.text = inventoryInfo;
+            }
         }
     }
 }
