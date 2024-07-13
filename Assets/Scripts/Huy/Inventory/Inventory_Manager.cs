@@ -4,17 +4,11 @@ using UnityEngine;
 using Photon.Pun;
 using TMPro;
 
-public class Inventory_Manager : MonoBehaviour
+public class Inventory_Manager : MonoBehaviourPun
 {
     [SerializeField] Sprite[] spritesItem;
     private List<InventoryData> lisInventoryDatas = new List<InventoryData>();
-  
-    private PhotonView view;
-
-    private void Awake()
-    {
-        view = GetComponent<PhotonView>();
-    }
+    public TMP_Text debugLogText; // Biến để lưu trữ TMP_Text
 
     private void Start()
     {
@@ -42,14 +36,14 @@ public class Inventory_Manager : MonoBehaviour
     public void AddItemInList(int id, int quantity)
     {
         // Chỉ thực hiện thêm vật phẩm nếu đúng là kho hàng của người chơi hiện tại
-        if (view.IsMine)
+        if (photonView.IsMine)
         {
             var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
             if (item != null)
             {
                 item.QuantityItem += quantity;
                 // Gọi RPC để đồng bộ hóa thay đổi với các người chơi khác
-                view.RPC("SyncAddItemInList", RpcTarget.Others, id, quantity);
+                photonView.RPC("SyncAddItemInList", RpcTarget.Others, id, quantity);
                 // Cập nhật giao diện hiển thị
                 ShowItemInInventory();
             }
@@ -59,7 +53,7 @@ public class Inventory_Manager : MonoBehaviour
     public int GetQuantityItem(int id)
     {
         // Lấy số lượng của vật phẩm theo ID
-        if (view.IsMine)
+        if (photonView.IsMine)
         {
             var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
             return item != null ? item.QuantityItem : 0;
@@ -82,14 +76,14 @@ public class Inventory_Manager : MonoBehaviour
     public void QuitItemInList(int id, int quantity)
     {
         // Chỉ thực hiện xoá vật phẩm nếu đúng là kho hàng của người chơi hiện tại
-        if (view.IsMine)
+        if (photonView.IsMine)
         {
             var item = lisInventoryDatas.SingleOrDefault(x => x.ItemID == id);
             if (item != null)
             {
                 item.QuantityItem -= quantity;
                 // Gọi RPC để đồng bộ hóa thay đổi với các người chơi khác
-                view.RPC("SyncQuitItemInList", RpcTarget.Others, id, quantity);
+                photonView.RPC("SyncQuitItemInList", RpcTarget.Others, id, quantity);
                 // Cập nhật giao diện hiển thị
                 ShowItemInInventory();
             }
@@ -110,9 +104,18 @@ public class Inventory_Manager : MonoBehaviour
 
     public void ShowItemInInventory()
     {
+        // Xây dựng chuỗi để lưu trữ thông tin kho hàng
+        string inventoryInfo = "";
         foreach (var item in lisInventoryDatas)
         {
+            inventoryInfo += $"ID: {item.ItemID} | Name: {item.ItemName} | Quantity: {item.QuantityItem}\n";
             Debug.Log($"ID: {item.ItemID} | Name: {item.ItemName} | Quality: {item.QuantityItem}");
+        }
+
+        // Gán chuỗi này vào TMP_Text để hiển thị
+        if (debugLogText != null)
+        {
+            debugLogText.text = inventoryInfo;
         }
     }
 }

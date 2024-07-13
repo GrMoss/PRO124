@@ -23,23 +23,23 @@ public class GetItem : MonoBehaviourPun
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (photonView == null)
-        {
-            Debug.LogError("PhotonView is null");
-            return;
-        }
+        //if (photonView == null)
+        //{
+        //    Debug.LogError("PhotonView is null");
+        //    return;
+        //}
 
-        if (itemID == null)
-        {
-            Debug.LogError("itemID array is null");
-            return;
-        }
+        //if (itemID == null)
+        //{
+        //    Debug.LogError("itemID array is null");
+        //    return;
+        //}
 
-        if (quantity == null)
-        {
-            Debug.LogError("quantity array is null");
-            return;
-        }
+        //if (quantity == null)
+        //{
+        //    Debug.LogError("quantity array is null");
+        //    return;
+        //}
 
         if (photonView.IsMine)
         {
@@ -52,6 +52,15 @@ public class GetItem : MonoBehaviourPun
                     PhotonNetwork.Destroy(collision.gameObject); // Xóa đối tượng va chạm
                     break; // Thoát khỏi vòng lặp sau khi thêm vật phẩm
                 }
+            }
+        }
+
+        for (int i = 0; i < itemID.Length; i++)
+        {
+            if (collision.CompareTag(i.ToString()))
+            {
+                PhotonNetwork.Destroy(collision.gameObject); // Xóa đối tượng va chạm
+                break; // Thoát khỏi vòng lặp sau khi thêm vật phẩm
             }
         }
     }
