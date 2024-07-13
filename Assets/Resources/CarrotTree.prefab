@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 2106179668569932341}
   - component: {fileID: -117057408483424093}
   - component: {fileID: -7896997866194390937}
-  - component: {fileID: -7168551103433992269}
   - component: {fileID: -8329512879093349981}
   m_Layer: 0
   m_Name: CarrotTree
@@ -332,20 +331,6 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &-7168551103433992269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835968554875617050}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3711bdc4d2d354ce48867486266d1616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemID: 
-  quantity: 0
 --- !u!114 &-8329512879093349981
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 4576727644964415592}
   - component: {fileID: -3558559635188315486}
   - component: {fileID: -3952412541961402833}
-  - component: {fileID: 4268695407161055931}
   - component: {fileID: -8970069602218311589}
   m_Layer: 0
   m_Name: Egg-Spawn
@@ -307,20 +306,6 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &4268695407161055931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7633757597279608523}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3711bdc4d2d354ce48867486266d1616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemID: 
-  quantity: 0
 --- !u!114 &-8970069602218311589
 MonoBehaviour:
   m_ObjectHideFlags: 0

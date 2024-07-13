@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shooting : MonoBehaviour
+public class Shooting : MonoBehaviourPun
 {
     [Header("index Choose Start")]
     [SerializeField] int indexChooseFoodStart;
@@ -24,8 +24,31 @@ public class Shooting : MonoBehaviour
     public float directionY;
     public static int indexChooseFood;
 
+    private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
+
     private void Start()
     {
+        if (photonView.IsMine)
+        {
+            // Tìm Inventory_Manager trên đối tượng cha trước
+            inventory_Manager = GetComponentInParent<Inventory_Manager>();
+
+            // Nếu không tìm thấy, dùng FindObjectOfType để tìm trong toàn bộ scene
+            if (inventory_Manager == null)
+            {
+                inventory_Manager = FindObjectOfType<Inventory_Manager>();
+            }
+
+            if (inventory_Manager != null)
+            {
+                Debug.Log("Đã gán Inventory_Manager cho GetItem.");
+            }
+            else
+            {
+                Debug.LogError("Không tìm thấy Inventory_Manager trên đối tượng này hoặc trong scene.");
+            }
+        }
+
         indexChooseFood = indexChooseFoodStart;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         view = GetComponentInParent<PhotonView>();
@@ -34,6 +57,8 @@ public class Shooting : MonoBehaviour
 
     private void Update()
     {
+
+
         if (food[indexChooseFood].GetComponent<SpriteRenderer>() != null)
         {
             spriteFood.sprite = food[indexChooseFood].GetComponent<SpriteRenderer>().sprite;
@@ -63,30 +88,40 @@ public class Shooting : MonoBehaviour
                 }
             }
 
-            if (Input.GetMouseButton(0) && canFire && food != null)
+            if (inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
             {
-                canFire = false;
-                GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
-                    transform.position.z), Quaternion.identity);
-                foodObject.transform.localScale = new Vector3(
-                foodObject.transform.localScale.x,
-                foodObject.transform.localScale.y * directionY,
-                foodObject.transform.localScale.z);
-                foodObject.GetComponent<Food>().ownerId = view.ViewID;
-                Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
-            }
 
-            if (Input.GetMouseButton(1) && canFire && food != null)
-            {
-                canFire = false;
-                GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
-                    transform.position.z), Quaternion.identity);
-                foodObject.transform.localScale = new Vector3(
-                foodObject.transform.localScale.x,
-                foodObject.transform.localScale.y * directionY,
-                foodObject.transform.localScale.z);
-                foodObject.GetComponent<Food>().ownerId = 1;
-                Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
+                if (Input.GetMouseButton(0) && canFire && food != null)
+                {
+                    canFire = false;
+                    GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
+                        transform.position.z), Quaternion.identity);
+
+                    inventory_Manager.QuitItemInList(indexChooseFood, 1);
+
+                    foodObject.transform.localScale = new Vector3(
+                    foodObject.transform.localScale.x,
+                    foodObject.transform.localScale.y * directionY,
+                    foodObject.transform.localScale.z);
+                    foodObject.GetComponent<Food>().ownerId = view.ViewID;
+                    Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
+                }
+
+                if (Input.GetMouseButton(1) && canFire && food != null)
+                {
+                    canFire = false;
+                    GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
+                        transform.position.z), Quaternion.identity);
+
+                    inventory_Manager.QuitItemInList(indexChooseFood, 1);
+
+                    foodObject.transform.localScale = new Vector3(
+                    foodObject.transform.localScale.x,
+                    foodObject.transform.localScale.y * directionY,
+                    foodObject.transform.localScale.z);
+                    foodObject.GetComponent<Food>().ownerId = 1;
+                    Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
+                }
             }
         }
     }
