@@ -2,6 +2,8 @@
 using UnityEngine;
 using Photon.Pun;
 using System.Collections;
+using System.Linq;
+using Photon.Realtime;
 
 public class PlayerAudio : MonoBehaviourPun
 {
@@ -19,6 +21,11 @@ public class PlayerAudio : MonoBehaviourPun
     public AudioClip attack;
 
     private AudioManager audioManager;
+    private bool checkRun;
+    private float runClipTime;
+
+    [Header("Option")]
+    [SerializeField] private float hearRange = 15f;
     private void Awake()
     {
         while (audioManager == null)
@@ -28,42 +35,62 @@ public class PlayerAudio : MonoBehaviourPun
         playerRun.volume = audioManager.playerFootstep;
         playerSound.volume = audioManager.playerSound;
         playerRun.clip = run;
+
+        runClipTime = run.length;
     }
     public void PlayerHurt()
     {
-        if (photonView.IsMine)
-            photonView.RPC("_PlayerHurt", RpcTarget.AllBuffered);
+        PlaySoundForOthers(0);
     }
 
     public void PlayerFainted()
     {
-        if (photonView.IsMine)
-            StartCoroutine(Delay());
+
+        PlaySoundForOthers(1);
     }
 
     public void PlayerRunning(bool isTrue)
     {
-        if (photonView.IsMine)
-            photonView.RPC("_PlayerRunning", RpcTarget.AllBuffered, isTrue);
+        PlaySoundForOthers(2, isTrue);
     }
 
     public void PlayerAttack()
     {
-        if (photonView.IsMine)
-            photonView.RPC("_PlayerAttack", RpcTarget.AllBuffered);
+        PlaySoundForOthers(3);
+
     }
-    IEnumerator Delay()
+
+    private void PlaySoundForOthers(int index, bool isTrue = false)
     {
-        yield return new WaitForSeconds(0.5f);
-        photonView.RPC("_PlayerFainted", RpcTarget.AllBuffered);
+        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+
+        var nearbyPlayers = allPlayers.Where(x => (Vector2.Distance(transform.position, x.transform.position) < hearRange));
+        foreach (GameObject player in nearbyPlayers) 
+        { 
+            PhotonView ptView = player.GetComponent<PhotonView>();
+
+            if (index == 0)
+                ptView.RPC("_PlayerHurt", ptView.Owner, transform.position);
+            else if (index == 1)
+                StartCoroutine(DelayDeath(ptView));
+            else if (index == 2)
+                ptView.RPC("_PlayerRunning", ptView.Owner, transform.position, isTrue);
+            else
+                ptView.RPC("_PlayerAttack", ptView.Owner, transform.position);
+        }
+    }
+    IEnumerator DelayDeath(PhotonView ptView)
+    {
+        yield return new WaitForSeconds(0.35f);
+        ptView.RPC("_PlayerFainted", ptView.Owner, transform.position);
 
     }
 
     [PunRPC]
-    public void _PlayerHurt()
+    public void _PlayerHurt(Vector3 pos)
     {
         AudioClip clip;
-        int i = Random.Range(1, 3);
+        int i = Random.Range(1, 4);
         if (i == 1)
         {
             clip = hurt1;
@@ -76,14 +103,13 @@ public class PlayerAudio : MonoBehaviourPun
         {
             clip = hurt3;
         }
-
-        playerSound.PlayOneShot(clip);
+        AudioSource.PlayClipAtPoint(clip, pos, audioManager.playerSound);
     }
     [PunRPC]
-    public void _PlayerFainted()
+    public void _PlayerFainted(Vector3 pos)
     {
         AudioClip clip;
-        int i = Random.Range(1, 3);
+        int i = Random.Range(1, 4);
         if (i == 1)
         {
             clip = fainted1;
@@ -96,28 +122,33 @@ public class PlayerAudio : MonoBehaviourPun
         {
             clip = fainted3;
         }
-
-        playerSound.PlayOneShot(clip);
+        Debug.Log("ok");
+        AudioSource.PlayClipAtPoint(clip, pos, audioManager.playerSound);
     }
     [PunRPC]
-    public void _PlayerRunning(bool isTrue)
+    public void _PlayerRunning(Vector3 pos, bool isTrue)
     {
         if (isTrue)
         {
-            if (!playerRun.isPlaying)
+            if (!checkRun)
             {
-                playerRun.Play();
+                checkRun = true;
+                AudioSource.PlayClipAtPoint(run, pos, audioManager.playerFootstep);
             }
-        }
-        else
-        {
-            playerRun.Stop();
-            
+            else
+            {
+                runClipTime -= Time.deltaTime;
+                if (runClipTime <= 0)
+                {
+                    checkRun = false;
+                    runClipTime = run.length;
+                }
+            }
         }
     }
     [PunRPC]
-    public void _PlayerAttack()
+    public void _PlayerAttack(Vector3 pos)
     {
-        playerSound.PlayOneShot(attack);
+        AudioSource.PlayClipAtPoint(attack, pos, audioManager.playerSound);
     }
 }
