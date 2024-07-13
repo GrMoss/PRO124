@@ -258,7 +258,7 @@ public class CookingController : MonoBehaviour
         if (view.IsMine && collision.gameObject.CompareTag("Cooker"))
         {
             viewCooker.SetActive(true);
-            inventory_Manager?.UpdateDebugLogText();
+            inventory_Manager?.ShowItemInInventory();
         }
     }
 

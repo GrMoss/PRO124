@@ -31,6 +31,13 @@ public class SpawnItem : MonoBehaviourPunCallbacks
     // Hàm spawn các item
     public void SpawnItems()
     {
+        // Check if itemSpawn list is null or empty
+        if (itemSpawn == null || itemSpawn.Count == 0)
+        {
+            Debug.LogError("itemSpawn list is null or empty. Cannot spawn items.");
+            return;
+        }
+
         for (int i = 0; i < soLuongItemSpawn; i++)
         {
             //Debug.Log("Spawn Item");
@@ -38,6 +45,12 @@ public class SpawnItem : MonoBehaviourPunCallbacks
             // Chọn một item ngẫu nhiên từ danh sách itemSpawn
             int randomIndex = Random.Range(0, itemSpawn.Count);
             GameObject itemToSpawn = itemSpawn[randomIndex];
+
+            if (itemToSpawn == null)
+            {
+                Debug.LogError("itemToSpawn is null. Cannot spawn this item.");
+                continue;
+            }
 
             // Tạo vị trí ngẫu nhiên trong bán kính đã cho
             Vector2 randomPosition = Random.insideUnitCircle * spawnRadius;

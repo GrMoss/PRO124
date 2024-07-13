@@ -7,11 +7,8 @@ public class GetItem : MonoBehaviourPun
     public int[] quantity;
     private Inventory_Manager inventoryManager; // Tham chiếu đến Inventory_Manager
 
-    private PhotonView view;
-
     private void Start()
     {
-        view = GetComponent<PhotonView>();
         inventoryManager = GetComponent<Inventory_Manager>();
 
         if (inventoryManager != null)
@@ -26,7 +23,25 @@ public class GetItem : MonoBehaviourPun
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (view.IsMine)
+        if (photonView == null)
+        {
+            Debug.LogError("PhotonView is null");
+            return;
+        }
+
+        if (itemID == null)
+        {
+            Debug.LogError("itemID array is null");
+            return;
+        }
+
+        if (quantity == null)
+        {
+            Debug.LogError("quantity array is null");
+            return;
+        }
+
+        if (photonView.IsMine)
         {
             for (int i = 0; i < itemID.Length; i++)
             {
@@ -40,4 +55,5 @@ public class GetItem : MonoBehaviourPun
             }
         }
     }
+
 }
