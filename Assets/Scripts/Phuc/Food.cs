@@ -15,7 +15,6 @@ public abstract class Food : MonoBehaviour
     public PhotonView targetPhotonView = null;
     public PlayerController playerController;
     public PhotonScript PhotonScript;
-    private PhotonScript targetPhotonScript;
 
     public abstract void SpecialEffects();
 
@@ -57,7 +56,6 @@ public abstract class Food : MonoBehaviour
         {
             targetPhotonView = collision.gameObject.GetComponentInParent<PhotonView>();
             playerController = collision.gameObject.GetComponentInParent<PlayerController>();
-            targetPhotonScript = collision.gameObject.GetComponentInParent<PhotonScript>();
 
             if (targetPhotonView != null && playerController != null)
             {
@@ -81,11 +79,10 @@ public abstract class Food : MonoBehaviour
                     Debug.Log("Nem");
                     SpecialEffects();
 
-                    if (PhotonScript != null && targetPhotonScript != null)
+                    if (PhotonScript != null)
                     {
-                        //Cong va tru diem tuong duong voi so damage gay ra
+                        //Cong diem tuong duong voi so damage gay ra
                         PhotonScript.CongDiem(damage);
-                        targetPhotonScript.TruDiem(damage);
                     }
 
                     if (view.IsMine)

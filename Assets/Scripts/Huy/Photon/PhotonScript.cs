@@ -27,7 +27,7 @@ public class PhotonScript : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
 
-            photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, LobbyManager.offLobby);
+            //photonView.RPC("SetActiveObjectsForAll", RpcTarget.All, LobbyManager.offLobby);
         }
         
         

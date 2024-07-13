@@ -15,10 +15,16 @@ public class BlurObjects : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if(collision.gameObject.GetComponent<PlayerController>().view.IsMine)
+            {
+                Color color = spriteRenderer.color;
+                color.a = spriteRendererColorA;
+                spriteRenderer.color = color;
+            }
             // Làm mờ đối tượng bằng cách giảm alpha của màu sắc
-            Color color = spriteRenderer.color;
+            /*Color color = spriteRenderer.color;
             color.a = spriteRendererColorA; // Đặt alpha xuống để làm mờ
-            spriteRenderer.color = color;
+            spriteRenderer.color = color;*/
         }
     }
 
@@ -26,9 +32,15 @@ public class BlurObjects : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Color color = spriteRenderer.color;
+            if (collision.gameObject.GetComponent<PlayerController>().view.IsMine)
+            {
+                Color color = spriteRenderer.color;
+                color.a = 1f;
+                spriteRenderer.color = color;
+            }
+            /*Color color = spriteRenderer.color;
             color.a = 1f; // Đặt alpha về 100% để hiện thị đầy đủ
-            spriteRenderer.color = color;
+            spriteRenderer.color = color;*/
         }
     }
 }
