@@ -6206,6 +6206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventorySlotPrefab: {fileID: 0}
   inventoryPanel: {fileID: 0}
+  inventoryUI: {fileID: 0}
 --- !u!1 &2861835871208796010
 GameObject:
   m_ObjectHideFlags: 0
