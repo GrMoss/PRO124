@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 3673907460242025557}
   - component: {fileID: 5190144129027054044}
   - component: {fileID: 329500803863646020}
-  - component: {fileID: -2489904037821966242}
   - component: {fileID: -354839098663248727}
   m_Layer: 0
   m_Name: Carrot-Spawn
@@ -333,20 +332,6 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
---- !u!114 &-2489904037821966242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8757761002965729230}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3711bdc4d2d354ce48867486266d1616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemID: 
-  quantity: 0
 --- !u!114 &-354839098663248727
 MonoBehaviour:
   m_ObjectHideFlags: 0
