@@ -757,7 +757,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 75f3b7e4343e7449ba6b854826ea6022, type: 3}
   - {fileID: 21300000, guid: 595a2ce6a53d44923a348af5c075523d, type: 3}
   - {fileID: 21300000, guid: db2ca9c7930a34c16ba03ac0a3a1acdb, type: 3}
-  itemInformation: []
   debugLogText: {fileID: 3998320345841990586}
 --- !u!114 &5831669840042339318
 MonoBehaviour:
