@@ -14,7 +14,6 @@ public class GetItem : MonoBehaviourPun
         // Tìm Inventory_Manager trên đối tượng cha trước
         inventory_Manager = GetComponentInParent<Inventory_Manager>();
         inventory_UI = FindObjectOfType<Inventory_UI>();
-
         if (photonView.IsMine)
         {
             if (inventory_Manager != null)
