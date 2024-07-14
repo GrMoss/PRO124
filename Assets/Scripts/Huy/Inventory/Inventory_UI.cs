@@ -64,7 +64,7 @@ public class Inventory_UI : MonoBehaviourPun
             if (i < inventoryItems.Count && inventoryItems[i].QuantityItem > 0)
             {
                 var item = inventoryItems[i];
-                ItemPrefab itemPrefabComponent = slot[i].GetComponent<ItemPrefab>();
+                ItemSlot itemPrefabComponent = slot[i].GetComponent<ItemSlot>();
 
                 if (itemPrefabComponent != null)
                 {
