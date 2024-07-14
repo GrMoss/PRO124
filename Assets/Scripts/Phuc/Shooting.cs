@@ -24,14 +24,17 @@ public class Shooting : MonoBehaviourPun
     public float directionY;
 
     private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
+    private Inventory_UI inventory_UI;
 
     PlayerAnimatorController aniController;
 
     private void Start()
     {
+        inventory_UI = FindObjectOfType<Inventory_UI>();
         aniController = GetComponentInParent<PlayerAnimatorController>();
 
         indexChooseFood = 0;
+
         // Tìm Inventory_Manager trên đối tượng cha trước
         inventory_Manager = GetComponentInParent<Inventory_Manager>();
 
@@ -43,6 +46,7 @@ public class Shooting : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
+  
             if (inventory_Manager != null)
             {
                 Debug.Log("Đã gán Inventory_Manager cho GetItem.");
@@ -51,28 +55,28 @@ public class Shooting : MonoBehaviourPun
             {
                 Debug.LogError("Không tìm thấy Inventory_Manager trên đối tượng này hoặc trong scene.");
             }
+
+            mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+            view = GetComponentInParent<PhotonView>();
+            spriteFood = GetComponentInChildren<SpriteRenderer>();
         }
 
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        view = GetComponentInParent<PhotonView>();
-        spriteFood = GetComponentInChildren<SpriteRenderer>();
+       
     }
 
     private void Update()
     {
-
-
-        if (food[indexChooseFood].GetComponent<SpriteRenderer>() != null)
+        if (photonView.IsMine)
         {
-            spriteFood.sprite = food[indexChooseFood].GetComponent<SpriteRenderer>().sprite;
-        }
-        else
-        {
-            spriteFood.sprite = null;
-        }
+            if (food[indexChooseFood].GetComponent<SpriteRenderer>() != null)
+            {
+                spriteFood.sprite = food[indexChooseFood].GetComponent<SpriteRenderer>().sprite;
+            }
+            else
+            {
+                spriteFood.sprite = null;
+            }
 
-        if (view.IsMine)
-        {
             mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
             Vector3 rotation = mousePos - transform.position;
@@ -90,6 +94,8 @@ public class Shooting : MonoBehaviourPun
                     timer = 0;
                 }
             }
+
+            indexChooseFood = inventory_UI.GetIndexShooting();
 
             if (inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
             {
