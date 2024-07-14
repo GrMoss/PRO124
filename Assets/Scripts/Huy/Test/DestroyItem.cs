@@ -4,13 +4,13 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class DestroyItem : MonoBehaviour
+public class DestroyItem : MonoBehaviourPun
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 
@@ -18,7 +18,7 @@ public class DestroyItem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 }

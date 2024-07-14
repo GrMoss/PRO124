@@ -1544,6 +1544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &573261219604990550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,6 +2067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &617247357073673860
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,6 +4057,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6869855960478773174}
   - component: {fileID: 4146123245455333829}
+  - component: {fileID: 2479926861257560793}
+  - component: {fileID: 3677066453569652471}
   m_Layer: 0
   m_Name: RotatePoint
   m_TagString: Untagged
@@ -4104,6 +4108,62 @@ MonoBehaviour:
   timeBetweenFiring: 1
   player: {fileID: 1673446536752421944}
   directionY: 0
+--- !u!114 &2479926861257560793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028001305761444298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 3677066453569652471}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &3677066453569652471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028001305761444298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 1
+    TeleportIfDistanceGreaterThan: 3
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 0
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 1
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
 --- !u!1 &1059376846754538122
 GameObject:
   m_ObjectHideFlags: 0
@@ -6573,7 +6633,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.001333721, y: 0.089815654}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -6584,7 +6644,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.43, y: 0.14}
+  m_Size: {x: 0.29395962, y: 0.23284362}
   m_EdgeRadius: 0
 --- !u!114 &6104401279075716470
 MonoBehaviour:
@@ -6600,7 +6660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   healthSlider: {fileID: 5176970887888083700}
-  slider: {fileID: 8307377850443830363}
+  slider: {fileID: 0}
   moveSpeed: 4
   view: {fileID: 6903585598850195347}
   hitBox: {fileID: 5281962237158851057}
@@ -6791,7 +6851,7 @@ MonoBehaviour:
   hurt3: {fileID: 8300000, guid: 0e296213b7b5437499de0faa7408a9e6, type: 3}
   run: {fileID: 8300000, guid: 270ba52025caad2469b29d1e501eed13, type: 3}
   attack: {fileID: 8300000, guid: e86e9fb1f8e7284419efe8b7f8f77608, type: 3}
-  hearRange: 10
+  hearRange: 15
 --- !u!82 &2522278265767834998
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9326,6 +9386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &2191675575720606789
 GameObject:
   m_ObjectHideFlags: 0
@@ -9834,6 +9895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &2351610849406865017
 GameObject:
   m_ObjectHideFlags: 0
@@ -11633,6 +11695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &2934878473935095082
 GameObject:
   m_ObjectHideFlags: 0
@@ -13564,6 +13627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &3486370348138770384
 GameObject:
   m_ObjectHideFlags: 0
@@ -14824,6 +14888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &3786298533594803669
 GameObject:
   m_ObjectHideFlags: 0
@@ -15359,6 +15424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &3846536441154797889
 GameObject:
   m_ObjectHideFlags: 0
@@ -16538,6 +16604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &4047216009961450282
 GameObject:
   m_ObjectHideFlags: 0
@@ -21390,6 +21457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &5281962237158851057
 GameObject:
   m_ObjectHideFlags: 0
@@ -21401,6 +21469,8 @@ GameObject:
   - component: {fileID: 2483600325694806406}
   - component: {fileID: 5340820673962084000}
   - component: {fileID: 8842888740395594012}
+  - component: {fileID: 7683506480489197391}
+  - component: {fileID: 5848025329752274309}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: PlayerHitBox
@@ -21455,8 +21525,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
-  m_Size: {x: 0.6, y: 1}
+  m_Offset: {x: 0, y: 0.4463197}
+  m_Size: {x: 0.6, y: 1.1073606}
   m_Direction: 0
 --- !u!114 &8842888740395594012
 MonoBehaviour:
@@ -21472,6 +21542,62 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 0000000001000000020000000300000004000000050000000600000007000000
   quantity: 1
+--- !u!114 &7683506480489197391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281962237158851057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 5848025329752274309}
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &5848025329752274309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5281962237158851057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 1
+    TeleportIfDistanceGreaterThan: 3
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 0
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 1
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
 --- !u!1 &5291360874524069566
 GameObject:
   m_ObjectHideFlags: 0
@@ -23501,6 +23627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &5840124963565220040
 GameObject:
   m_ObjectHideFlags: 0
@@ -24213,6 +24340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &5977128459886865567
 GameObject:
   m_ObjectHideFlags: 0
@@ -25211,6 +25339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &6352010839955862627
 GameObject:
   m_ObjectHideFlags: 0
@@ -26005,6 +26134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &6647230718437528844
 GameObject:
   m_ObjectHideFlags: 0
@@ -26348,6 +26478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &6737507602662530886
 GameObject:
   m_ObjectHideFlags: 0
@@ -27227,6 +27358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &6858410719053482042
 GameObject:
   m_ObjectHideFlags: 0
@@ -28228,6 +28360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &7324062398467297386
 GameObject:
   m_ObjectHideFlags: 0
@@ -29343,6 +29476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &7536153850640853123
 GameObject:
   m_ObjectHideFlags: 0
@@ -32652,6 +32786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &8307377850443830363
 GameObject:
   m_ObjectHideFlags: 0
@@ -34332,6 +34467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
 --- !u!1 &8710598537675231593
 GameObject:
   m_ObjectHideFlags: 0

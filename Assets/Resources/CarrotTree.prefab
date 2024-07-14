@@ -357,3 +357,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
+  indexShooting: 0
