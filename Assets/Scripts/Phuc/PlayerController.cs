@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = moveVector * moveSpeed;
             aniController.RunAnimation(moveVector);
-            audi.PlayerRunning((moveVector.x > 0.1f || moveVector.x < -0.1f));
+            audi.PlayerRunning(Mathf.Abs(moveVector.x) > 0.1f || Mathf.Abs(moveVector.y) > 0.1f);
         }
     }
 
@@ -180,7 +180,7 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         isDie = true;
-        aniController.FaintedIdleAnimation(isDie);
+        aniController.RecoverAnimation(isDie);
         rb.velocity = Vector2.zero;
         rotatePoint.SetActive(false);
         hitBox.SetActive(false);
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(10);
         isDie = false;
-        aniController.FaintedIdleAnimation(isDie);
+        aniController.RecoverAnimation(isDie);
         rotatePoint.SetActive(true);
         hitBox.SetActive(true);
     }

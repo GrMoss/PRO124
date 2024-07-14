@@ -5,31 +5,28 @@ using UnityEngine;
 public class PlayerAnimatorController : MonoBehaviour
 {
     private Animator ani;
+    private SpriteRenderer sr;
     void Start()
     {
         ani = GetComponent<Animator>();
+        sr = GameObject.Find("Player_Sprite").GetComponent<SpriteRenderer>();
     }
 
     public void RunAnimation(Vector2 moveVector)
     {
         if (Mathf.Abs(moveVector.x) > 0.1f)
         {
-            ani.SetBool("isMoving", true);
-
-            ani.SetFloat("moveX", moveVector.x);
-
+            ani.SetBool("IsMoving", true);
+            bool flip = (moveVector.x < -0.1f);
+            sr.flipX = flip;
         }
         else if (Mathf.Abs(moveVector.y) > 0.1f)
         {
-            ani.SetBool("isMoving", true);
-
-            ani.SetFloat("moveY", moveVector.y);
-
+            ani.SetBool("IsMoving", true);
         }
         else
         {
-            ani.SetBool("isMoving", false);
-
+            ani.SetBool("IsMoving", false);
         }
     }
     public void HurtAnimation()
@@ -40,8 +37,12 @@ public class PlayerAnimatorController : MonoBehaviour
     {
         ani.SetTrigger("Fainted");
     }
-    public void FaintedIdleAnimation(bool isTrue)
+    public void RecoverAnimation(bool isTrue)
     {
         ani.SetBool("IsFainted", isTrue);
+    }
+    public void AttackAnimation()
+    {
+        ani.SetTrigger("Attack");
     }
 }
