@@ -25,8 +25,12 @@ public class Shooting : MonoBehaviourPun
 
     private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
 
+    PlayerAnimatorController aniController;
+
     private void Start()
     {
+        aniController = GetComponentInParent<PlayerAnimatorController>();
+
         indexChooseFood = 0;
         // Tìm Inventory_Manager trên đối tượng cha trước
         inventory_Manager = GetComponentInParent<Inventory_Manager>();
@@ -104,6 +108,8 @@ public class Shooting : MonoBehaviourPun
                     foodObject.transform.localScale.z);
                     foodObject.GetComponent<Food>().ownerId = view.ViewID;
                     Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
+
+                    aniController.AttackAnimation();
                 }
 
                 if (Input.GetMouseButton(1) && canFire && food != null)
@@ -120,6 +126,8 @@ public class Shooting : MonoBehaviourPun
                     foodObject.transform.localScale.z);
                     foodObject.GetComponent<Food>().ownerId = 1;
                     Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
+
+                    aniController.EatAnimation();
                 }
             }
         }
