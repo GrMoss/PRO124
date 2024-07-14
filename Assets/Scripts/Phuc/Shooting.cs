@@ -25,6 +25,7 @@ public class Shooting : MonoBehaviourPun
 
     private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
     private Inventory_UI inventory_UI;
+    private CookingController cookingController;
 
     PlayerAnimatorController aniController;
 
@@ -32,7 +33,7 @@ public class Shooting : MonoBehaviourPun
     {
         inventory_UI = FindObjectOfType<Inventory_UI>();
         aniController = GetComponentInParent<PlayerAnimatorController>();
-
+        cookingController = FindObjectOfType<CookingController>();
         indexChooseFood = 0;
 
         // Tìm Inventory_Manager trên đối tượng cha trước
@@ -97,6 +98,12 @@ public class Shooting : MonoBehaviourPun
 
             indexChooseFood = inventory_UI.GetIndexShooting();
 
+            if (inventory_Manager.GetQuantityItem(indexChooseFood) <= 0)
+            {
+                indexChooseFood = 0;
+            }
+
+            // && !inventory_UI.inventoryUIOn && !cookingController.cookingOn
             if (inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
             {
 
