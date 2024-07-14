@@ -6,7 +6,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviourPun
 {
     [Header("index Choose Start")]
-    [SerializeField] int indexChooseFoodStart;
+    public int indexChooseFood;
 
     [Header("Item object")]
     public GameObject[] food;
@@ -22,23 +22,23 @@ public class Shooting : MonoBehaviourPun
     private PhotonView view;
     private SpriteRenderer spriteFood;
     public float directionY;
-    public static int indexChooseFood;
 
     private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
 
     private void Start()
     {
+        indexChooseFood = 0;
+        // Tìm Inventory_Manager trên đối tượng cha trước
+        inventory_Manager = GetComponentInParent<Inventory_Manager>();
+
+        // Nếu không tìm thấy, dùng FindObjectOfType để tìm trong toàn bộ scene
+        if (inventory_Manager == null)
+        {
+            inventory_Manager = FindObjectOfType<Inventory_Manager>();
+        }
+
         if (photonView.IsMine)
         {
-            // Tìm Inventory_Manager trên đối tượng cha trước
-            inventory_Manager = GetComponentInParent<Inventory_Manager>();
-
-            // Nếu không tìm thấy, dùng FindObjectOfType để tìm trong toàn bộ scene
-            if (inventory_Manager == null)
-            {
-                inventory_Manager = FindObjectOfType<Inventory_Manager>();
-            }
-
             if (inventory_Manager != null)
             {
                 Debug.Log("Đã gán Inventory_Manager cho GetItem.");
@@ -49,7 +49,6 @@ public class Shooting : MonoBehaviourPun
             }
         }
 
-        indexChooseFood = indexChooseFoodStart;
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         view = GetComponentInParent<PhotonView>();
         spriteFood = GetComponentInChildren<SpriteRenderer>();

@@ -741,7 +741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a3baecb2c7cc65439c8e0b149bf3d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexChooseFoodStart: 1
+  indexChooseFood: 0
   food:
   - {fileID: 4720068831496077756, guid: 43186bb7da0a343f3b8c06aef458f9f9, type: 3}
   - {fileID: 3302168835374250081, guid: f8ff56c80adb291458608ff5e9f23798, type: 3}

@@ -31,7 +31,6 @@ public class ChooseItem : MonoBehaviour
     {
         this.id = id;
         this.quatity = quatity;
-        Shooting.indexChooseFood = id;
     }
 
     public void ChooseItemHand()
