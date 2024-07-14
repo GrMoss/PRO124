@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3387610597301331992}
   - component: {fileID: 4184153686577798970}
   - component: {fileID: 5190048064372252231}
-  - component: {fileID: 4358236470849167252}
   - component: {fileID: 8525377825001704591}
   - component: {fileID: -7746609165076681541}
+  - component: {fileID: 5065020908362766942}
   m_Layer: 0
   m_Name: Cucumber
   m_TagString: Cucumber
@@ -139,7 +139,41 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!60 &4358236470849167252
+--- !u!114 &8525377825001704591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4632993946142706576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6de224a2ef8bed42964d0ca11d1f57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  targetPhotonView: {fileID: 6903585598850195347, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
+  playerController: {fileID: 6104401279075716470, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
+  PhotonScript: {fileID: 6753274346022096508, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
+  speedFly: 8
+  damage: 10
+--- !u!114 &-7746609165076681541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4632993946142706576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 1
+  m_TeleportIfDistanceGreaterThan: 3
+--- !u!60 &5065020908362766942
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,7 +208,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5290276, y: -2.9429924}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.6666666, y: 1.6666666}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -235,37 +269,3 @@ PolygonCollider2D:
       - {x: 0.26000002, y: -0.49333334}
       - {x: 0.28333333, y: -0.47}
   m_UseDelaunayMesh: 0
---- !u!114 &8525377825001704591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4632993946142706576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6de224a2ef8bed42964d0ca11d1f57b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ownerId: 0
-  targetPhotonView: {fileID: 6903585598850195347, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
-  playerController: {fileID: 6104401279075716470, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
-  PhotonScript: {fileID: 6753274346022096508, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
-  speedFly: 8
-  damage: 10
---- !u!114 &-7746609165076681541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4632993946142706576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 1
-  m_TeleportIfDistanceGreaterThan: 3
