@@ -17,10 +17,12 @@ public class PlayerAnimatorController : MonoBehaviour
         if (Mathf.Abs(moveVector.x) > 0.1f)
         {
             ani.SetBool("IsMoving", true);
+            ani.SetFloat("MoveX", moveVector.x);
         }
         else if (Mathf.Abs(moveVector.y) > 0.1f)
         {
             ani.SetBool("IsMoving", true);
+            ani.SetFloat("MoveY", moveVector.y);
         }
         else
         {
