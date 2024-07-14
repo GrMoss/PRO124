@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 
-public class ItemPrefab : MonoBehaviourPun
+public class ItemSlot : MonoBehaviourPun
 {
     public int itemID;
     private Inventory_Manager inventory_Manager;
@@ -19,7 +19,6 @@ public class ItemPrefab : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
-
             if (inventory_Manager != null)
             {
                 Debug.Log("Đã gán Inventory_Manager cho ItemPrefab.");
@@ -44,7 +43,6 @@ public class ItemPrefab : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            Debug.Log("pressTest1 ID: " + itemID);
             shooting.indexChooseFood = itemID;
         }
     }

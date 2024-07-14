@@ -66,6 +66,8 @@ MonoBehaviour:
   - SyncOnTriggerEnter2D
   - SyncRemoveItemFromList
   - RPC_UpdateInventoryUI
+  - SetIndexChooseFood
+  - SyncIndexShooting
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
