@@ -17,8 +17,6 @@ public class PlayerAnimatorController : MonoBehaviour
         if (Mathf.Abs(moveVector.x) > 0.1f)
         {
             ani.SetBool("IsMoving", true);
-            bool flip = (moveVector.x < -0.1f);
-            sr.flipX = flip;
         }
         else if (Mathf.Abs(moveVector.y) > 0.1f)
         {
@@ -44,5 +42,10 @@ public class PlayerAnimatorController : MonoBehaviour
     public void AttackAnimation()
     {
         ani.SetTrigger("Attack");
+    }
+    public void EatAnimation()
+    {
+        ani.SetTrigger("Eat");
+        Debug.Log("EAT!");
     }
 }

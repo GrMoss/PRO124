@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    private SpriteRenderer sr;
+
     public int health = 0;
     private int healthMax = 100;
     public Slider healthSlider;
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         aniController = GetComponent<PlayerAnimatorController>();
         audi = FindObjectOfType<PlayerAudio>();
+        sr = GameObject.Find("Player_Sprite").GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -48,8 +51,15 @@ public class PlayerController : MonoBehaviour
         if (view.IsMine && !isDie)
         {
             rb.velocity = moveVector * moveSpeed;
+
             aniController.RunAnimation(moveVector);
+
             audi.PlayerRunning(Mathf.Abs(moveVector.x) > 0.1f || Mathf.Abs(moveVector.y) > 0.1f);
+
+            if (Mathf.Abs(moveVector.x) > 0.1f)
+            {
+                view.RPC("Flip", RpcTarget.AllBuffered, moveVector.x);
+            }
         }
     }
 
@@ -62,6 +72,18 @@ public class PlayerController : MonoBehaviour
             {
                 isDie = true;
             }
+        }
+
+        //TestDamage
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            //hurt
+            TakeDamage(1);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            //Fainted
+            TakeDamage(100);
         }
     }
 
@@ -114,6 +136,13 @@ public class PlayerController : MonoBehaviour
                 audi.PlayerHurt();
             }
         }
+    }
+
+    [PunRPC]
+    private void Flip(float x)
+    {
+        bool flip = (x < -0.1f);
+        sr.flipX = flip;
     }
 
     [PunRPC]
