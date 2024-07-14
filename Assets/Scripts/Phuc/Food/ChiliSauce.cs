@@ -13,7 +13,7 @@ public class ChilliSauce : Food
     {
         if (playerController != null)
         {
-            targetPhotonView.RPC("StartBleeding", RpcTarget.All, damageBleeding, 1f);
+            targetPhotonView.RPC("StartBleeding", RpcTarget.All, damageBleeding, 5f);
             Debug.Log("Skill");
         }
     }

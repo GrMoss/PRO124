@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,11 +18,9 @@ public class PlayerController : MonoBehaviour
     public GameObject hitBox;
     public bool isDie = false;
     public GameObject rotatePoint;
+    private float bleedingTimeRemaining = 0f;
 
     private PlayerAnimatorController aniController;
-    //private HealthManager healthManager;
-
-    //Audio
     private PlayerAudio audi;
 
     private void Awake()
@@ -33,7 +30,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         aniController = GetComponent<PlayerAnimatorController>();
         audi = FindObjectOfType<PlayerAudio>();
-        //healthManager = GetComponentInChildren<HealthManager>();
     }
 
     private void Start()
@@ -43,7 +39,7 @@ public class PlayerController : MonoBehaviour
             isDie = false;
         }
 
-        healthSlider.maxValue = healthMax;  
+        healthSlider.maxValue = healthMax;
     }
 
     private void FixedUpdate()
@@ -51,7 +47,6 @@ public class PlayerController : MonoBehaviour
         if (view.IsMine && !isDie)
         {
             rb.velocity = moveVector * moveSpeed;
-            //Call Animation
             aniController.RunAnimation(moveVector);
             audi.PlayerRunning((moveVector.x > 0.1f || moveVector.x < -0.1f));
         }
@@ -100,14 +95,12 @@ public class PlayerController : MonoBehaviour
         {
             health += damage;
             view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered, health);
-            //healthManager.UpdateHealthSlider();
             view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
             if (health >= healthMax)
             {
                 health = 0;
                 view.RPC("Die", RpcTarget.AllBuffered);
                 view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered, health);
-                //healthManager.UpdateHealthSlider();
                 view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
                 aniController.FaintedAnimation();
 
@@ -115,7 +108,6 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //aniController.HurtAnimation();
                 view.RPC("PlayHurtAnimation", RpcTarget.AllBuffered);
 
                 audi.PlayerHurt();
@@ -138,18 +130,27 @@ public class PlayerController : MonoBehaviour
     [PunRPC]
     public void StartBleeding(int damage, float time)
     {
-        StartCoroutine(Bleeding(damage, time));
+        if (bleedingTimeRemaining > 0)
+        {
+            bleedingTimeRemaining += time;
+        }
+        else
+        {
+            StartCoroutine(Bleeding(damage, time));
+        }
     }
 
     private IEnumerator Bleeding(int damage, float time)
     {
-        for (int i = 0; i < 5; i++)
+        bleedingTimeRemaining = time;
+        while (bleedingTimeRemaining > 0)
         {
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(1);
             if (view.IsMine)
             {
                 TakeDamage(damage);
             }
+            bleedingTimeRemaining -= 1f;
         }
     }
 
@@ -157,7 +158,6 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         isDie = true;
-        //Call Animation
         aniController.FaintedIdleAnimation(isDie);
         rb.velocity = Vector2.zero;
         rotatePoint.SetActive(false);
@@ -169,7 +169,6 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(10);
         isDie = false;
-        //Call Animation
         aniController.FaintedIdleAnimation(isDie);
         rotatePoint.SetActive(true);
         hitBox.SetActive(true);
