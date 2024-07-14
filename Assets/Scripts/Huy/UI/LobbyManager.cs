@@ -14,7 +14,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject roomlobby;
     [SerializeField] private GameObject canvalobby;
     [SerializeField] private CinemachineVirtualCamera setATCameraVS;
+    private PlayerController[] playerController;
     public static bool offLobby = false;
+    private bool isStartGame = false;
 
     private void Start()
     {
@@ -26,6 +28,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         // Cập nhật danh sách người chơi và kiểm tra nếu người chơi là chủ phòng
         UpdatePlayersList();
         CheckIfMasterClient();
+    }
+
+    private void Update()
+    {
+        if(!isStartGame)
+        {
+            playerController = GameObject.FindObjectsOfType<PlayerController>();
+        }
     }
 
     public override void OnJoinedRoom()
@@ -94,6 +104,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            isStartGame = true;
             Debug.Log("Chủ phòng đã nhấn nút bắt đầu game.");
 
             // Khóa phòng và ngăn người chơi mới vào
@@ -102,6 +113,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
             // Chuyển tất cả người chơi vào scene game chính
             photonView.RPC("ChangeRoomState", RpcTarget.All, true);
+            foreach(var player in playerController)
+            {
+                player.view.RPC("TurnOnHealth", RpcTarget.All);
+            }
         }
     }
 

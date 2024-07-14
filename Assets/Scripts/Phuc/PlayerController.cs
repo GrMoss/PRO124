@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public int health = 0;
     private int healthMax = 100;
     public Slider healthSlider;
+    public GameObject slider;
 
     private InputSystem input;
     private Vector2 moveVector = Vector2.zero;
@@ -128,6 +129,25 @@ public class PlayerController : MonoBehaviour
     }
 
     [PunRPC]
+    public void StartSlow(float time)
+    {
+        StartCoroutine(Slow(time));
+    }
+
+    private IEnumerator Slow(float time)
+    {
+        if(view.IsMine)
+        {
+            moveSpeed = 2.5f;
+        }
+        yield return new WaitForSeconds(time);
+        if (view.IsMine)
+        {
+            moveSpeed = 4f;
+        }
+    }
+
+    [PunRPC]
     public void StartBleeding(int damage, float time)
     {
         if (bleedingTimeRemaining > 0)
@@ -143,6 +163,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Bleeding(int damage, float time)
     {
         bleedingTimeRemaining = time;
+        GetComponentInChildren<Shooting>().timeBetweenFiring = 0.65f;
         while (bleedingTimeRemaining > 0)
         {
             yield return new WaitForSeconds(1);
@@ -152,6 +173,7 @@ public class PlayerController : MonoBehaviour
             }
             bleedingTimeRemaining -= 1f;
         }
+        GetComponentInChildren<Shooting>().timeBetweenFiring = 1f;
     }
 
     [PunRPC]
@@ -180,5 +202,11 @@ public class PlayerController : MonoBehaviour
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
+    }
+
+    [PunRPC]
+    public void TurnOnHealth()
+    {
+        slider.SetActive(true);
     }
 }
