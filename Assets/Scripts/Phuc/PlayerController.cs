@@ -109,13 +109,11 @@ public class PlayerController : MonoBehaviour
         {
             health += damage;
             view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered, health);
-            view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
             if (health >= healthMax)
             {
                 health = 0;
                 view.RPC("Die", RpcTarget.AllBuffered);
                 view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered, health);
-                view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered);
                 aniController.FaintedAnimation();
 
                 audi.PlayerFainted();
