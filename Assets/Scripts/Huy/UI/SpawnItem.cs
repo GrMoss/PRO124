@@ -16,12 +16,17 @@ public class SpawnItem : MonoBehaviourPunCallbacks
     [SerializeField] float timeSpawnItem = 60f;
 
     private bool canSpawn = true;
+    private LobbyManager lobbyManager;
 
-    private void FixedUpdate()
+    private void Start()
+    {
+        lobbyManager = FindObjectOfType<LobbyManager>();
+    }
+        private void FixedUpdate()
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            if (canSpawn && LobbyManager.offLobby)
+            if (canSpawn && lobbyManager.offLobby)
             {
                 StartCoroutine(TimeSpawnItem());
             }

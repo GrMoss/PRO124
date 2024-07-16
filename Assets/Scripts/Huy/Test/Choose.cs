@@ -13,10 +13,11 @@ public class Choose : MonoBehaviourPunCallbacks
     [SerializeField] TMP_Text pingText;
 
     [SerializeField] float timeWayNotificationText = 2f;
+    private LobbyManager lobbyManager;
 
     private void Start()
     {
-
+        lobbyManager = FindObjectOfType<LobbyManager>();
     }
     private void FixedUpdate()
     {
@@ -43,7 +44,7 @@ public class Choose : MonoBehaviourPunCallbacks
         Debug.Log("Đang thoát khỏi phòng.");
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene("Home");
-        LobbyManager.offLobby = false;
+        lobbyManager.offLobby = false;
     }
 
     public override void OnLeftRoom()

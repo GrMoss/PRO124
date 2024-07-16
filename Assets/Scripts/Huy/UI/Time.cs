@@ -19,9 +19,11 @@ public class Timer : MonoBehaviourPunCallbacks
     public TMP_Text timeText;
     public GameObject onPanel;
     public static bool TimeOver = false;
+    private LobbyManager lobbyManager;
 
     void Start()
     {
+        lobbyManager = FindObjectOfType<LobbyManager>();
         timerIsRunning = false;
         Time.timeScale = 1;
         // Lưu trữ thời gian ban đầu
@@ -49,7 +51,7 @@ public class Timer : MonoBehaviourPunCallbacks
                 if (timeRemaining == 0)
                 {
                     TimeOver = true;
-                    LobbyManager.offLobby = false;
+                    lobbyManager.offLobby = false;
                     photonView.RPC("ShowPanelForAll", RpcTarget.All);
                 }
                 //Debug.Log("Hết thời gian!");
