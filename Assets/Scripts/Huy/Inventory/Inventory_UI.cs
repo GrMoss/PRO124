@@ -16,6 +16,7 @@ public class Inventory_UI : MonoBehaviourPun
     private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
     private int indexShooting;
     public GameObject rotatePoint;
+    private bool isCooker = false;
 
     private LobbyManager lobbyManager;
 
@@ -50,7 +51,7 @@ public class Inventory_UI : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            if (Input.GetKeyDown(KeyCode.Tab) && lobbyManager.offLobby)
+            if (Input.GetKeyDown(KeyCode.Tab) && !isCooker && lobbyManager.offLobby)
             {
                 inventoryUI.SetActive(!inventoryUI.activeSelf);
                 rotatePoint.SetActive(!rotatePoint.activeSelf);
@@ -129,5 +130,10 @@ public class Inventory_UI : MonoBehaviourPun
     public int GetIndexShooting()
     {
         return indexShooting;
+    }
+
+    public void setIsCooker(bool x)
+    {
+        isCooker = x;
     }
 }
