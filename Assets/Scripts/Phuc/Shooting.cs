@@ -24,14 +24,16 @@ public class Shooting : MonoBehaviourPun
     public float directionY;
 
     private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
-    private Inventory_UI inventory_UI;
+    private Inventory_Bar inventory_Bar;
     private CookingController cookingController;
+    private ItemSlot itemSlot;
 
     PlayerAnimatorController aniController;
 
     private void Start()
     {
-        inventory_UI = FindObjectOfType<Inventory_UI>();
+        itemSlot = FindObjectOfType<ItemSlot>();
+        inventory_Bar = FindObjectOfType<Inventory_Bar>();
         aniController = GetComponentInParent<PlayerAnimatorController>();
         cookingController = FindObjectOfType<CookingController>();
         indexChooseFood = 0;
@@ -94,17 +96,9 @@ public class Shooting : MonoBehaviourPun
             }
         }
 
-        indexChooseFood = inventory_UI.GetIndexShooting();
-
-        if (inventory_Manager.GetQuantityItem(indexChooseFood) <= 0)
+        if (inventory_Manager.GetQuantityItem(inventory_Bar.GetIndexShooting()) > 0) //&& !itemSlot.selectedButton
         {
-            indexChooseFood = 0;
-        }
-
-        // && !inventory_UI.inventoryUIOn && !cookingController.cookingOn
-        if (inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
-        {
-
+            indexChooseFood = inventory_Bar.GetIndexShooting();
             if (Input.GetMouseButton(0) && canFire && food != null)
             {
                 canFire = false;
@@ -121,6 +115,7 @@ public class Shooting : MonoBehaviourPun
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
 
                 aniController.AttackAnimation();
+                inventory_Bar.UpdateInventoryBar();
             }
 
             if (Input.GetMouseButton(1) && canFire && food != null)
@@ -139,7 +134,12 @@ public class Shooting : MonoBehaviourPun
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
 
                 aniController.EatAnimation();
+                inventory_Bar.UpdateInventoryBar();
             }
+        }
+        else
+        {
+            indexChooseFood = 0;
         }
 
     }
