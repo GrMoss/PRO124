@@ -5287,6 +5287,7 @@ MonoBehaviour:
   - {fileID: 5263015161268703544}
   inventoryUI: {fileID: 1908225773197527344}
   inventoryUIOn: 0
+  rotatePoint: {fileID: 1028001305761444298}
 --- !u!1 &1314383049098968357
 GameObject:
   m_ObjectHideFlags: 0
@@ -7000,6 +7001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewCooker: {fileID: 5840124963565220040}
   cookingOn: 0
+  rotatePoint: {fileID: 1028001305761444298}
 --- !u!114 &5150181398974131710
 MonoBehaviour:
   m_ObjectHideFlags: 0

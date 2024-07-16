@@ -14,6 +14,7 @@ public class Inventory_UI : MonoBehaviourPun
     public bool inventoryUIOn;
     private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
     private int indexShooting;
+    public GameObject rotatePoint;
 
     private void Start()
     {
@@ -49,6 +50,7 @@ public class Inventory_UI : MonoBehaviourPun
             if (Input.GetKeyDown(KeyCode.Tab))
             {
                 inventoryUI.SetActive(!inventoryUI.activeSelf);
+                rotatePoint.SetActive(!rotatePoint.activeSelf);
                 inventoryUIOn = !inventoryUI.activeSelf;
                 UpdateInventoryUI();
             }
