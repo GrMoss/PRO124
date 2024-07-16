@@ -16,7 +16,8 @@ public abstract class Food : MonoBehaviour
     public PlayerController playerController;
     public PhotonScript PhotonScript;
 
-    public abstract void SpecialEffects();
+    public abstract void GoodSpecialEffects();
+    public abstract void BadSpecialEffects();
 
     public virtual void Start()
     {
@@ -65,7 +66,7 @@ public abstract class Food : MonoBehaviour
                 {
                     targetPhotonView.RPC("TakeDamage", RpcTarget.All, damage);
                     Debug.Log("An");
-                    SpecialEffects();
+                    GoodSpecialEffects();
 
                     if (view.IsMine)
                     {
@@ -77,11 +78,10 @@ public abstract class Food : MonoBehaviour
                     targetPhotonView.RPC("TakeDamage", RpcTarget.All, damage);
                     Debug.Log("owerid " + ownerId);
                     Debug.Log("Nem");
-                    SpecialEffects();
+                    BadSpecialEffects();
 
                     if (PhotonScript != null)
                     {
-                        //Cong diem tuong duong voi so damage gay ra
                         PhotonScript.CongDiem(damage);
                     }
 
