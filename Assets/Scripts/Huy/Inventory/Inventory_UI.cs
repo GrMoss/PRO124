@@ -59,7 +59,6 @@ public class Inventory_UI : MonoBehaviourPun
                 UpdateInventoryUI();
             }
         }
-        OnOffBag.SetActive(lobbyManager.offLobby);
     }
 
     public void OffBag()

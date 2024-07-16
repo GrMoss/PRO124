@@ -67,82 +67,80 @@ public class Shooting : MonoBehaviourPun
 
     private void Update()
     {
-        if (photonView.IsMine)
+        if (food[indexChooseFood].GetComponent<SpriteRenderer>() != null)
         {
-            if (food[indexChooseFood].GetComponent<SpriteRenderer>() != null)
+            spriteFood.sprite = food[indexChooseFood].GetComponent<SpriteRenderer>().sprite;
+        }
+        else
+        {
+            spriteFood.sprite = null;
+        }
+
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
+        Vector3 rotation = mousePos - transform.position;
+
+        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, rotZ);
+
+        if (!canFire)
+        {
+            timer += Time.deltaTime;
+            if (timer > timeBetweenFiring)
             {
-                spriteFood.sprite = food[indexChooseFood].GetComponent<SpriteRenderer>().sprite;
-            }
-            else
-            {
-                spriteFood.sprite = null;
-            }
-
-            mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
-            Vector3 rotation = mousePos - transform.position;
-
-            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
-            transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
-            if (!canFire)
-            {
-                timer += Time.deltaTime;
-                if (timer > timeBetweenFiring)
-                {
-                    canFire = true;
-                    timer = 0;
-                }
-            }
-
-            indexChooseFood = inventory_UI.GetIndexShooting();
-
-            if (inventory_Manager.GetQuantityItem(indexChooseFood) <= 0)
-            {
-                indexChooseFood = 0;
-            }
-
-            // && !inventory_UI.inventoryUIOn && !cookingController.cookingOn
-            if (inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
-            {
-
-                if (Input.GetMouseButton(0) && canFire && food != null)
-                {
-                    canFire = false;
-                    GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
-                        transform.position.z), Quaternion.identity);
-
-                    inventory_Manager.QuitItemInList(indexChooseFood, 1);
-
-                    foodObject.transform.localScale = new Vector3(
-                    foodObject.transform.localScale.x,
-                    foodObject.transform.localScale.y * directionY,
-                    foodObject.transform.localScale.z);
-                    foodObject.GetComponent<Food>().ownerId = view.ViewID;
-                    Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
-
-                    aniController.AttackAnimation();
-                }
-
-                if (Input.GetMouseButton(1) && canFire && food != null)
-                {
-                    canFire = false;
-                    GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
-                        transform.position.z), Quaternion.identity);
-
-                    inventory_Manager.QuitItemInList(indexChooseFood, 1);
-
-                    foodObject.transform.localScale = new Vector3(
-                    foodObject.transform.localScale.x,
-                    foodObject.transform.localScale.y * directionY,
-                    foodObject.transform.localScale.z);
-                    foodObject.GetComponent<Food>().ownerId = 1;
-                    Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
-
-                    aniController.EatAnimation();
-                }
+                canFire = true;
+                timer = 0;
             }
         }
+
+        indexChooseFood = inventory_UI.GetIndexShooting();
+
+        if (inventory_Manager.GetQuantityItem(indexChooseFood) <= 0)
+        {
+            indexChooseFood = 0;
+        }
+
+        // && !inventory_UI.inventoryUIOn && !cookingController.cookingOn
+        if (inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
+        {
+
+            if (Input.GetMouseButton(0) && canFire && food != null)
+            {
+                canFire = false;
+                GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
+                    transform.position.z), Quaternion.identity);
+
+                inventory_Manager.QuitItemInList(indexChooseFood, 1);
+
+                foodObject.transform.localScale = new Vector3(
+                foodObject.transform.localScale.x,
+                foodObject.transform.localScale.y * directionY,
+                foodObject.transform.localScale.z);
+                foodObject.GetComponent<Food>().ownerId = view.ViewID;
+                Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
+
+                aniController.AttackAnimation();
+            }
+
+            if (Input.GetMouseButton(1) && canFire && food != null)
+            {
+                canFire = false;
+                GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
+                    transform.position.z), Quaternion.identity);
+
+                inventory_Manager.QuitItemInList(indexChooseFood, 1);
+
+                foodObject.transform.localScale = new Vector3(
+                foodObject.transform.localScale.x,
+                foodObject.transform.localScale.y * directionY,
+                foodObject.transform.localScale.z);
+                foodObject.GetComponent<Food>().ownerId = 1;
+                Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
+
+                aniController.EatAnimation();
+            }
+        }
+
     }
 }
