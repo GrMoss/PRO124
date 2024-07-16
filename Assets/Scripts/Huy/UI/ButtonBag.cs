@@ -16,7 +16,7 @@ public class ButtonBag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         lobbyManager = FindObjectOfType<LobbyManager>();
     }
 
-        public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)
     {
         selectedButton = true;
     }
