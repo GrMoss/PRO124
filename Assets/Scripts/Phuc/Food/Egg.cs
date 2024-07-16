@@ -8,19 +8,11 @@ public class Egg : Food
     [SerializeField] private float speedFly;
     [SerializeField] private int damage;
 
-    public override void BadSpecialEffects()
+    public override void SpecialEffects()
     {
         if (playerController != null)
         {
-            targetPhotonView.RPC("StartBadEgg", RpcTarget.All, 5f, 2f);
-        }
-    }
-
-    public override void GoodSpecialEffects()
-    {
-        if (playerController != null)
-        {
-            targetPhotonView.RPC("StartGoodEgg", RpcTarget.All, 5f, 7f, 0.7f);
+            targetPhotonView.RPC("StartSlow", RpcTarget.All, 3f);
         }
     }
 

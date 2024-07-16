@@ -19,12 +19,10 @@ public class PlayerController : MonoBehaviour
     public GameObject hitBox;
     public bool isDie = false;
     public GameObject rotatePoint;
+    private float bleedingTimeRemaining = 0f;
 
     private PlayerAnimatorController aniController;
     private PlayerAudio audi;
-
-    private float bleedingTimeRemaining = 0f;
-    private bool isEgg = false;
     private void Awake()
     {
         input = new InputSystem();
@@ -142,6 +140,54 @@ public class PlayerController : MonoBehaviour
     }
 
     [PunRPC]
+    public void StartSlow(float time)
+    {
+        StartCoroutine(Slow(time));
+    }
+
+    private IEnumerator Slow(float time)
+    {
+        if(view.IsMine)
+        {
+            moveSpeed = 2.5f;
+        }
+        yield return new WaitForSeconds(time);
+        if (view.IsMine)
+        {
+            moveSpeed = 4f;
+        }
+    }
+
+    [PunRPC]
+    public void StartBleeding(int damage, float time)
+    {
+        if (bleedingTimeRemaining > 0)
+        {
+            bleedingTimeRemaining += time;
+        }
+        else
+        {
+            StartCoroutine(Bleeding(damage, time));
+        }
+    }
+
+    private IEnumerator Bleeding(int damage, float time)
+    {
+        bleedingTimeRemaining = time;
+        GetComponentInChildren<Shooting>().timeBetweenFiring = 0.65f;
+        while (bleedingTimeRemaining > 0)
+        {
+            yield return new WaitForSeconds(1);
+            if (view.IsMine)
+            {
+                TakeDamage(damage);
+            }
+            bleedingTimeRemaining -= 1f;
+        }
+        GetComponentInChildren<Shooting>().timeBetweenFiring = 1f;
+    }
+
+    [PunRPC]
     private void Die()
     {
         isDie = true;
@@ -173,82 +219,5 @@ public class PlayerController : MonoBehaviour
     public void TurnOnHealth()
     {
         slider.SetActive(true);
-    }
-
-    //----------------------- Effect -----------------------
-
-    //----------------------- Egg -----------------------
-
-    [PunRPC]
-    public void StartGoodEgg(float time, float moveSpeed, float scale)
-    {
-        if (!isEgg)
-        {
-            StartCoroutine(GoodEgg(time, moveSpeed, scale));
-        }
-    }
-
-    private IEnumerator GoodEgg(float time, float moveSpeed, float scale)
-    {
-        isEgg = true;
-        this.moveSpeed = moveSpeed;
-        transform.localScale = new Vector3 (scale, scale, 1);
-        yield return new WaitForSeconds(time);
-        isEgg = false;
-        this.moveSpeed = 4;
-        transform.localScale = new Vector3(1, 1, 1);
-    }
-
-    [PunRPC]
-    public void StartBadEgg(float time, float moveSpeed)
-    {
-        StartCoroutine(BadEgg(time, moveSpeed));
-    }
-
-    private IEnumerator BadEgg(float time, float moveSpeed)
-    {
-        this.moveSpeed = moveSpeed;
-        yield return new WaitForSeconds(time);
-        this.moveSpeed = 4f;
-    }
-
-    //----------------------- Chilli -----------------------
-    [PunRPC]
-    public void StartGoodChilli(float time, float moveSpeed, float attackSpeed)
-    {
-        StartCoroutine(GoodChilli(time, moveSpeed, attackSpeed));
-    }
-
-    private IEnumerator GoodChilli(float time, float moveSpeed, float attackSpeed)
-    {
-        this.moveSpeed = moveSpeed;
-        GetComponentInChildren<Shooting>().timeBetweenFiring = attackSpeed;
-        yield return new WaitForSeconds(time);
-        this.moveSpeed = 4;
-        GetComponentInChildren<Shooting>().timeBetweenFiring = 1f;
-    }
-
-    [PunRPC]
-    public void StartBadChilli(float time, int damage)
-    {
-        if (bleedingTimeRemaining > 0)
-        {
-            bleedingTimeRemaining = time;
-        }
-        else
-        {
-            StartCoroutine(BadChilli(time, damage));
-        }
-    }
-
-    private IEnumerator BadChilli(float time, int damage)
-    {
-        bleedingTimeRemaining = time;
-        while (bleedingTimeRemaining > 0)
-        {
-            yield return new WaitForSeconds(1);
-            TakeDamage(damage);
-            bleedingTimeRemaining -= 1f;
-        }
     }
 }
