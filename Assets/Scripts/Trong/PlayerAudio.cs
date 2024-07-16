@@ -32,8 +32,8 @@ public class PlayerAudio : MonoBehaviourPun
         {
             audioManager = FindObjectOfType<AudioManager>();
         }
-        playerRun.volume = audioManager.playerFootstep;
-        playerSound.volume = audioManager.playerSound;
+        playerRun.volume = audioManager.ASPlayerFootstep.volume;
+        playerSound.volume = audioManager.ASPlayerSound.volume;
         playerRun.clip = run;
 
         runClipTime = run.length;
@@ -103,7 +103,8 @@ public class PlayerAudio : MonoBehaviourPun
         {
             clip = hurt3;
         }
-        AudioSource.PlayClipAtPoint(clip, pos, audioManager.playerSound);
+        //AudioSource.PlayClipAtPoint(clip, pos, audioManager.playerSound);
+        audioManager.ASPlayerSound.PlayOneShot(clip);
     }
     [PunRPC]
     public void _PlayerFainted(Vector3 pos)
@@ -123,7 +124,8 @@ public class PlayerAudio : MonoBehaviourPun
             clip = fainted3;
         }
         Debug.Log("ok");
-        AudioSource.PlayClipAtPoint(clip, pos, audioManager.playerSound);
+        //AudioSource.PlayClipAtPoint(clip, pos, audioManager.playerSound);
+        audioManager.ASPlayerSound.PlayOneShot(clip);
     }
     [PunRPC]
     public void _PlayerRunning(Vector3 pos, bool isTrue)
@@ -133,7 +135,8 @@ public class PlayerAudio : MonoBehaviourPun
             if (!checkRun)
             {
                 checkRun = true;
-                AudioSource.PlayClipAtPoint(run, pos, audioManager.playerFootstep);
+                //AudioSource.PlayClipAtPoint(run, pos, audioManager.playerFootstep);
+                audioManager.ASPlayerFootstep.PlayOneShot(run);
             }
             else
             {
@@ -149,6 +152,7 @@ public class PlayerAudio : MonoBehaviourPun
     [PunRPC]
     public void _PlayerAttack(Vector3 pos)
     {
-        AudioSource.PlayClipAtPoint(attack, pos, audioManager.playerSound);
+        //AudioSource.PlayClipAtPoint(attack, pos, audioManager.playerSound);
+        audioManager.ASPlayerSound.PlayOneShot(attack);
     }
 }

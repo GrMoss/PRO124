@@ -1,10 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class VolumeSetting : MonoBehaviour
 {
@@ -26,8 +21,8 @@ public class VolumeSetting : MonoBehaviour
     }
     public void OpenVolumeSetting()
     {
-        SetSliderValue(audioManager.playerSound, playerSoundEffect);
-        SetSliderValue(audioManager.playerFootstep, playerFootstepNoise);
+        SetSliderValue(audioManager.ASPlayerSound.volume, playerSoundEffect);
+        SetSliderValue(audioManager.ASPlayerFootstep.volume, playerFootstepNoise);
         SetSliderValue(audioManager.backgroundMusic.volume, BGM_Slider);
         SetSliderValue(audioManager.SFX.volume, buttonSlider);
     }
@@ -54,13 +49,13 @@ public class VolumeSetting : MonoBehaviour
     {
         if (ignoreChange)
             return;
-        audioManager.playerSound = playerSoundEffect.value;
+        audioManager.ASPlayerSound.volume = playerSoundEffect.value;
     }
     public void UpdatePlayerFootstep(float value)
     {
         if (ignoreChange)
             return;
-        audioManager.playerFootstep = value;
+        audioManager.ASPlayerFootstep.volume = value;
     }
     public void UpdateBGMVolume(float value)
     {
