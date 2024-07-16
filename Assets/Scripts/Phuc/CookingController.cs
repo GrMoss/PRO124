@@ -9,6 +9,8 @@ public class CookingController : MonoBehaviour
     private PhotonView view;
     private Inventory_Manager inventory_Manager;
     public bool cookingOn;
+    public GameObject rotatePoint;
+    public Inventory_UI inventory_UI;
 
     private void Start()
     {
@@ -68,8 +70,10 @@ public class CookingController : MonoBehaviour
         if (view.IsMine && collision.gameObject.CompareTag("Cooker"))
         {
             viewCooker.SetActive(true);
+            rotatePoint.SetActive(false);
             cookingOn = true;
             inventory_Manager?.ShowItemInInventory();
+            inventory_UI.setIsCooker(cookingOn);
         }
     }
 
@@ -78,7 +82,9 @@ public class CookingController : MonoBehaviour
         if (view.IsMine && collision.gameObject.CompareTag("Cooker"))
         {
             viewCooker.SetActive(false);
+            rotatePoint.SetActive(true);
             cookingOn = false;
+            inventory_UI.setIsCooker(cookingOn);
         }
     }
 }

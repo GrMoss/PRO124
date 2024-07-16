@@ -19,8 +19,13 @@ public class PhotonScript : MonoBehaviourPunCallbacks
 
     private static Dictionary<int, int> playerScores = new Dictionary<int, int>(); // Lưu trữ điểm số
     PhotonView view;
+    private LobbyManager lobbyManager;
 
-    private void FixedUpdate()
+    private void Start()
+    {
+        lobbyManager = FindObjectOfType<LobbyManager>();
+    }
+        private void FixedUpdate()
     {
   
 
@@ -63,7 +68,7 @@ public class PhotonScript : MonoBehaviourPunCallbacks
             scoreText.text = score.ToString();
         }
 
-        if (canStart && LobbyManager.offLobby)
+        if (canStart && lobbyManager.offLobby)
         {
             CanStart();
             canStart = false;
