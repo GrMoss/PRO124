@@ -10,7 +10,7 @@ public class CookingController : MonoBehaviour
     private Inventory_Manager inventory_Manager;
     public bool cookingOn;
     public GameObject rotatePoint;
-    public Inventory_Bar inventory_Bar;
+    public Inventory_UI inventory_UI;
 
     private void Start()
     {
@@ -73,7 +73,7 @@ public class CookingController : MonoBehaviour
             rotatePoint.SetActive(false);
             cookingOn = true;
             inventory_Manager?.ShowItemInInventory();
-            //inventory_UI.setIsCooker(cookingOn);
+            inventory_UI.setIsCooker(cookingOn);
         }
     }
 
@@ -84,7 +84,7 @@ public class CookingController : MonoBehaviour
             viewCooker.SetActive(false);
             rotatePoint.SetActive(true);
             cookingOn = false;
-            //inventory_UI.setIsCooker(cookingOn);
+            inventory_UI.setIsCooker(cookingOn);
         }
     }
 }

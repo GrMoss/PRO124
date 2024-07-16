@@ -1,28 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using TMPro;
 using Photon.Pun;
 
-public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class ItemSlot : MonoBehaviourPun
 {
     public int itemID;
     public bool indexShooting;
     private Inventory_Manager inventory_Manager;
-    private Inventory_Bar inventory_Bar;
-
-    public bool selectedButton = false;
-
-    public delegate void SelectionChangedHandler(bool isSelected);
-    public event SelectionChangedHandler OnSelectionChanged;
+    private Inventory_UI inventory_UI;
 
     public delegate void ItemSelectedHandler(int itemID);
     public event ItemSelectedHandler OnItemSelected;
 
     private void Start()
     {
+        inventory_UI = FindObjectOfType<Inventory_UI>();
         inventory_Manager = FindObjectOfType<Inventory_Manager>();
-        inventory_Bar = FindObjectOfType<Inventory_Bar>();
 
         if (photonView.IsMine)
         {
@@ -35,43 +30,23 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
                 Debug.LogError("Không tìm thấy Inventory_Manager trên đối tượng này hoặc trong scene.");
             }
 
-            if (inventory_Bar != null)
+            if (inventory_UI != null)
             {
-                Debug.Log("Đã gán Inventory_UI cho ItemPrefab.");
+                Debug.Log("Đã gán inventory_UI cho ItemPrefab.");
             }
             else
             {
-                Debug.LogError("Không tìm thấy Inventory_UI trên đối tượng này hoặc trong scene.");
+                Debug.LogError("Không tìm thấy inventory_UI trên đối tượng này hoặc trong scene.");
             }
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void PressButton()
     {
         if (photonView.IsMine)
         {
-            selectedButton = true;
-            OnSelectionChanged?.Invoke(selectedButton);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (photonView.IsMine)
-        {
-            selectedButton = false;
-            OnSelectionChanged?.Invoke(selectedButton);
-        }
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (photonView.IsMine)
-        {
-            selectedButton = true;
             indexShooting = true;
-            inventory_Bar.indexShooting = itemID;
-            OnSelectionChanged?.Invoke(selectedButton);
+            OnItemSelected?.Invoke(itemID);
         }
     }
 }

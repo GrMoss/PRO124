@@ -7,13 +7,13 @@ public class GetItem : MonoBehaviourPun
     public int quantity;
  
     private Inventory_Manager inventory_Manager;
-    private Inventory_Bar inventory_Bar;
+    private Inventory_UI inventory_UI;
 
     private void Start()
     {
         // Tìm Inventory_Manager trên đối tượng cha trước
         inventory_Manager = GetComponentInParent<Inventory_Manager>();
-        inventory_Bar = FindObjectOfType<Inventory_Bar>();
+        inventory_UI = FindObjectOfType<Inventory_UI>();
         if (photonView.IsMine)
         {
             if (inventory_Manager != null)
@@ -25,7 +25,7 @@ public class GetItem : MonoBehaviourPun
                 Debug.LogError("Không tìm thấy Inventory_Manager trên đối tượng này hoặc trong scene.");
             }
 
-            if (inventory_Bar != null)
+            if (inventory_UI != null)
             {
                 Debug.Log("Đã gán inventory_UI cho ItemPrefab.");
             }
@@ -47,7 +47,7 @@ public class GetItem : MonoBehaviourPun
                     // Thêm vật phẩm vào túi của người chơi hiện tại
                     inventory_Manager.AddItemInList(itemID[i], quantity);
                     PhotonNetwork.Destroy(collision.gameObject); // Xóa đối tượng va chạm
-                    inventory_Bar.UpdateInventoryBar();
+                    inventory_UI.UpdateInventoryUI();
                     break; // Thoát khỏi vòng lặp sau khi thêm vật phẩm
                 }
             }
