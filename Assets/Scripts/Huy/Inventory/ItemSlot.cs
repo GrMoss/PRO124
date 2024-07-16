@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Photon.Pun;
 
+
 public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public int itemID;
@@ -12,36 +13,38 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
     private Inventory_Bar inventory_Bar;
 
     public bool selectedButton = false;
-
-    public delegate void SelectionChangedHandler(bool isSelected);
-    public event SelectionChangedHandler OnSelectionChanged;
+    private LobbyManager lobbyManager;
+    private bool canOn = true;
 
     public delegate void ItemSelectedHandler(int itemID);
     public event ItemSelectedHandler OnItemSelected;
 
+
     private void Start()
     {
-        inventory_Manager = FindObjectOfType<Inventory_Manager>();
+        selectedButton = false;
+        lobbyManager = FindObjectOfType<LobbyManager>();
         inventory_Bar = FindObjectOfType<Inventory_Bar>();
+        inventory_Manager = FindObjectOfType<Inventory_Manager>();
 
         if (photonView.IsMine)
         {
             if (inventory_Manager != null)
             {
-                Debug.Log("Đã gán Inventory_Manager cho ItemPrefab.");
+                Debug.Log("?? g?n Inventory_Manager cho ItemPrefab.");
             }
             else
             {
-                Debug.LogError("Không tìm thấy Inventory_Manager trên đối tượng này hoặc trong scene.");
+                Debug.LogError("Kh?ng t?m th?y Inventory_Manager tr?n ??i t??ng n?y ho?c trong scene.");
             }
 
             if (inventory_Bar != null)
             {
-                Debug.Log("Đã gán Inventory_UI cho ItemPrefab.");
+                Debug.Log("?? g?n inventory_UI cho ItemPrefab.");
             }
             else
             {
-                Debug.LogError("Không tìm thấy Inventory_UI trên đối tượng này hoặc trong scene.");
+                Debug.LogError("Kh?ng t?m th?y inventory_UI tr?n ??i t??ng n?y ho?c trong scene.");
             }
         }
     }
@@ -51,7 +54,6 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
         if (photonView.IsMine)
         {
             selectedButton = true;
-            OnSelectionChanged?.Invoke(selectedButton);
         }
     }
 
@@ -60,7 +62,6 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
         if (photonView.IsMine)
         {
             selectedButton = false;
-            OnSelectionChanged?.Invoke(selectedButton);
         }
     }
 
@@ -70,8 +71,12 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
         {
             selectedButton = true;
             indexShooting = true;
-            inventory_Bar.indexShooting = itemID;
-            OnSelectionChanged?.Invoke(selectedButton);
+            OnItemSelected?.Invoke(itemID);
         }
+    }
+
+    private void Update()
+    {
+        Debug.Log("SelectedButton: " + selectedButton);
     }
 }

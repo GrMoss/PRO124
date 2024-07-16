@@ -7,13 +7,16 @@ using TMPro;
 
 public class Inventory_Bar : MonoBehaviourPun
 {
+    public GameObject inventoryBar;
     public GameObject[] slot; // Danh sách các slot có sẵn
     private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
-    public int indexShooting;
+    private int indexShooting;
+    private LobbyManager lobbyManager;
 
     private void Start()
     {
-        indexShooting = 0;
+        lobbyManager = FindObjectOfType<LobbyManager>();
+        inventoryBar.SetActive(false);
         // Tìm Inventory_Manager trên đối tượng cha trước
         inventory_Manager = GetComponentInParent<Inventory_Manager>();
 
@@ -40,6 +43,7 @@ public class Inventory_Bar : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
+            inventoryBar.SetActive(lobbyManager.offLobby);
             UpdateInventoryBar();
         }
     }
@@ -66,6 +70,7 @@ public class Inventory_Bar : MonoBehaviourPun
                 if (itemSlotComponent != null)
                 {
                     itemSlotComponent.itemID = item.ItemID;
+                    itemSlotComponent.OnItemSelected += HandleItemSelected; // Đăng ký sự kiện
                 }
                 else
                 {
@@ -102,15 +107,15 @@ public class Inventory_Bar : MonoBehaviourPun
         }
     }
 
+    private void HandleItemSelected(int itemID)
+    {
+        indexShooting = itemID;
+        Debug.Log("Item Selected with ID: " + itemID);
+    }
 
     public int GetIndexShooting()
     {
-        if (photonView.IsMine)
-        {
-            Debug.Log("Item Selected with ID: " + indexShooting);
-            return indexShooting;
-        }
-        return 0;
+        return indexShooting;
     }
 
 }

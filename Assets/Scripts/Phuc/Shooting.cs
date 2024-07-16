@@ -49,7 +49,7 @@ public class Shooting : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
-  
+
             if (inventory_Manager != null)
             {
                 Debug.Log("Đã gán Inventory_Manager cho GetItem.");
@@ -64,7 +64,7 @@ public class Shooting : MonoBehaviourPun
             spriteFood = GetComponentInChildren<SpriteRenderer>();
         }
 
-       
+
     }
 
     private void Update()
@@ -96,9 +96,17 @@ public class Shooting : MonoBehaviourPun
             }
         }
 
-        if (inventory_Manager.GetQuantityItem(inventory_Bar.GetIndexShooting()) > 0) //&& !itemSlot.selectedButton
+        indexChooseFood = inventory_Bar.GetIndexShooting();
+
+        if (inventory_Manager.GetQuantityItem(indexChooseFood) <= 0)
         {
-            indexChooseFood = inventory_Bar.GetIndexShooting();
+            indexChooseFood = 0;
+        }
+
+
+        if (inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
+        {
+
             if (Input.GetMouseButton(0) && canFire && food != null)
             {
                 canFire = false;
@@ -136,10 +144,6 @@ public class Shooting : MonoBehaviourPun
                 aniController.EatAnimation();
                 inventory_Bar.UpdateInventoryBar();
             }
-        }
-        else
-        {
-            indexChooseFood = 0;
         }
 
     }
