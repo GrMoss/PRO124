@@ -696,6 +696,7 @@ GameObject:
   - component: {fileID: 4610560571615791565}
   - component: {fileID: 2999677068211521969}
   - component: {fileID: 6132446564266693185}
+  - component: {fileID: 4050827024377523753}
   m_Layer: 5
   m_Name: VolumePanel
   m_TagString: Untagged
@@ -836,10 +837,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 718141309194344236}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 4050827024377523753}
+        m_TargetAssemblyTypeName: GetAudioMan, Assembly-CSharp
+        m_MethodName: CloseVolumePanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -848,6 +849,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4050827024377523753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718141309194344236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd50e203ed7eb7042b65f7865eb8eb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &936079493206402398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1140,7 @@ GameObject:
   - component: {fileID: 3900946694980674230}
   - component: {fileID: 1382990022409173075}
   - component: {fileID: 3749862981551144870}
+  - component: {fileID: 5870946612127508582}
   m_Layer: 5
   m_Name: VolumeButton
   m_TagString: Untagged
@@ -1248,10 +1262,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 718141309194344236}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 5870946612127508582}
+        m_TargetAssemblyTypeName: GetAudioMan, Assembly-CSharp
+        m_MethodName: OpenVolumePanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1296,6 +1310,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5870946612127508582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621203108639375037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd50e203ed7eb7042b65f7865eb8eb3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1723549474325815512
 GameObject:
   m_ObjectHideFlags: 0
