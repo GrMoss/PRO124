@@ -7,7 +7,11 @@ public class Cucumber : Food
     [SerializeField] private float speedFly;
     [SerializeField] private int damage;
 
-    public override void SpecialEffects()
+    public override void BadSpecialEffects()
+    {
+        throw new System.NotImplementedException();
+    }
+    public override void GoodSpecialEffects()
     {
 
     }
