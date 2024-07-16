@@ -9,8 +9,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource SFX;
     public AudioSource ASPlayerSound;
     public AudioSource ASPlayerFootstep;
-    public float playerSound = 0.5f;
-    public float playerFootstep = 0.5f;
+    //public float playerSound = 0.5f;
+    //public float playerFootstep = 0.5f;
 
     public float fadeDuration = 2f;
     
@@ -100,9 +100,13 @@ public class AudioManager : MonoBehaviour
         SFX.PlayOneShot(clip);
     }
 
-    public void PlayPlayerNoise(AudioClip clip)
+    public void PlayPlayerSound(AudioClip clip)
     {
-        AudioSource.PlayClipAtPoint(clip, transform.position);
+        ASPlayerSound.PlayOneShot(clip);
+    }
+    public void PlayPlayerFootstep(AudioClip clip)
+    {
+        ASPlayerFootstep.PlayOneShot(clip);
     }
 
     public string GetCurrentSong()

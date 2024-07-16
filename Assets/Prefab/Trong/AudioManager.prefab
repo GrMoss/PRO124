@@ -108,7 +108,6 @@ RectTransform:
   - {fileID: 7001674722086755960}
   - {fileID: 8275009284676973724}
   - {fileID: 6245123126408007162}
-  - {fileID: 8385633867716636587}
   m_Father: {fileID: 6033857473040301547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -163,7 +162,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.522
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -259,7 +258,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -722,6 +721,8 @@ RectTransform:
   - {fileID: 6033857473040301547}
   - {fileID: 7226416532454839624}
   - {fileID: 4772694598130188704}
+  - {fileID: 8385633867716636587}
+  - {fileID: 6301258625953779536}
   m_Father: {fileID: 4610352131152194656}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -891,7 +892,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1418,7 +1419,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.07
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1542,7 +1543,6 @@ RectTransform:
   - {fileID: 4899230128770125389}
   - {fileID: 2706427851708544762}
   - {fileID: 3932364693123283704}
-  - {fileID: 6301258625953779536}
   m_Father: {fileID: 6033857473040301547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1597,7 +1597,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.535
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2508,11 +2508,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1358828256458502739}
-  m_Father: {fileID: 2247549985348072790}
+  m_Father: {fileID: 376696128448879281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -370, y: 0}
+  m_AnchoredPosition: {x: 30, y: 130.00012}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3084527248240165140
@@ -2596,7 +2596,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1839528841328649296}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5390394200430354389}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayPlayerSound
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 415fda334102c42438d24345e6b47320, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5048105545200029324
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,15 +2712,15 @@ RectTransform:
   m_GameObject: {fileID: 5148712724302740929}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.00008, y: 1.00008, z: 1.00008}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5998952962919571641}
-  m_Father: {fileID: 3463750631923692072}
+  m_Father: {fileID: 376696128448879281}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -370, y: 0}
+  m_AnchoredPosition: {x: 30, y: -129.99994}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7875515320581176360
@@ -2792,7 +2804,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8167553940292536252}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5390394200430354389}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayPlayerFootstep
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 270ba52025caad2469b29d1e501eed13, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5492258285834753774
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,8 +3250,6 @@ MonoBehaviour:
   SFX: {fileID: 493500171639521008}
   ASPlayerSound: {fileID: 8955006182231980782}
   ASPlayerFootstep: {fileID: 8682263581541121079}
-  playerSound: 0.5
-  playerFootstep: 0.5
   fadeDuration: 5
   lobby: {fileID: 8300000, guid: 4fd4c897893e94a30ba7a39c8a240f15, type: 3}
   login: {fileID: 8300000, guid: 402318c644b0c4d4bab8355a2d641e88, type: 3}
@@ -4095,7 +4117,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.552
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
