@@ -11,16 +11,19 @@ public class Inventory_UI : MonoBehaviourPun
     public Transform inventoryPanel; // Panel chứa các slot
     public GameObject[] slot; // Danh sách các slot có sẵn
     public GameObject inventoryUI;
+    public GameObject OnOffBag;
     public bool inventoryUIOn;
     private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
     private int indexShooting;
     public GameObject rotatePoint;
 
+    private LobbyManager lobbyManager;
+
     private void Start()
     {
+        lobbyManager = FindObjectOfType<LobbyManager>();
         inventoryUI.SetActive(false);
         inventoryUIOn = false;
-
         // Tìm Inventory_Manager trên đối tượng cha trước
         inventory_Manager = GetComponentInParent<Inventory_Manager>();
 
@@ -47,7 +50,7 @@ public class Inventory_UI : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Tab) && lobbyManager.offLobby)
             {
                 inventoryUI.SetActive(!inventoryUI.activeSelf);
                 rotatePoint.SetActive(!rotatePoint.activeSelf);
@@ -55,8 +58,17 @@ public class Inventory_UI : MonoBehaviourPun
                 UpdateInventoryUI();
             }
         }
+        OnOffBag.SetActive(lobbyManager.offLobby);
     }
 
+    public void OffBag()
+    {
+        inventoryUI.SetActive(!inventoryUI.activeSelf);
+        rotatePoint.SetActive(!rotatePoint.activeSelf);
+        inventoryUIOn = !inventoryUI.activeSelf;
+        UpdateInventoryUI();
+    }
+    
     public void UpdateInventoryUI()
     {
         // Làm mới dữ liệu của các slot

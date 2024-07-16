@@ -15,7 +15,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject canvalobby;
     [SerializeField] private CinemachineVirtualCamera setATCameraVS;
     private PlayerController[] playerController;
-    public static bool offLobby = false;
+    public bool offLobby = false;
     private bool isStartGame = false;
 
     private void Start()
