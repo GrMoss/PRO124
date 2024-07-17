@@ -8,8 +8,8 @@ using TMPro;
 public class Inventory_Bar : MonoBehaviourPun
 {
     public GameObject inventoryBar;
-    public GameObject[] slot; // Danh sách các slot có sẵn
-    private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
+    public GameObject[] slot;
+    private Inventory_Manager inventory_Manager;
     private int indexShooting;
     private LobbyManager lobbyManager;
 
@@ -17,10 +17,8 @@ public class Inventory_Bar : MonoBehaviourPun
     {
         lobbyManager = FindObjectOfType<LobbyManager>();
         inventoryBar.SetActive(false);
-        // Tìm Inventory_Manager trên đối tượng cha trước
         inventory_Manager = GetComponentInParent<Inventory_Manager>();
 
-        // Nếu không tìm thấy, dùng FindObjectOfType để tìm trong toàn bộ scene
         if (inventory_Manager == null)
         {
             inventory_Manager = FindObjectOfType<Inventory_Manager>();
@@ -30,7 +28,7 @@ public class Inventory_Bar : MonoBehaviourPun
         {
             if (inventory_Manager != null)
             {
-                Debug.Log("Đã gán Inventory_Manager cho Inventory_UI.");
+                Debug.Log("Đã gán Inventory_Manager cho Inventory_Bar.");
             }
             else
             {
@@ -44,20 +42,16 @@ public class Inventory_Bar : MonoBehaviourPun
         if (photonView.IsMine)
         {
             inventoryBar.SetActive(lobbyManager.offLobby);
-            UpdateInventoryBar();
         }
     }
+
     private void Update()
     {
-        if (photonView.IsMine)
-        {
-            //UpdateInventoryUI();
-        }
+
     }
 
     public void UpdateInventoryBar()
     {
-        // Làm mới dữ liệu của các slot
         var inventoryItems = inventory_Manager.GetInventoryItems();
 
         for (int i = 0; i < slot.Length; i++)
@@ -70,7 +64,7 @@ public class Inventory_Bar : MonoBehaviourPun
                 if (itemSlotComponent != null)
                 {
                     itemSlotComponent.itemID = item.ItemID;
-                    itemSlotComponent.OnItemSelected += HandleItemSelected; // Đăng ký sự kiện
+                    itemSlotComponent.OnItemSelected += HandleItemSelected;
                 }
                 else
                 {
@@ -98,11 +92,11 @@ public class Inventory_Bar : MonoBehaviourPun
                     Debug.LogError("Không tìm thấy thành phần Image cho ItemImage.");
                 }
 
-                slot[i].SetActive(true); // Hiển thị slot
+                slot[i].SetActive(true);
             }
             else
             {
-                slot[i].SetActive(false); // Ẩn slot nếu không có vật phẩm
+                slot[i].SetActive(false);
             }
         }
     }

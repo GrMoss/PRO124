@@ -4,6 +4,7 @@
 
 //public class SelectionHandler : MonoBehaviour
 //{
+
 //    private void Start()
 //    {
 //        // Đăng ký sự kiện cho tất cả các ItemSlot

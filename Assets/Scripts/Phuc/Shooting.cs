@@ -11,7 +11,6 @@ public class Shooting : MonoBehaviourPun
     [Header("Item object")]
     public GameObject[] food;
 
-
     private Camera mainCam;
     private Vector3 mousePos;
     public Transform foodTrans;
@@ -29,6 +28,8 @@ public class Shooting : MonoBehaviourPun
     private ItemSlot itemSlot;
 
     PlayerAnimatorController aniController;
+
+    private bool selectingItem; // Biến để kiểm tra xem có đang trong quá trình chọn item từ inventory_Bar hay không
 
     private void Start()
     {
@@ -49,22 +50,10 @@ public class Shooting : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
-
-            if (inventory_Manager != null)
-            {
-                Debug.Log("Đã gán Inventory_Manager cho GetItem.");
-            }
-            else
-            {
-                Debug.LogError("Không tìm thấy Inventory_Manager trên đối tượng này hoặc trong scene.");
-            }
-
             mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             view = GetComponentInParent<PhotonView>();
             spriteFood = GetComponentInChildren<SpriteRenderer>();
         }
-
-
     }
 
     private void Update()
@@ -103,10 +92,9 @@ public class Shooting : MonoBehaviourPun
             indexChooseFood = 0;
         }
 
-
-        if (inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
+        // Kiểm tra nếu đang trong quá trình chọn item từ inventory_Bar thì không cho phép bắn đạn
+        if (!selectingItem && inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
         {
-
             if (Input.GetMouseButton(0) && canFire && food != null)
             {
                 canFire = false;
@@ -123,7 +111,6 @@ public class Shooting : MonoBehaviourPun
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
 
                 aniController.AttackAnimation();
-                inventory_Bar.UpdateInventoryBar();
             }
 
             if (Input.GetMouseButton(1) && canFire && food != null)
@@ -142,9 +129,13 @@ public class Shooting : MonoBehaviourPun
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
 
                 aniController.EatAnimation();
-                inventory_Bar.UpdateInventoryBar();
             }
         }
+    }
 
+    // Phương thức này sẽ được gọi từ ItemSlot khi bắt đầu hoặc kết thúc việc chọn item
+    public void SetSelectingItem(bool isSelecting)
+    {
+        selectingItem = isSelecting;
     }
 }

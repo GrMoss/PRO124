@@ -9,9 +9,11 @@ public class Inventory_Manager : MonoBehaviourPun
     [SerializeField] Sprite[] spritesItem;
     private List<InventoryData> lisInventoryDatas = new List<InventoryData>();
     public TMP_Text debugLogText; // Biến để lưu trữ TMP_Text
+    private Inventory_Bar inventory_Bar;
 
     private void Start()
     {
+        inventory_Bar = FindObjectOfType<Inventory_Bar>();
         KhoiTao(); // Khởi tạo kho hàng
     }
 
@@ -106,6 +108,7 @@ public class Inventory_Manager : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
+            inventory_Bar.UpdateInventoryBar();
             // Xây dựng chuỗi để lưu trữ thông tin kho hàng
             string inventoryInfo = "";
             foreach (var item in lisInventoryDatas)

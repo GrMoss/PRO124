@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Photon.Pun;
 
-
 public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public int itemID;
@@ -12,17 +11,17 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
     private Inventory_Manager inventory_Manager;
     private Inventory_Bar inventory_Bar;
 
-    public bool selectedButton = false;
-    //private LobbyManager lobbyManager;
+    private bool selectedButton = false;
 
     public delegate void ItemSelectedHandler(int itemID);
     public event ItemSelectedHandler OnItemSelected;
 
+    private Shooting shooting; // Tham chi?u t?i script Shooting
 
     private void Start()
     {
+        shooting = FindObjectOfType<Shooting>();
         selectedButton = false;
-        //lobbyManager = FindObjectOfType<LobbyManager>();
         inventory_Bar = FindObjectOfType<Inventory_Bar>();
         inventory_Manager = FindObjectOfType<Inventory_Manager>();
 
@@ -39,11 +38,11 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
 
             if (inventory_Bar != null)
             {
-                Debug.Log("?? g?n inventory_UI cho ItemPrefab.");
+                Debug.Log("?? g?n inventory_Bar cho ItemPrefab.");
             }
             else
             {
-                Debug.LogError("Kh?ng t?m th?y inventory_UI tr?n ??i t??ng n?y ho?c trong scene.");
+                Debug.LogError("Kh?ng t?m th?y inventory_Bar tr?n ??i t??ng n?y ho?c trong scene.");
             }
         }
     }
@@ -53,6 +52,7 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
         if (photonView.IsMine)
         {
             selectedButton = true;
+            shooting.SetSelectingItem(true); // B?t ??u ch?n item
         }
     }
 
@@ -61,6 +61,7 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
         if (photonView.IsMine)
         {
             selectedButton = false;
+            shooting.SetSelectingItem(false); // K?t th?c ch?n item
         }
     }
 
@@ -76,6 +77,6 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
 
     private void Update()
     {
-        Debug.Log("SelectedButton: " + selectedButton);
+        // Debug.Log("SelectedButton: " + selectedButton);
     }
 }

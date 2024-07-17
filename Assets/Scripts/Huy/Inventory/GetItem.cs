@@ -47,7 +47,6 @@ public class GetItem : MonoBehaviourPun
                     // Thêm vật phẩm vào túi của người chơi hiện tại
                     inventory_Manager.AddItemInList(itemID[i], quantity);
                     PhotonNetwork.Destroy(collision.gameObject); // Xóa đối tượng va chạm
-                    inventory_Bar.UpdateInventoryBar();
                     break; // Thoát khỏi vòng lặp sau khi thêm vật phẩm
                 }
             }
