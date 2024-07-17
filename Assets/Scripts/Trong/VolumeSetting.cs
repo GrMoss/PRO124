@@ -1,45 +1,42 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class VolumeSetting : MonoBehaviour
 {
     private AudioManager audioManager;
-    private PlayerAudio PlayerAudio;
+    private PlayerAudio playerAudio;
 
-    private Slider BGM_Slider;
-    private Slider buttonSlider;
-    private Slider playerSoundEffect;
-    private Slider playerFootstepNoise;
-
-    GameObject panel;
-    Button thisButton;
+    public Slider BGM_Slider;
+    public Slider buttonSlider;
+    public Slider playerSoundEffect;
+    public Slider playerFootstepNoise;
 
     private bool ignoreChange;
+    public GameObject panel;
+    bool toggle = false;
+
     private void Start()
     {
-        thisButton = GetComponent<Button>();
-        audioManager = FindObjectOfType<AudioManager>();
-
-        BGM_Slider = GameObject.Find("SliderBGM").GetComponent<Slider>();
-        buttonSlider = GameObject.Find("SliderSFX").GetComponent <Slider>();
-        playerSoundEffect = GameObject.Find("SliderPlayerSound").GetComponent<Slider>();
-        playerFootstepNoise = GameObject.Find("SliderFootstep").GetComponent<Slider>();
-
-        BGM_Slider.onValueChanged.AddListener(UpdateBGMVolume);
-        buttonSlider.onValueChanged.AddListener(UpdateSFXVolume);
-        playerFootstepNoise.onValueChanged.AddListener(UpdatePlayerFootstep);
-        playerSoundEffect.onValueChanged.AddListener(UpdatePlayerSound);
-
-        SetSliderValue(audioManager.playerSound, playerSoundEffect);
-        SetSliderValue(audioManager.playerFootstep, playerFootstepNoise);
+        audioManager = GetComponent<AudioManager>();
+    }
+    public void OpenVolumeSetting()
+    {
+        SetSliderValue(audioManager.ASPlayerSound.volume, playerSoundEffect);
+        SetSliderValue(audioManager.ASPlayerFootstep.volume, playerFootstepNoise);
         SetSliderValue(audioManager.backgroundMusic.volume, BGM_Slider);
         SetSliderValue(audioManager.SFX.volume, buttonSlider);
-
-        panel = GameObject.Find("VolumePanel");
-        panel.SetActive(false);
+    }
+    public void AddListener()
+    {
+        if (!toggle)
+        {
+            toggle = true;
+            panel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            BGM_Slider.onValueChanged.AddListener(UpdateBGMVolume);
+            buttonSlider.onValueChanged.AddListener(UpdateSFXVolume);
+            playerFootstepNoise.onValueChanged.AddListener(UpdatePlayerFootstep);
+            playerSoundEffect.onValueChanged.AddListener(UpdatePlayerSound);
+        }
     }
     public void SetSliderValue(float newValue, Slider mySlider)
     {
@@ -52,13 +49,13 @@ public class VolumeSetting : MonoBehaviour
     {
         if (ignoreChange)
             return;
-        audioManager.playerSound = playerSoundEffect.value;
+        audioManager.ASPlayerSound.volume = playerSoundEffect.value;
     }
     public void UpdatePlayerFootstep(float value)
     {
         if (ignoreChange)
             return;
-        audioManager.playerFootstep = value;
+        audioManager.ASPlayerFootstep.volume = value;
     }
     public void UpdateBGMVolume(float value)
     {
@@ -71,6 +68,5 @@ public class VolumeSetting : MonoBehaviour
         if (ignoreChange)
             return;
         audioManager.SFX.volume = value;
-        //Debug.Log(audioManager.playerSound + "|||" + audioManager.playerFootstep + "|||" + audioManager.backgroundMusic.volume + "|||" + audioManager.SFX.volume);
     }
 }

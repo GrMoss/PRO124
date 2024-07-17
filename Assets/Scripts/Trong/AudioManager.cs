@@ -7,8 +7,10 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource backgroundMusic;
     public AudioSource SFX;
-    public float playerSound = 0.5f;
-    public float playerFootstep = 0.5f;
+    public AudioSource ASPlayerSound;
+    public AudioSource ASPlayerFootstep;
+    //public float playerSound = 0.5f;
+    //public float playerFootstep = 0.5f;
 
     public float fadeDuration = 2f;
     
@@ -22,6 +24,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip buttonPressed1;
     public AudioClip buttonPressed2;
     public AudioClip logo;
+
+    [Header("Sound Effects")]
+    public AudioClip playerHurt;
+    public AudioClip footstep;
 
     private static AudioManager instance;
     private void Awake()
@@ -94,8 +100,25 @@ public class AudioManager : MonoBehaviour
         SFX.PlayOneShot(clip);
     }
 
+    public void PlayPlayerSound(AudioClip clip)
+    {
+        ASPlayerSound.PlayOneShot(clip);
+    }
+    public void PlayPlayerFootstep(AudioClip clip)
+    {
+        ASPlayerFootstep.PlayOneShot(clip);
+    }
+
     public string GetCurrentSong()
     {
         return backgroundMusic.clip.name;
+    }
+
+    public void MuteButton()
+    {
+        backgroundMusic.mute = !backgroundMusic.mute;
+        SFX.mute = !SFX.mute;
+        ASPlayerFootstep.mute = !ASPlayerFootstep.mute;
+        ASPlayerSound.mute = !ASPlayerSound.mute;   
     }
 }
