@@ -23,24 +23,7 @@ public class TestMovementByTrong : MonoBehaviour
     }
     private void Update()
     {
-        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.1f)
-        {
-            float x = Input.GetAxisRaw("Horizontal");
-            rb.velocity = Vector2.right * Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-            isMoving = true;
-            Flip(x);
-        }
-        if (Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.1f)
-        {
-            rb.velocity = Vector2.up * Input.GetAxis("Vertical") * speed * Time.deltaTime;
-            isMoving = true;
-        }
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
-        {
-            rb.velocity = Vector2.zero;
-            isMoving = false;
-        }
-
+        Moving();
         //Animation
 
         animator.SetBool("IsMoving", isMoving);
@@ -67,7 +50,19 @@ public class TestMovementByTrong : MonoBehaviour
         }
         animator.SetBool("IsFainted", isFainted);
     }
-
+    void Moving()
+    {
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
+        Vector2 moving = new Vector2(x, y);
+        rb.velocity = moving * speed * Time.deltaTime;
+        if (Mathf.Abs(x) > 0.1f || Mathf.Abs(y) > 0.1f)
+        {
+            isMoving = true;
+            Flip(x);
+        }
+        else isMoving = false;
+    }
     void Flip(float x)
     {
         if (x > 0.1f)
