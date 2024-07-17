@@ -9,7 +9,7 @@ public abstract class Food : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rig;
     private Vector3 startPosition;
-    private float maxDistance = 9;
+    private float maxDistance = 13;
     private PhotonView view;
     public int ownerId;
     public PhotonView targetPhotonView = null;

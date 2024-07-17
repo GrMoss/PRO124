@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using Cinemachine;
+using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,12 +20,17 @@ public class PlayerController : MonoBehaviour
     public GameObject hitBox;
     public bool isDie = false;
     public GameObject rotatePoint;
+    private bool isConect = false;
 
     private PlayerAnimatorController aniController;
     private PlayerAudio audi;
 
     private float bleedingTimeRemaining = 0f;
     private bool isEgg = false;
+    private bool isCarrot = false;
+    private CinemachineVirtualCamera cam;
+    private Image effectCarrot;
+
     private void Awake()
     {
         input = new InputSystem();
@@ -32,6 +38,10 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         aniController = GetComponent<PlayerAnimatorController>();
         audi = FindObjectOfType<PlayerAudio>();
+        if (view.IsMine)
+        {
+            cam = FindAnyObjectByType<CinemachineVirtualCamera>();
+        }
     }
 
     private void Start()
@@ -64,6 +74,13 @@ public class PlayerController : MonoBehaviour
             if (health >= healthMax)
             {
                 isDie = true;
+            }
+
+            if (GameObject.Find("EffectCarrot") != null && !isConect)
+            {
+                isConect = true;
+                effectCarrot = GameObject.Find("EffectCarrot").GetComponent<Image>();
+                Debug.Log("Conect");
             }
         }
 
@@ -175,7 +192,74 @@ public class PlayerController : MonoBehaviour
         slider.SetActive(true);
     }
 
+    public void SetTransparency(float alpha255)
+    {
+        if (effectCarrot != null)
+        {
+            float alpha = alpha255 / 255f;
+
+            Color color = effectCarrot.color;
+
+            color.a = alpha;
+
+            effectCarrot.color = color;
+        }
+        else
+        {
+            Debug.LogError("Image component is not assigned.");
+        }
+    }
+
     //----------------------- Effect -----------------------
+
+    //----------------------- Carrot -----------------------
+
+    [PunRPC]
+    public void StartBadCarrot(float time, float blur)
+    {
+        StartCoroutine(BadCarrot(time, blur));
+    }
+
+    private IEnumerator BadCarrot(float time, float blur)
+    {
+        SetTransparency(blur);
+        yield return new WaitForSeconds(time);
+        SetTransparency(0);
+    }
+
+    [PunRPC]
+    public void StartGoodCarrot(float time, float duration, float size)
+    {
+        if(!isCarrot)
+        StartCoroutine(GoodCarrot(time, duration, size));
+    }
+
+    private IEnumerator GoodCarrot(float time, float duration, float size)
+    {
+        float startSize = 5f;
+        float endSize = size;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            cam.m_Lens.OrthographicSize = Mathf.Lerp(startSize, endSize, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        cam.m_Lens.OrthographicSize = endSize;
+
+        yield return new WaitForSeconds(time);
+
+        elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            cam.m_Lens.OrthographicSize = Mathf.Lerp(endSize, startSize, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        cam.m_Lens.OrthographicSize = startSize;
+    }
 
     //----------------------- Egg -----------------------
 
@@ -183,9 +267,7 @@ public class PlayerController : MonoBehaviour
     public void StartGoodEgg(float time, float moveSpeed, float scale)
     {
         if (!isEgg)
-        {
-            StartCoroutine(GoodEgg(time, moveSpeed, scale));
-        }
+        StartCoroutine(GoodEgg(time, moveSpeed, scale));
     }
 
     private IEnumerator GoodEgg(float time, float moveSpeed, float scale)

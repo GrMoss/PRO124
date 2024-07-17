@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,18 @@ public class Carrot : Food
 
     public override void BadSpecialEffects()
     {
-        throw new System.NotImplementedException();
+        if (playerController != null)
+        {
+            targetPhotonView.RPC("StartBadCarrot", RpcTarget.All, 5f, 253f);
+        }
     }
 
     public override void GoodSpecialEffects()
     {
-
+        if (playerController != null)
+        {
+            targetPhotonView.RPC("StartGoodCarrot", RpcTarget.All, 5f, 1f, 8f);
+        }
     }
 
     public override void Start()
