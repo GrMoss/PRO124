@@ -9,11 +9,16 @@ public class Chilli : Food
     [SerializeField] private int damage;
     [SerializeField] private int damageBleeding;
 
-    public override void SpecialEffects()
+    public override void BadSpecialEffects()
+    {
+        targetPhotonView.RPC("StartBadChilli", RpcTarget.All, 5f, damageBleeding);
+    }
+
+    public override void GoodSpecialEffects()
     {
         if (playerController != null)
         {
-            targetPhotonView.RPC("StartBleeding", RpcTarget.All, damageBleeding, 5f);
+            targetPhotonView.RPC("StartGoodChilli", RpcTarget.All, 5f, 5f, 0.5f);
         }
     }
 

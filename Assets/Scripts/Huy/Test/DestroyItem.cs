@@ -10,7 +10,7 @@ public class DestroyItem : MonoBehaviourPun
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PhotonNetwork.Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -18,7 +18,7 @@ public class DestroyItem : MonoBehaviourPun
     //{
     //    if (collision.gameObject.CompareTag("Player"))
     //    {
-    //        PhotonNetwork.Destroy(gameObject);
+    //        Destroy(gameObject);
     //    }
     //}
 }

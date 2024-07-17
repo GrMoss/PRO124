@@ -13,6 +13,7 @@ public class VolumeSetting : MonoBehaviour
 
     private bool ignoreChange;
     public GameObject panel;
+    public GameObject button;
     bool toggle = false;
 
     private void Start()
@@ -38,6 +39,19 @@ public class VolumeSetting : MonoBehaviour
             playerSoundEffect.onValueChanged.AddListener(UpdatePlayerSound);
         }
     }
+    public void CloseButton()
+    {
+        button.transform.localScale = new Vector3(0f, 1, 1);
+    }
+    public void ClosePanel()
+    {
+        panel.transform.localScale = new Vector3(0.00f, 0.5f, 0.5f);
+    }
+    public void OpenPanel()
+    {
+        panel.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+    }
+
     public void SetSliderValue(float newValue, Slider mySlider)
     {
         ignoreChange = true;

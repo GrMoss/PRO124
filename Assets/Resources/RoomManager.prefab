@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8328078434811958391}
-  - component: {fileID: 6805056814532185210}
   m_Layer: 0
   m_Name: RoomManager
   m_TagString: Untagged
@@ -32,21 +31,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6805056814532185210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6565310972755370504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26ebda7d58b6a4142aa59dde346460a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  regionDropdown: {fileID: 0}
-  roomNameInputField: {fileID: 0}
-  findRoomInputField: {fileID: 0}
-  maxPlayersInputField: {fileID: 0}
-  statusText: {fileID: 0}
-  startGameButton: {fileID: 0}

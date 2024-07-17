@@ -25,7 +25,8 @@ public class PhotonScript : MonoBehaviourPunCallbacks
     {
         lobbyManager = FindObjectOfType<LobbyManager>();
     }
-        private void FixedUpdate()
+
+    private void FixedUpdate()
     {
   
 
