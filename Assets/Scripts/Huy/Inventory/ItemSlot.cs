@@ -13,8 +13,7 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
     private Inventory_Bar inventory_Bar;
 
     public bool selectedButton = false;
-    private LobbyManager lobbyManager;
-    private bool canOn = true;
+    //private LobbyManager lobbyManager;
 
     public delegate void ItemSelectedHandler(int itemID);
     public event ItemSelectedHandler OnItemSelected;
@@ -23,7 +22,7 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
     private void Start()
     {
         selectedButton = false;
-        lobbyManager = FindObjectOfType<LobbyManager>();
+        //lobbyManager = FindObjectOfType<LobbyManager>();
         inventory_Bar = FindObjectOfType<Inventory_Bar>();
         inventory_Manager = FindObjectOfType<Inventory_Manager>();
 
