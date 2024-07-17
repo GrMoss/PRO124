@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3005697325712254320}
   - component: {fileID: 2801997474551245946}
   - component: {fileID: 8578390222897247989}
-  - component: {fileID: 4482341286455433598}
   m_Layer: 0
   m_Name: Cucumber-Spawn
   m_TagString: 3
@@ -254,20 +253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7e67bd139ac4681aea7aa5036cd023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4482341286455433598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2825982756860624678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a63cce6cf19e42eda99bfb4ac53d277, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemID: 0
-  indexShooting: 0
 --- !u!1 &7095541495273611365
 GameObject:
   m_ObjectHideFlags: 0

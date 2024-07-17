@@ -11,7 +11,6 @@ public class Shooting : MonoBehaviourPun
     [Header("Item object")]
     public GameObject[] food;
 
-
     private Camera mainCam;
     private Vector3 mousePos;
     public Transform foodTrans;
@@ -24,14 +23,18 @@ public class Shooting : MonoBehaviourPun
     public float directionY;
 
     private Inventory_Manager inventory_Manager; // Tham chiếu đến Inventory_Manager
-    private Inventory_UI inventory_UI;
+    private Inventory_Bar inventory_Bar;
     private CookingController cookingController;
+    private ItemSlot itemSlot;
 
     PlayerAnimatorController aniController;
 
+    private bool selectingItem; // Biến để kiểm tra xem có đang trong quá trình chọn item từ inventory_Bar hay không
+
     private void Start()
     {
-        inventory_UI = FindObjectOfType<Inventory_UI>();
+        itemSlot = FindObjectOfType<ItemSlot>();
+        inventory_Bar = FindObjectOfType<Inventory_Bar>();
         aniController = GetComponentInParent<PlayerAnimatorController>();
         cookingController = FindObjectOfType<CookingController>();
         indexChooseFood = 0;
@@ -47,22 +50,10 @@ public class Shooting : MonoBehaviourPun
 
         if (photonView.IsMine)
         {
-  
-            if (inventory_Manager != null)
-            {
-                Debug.Log("Đã gán Inventory_Manager cho GetItem.");
-            }
-            else
-            {
-                Debug.LogError("Không tìm thấy Inventory_Manager trên đối tượng này hoặc trong scene.");
-            }
-
             mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
             view = GetComponentInParent<PhotonView>();
             spriteFood = GetComponentInChildren<SpriteRenderer>();
         }
-
-       
     }
 
     private void Update()
@@ -94,17 +85,16 @@ public class Shooting : MonoBehaviourPun
             }
         }
 
-        indexChooseFood = inventory_UI.GetIndexShooting();
+        indexChooseFood = inventory_Bar.GetIndexShooting();
 
         if (inventory_Manager.GetQuantityItem(indexChooseFood) <= 0)
         {
             indexChooseFood = 0;
         }
 
-        // && !inventory_UI.inventoryUIOn && !cookingController.cookingOn
-        if (inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
+        // Kiểm tra nếu đang trong quá trình chọn item từ inventory_Bar thì không cho phép bắn đạn
+        if (!selectingItem && inventory_Manager.GetQuantityItem(indexChooseFood) > 0)
         {
-
             if (Input.GetMouseButton(0) && canFire && food != null)
             {
                 canFire = false;
@@ -141,6 +131,11 @@ public class Shooting : MonoBehaviourPun
                 aniController.EatAnimation();
             }
         }
+    }
 
+    // Phương thức này sẽ được gọi từ ItemSlot khi bắt đầu hoặc kết thúc việc chọn item
+    public void SetSelectingItem(bool isSelecting)
+    {
+        selectingItem = isSelecting;
     }
 }
