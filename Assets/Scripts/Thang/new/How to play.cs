@@ -7,8 +7,9 @@ public class HowToPlay : MonoBehaviour
 {
     public GameObject objectS;
     public GameObject objectD;
-    public GameObject caRot;
     public GameObject panelNhat; // Panel nhặt, kéo và thả Panel vào trường này trong Inspector
+    public GameObject Text;
+    public GameObject Text1;
 
    
 
@@ -46,6 +47,11 @@ public class HowToPlay : MonoBehaviour
             }
             Destroy(collision.gameObject);
 
+        }
+        if (collision.gameObject.CompareTag("Cooker"))
+        {
+            Text.SetActive(false);
+            Text1.SetActive(true);
         }
         
     }
