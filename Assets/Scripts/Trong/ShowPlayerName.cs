@@ -7,6 +7,7 @@ using Photon.Pun;
 public class ShowPlayerName : MonoBehaviourPun
 {
     public TMP_Text myName;
+    public PhotonView myID;
     void Start()
     {
         Renderer renderer = myName.GetComponent<Renderer>();
@@ -14,6 +15,7 @@ public class ShowPlayerName : MonoBehaviourPun
         renderer.sortingOrder = 0;
 
         string name = PlayerPrefs.GetString("NamePlayer");
+        if (name == "") name = "PlayerID: " + myID.ViewID.ToString();
         PhotonNetwork.NickName = name;
 
         if (photonView.IsMine)
