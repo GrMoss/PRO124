@@ -155,8 +155,8 @@ MonoBehaviour:
   targetPhotonView: {fileID: 0}
   playerController: {fileID: 0}
   PhotonScript: {fileID: 0}
-  speedFly: 7
-  damage: 15
+  speedFly: 8
+  damage: 25
   damageBleeding: 1
 --- !u!60 &4652195352204225400
 PolygonCollider2D:
