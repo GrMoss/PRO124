@@ -101,6 +101,9 @@ public class Shooting : MonoBehaviourPun
         {
             if (Input.GetMouseButton(0) && canFire && food != null)
             {
+                aniController.AttackAnimation();
+                sound.PlayerAttack();
+
                 canFire = false;
                 GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
                     transform.position.z), Quaternion.identity);
@@ -114,12 +117,13 @@ public class Shooting : MonoBehaviourPun
                 foodObject.GetComponent<Food>().ownerId = view.ViewID;
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
 
-                aniController.AttackAnimation();
-                sound.PlayerAttack();
             }
 
             if (Input.GetMouseButton(1) && canFire && food != null)
             {
+                aniController.EatAnimation();
+                sound.isEating = true;
+
                 canFire = false;
                 GameObject foodObject = PhotonNetwork.Instantiate(food[indexChooseFood].name, foodTrans.position + new Vector3(transform.position.x, transform.position.y,
                     transform.position.z), Quaternion.identity);
@@ -133,8 +137,6 @@ public class Shooting : MonoBehaviourPun
                 foodObject.GetComponent<Food>().ownerId = 1;
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
 
-                aniController.EatAnimation();
-                sound.PlayerEat();
             }
         }
     }

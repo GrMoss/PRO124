@@ -138,20 +138,30 @@ public class PlayerController : MonoBehaviour
         {
             health += damage;
             view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered, health);
+
             if (health >= healthMax)
             {
+                if (audi.isEating)
+                    audi.PlayerEat();
+
                 health = 0;
                 view.RPC("Die", RpcTarget.AllBuffered);
                 view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered, health);
                 aniController.FaintedAnimation();
-
                 audi.PlayerFainted();
             }
             else
             {
-                view.RPC("PlayHurtAnimation", RpcTarget.AllBuffered);
-
-                audi.PlayerHurt();
+                if (!audi.isEating)
+                {
+                    view.RPC("PlayHurtAnimation", RpcTarget.AllBuffered);
+                    audi.PlayerHurt();
+                }
+                else
+                {
+                    audi.PlayerEat();
+                    aniController.EatAnimation();
+                }
             }
         }
     }

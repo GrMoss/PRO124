@@ -16,10 +16,12 @@ public class PlayerAudio : MonoBehaviourPun
     public AudioClip hurt3;
     public AudioClip run;
     public AudioClip attack;
+    public AudioClip eat;
 
     private AudioManager audioManager;
     private bool checkRun;
     private float runClipTime;
+    public bool isEating;
 
     [Header("Option")]
     [SerializeField] private float hearRange = 15f;
@@ -55,6 +57,7 @@ public class PlayerAudio : MonoBehaviourPun
     public void PlayerEat()
     {
         PlaySoundForOthers(4);
+        isEating = false;
     }
 
     private void PlaySoundForOthers(int index, bool isTrue = false)
@@ -160,7 +163,6 @@ public class PlayerAudio : MonoBehaviourPun
     public void _PlayerEat()
     {
         //AudioSource.PlayClipAtPoint(attack, pos, audioManager.playerSound);
-        //audioManager.ASPlayerSound.PlayOneShot(attack);
-        Debug.Log("Play Eating Sound!");
+        audioManager.ASPlayerSound.PlayOneShot(eat);
     }
 }
