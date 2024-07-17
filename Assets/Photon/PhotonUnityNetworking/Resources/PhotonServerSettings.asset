@@ -76,6 +76,9 @@ MonoBehaviour:
   - StartGoodCarrot
   - StartBadCarrot
   - StartGoodCucumber
+  - DisplayName
+  - _PlayerEat
+  - _GameplayMusic
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

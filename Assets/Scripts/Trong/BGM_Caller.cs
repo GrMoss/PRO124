@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
 
-public class BGM_Caller : MonoBehaviour
+public class BGM_Caller : MonoBehaviourPun
 {
     AudioManager audioManager;
     string currentScene;
@@ -28,11 +29,15 @@ public class BGM_Caller : MonoBehaviour
             audioManager.PlayBackgroundMusic(audioManager.login);
         }
     }
-
     public void GameplayMusic()
     {
+        photonView.RPC("_GameplayMusic", RpcTarget.All);
+    }
+    [PunRPC]
+    public void _GameplayMusic()
+    {
         audioManager.fadeDuration = waitTime;
-        int i = Random.Range(0, 1);
+        int i = Random.Range(0, 2);
         if (i == 0)
             audioManager.PlayBackgroundMusic(audioManager.gameplay1);
         else 

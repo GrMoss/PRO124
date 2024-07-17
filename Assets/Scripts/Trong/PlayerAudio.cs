@@ -7,9 +7,6 @@ using Photon.Realtime;
 
 public class PlayerAudio : MonoBehaviourPun
 {
-    [SerializeField] private AudioSource playerSound;
-    [SerializeField] private AudioSource playerRun;
-
     [Header("Player Sound Effects")]
     public AudioClip fainted1;
     public AudioClip fainted2;
@@ -32,10 +29,6 @@ public class PlayerAudio : MonoBehaviourPun
         {
             audioManager = FindObjectOfType<AudioManager>();
         }
-        playerRun.volume = audioManager.ASPlayerFootstep.volume;
-        playerSound.volume = audioManager.ASPlayerSound.volume;
-        playerRun.clip = run;
-
         runClipTime = run.length;
     }
     public void PlayerHurt()
@@ -57,7 +50,11 @@ public class PlayerAudio : MonoBehaviourPun
     public void PlayerAttack()
     {
         PlaySoundForOthers(3);
+    }
 
+    public void PlayerEat()
+    {
+        PlaySoundForOthers(4);
     }
 
     private void PlaySoundForOthers(int index, bool isTrue = false)
@@ -70,24 +67,28 @@ public class PlayerAudio : MonoBehaviourPun
             PhotonView ptView = player.GetComponent<PhotonView>();
 
             if (index == 0)
-                ptView.RPC("_PlayerHurt", ptView.Owner, transform.position);
+                ptView.RPC("_PlayerHurt", ptView.Owner);
             else if (index == 1)
                 StartCoroutine(DelayDeath(ptView));
             else if (index == 2)
-                ptView.RPC("_PlayerRunning", ptView.Owner, transform.position, isTrue);
+                ptView.RPC("_PlayerRunning", ptView.Owner, isTrue);
+            else if (index == 3)
+                ptView.RPC("_PlayerAttack", ptView.Owner);
             else
-                ptView.RPC("_PlayerAttack", ptView.Owner, transform.position);
+                ptView.RPC("_PlayerEat", ptView.Owner);
+
         }
     }
     IEnumerator DelayDeath(PhotonView ptView)
     {
-        yield return new WaitForSeconds(0.35f);
-        ptView.RPC("_PlayerFainted", ptView.Owner, transform.position);
+        yield return new WaitForSeconds(0.2f);
+        ptView.RPC("_PlayerFainted", ptView.Owner);
+        Debug.Log("Die Sound");
 
     }
 
     [PunRPC]
-    public void _PlayerHurt(Vector3 pos)
+    public void _PlayerHurt()
     {
         AudioClip clip;
         int i = Random.Range(1, 4);
@@ -107,7 +108,7 @@ public class PlayerAudio : MonoBehaviourPun
         audioManager.ASPlayerSound.PlayOneShot(clip);
     }
     [PunRPC]
-    public void _PlayerFainted(Vector3 pos)
+    public void _PlayerFainted()
     {
         AudioClip clip;
         int i = Random.Range(1, 4);
@@ -123,12 +124,11 @@ public class PlayerAudio : MonoBehaviourPun
         {
             clip = fainted3;
         }
-        Debug.Log("ok");
         //AudioSource.PlayClipAtPoint(clip, pos, audioManager.playerSound);
         audioManager.ASPlayerSound.PlayOneShot(clip);
     }
     [PunRPC]
-    public void _PlayerRunning(Vector3 pos, bool isTrue)
+    public void _PlayerRunning(bool isTrue)
     {
         if (isTrue)
         {
@@ -150,9 +150,17 @@ public class PlayerAudio : MonoBehaviourPun
         }
     }
     [PunRPC]
-    public void _PlayerAttack(Vector3 pos)
+    public void _PlayerAttack()
     {
         //AudioSource.PlayClipAtPoint(attack, pos, audioManager.playerSound);
         audioManager.ASPlayerSound.PlayOneShot(attack);
+    }
+
+    [PunRPC]
+    public void _PlayerEat()
+    {
+        //AudioSource.PlayClipAtPoint(attack, pos, audioManager.playerSound);
+        //audioManager.ASPlayerSound.PlayOneShot(attack);
+        Debug.Log("Play Eating Sound!");
     }
 }

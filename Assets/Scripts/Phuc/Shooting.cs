@@ -31,6 +31,8 @@ public class Shooting : MonoBehaviourPun
 
     private bool selectingItem; // Biến để kiểm tra xem có đang trong quá trình chọn item từ inventory_Bar hay không
 
+    PlayerAudio sound;
+
     private void Start()
     {
         itemSlot = FindObjectOfType<ItemSlot>();
@@ -38,6 +40,8 @@ public class Shooting : MonoBehaviourPun
         aniController = GetComponentInParent<PlayerAnimatorController>();
         cookingController = FindObjectOfType<CookingController>();
         indexChooseFood = 0;
+
+        sound = GetComponentInParent<PlayerAudio>();
 
         // Tìm Inventory_Manager trên đối tượng cha trước
         inventory_Manager = GetComponentInParent<Inventory_Manager>();
@@ -111,6 +115,7 @@ public class Shooting : MonoBehaviourPun
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
 
                 aniController.AttackAnimation();
+                sound.PlayerAttack();
             }
 
             if (Input.GetMouseButton(1) && canFire && food != null)
@@ -129,6 +134,7 @@ public class Shooting : MonoBehaviourPun
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
 
                 aniController.EatAnimation();
+                sound.PlayerEat();
             }
         }
     }

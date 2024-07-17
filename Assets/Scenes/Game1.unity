@@ -403,7 +403,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 7dcf4b029da214d9ba0ff85830a7513a, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 21300000, guid: 255b7857252224d189bc4650f0e95ba1, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: b48f40417ec774e6bbbcf477ed57e05d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1827,6 +1827,10 @@ PrefabInstance:
     - target: {fileID: 3889527772573965926, guid: b26baef80a00c3742b3ced61375d3b97, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7701781097575878754, guid: b26baef80a00c3742b3ced61375d3b97, type: 3}
+      propertyPath: sceneViewId
+      value: 281
       objectReference: {fileID: 0}
     - target: {fileID: 8817942461569636692, guid: b26baef80a00c3742b3ced61375d3b97, type: 3}
       propertyPath: m_Name
@@ -10626,8 +10630,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282795590
-  m_fontColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16241,8 +16245,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282795590
-  m_fontColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

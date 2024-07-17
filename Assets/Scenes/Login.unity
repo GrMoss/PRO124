@@ -5702,6 +5702,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7701781097575878754, guid: b26baef80a00c3742b3ced61375d3b97, type: 3}
+      propertyPath: sceneViewId
+      value: 83
+      objectReference: {fileID: 0}
     - target: {fileID: 8817942461569636692, guid: b26baef80a00c3742b3ced61375d3b97, type: 3}
       propertyPath: m_Name
       value: Audio

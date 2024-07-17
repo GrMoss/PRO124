@@ -48,6 +48,6 @@ public class PlayerAnimatorController : MonoBehaviour
     public void EatAnimation()
     {
         ani.SetTrigger("Eat");
-        Debug.Log("EAT!");
+        Debug.Log("Eat Animation");
     }
 }
