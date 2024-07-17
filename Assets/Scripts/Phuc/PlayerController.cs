@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     private int healthMax = 100;
     public Slider healthSlider;
     public GameObject slider;
+    public Slider healthSliderMain;
+    public Image healthBackground;
+    public Image healthFill;
 
     private InputSystem input;
     private Vector2 moveVector = Vector2.zero;
@@ -70,6 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         if (view.IsMine)
         {
+            healthSliderMain.value = health;
             healthSlider.value = health;
             if (health >= healthMax)
             {
@@ -82,6 +86,9 @@ public class PlayerController : MonoBehaviour
                 effectCarrot = GameObject.Find("EffectCarrot").GetComponent<Image>();
                 Debug.Log("Conect");
             }
+
+            healthBackground.enabled = false;
+            healthFill.enabled = false;
         }
 
         //TestDamage
