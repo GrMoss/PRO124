@@ -23,18 +23,6 @@ public class Inventory_Bar : MonoBehaviourPun
         {
             inventory_Manager = FindObjectOfType<Inventory_Manager>();
         }
-
-        if (photonView.IsMine)
-        {
-            if (inventory_Manager != null)
-            {
-                Debug.Log("Đã gán Inventory_Manager cho Inventory_Bar.");
-            }
-            else
-            {
-                Debug.LogError("Không tìm thấy Inventory_Manager trên đối tượng này hoặc trong scene.");
-            }
-        }
     }
 
     private void FixedUpdate()
@@ -52,51 +40,54 @@ public class Inventory_Bar : MonoBehaviourPun
 
     public void UpdateInventoryBar()
     {
-        var inventoryItems = inventory_Manager.GetInventoryItems();
-
-        for (int i = 0; i < slot.Length; i++)
+        if (photonView.IsMine)
         {
-            if (i < inventoryItems.Count && inventoryItems[i].QuantityItem > 0)
+            var inventoryItems = inventory_Manager.GetInventoryItems();
+
+            for (int i = 0; i < slot.Length; i++)
             {
-                var item = inventoryItems[i];
-                ItemSlot itemSlotComponent = slot[i].GetComponent<ItemSlot>();
-
-                if (itemSlotComponent != null)
+                if (i < inventoryItems.Count && inventoryItems[i].QuantityItem > 0)
                 {
-                    itemSlotComponent.itemID = item.ItemID;
-                    itemSlotComponent.OnItemSelected += HandleItemSelected;
+                    var item = inventoryItems[i];
+                    ItemSlot itemSlotComponent = slot[i].GetComponent<ItemSlot>();
+
+                    if (itemSlotComponent != null)
+                    {
+                        itemSlotComponent.itemID = item.ItemID;
+                        itemSlotComponent.OnItemSelected += HandleItemSelected;
+                    }
+                    else
+                    {
+                        Debug.LogError("Không tìm thấy thành phần ItemSlot trên slot.");
+                    }
+
+                    TMP_Text quantityText = slot[i].transform.Find("Quantity").GetComponent<TMP_Text>();
+                    Image itemImage = slot[i].transform.Find("ItemImage").GetComponent<Image>();
+
+                    if (quantityText != null)
+                    {
+                        quantityText.text = item.QuantityItem.ToString();
+                    }
+                    else
+                    {
+                        Debug.LogError("Không tìm thấy thành phần TMP_Text cho Quantity.");
+                    }
+
+                    if (itemImage != null)
+                    {
+                        itemImage.sprite = item.ImageItem;
+                    }
+                    else
+                    {
+                        Debug.LogError("Không tìm thấy thành phần Image cho ItemImage.");
+                    }
+
+                    slot[i].SetActive(true);
                 }
                 else
                 {
-                    Debug.LogError("Không tìm thấy thành phần ItemSlot trên slot.");
+                    slot[i].SetActive(false);
                 }
-
-                TMP_Text quantityText = slot[i].transform.Find("Quantity").GetComponent<TMP_Text>();
-                Image itemImage = slot[i].transform.Find("ItemImage").GetComponent<Image>();
-
-                if (quantityText != null)
-                {
-                    quantityText.text = item.QuantityItem.ToString();
-                }
-                else
-                {
-                    Debug.LogError("Không tìm thấy thành phần TMP_Text cho Quantity.");
-                }
-
-                if (itemImage != null)
-                {
-                    itemImage.sprite = item.ImageItem;
-                }
-                else
-                {
-                    Debug.LogError("Không tìm thấy thành phần Image cho ItemImage.");
-                }
-
-                slot[i].SetActive(true);
-            }
-            else
-            {
-                slot[i].SetActive(false);
             }
         }
     }

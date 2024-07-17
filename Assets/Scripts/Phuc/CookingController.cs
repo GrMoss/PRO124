@@ -16,15 +16,6 @@ public class CookingController : MonoBehaviour
     {
         view = GetComponent<PhotonView>();
         inventory_Manager = GetComponent<Inventory_Manager>();
-
-        if (inventory_Manager != null)
-        {
-            Debug.Log("Inventory_Manager cho CookingController.");
-        }
-        else
-        {
-            Debug.LogError("khong tim thay Inventory_Manager.");
-        }
     }
 
     public void OmeletButton()

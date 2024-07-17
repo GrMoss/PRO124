@@ -52,7 +52,7 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
         if (photonView.IsMine)
         {
             selectedButton = true;
-            shooting.SetSelectingItem(true); // B?t ??u ch?n item
+            shooting.SetSelectingItem(true); 
         }
     }
 
@@ -61,7 +61,7 @@ public class ItemSlot : MonoBehaviourPun, IPointerEnterHandler, IPointerExitHand
         if (photonView.IsMine)
         {
             selectedButton = false;
-            shooting.SetSelectingItem(false); // K?t th?c ch?n item
+            shooting.SetSelectingItem(false); 
         }
     }
 
