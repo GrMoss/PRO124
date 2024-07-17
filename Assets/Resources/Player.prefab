@@ -1118,8 +1118,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0020905, y: -0.000022888}
-  m_SizeDelta: {x: 955.01, y: 169.28}
+  m_AnchoredPosition: {x: 0.0028229, y: -0.000022888}
+  m_SizeDelta: {x: 1265.4, y: 169.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104367628985443697
 MonoBehaviour:
@@ -4272,7 +4272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spritesItem:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 19c7159d290f24ac5ae6919d376ad1e2, type: 3}
   - {fileID: 21300000, guid: 50b9c33b5501f41d0b0c626a2d0a5aac, type: 3}
   - {fileID: 21300000, guid: 1388de0dea9bf4e019edfc2ff793cb11, type: 3}
   - {fileID: 21300000, guid: 0cefe55b24cb34d1fbc12608eba46911, type: 3}
@@ -11438,8 +11438,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.442505, y: -407.38345}
-  m_SizeDelta: {x: 1008.0163, y: 219.2449}
+  m_AnchoredPosition: {x: 0, y: -407.38345}
+  m_SizeDelta: {x: 1336.8225, y: 219.2449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5319912678254538446
 CanvasRenderer:
@@ -12795,8 +12795,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 634.0718, y: -84.64097}
-  m_SizeDelta: {x: 1294.0239, y: 172.58}
+  m_AnchoredPosition: {x: 634.0607, y: -84.64097}
+  m_SizeDelta: {x: 1294, y: 172.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4783873635871409211
 CanvasRenderer:
@@ -18188,8 +18188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500.32053, y: -109.64}
-  m_SizeDelta: {x: 950.6411, y: 169.28}
+  m_AnchoredPosition: {x: 663.0964, y: -109.64}
+  m_SizeDelta: {x: 1276.1929, y: 169.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3861131812045210050
 CanvasRenderer:
@@ -18236,7 +18236,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8691613693998148729}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
   m_Name: 
