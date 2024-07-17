@@ -22,7 +22,8 @@ public class SpawnItem : MonoBehaviourPunCallbacks
     {
         lobbyManager = FindObjectOfType<LobbyManager>();
     }
-        private void FixedUpdate()
+
+    private void FixedUpdate()
     {
         if (PhotonNetwork.IsMasterClient)
         {
