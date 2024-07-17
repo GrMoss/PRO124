@@ -156,7 +156,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   PhotonScript: {fileID: 0}
   speedFly: 8
-  damage: 10
+  damage: 20
 --- !u!114 &-7746609165076681541
 MonoBehaviour:
   m_ObjectHideFlags: 0

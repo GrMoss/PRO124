@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator RevivalTime()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         isDie = false;
         aniController.RecoverAnimation(isDie);
         rotatePoint.SetActive(true);
