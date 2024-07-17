@@ -11,7 +11,10 @@ public class Chilli : Food
 
     public override void BadSpecialEffects()
     {
-        targetPhotonView.RPC("StartBadChilli", RpcTarget.All, 5f, damageBleeding);
+        if (playerController != null)
+        {
+            targetPhotonView.RPC("StartBadChilli", RpcTarget.All, 5f, damageBleeding);
+        }
     }
 
     public override void GoodSpecialEffects()
