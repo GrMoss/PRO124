@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,14 @@ public class Cucumber : Food
 
     public override void BadSpecialEffects()
     {
-        throw new System.NotImplementedException();
+
     }
     public override void GoodSpecialEffects()
     {
-
+        if (playerController != null)
+        {
+            targetPhotonView.RPC("StartGoodCucumber", RpcTarget.All, 5f, 5f, 0f);
+        }
     }
 
     public override void Start()

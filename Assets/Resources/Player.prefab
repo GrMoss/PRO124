@@ -2626,7 +2626,7 @@ RectTransform:
   m_Father: {fileID: 8565664013030412186}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4109,7 +4109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   healthSlider: {fileID: 5176970887888083700}
-  slider: {fileID: 4256740683646061842}
+  slider: {fileID: 8307377850443830363}
+  sliderMain: {fileID: 0}
   healthSliderMain: {fileID: 6868019597589747786}
   healthBackground: {fileID: 4150149996787924614}
   healthFill: {fileID: 7020580203821079411}
@@ -4118,6 +4119,7 @@ MonoBehaviour:
   hitBox: {fileID: 5281962237158851057}
   isDie: 0
   rotatePoint: {fileID: 1028001305761444298}
+  playerSpriteRenderer: {fileID: 8283548682830721434}
 --- !u!114 &6903585598850195347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17529,7 +17531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8919947307543058486
 RectTransform:
   m_ObjectHideFlags: 0

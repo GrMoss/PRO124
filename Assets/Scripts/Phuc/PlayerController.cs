@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private int healthMax = 100;
     public Slider healthSlider;
     public GameObject slider;
+    public GameObject sliderMain;
     public Slider healthSliderMain;
     public Image healthBackground;
     public Image healthFill;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public bool isDie = false;
     public GameObject rotatePoint;
     private bool isConect = false;
+    public SpriteRenderer playerSpriteRenderer;
 
     private PlayerAnimatorController aniController;
     private PlayerAudio audi;
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         aniController = GetComponent<PlayerAnimatorController>();
         audi = FindObjectOfType<PlayerAudio>();
+
         if (view.IsMine)
         {
             cam = FindAnyObjectByType<CinemachineVirtualCamera>();
@@ -197,6 +200,7 @@ public class PlayerController : MonoBehaviour
     public void TurnOnHealth()
     {
         slider.SetActive(true);
+        sliderMain.SetActive(true);
     }
 
     public void SetTransparency(float alpha255)
@@ -218,6 +222,41 @@ public class PlayerController : MonoBehaviour
     }
 
     //----------------------- Effect -----------------------
+
+    //----------------------- Cucumber -----------------------
+
+    [PunRPC]
+    public void StartGoodCucumber(float time, float moveSpeed, float blur)
+    {
+        StartCoroutine(GoodCucumber(time, moveSpeed, blur));
+    }
+
+    private IEnumerator GoodCucumber(float time,float moveSpeed, float blur)
+    {
+        Color color;
+        this.moveSpeed = moveSpeed;
+        if(view.IsMine)
+        {
+            color = playerSpriteRenderer.color;
+            color.a = 150 / 255f;
+            playerSpriteRenderer.color = color;
+        }
+        else
+        {
+            healthBackground.enabled = false;
+            healthFill.enabled = false;
+            color = playerSpriteRenderer.color;
+            color.a = blur / 255f;
+            playerSpriteRenderer.color = color;
+        }
+        yield return new WaitForSeconds(time);
+        this.moveSpeed = 4;
+        healthBackground.enabled = true;
+        healthFill.enabled = true;
+        color = playerSpriteRenderer.color;
+        color.a = 1;
+        playerSpriteRenderer.color = color;
+    }
 
     //----------------------- Carrot -----------------------
 
