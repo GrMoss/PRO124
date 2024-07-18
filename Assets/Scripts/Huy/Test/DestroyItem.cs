@@ -13,5 +13,4 @@ public class DestroyItem : MonoBehaviourPun
     {
         OnItemDestroyed?.Invoke(this.gameObject);
     }
-
 }

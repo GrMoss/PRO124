@@ -68,7 +68,6 @@ public class SpawnItem : MonoBehaviourPunCallbacks
         }
     }
 
-    // RPC method to set the spawner reference on the spawned items
     [PunRPC]
     public void SetSpawner(int spawnerViewID)
     {
