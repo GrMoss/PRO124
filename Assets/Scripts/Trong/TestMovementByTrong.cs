@@ -34,7 +34,7 @@ public class TestMovementByTrong : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-            //eat
+            animator.SetTrigger("Eat");
 
         }
         if (Input.GetMouseButtonDown(2))
