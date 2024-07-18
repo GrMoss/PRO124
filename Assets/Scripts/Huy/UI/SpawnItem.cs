@@ -4,29 +4,33 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class SpawnItem : MonoBehaviourPunCallbacks
+public class SpawnItem : MonoBehaviourPun
 {
     [SerializeField] List<GameObject> itemObjects; // Danh sách các object item để bật/tắt
     [SerializeField] float spawnRadius; // Bán kính spawn item
     [SerializeField] Color gizmoColor = Color.green; // Màu của Gizmo
-    [SerializeField] float timeSpawnItem = 60f;
-    [SerializeField] int maxItemsActive = 3; // Số lượng tối đa các item có thể được bật cùng lúc
+    [SerializeField] float waitForSecond = 10f;
+    private float timeSpawnItem = 10f;
+    [SerializeField] int maxItemsActive = 100; // Số lượng tối đa các item có thể được bật cùng lúc
 
     private bool canSpawn = true;
-    private LobbyManager lobbyManager;
     private int currentActiveItems = 0;
 
     private void Start()
     {
-        lobbyManager = FindObjectOfType<LobbyManager>();
-        DisableAllItems(); // Tắt tất cả các item ban đầu
+        // Chỉ chủ phòng mới có thể spawn item
+        if (PhotonNetwork.IsMasterClient)
+        {
+            StartCoroutine(InitialSpawnItems());
+        }
     }
 
     private void FixedUpdate()
     {
+        // Chủ phòng mới có thể kiểm soát spawn item
         if (PhotonNetwork.IsMasterClient)
         {
-            if (canSpawn && lobbyManager.offLobby && currentActiveItems < maxItemsActive)
+            if (canSpawn && currentActiveItems < maxItemsActive)
             {
                 StartCoroutine(TimeSpawnItem());
             }
@@ -39,32 +43,44 @@ public class SpawnItem : MonoBehaviourPunCallbacks
         {
             item.SetActive(false);
         }
-        currentActiveItems = 0; // Đặt lại số lượng item đang hoạt động
+        currentActiveItems = 0;
     }
 
     private void EnableRandomItem()
     {
-        if (itemObjects == null || itemObjects.Count == 0)
-        {
-            Debug.LogError("itemObjects list is null or empty. Cannot enable items.");
-            return;
-        }
-
+        int attempts = 0;
+        const int maxAttempts = 100;
         int randomIndex = Random.Range(0, itemObjects.Count);
         GameObject itemToEnable = itemObjects[randomIndex];
 
-        while (itemToEnable.activeSelf)
+        while (itemToEnable.activeSelf && attempts < maxAttempts)
         {
             randomIndex = Random.Range(0, itemObjects.Count);
             itemToEnable = itemObjects[randomIndex];
+            attempts++;
         }
 
-        itemToEnable.SetActive(true);
-        currentActiveItems++;
+        if (!itemToEnable.activeSelf)
+        {
+            itemToEnable.SetActive(true);
+            currentActiveItems++;
 
-        // Đặt vị trí ngẫu nhiên trong bán kính đã cho
-        Vector2 randomPosition = Random.insideUnitCircle * spawnRadius;
-        itemToEnable.transform.position = new Vector3(randomPosition.x, randomPosition.y, 0) + transform.position;
+            Vector2 randomPosition = Random.insideUnitCircle * spawnRadius;
+            itemToEnable.transform.position = new Vector3(randomPosition.x, randomPosition.y, 0) + transform.position;
+
+            // Gửi RPC để thông báo cho các người chơi khác biết về việc spawn item
+            photonView.RPC("RPC_EnableItem", RpcTarget.OthersBuffered, randomIndex, randomPosition);
+        }
+    }
+
+    [PunRPC]
+    private void RPC_EnableItem(int itemIndex, Vector2 position)
+    {
+        // Kích hoạt item dựa trên thông tin nhận được từ RPC
+        GameObject itemToEnable = itemObjects[itemIndex];
+        itemToEnable.SetActive(true);
+        itemToEnable.transform.position = new Vector3(position.x, position.y, 0) + transform.position;
+        currentActiveItems++;
     }
 
     private IEnumerator TimeSpawnItem()
@@ -75,26 +91,20 @@ public class SpawnItem : MonoBehaviourPunCallbacks
         canSpawn = true;
     }
 
-    private void OnDrawGizmos()
+    private IEnumerator InitialSpawnItems()
     {
-        Gizmos.color = gizmoColor; // Đặt màu cho Gizmo
-        Gizmos.DrawWireSphere(transform.position, spawnRadius); // Vẽ hình tròn
-    }
-
-    // Hàm này được gọi khi người chơi chạm vào item
-    public void OnItemTouched(GameObject item)
-    {
-        item.SetActive(false); // Tắt item
-        currentActiveItems--;
-        StartCoroutine(RespawnItem());
-    }
-
-    private IEnumerator RespawnItem()
-    {
-        yield return new WaitForSeconds(timeSpawnItem);
-        if (currentActiveItems < maxItemsActive)
+        DisableAllItems();
+        yield return new WaitForSeconds(1f); // Đợi 1 giây trước khi spawn item ban đầu
+        for (int i = 0; i < maxItemsActive; i++)
         {
             EnableRandomItem();
+            yield return new WaitForSeconds(waitForSecond);
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = gizmoColor;
+        Gizmos.DrawWireSphere(transform.position, spawnRadius);
     }
 }
