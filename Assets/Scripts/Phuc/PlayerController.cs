@@ -299,6 +299,7 @@ public class PlayerController : MonoBehaviour
         float startSize = 5f;
         float endSize = size;
         float elapsedTime = 0f;
+        isCarrot = true;
 
         while (elapsedTime < duration)
         {
@@ -319,6 +320,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         cam.m_Lens.OrthographicSize = startSize;
+        isCarrot = false;
     }
 
     //----------------------- Egg -----------------------

@@ -66,10 +66,6 @@ public class Shooting : MonoBehaviourPun
         {
             spriteFood.sprite = food[indexChooseFood].GetComponent<SpriteRenderer>().sprite;
         }
-        else
-        {
-            spriteFood.sprite = null;
-        }
 
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
