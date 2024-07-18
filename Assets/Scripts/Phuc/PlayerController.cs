@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public GameObject rotatePoint;
     private bool isConect = false;
     public SpriteRenderer playerSpriteRenderer;
+    private bool isTurnHealth = false;
 
     private PlayerAnimatorController aniController;
     private PlayerAudio audi;
@@ -90,6 +91,11 @@ public class PlayerController : MonoBehaviour
                 isConect = true;
                 effectCarrot = GameObject.Find("EffectCarrot").GetComponent<Image>();
                 Debug.Log("Conect");
+            }
+
+            if (isTurnHealth)
+            {
+                sliderMain.SetActive(true);
             }
 
             healthBackground.enabled = false;
@@ -212,7 +218,7 @@ public class PlayerController : MonoBehaviour
     public void TurnOnHealth()
     {
         slider.SetActive(true);
-        sliderMain.SetActive(true);
+        isTurnHealth = true;
     }
 
     public void SetTransparency(float alpha255)

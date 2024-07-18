@@ -12,7 +12,7 @@ public class Omelet : Food
     {
         if (playerController != null)
         {
-            targetPhotonView.RPC("StartBadEgg", RpcTarget.All, 5f, 1f);
+            targetPhotonView.RPC("StartGoodEgg", RpcTarget.All, 5f, 1.5f, 1.5f);
         }
     }
 
@@ -20,7 +20,7 @@ public class Omelet : Food
     {
         if (playerController != null)
         {
-            targetPhotonView.RPC("StartGoodEgg", RpcTarget.All, 5f, 9f, 0.5f);
+            targetPhotonView.RPC("StartGoodEgg", RpcTarget.All, 5f, 9f, 0.3f);
         }
     }
 
