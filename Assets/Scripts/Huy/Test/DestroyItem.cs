@@ -6,19 +6,12 @@ using Photon.Realtime;
 
 public class DestroyItem : MonoBehaviourPun
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public delegate void ItemDestroyedHandler(GameObject item);
+    public event ItemDestroyedHandler OnItemDestroyed;
+
+    private void OnDestroy()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
+        OnItemDestroyed?.Invoke(this.gameObject);
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Player"))
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
 }
