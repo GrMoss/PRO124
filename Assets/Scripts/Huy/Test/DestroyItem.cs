@@ -4,14 +4,21 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class DestroyItem : MonoBehaviourPun
+public class DestroyItem : MonoBehaviour
 {
-    public delegate void ItemDestroyedHandler(GameObject item);
-    public event ItemDestroyedHandler OnItemDestroyed;
+    private SpawnItem spawnItem;
 
-    private void OnDestroy()
+    private void Start()
     {
-        OnItemDestroyed?.Invoke(this.gameObject);
+        spawnItem = FindObjectOfType<SpawnItem>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            spawnItem.OnItemTouched(gameObject);
+        }
     }
 
 }
