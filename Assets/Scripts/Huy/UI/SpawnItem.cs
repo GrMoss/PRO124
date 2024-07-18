@@ -17,6 +17,7 @@ public class SpawnItem : MonoBehaviourPunCallbacks
 
     private bool canSpawn = true;
     private LobbyManager lobbyManager;
+    private List<GameObject> spawnedItems = new List<GameObject>();
 
     private void Start()
     {
@@ -46,8 +47,6 @@ public class SpawnItem : MonoBehaviourPunCallbacks
 
         for (int i = 0; i < soLuongItemSpawn; i++)
         {
-            //Debug.Log("Spawn Item");
-
             // Chọn một item ngẫu nhiên từ danh sách itemSpawn
             int randomIndex = Random.Range(0, itemSpawn.Count);
             GameObject itemToSpawn = itemSpawn[randomIndex];
@@ -63,7 +62,39 @@ public class SpawnItem : MonoBehaviourPunCallbacks
             Vector3 spawnPosition = new Vector3(randomPosition.x, randomPosition.y, 0) + transform.position;
 
             // Spawn item sử dụng PhotonNetwork.Instantiate
-            PhotonNetwork.Instantiate(itemToSpawn.name, spawnPosition, Quaternion.identity);
+            GameObject spawnedItem = PhotonNetwork.Instantiate(itemToSpawn.name, spawnPosition, Quaternion.identity);
+            spawnedItems.Add(spawnedItem);
+            spawnedItem.GetComponent<PhotonView>().RPC("SetSpawner", RpcTarget.All, photonView.ViewID);
+        }
+    }
+
+    // RPC method to set the spawner reference on the spawned items
+    [PunRPC]
+    public void SetSpawner(int spawnerViewID)
+    {
+        PhotonView spawnerView = PhotonView.Find(spawnerViewID);
+        if (spawnerView != null)
+        {
+            SpawnItem spawner = spawnerView.GetComponent<SpawnItem>();
+            if (spawner != null)
+            {
+                spawner.AddSpawnedItem(this.gameObject);
+            }
+        }
+    }
+
+    public void AddSpawnedItem(GameObject item)
+    {
+        spawnedItems.Add(item);
+        item.GetComponent<DestroyableItem>().OnItemDestroyed += HandleItemDestroyed;
+    }
+
+    private void HandleItemDestroyed(GameObject item)
+    {
+        spawnedItems.Remove(item);
+        if (spawnedItems.Count == 0)
+        {
+            canSpawn = true;
         }
     }
 
@@ -76,9 +107,20 @@ public class SpawnItem : MonoBehaviourPunCallbacks
 
     private IEnumerator TimeSpawnItem()
     {
-        SpawnItems();
         canSpawn = false;
+        SpawnItems();
         yield return new WaitForSeconds(timeSpawnItem);
-        canSpawn = true;
+    }
+}
+
+// Script trên từng item để gọi sự kiện khi bị phá hủy
+public class DestroyableItem : MonoBehaviour
+{
+    public delegate void ItemDestroyedHandler(GameObject item);
+    public event ItemDestroyedHandler OnItemDestroyed;
+
+    private void OnDestroy()
+    {
+        OnItemDestroyed?.Invoke(this.gameObject);
     }
 }
