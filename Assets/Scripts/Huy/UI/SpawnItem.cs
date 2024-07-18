@@ -6,31 +6,36 @@ using Photon.Realtime;
 
 public class SpawnItem : MonoBehaviourPun
 {
-    [SerializeField] List<GameObject> itemObjects; // Danh sách các object item để bật/tắt
-    [SerializeField] float spawnRadius; // Bán kính spawn item
-    [SerializeField] Color gizmoColor = Color.green; // Màu của Gizmo
+    [SerializeField] List<GameObject> itemObjects;
+    [SerializeField] float spawnRadius;
+    [SerializeField] Color gizmoColor = Color.green;
     [SerializeField] float waitForSecond = 10f;
-    private float timeSpawnItem = 10f;
-    [SerializeField] int maxItemsActive = 100; // Số lượng tối đa các item có thể được bật cùng lúc
+    [SerializeField] float timeSpawnItem = 10f;
+    [SerializeField] int maxItemsActive = 100;
 
     private bool canSpawn = true;
+    private LobbyManager lobbyManager;
     private int currentActiveItems = 0;
 
     private void Start()
     {
-        // Chỉ chủ phòng mới có thể spawn item
-        if (PhotonNetwork.IsMasterClient)
+        lobbyManager = FindObjectOfType<LobbyManager>();
+
+        if (itemObjects == null || itemObjects.Count == 0)
         {
-            StartCoroutine(InitialSpawnItems());
+            Debug.LogError("Danh sách itemObjects đang null hoặc rỗng. Hãy gán các item trong Inspector.");
+            return;
         }
+
+        DisableAllItems();
+        StartCoroutine(InitialSpawnItems());
     }
 
     private void FixedUpdate()
     {
-        // Chủ phòng mới có thể kiểm soát spawn item
         if (PhotonNetwork.IsMasterClient)
         {
-            if (canSpawn && currentActiveItems < maxItemsActive)
+            if (canSpawn && lobbyManager.offLobby && currentActiveItems < maxItemsActive)
             {
                 StartCoroutine(TimeSpawnItem());
             }
@@ -68,7 +73,6 @@ public class SpawnItem : MonoBehaviourPun
             Vector2 randomPosition = Random.insideUnitCircle * spawnRadius;
             itemToEnable.transform.position = new Vector3(randomPosition.x, randomPosition.y, 0) + transform.position;
 
-            // Gửi RPC để thông báo cho các người chơi khác biết về việc spawn item
             photonView.RPC("RPC_EnableItem", RpcTarget.OthersBuffered, randomIndex, randomPosition);
         }
     }
@@ -76,7 +80,6 @@ public class SpawnItem : MonoBehaviourPun
     [PunRPC]
     private void RPC_EnableItem(int itemIndex, Vector2 position)
     {
-        // Kích hoạt item dựa trên thông tin nhận được từ RPC
         GameObject itemToEnable = itemObjects[itemIndex];
         itemToEnable.SetActive(true);
         itemToEnable.transform.position = new Vector3(position.x, position.y, 0) + transform.position;
@@ -94,7 +97,7 @@ public class SpawnItem : MonoBehaviourPun
     private IEnumerator InitialSpawnItems()
     {
         DisableAllItems();
-        yield return new WaitForSeconds(1f); // Đợi 1 giây trước khi spawn item ban đầu
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i < maxItemsActive; i++)
         {
             EnableRandomItem();
@@ -106,5 +109,22 @@ public class SpawnItem : MonoBehaviourPun
     {
         Gizmos.color = gizmoColor;
         Gizmos.DrawWireSphere(transform.position, spawnRadius);
+    }
+
+    public void OnItemTouched(GameObject item)
+    {
+        item.SetActive(false);
+        currentActiveItems--;
+        StartCoroutine(RespawnItem());
+    }
+
+    private IEnumerator RespawnItem()
+    {
+        // Thay đổi thời gian respawn item thành 60 giây (hoặc giá trị mong muốn)
+        yield return new WaitForSeconds(60f);
+        if (currentActiveItems < maxItemsActive)
+        {
+            EnableRandomItem();
+        }
     }
 }

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using Photon.Realtime;
 
 public class SpawnItem2 : MonoBehaviourPun
 {
@@ -10,33 +9,26 @@ public class SpawnItem2 : MonoBehaviourPun
     [SerializeField] float spawnRadius; // Bán kính spawn item
     [SerializeField] Color gizmoColor = Color.green; // Màu của Gizmo
     [SerializeField] float waitForSecond = 10f;
-    private float timeSpawnItem = 10f;
+    [SerializeField] float timeSpawnItem = 60f; // Thời gian spawn item sau khi bị nhặt (60 giây)
     [SerializeField] int maxItemsActive = 100; // Số lượng tối đa các item có thể được spawn cùng lúc
 
     private bool canSpawn = true;
-    private LobbyManager lobbyManager;
     private int currentActiveItems = 0;
     private List<GameObject> spawnedItems = new List<GameObject>();
 
     private void Start()
     {
-        lobbyManager = FindObjectOfType<LobbyManager>();
-
-        // Kiểm tra xem itemPrefabs có null hoặc rỗng không
-        if (itemPrefabs == null || itemPrefabs.Count == 0)
+        if (PhotonNetwork.IsMasterClient)
         {
-            Debug.LogError("itemPrefabs list is null or empty. Please assign the items in the Inspector.");
-            return;
+            StartCoroutine(InitialSpawnItems());
         }
-
-        StartCoroutine(InitialSpawnItems());
     }
 
     private void FixedUpdate()
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            if (canSpawn && lobbyManager.offLobby && currentActiveItems < maxItemsActive)
+            if (canSpawn && currentActiveItems < maxItemsActive)
             {
                 StartCoroutine(TimeSpawnItem());
             }
