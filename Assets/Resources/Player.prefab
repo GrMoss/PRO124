@@ -4353,10 +4353,11 @@ MonoBehaviour:
   health: 0
   healthSlider: {fileID: 5176970887888083700}
   slider: {fileID: 8307377850443830363}
-  sliderMain: {fileID: 0}
+  sliderMain: {fileID: 4256740683646061842}
   healthSliderMain: {fileID: 6868019597589747786}
   healthBackground: {fileID: 4150149996787924614}
   healthFill: {fileID: 7020580203821079411}
+  name: {fileID: 6957652611632606033}
   moveSpeed: 4
   view: {fileID: 6903585598850195347}
   hitBox: {fileID: 5281962237158851057}

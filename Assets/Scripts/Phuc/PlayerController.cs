@@ -1,6 +1,7 @@
 ﻿using Cinemachine;
 using Photon.Pun;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Slider healthSliderMain;
     public Image healthBackground;
     public Image healthFill;
+    public TMP_Text name;
 
     private InputSystem input;
     private Vector2 moveVector = Vector2.zero;
@@ -253,6 +255,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            name.enabled = false;
             healthBackground.enabled = false;
             healthFill.enabled = false;
             color = playerSpriteRenderer.color;
@@ -261,6 +264,7 @@ public class PlayerController : MonoBehaviour
         }
         yield return new WaitForSeconds(time);
         this.moveSpeed = 4;
+        name.enabled = true;
         healthBackground.enabled = true;
         healthFill.enabled = true;
         color = playerSpriteRenderer.color;
