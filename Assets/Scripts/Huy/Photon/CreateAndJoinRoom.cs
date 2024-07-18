@@ -93,6 +93,10 @@ public class CreateAndJoinRoom : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel("How To Play");
     }
+    public void OnHome()
+    {
+        PhotonNetwork.LoadLevel("Home");
+    }
 
     // Callback khi vào phòng thành công
     public override void OnJoinedRoom()
