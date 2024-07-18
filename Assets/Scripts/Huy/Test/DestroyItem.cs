@@ -18,5 +18,4 @@ public class DestroyItem : MonoBehaviour
             spawnItem.OnItemTouched(gameObject);
         }
     }
-
 }

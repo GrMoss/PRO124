@@ -1,6 +1,7 @@
 ﻿using Cinemachine;
 using Photon.Pun;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Slider healthSliderMain;
     public Image healthBackground;
     public Image healthFill;
+    public TMP_Text name;
 
     private InputSystem input;
     private Vector2 moveVector = Vector2.zero;
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public GameObject rotatePoint;
     private bool isConect = false;
     public SpriteRenderer playerSpriteRenderer;
+    private bool isTurnHealth = false;
 
     private PlayerAnimatorController aniController;
     private PlayerAudio audi;
@@ -35,7 +38,7 @@ public class PlayerController : MonoBehaviour
     private bool isCarrot = false;
     private CinemachineVirtualCamera cam;
     private Image effectCarrot;
-
+    float eatingSpeed = 1f;
     private void Awake()
     {
         input = new InputSystem();
@@ -64,7 +67,7 @@ public class PlayerController : MonoBehaviour
     {
         if (view.IsMine && !isDie)
         {
-            rb.velocity = moveVector * moveSpeed;
+            rb.velocity = moveVector * moveSpeed * eatingSpeed;
 
             aniController.RunAnimation(moveVector);
 
@@ -88,6 +91,11 @@ public class PlayerController : MonoBehaviour
                 isConect = true;
                 effectCarrot = GameObject.Find("EffectCarrot").GetComponent<Image>();
                 Debug.Log("Conect");
+            }
+
+            if (isTurnHealth)
+            {
+                sliderMain.SetActive(true);
             }
 
             healthBackground.enabled = false;
@@ -161,9 +169,16 @@ public class PlayerController : MonoBehaviour
                 {
                     audi.PlayerEat();
                     aniController.EatAnimation();
+                    StartCoroutine(WaitForEating());
                 }
             }
         }
+    }
+    IEnumerator WaitForEating()
+    {
+        eatingSpeed = 0f;
+        yield return new WaitForSeconds(.8f);
+        eatingSpeed = 1f;
     }
 
     [PunRPC]
@@ -210,7 +225,7 @@ public class PlayerController : MonoBehaviour
     public void TurnOnHealth()
     {
         slider.SetActive(true);
-        sliderMain.SetActive(true);
+        isTurnHealth = true;
     }
 
     public void SetTransparency(float alpha255)
@@ -253,6 +268,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            name.enabled = false;
             healthBackground.enabled = false;
             healthFill.enabled = false;
             color = playerSpriteRenderer.color;
@@ -261,6 +277,7 @@ public class PlayerController : MonoBehaviour
         }
         yield return new WaitForSeconds(time);
         this.moveSpeed = 4;
+        name.enabled = true;
         healthBackground.enabled = true;
         healthFill.enabled = true;
         color = playerSpriteRenderer.color;
@@ -295,6 +312,7 @@ public class PlayerController : MonoBehaviour
         float startSize = 5f;
         float endSize = size;
         float elapsedTime = 0f;
+        isCarrot = true;
 
         while (elapsedTime < duration)
         {
@@ -315,6 +333,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
         cam.m_Lens.OrthographicSize = startSize;
+        isCarrot = false;
     }
 
     //----------------------- Egg -----------------------

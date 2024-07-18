@@ -66,10 +66,6 @@ public class Shooting : MonoBehaviourPun
         {
             spriteFood.sprite = food[indexChooseFood].GetComponent<SpriteRenderer>().sprite;
         }
-        else
-        {
-            spriteFood.sprite = null;
-        }
 
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
@@ -121,7 +117,6 @@ public class Shooting : MonoBehaviourPun
 
             if (Input.GetMouseButton(1) && canFire && food != null)
             {
-                aniController.EatAnimation();
                 sound.isEating = true;
 
                 canFire = false;
