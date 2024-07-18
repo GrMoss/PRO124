@@ -121,7 +121,6 @@ public class Shooting : MonoBehaviourPun
 
             if (Input.GetMouseButton(1) && canFire && food != null)
             {
-                aniController.EatAnimation();
                 sound.isEating = true;
 
                 canFire = false;

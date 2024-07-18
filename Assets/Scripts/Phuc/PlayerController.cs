@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     private bool isCarrot = false;
     private CinemachineVirtualCamera cam;
     private Image effectCarrot;
-
+    float eatingSpeed = 1f;
     private void Awake()
     {
         input = new InputSystem();
@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         if (view.IsMine && !isDie)
         {
-            rb.velocity = moveVector * moveSpeed;
+            rb.velocity = moveVector * moveSpeed * eatingSpeed;
 
             aniController.RunAnimation(moveVector);
 
@@ -163,9 +163,16 @@ public class PlayerController : MonoBehaviour
                 {
                     audi.PlayerEat();
                     aniController.EatAnimation();
+                    StartCoroutine(WaitForEating());
                 }
             }
         }
+    }
+    IEnumerator WaitForEating()
+    {
+        eatingSpeed = 0f;
+        yield return new WaitForSeconds(.8f);
+        eatingSpeed = 1f;
     }
 
     [PunRPC]
