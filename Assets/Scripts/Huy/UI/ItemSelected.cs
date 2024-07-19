@@ -17,27 +17,18 @@ public class ItemSelected : MonoBehaviourPun, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //if (photonView.IsMine)
-        //{
-            ItemSelectedBar(true);
-        //}
+        ItemSelectedBar(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //if (photonView.IsMine)
-        //{
-            ItemSelectedBar(false);
-        //}
+
+        ItemSelectedBar(false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-
-        //if (photonView.IsMine)
-        //{
-            ItemSelectedBar(true);
-        //}
+        ItemSelectedBar(true);
     }
 
     public void ItemSelectedBar(bool var)

@@ -33,63 +33,57 @@ public class Inventory_Bar : MonoBehaviourPun
         }
     }
 
-    private void Update()
-    {
-
-    }
 
     public void UpdateInventoryBar()
     {
-        if (photonView.IsMine)
+        var inventoryItems = inventory_Manager.GetInventoryItems();
+
+        for (int i = 0; i < slot.Length; i++)
         {
-            var inventoryItems = inventory_Manager.GetInventoryItems();
-
-            for (int i = 0; i < slot.Length; i++)
+            if (i < inventoryItems.Count && inventoryItems[i].QuantityItem > 0)
             {
-                if (i < inventoryItems.Count && inventoryItems[i].QuantityItem > 0)
+                var item = inventoryItems[i];
+                ItemSlot itemSlotComponent = slot[i].GetComponent<ItemSlot>();
+
+                if (itemSlotComponent != null)
                 {
-                    var item = inventoryItems[i];
-                    ItemSlot itemSlotComponent = slot[i].GetComponent<ItemSlot>();
-
-                    if (itemSlotComponent != null)
-                    {
-                        itemSlotComponent.itemID = item.ItemID;
-                        itemSlotComponent.OnItemSelected += HandleItemSelected;
-                    }
-                    else
-                    {
-                        Debug.LogError("Không tìm thấy thành phần ItemSlot trên slot.");
-                    }
-
-                    TMP_Text quantityText = slot[i].transform.Find("Quantity").GetComponent<TMP_Text>();
-                    Image itemImage = slot[i].transform.Find("ItemImage").GetComponent<Image>();
-
-                    if (quantityText != null)
-                    {
-                        quantityText.text = item.QuantityItem.ToString();
-                    }
-                    else
-                    {
-                        Debug.LogError("Không tìm thấy thành phần TMP_Text cho Quantity.");
-                    }
-
-                    if (itemImage != null)
-                    {
-                        itemImage.sprite = item.ImageItem;
-                    }
-                    else
-                    {
-                        Debug.LogError("Không tìm thấy thành phần Image cho ItemImage.");
-                    }
-
-                    slot[i].SetActive(true);
+                    itemSlotComponent.itemID = item.ItemID;
+                    itemSlotComponent.OnItemSelected += HandleItemSelected;
                 }
                 else
                 {
-                    slot[i].SetActive(false);
+                    Debug.LogError("Không tìm thấy thành phần ItemSlot trên slot.");
                 }
+
+                TMP_Text quantityText = slot[i].transform.Find("Quantity").GetComponent<TMP_Text>();
+                Image itemImage = slot[i].transform.Find("ItemImage").GetComponent<Image>();
+
+                if (quantityText != null)
+                {
+                    quantityText.text = item.QuantityItem.ToString();
+                }
+                else
+                {
+                    Debug.LogError("Không tìm thấy thành phần TMP_Text cho Quantity.");
+                }
+
+                if (itemImage != null)
+                {
+                    itemImage.sprite = item.ImageItem;
+                }
+                else
+                {
+                    Debug.LogError("Không tìm thấy thành phần Image cho ItemImage.");
+                }
+
+                slot[i].SetActive(true);
+            }
+            else
+            {
+                slot[i].SetActive(false);
             }
         }
+
     }
 
     private void HandleItemSelected(int itemID)
