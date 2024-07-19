@@ -112,7 +112,7 @@ public class Shooting : MonoBehaviourPun
                 foodObject.transform.localScale.z);
                 foodObject.GetComponent<Food>().ownerId = view.ViewID;
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
-                UpdateUIBar();
+                //UpdateUIBar();
 
             }
 
@@ -132,7 +132,7 @@ public class Shooting : MonoBehaviourPun
                 foodObject.transform.localScale.z);
                 foodObject.GetComponent<Food>().ownerId = 1;
                 Debug.Log($"Food instantiated with ownerId = {view.ViewID}");
-                UpdateUIBar();
+                //UpdateUIBar();
 
             }
         }

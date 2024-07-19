@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookingController : MonoBehaviour
+public class CookingController : MonoBehaviourPun
 {
     public GameObject viewCooker;
     private PhotonView view;
@@ -63,8 +63,7 @@ public class CookingController : MonoBehaviour
             viewCooker.SetActive(true);
             rotatePoint.SetActive(false);
             cookingOn = true;
-            inventory_Manager?.ShowItemInInventory();
-            //inventory_UI.setIsCooker(cookingOn);
+
         }
     }
 
@@ -75,7 +74,7 @@ public class CookingController : MonoBehaviour
             viewCooker.SetActive(false);
             rotatePoint.SetActive(true);
             cookingOn = false;
-            //inventory_UI.setIsCooker(cookingOn);
         }
     }
+
 }
