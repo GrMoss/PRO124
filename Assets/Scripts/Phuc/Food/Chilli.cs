@@ -14,6 +14,7 @@ public class Chilli : Food
         if (playerController != null)
         {
             targetPhotonView.RPC("StartBadChilli", RpcTarget.All, 5f, damageBleeding);
+            targetPhotonView.RPC("StartGoodChilli", RpcTarget.All, 5f, 4f, 1.5f);
         }
     }
 
@@ -21,7 +22,7 @@ public class Chilli : Food
     {
         if (playerController != null)
         {
-            targetPhotonView.RPC("StartGoodChilli", RpcTarget.All, 5f, 5f, 0.5f);
+            targetPhotonView.RPC("StartGoodChilli", RpcTarget.All, 5f, 5.5f, 0.5f);
         }
     }
 

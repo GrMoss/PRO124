@@ -141,4 +141,9 @@ public class Shooting : MonoBehaviourPun
     {
         selectingItem = isSelecting;
     }
+
+    public void SetCanFire(bool x)
+    {
+        canFire = x;
+    }
 }

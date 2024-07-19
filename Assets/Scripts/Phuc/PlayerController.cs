@@ -38,7 +38,10 @@ public class PlayerController : MonoBehaviour
     private bool isCarrot = false;
     private CinemachineVirtualCamera cam;
     private Image effectCarrot;
-    float eatingSpeed = 1f;
+    private float eatingSpeed = 1f;
+    private float effectCucumber = 1;
+    private bool isBread = false;
+
     private void Awake()
     {
         input = new InputSystem();
@@ -131,7 +134,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnMovementPerformed(InputAction.CallbackContext value)
     {
-        moveVector = value.ReadValue<Vector2>();
+        moveVector = value.ReadValue<Vector2>() * effectCucumber;
     }
 
     private void OnMovementCancelled(InputAction.CallbackContext value)
@@ -144,6 +147,7 @@ public class PlayerController : MonoBehaviour
     {
         if (view.IsMine && isDie == false)
         {
+            if(!isBread)
             health += damage;
             view.RPC("UpdateHealthSlider", RpcTarget.AllBuffered, health);
 
@@ -248,7 +252,46 @@ public class PlayerController : MonoBehaviour
 
     //----------------------- Effect -----------------------
 
+    //----------------------- Bread -----------------------
+    [PunRPC]
+    public void StartBadBread(float time)
+    {
+        StartCoroutine(BadBread(time));
+    }
+
+    private IEnumerator BadBread(float time)
+    {
+        GetComponentInChildren<Shooting>().SetCanFire(false);
+        yield return new WaitForSeconds(time);
+        GetComponentInChildren<Shooting>().SetCanFire(true);
+    }
+
+    [PunRPC]
+    public void StartGoodBread(float time)
+    {
+        StartCoroutine(GoodBread(time));
+    }
+
+    private IEnumerator GoodBread(float time)
+    {
+        isBread = true;
+        yield return new WaitForSeconds(time);
+        isBread = false;
+    }
+
     //----------------------- Cucumber -----------------------
+    [PunRPC]
+    public void StartBadCucumber(float time)
+    {
+        StartCoroutine(BadCucumber(time));
+    }
+
+    private IEnumerator BadCucumber(float time)
+    {
+        effectCucumber = -1;
+        yield return new WaitForSeconds(time);
+        effectCucumber = 1;
+    }
 
     [PunRPC]
     public void StartGoodCucumber(float time, float moveSpeed, float blur)
@@ -286,7 +329,6 @@ public class PlayerController : MonoBehaviour
     }
 
     //----------------------- Carrot -----------------------
-
     [PunRPC]
     public void StartBadCarrot(float time, float blur)
     {
@@ -337,15 +379,14 @@ public class PlayerController : MonoBehaviour
     }
 
     //----------------------- Egg -----------------------
-
     [PunRPC]
-    public void StartGoodEgg(float time, float moveSpeed, float scale)
+    public void StartEggEffect(float time, float moveSpeed, float scale)
     {
         if (!isEgg)
-        StartCoroutine(GoodEgg(time, moveSpeed, scale));
+        StartCoroutine(EggEffect(time, moveSpeed, scale));
     }
 
-    private IEnumerator GoodEgg(float time, float moveSpeed, float scale)
+    private IEnumerator EggEffect(float time, float moveSpeed, float scale)
     {
         isEgg = true;
         this.moveSpeed = moveSpeed;
@@ -354,19 +395,6 @@ public class PlayerController : MonoBehaviour
         isEgg = false;
         this.moveSpeed = 4;
         transform.localScale = new Vector3(1, 1, 1);
-    }
-
-    [PunRPC]
-    public void StartBadEgg(float time, float moveSpeed)
-    {
-        StartCoroutine(BadEgg(time, moveSpeed));
-    }
-
-    private IEnumerator BadEgg(float time, float moveSpeed)
-    {
-        this.moveSpeed = moveSpeed;
-        yield return new WaitForSeconds(time);
-        this.moveSpeed = 4f;
     }
 
     //----------------------- Chilli -----------------------

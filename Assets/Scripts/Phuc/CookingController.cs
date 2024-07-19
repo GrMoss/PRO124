@@ -22,9 +22,9 @@ public class CookingController : MonoBehaviour
     {
         if (view.IsMine && inventory_Manager != null)
         {
-            if (inventory_Manager.GetQuantityItem(4) >= 1)
+            if (inventory_Manager.GetQuantityItem(4) >= 2)
             {
-                inventory_Manager.QuitItemInList(4, 1);
+                inventory_Manager.QuitItemInList(4, 2);
                 inventory_Manager.AddItemInList(5, 1);
             }
         }
@@ -36,7 +36,7 @@ public class CookingController : MonoBehaviour
         {
             if (inventory_Manager.GetQuantityItem(1) >= 3)
             {
-                inventory_Manager.QuitItemInList(1, 1);
+                inventory_Manager.QuitItemInList(1, 3);
                 inventory_Manager.AddItemInList(7, 1);
             }
         }
@@ -46,11 +46,11 @@ public class CookingController : MonoBehaviour
     {
         if (view.IsMine && inventory_Manager != null)
         {
-            if (inventory_Manager.GetQuantityItem(2) >= 2 && inventory_Manager.GetQuantityItem(3) >= 2 && inventory_Manager.GetQuantityItem(4) >= 2)
+            if (inventory_Manager.GetQuantityItem(7) >= 1 && inventory_Manager.GetQuantityItem(3) >= 2 && inventory_Manager.GetQuantityItem(5) >= 2)
             {
-                inventory_Manager.QuitItemInList(2, 1);
-                inventory_Manager.QuitItemInList(3, 1);
-                inventory_Manager.QuitItemInList(4, 1);
+                inventory_Manager.QuitItemInList(7, 1);
+                inventory_Manager.QuitItemInList(3, 2);
+                inventory_Manager.QuitItemInList(5, 2);
                 inventory_Manager.AddItemInList(6, 1);
             }
         }
