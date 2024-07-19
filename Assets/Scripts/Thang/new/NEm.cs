@@ -5,13 +5,25 @@ using UnityEngine;
 public class NEm : MonoBehaviour
 {
     public GameObject objectToThrow;
+    private int hits = 0;
+    private bool canShoot = true;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Kiểm tra khi click chuột trái
+        if (Input.GetMouseButtonDown(0) && canShoot) // Kiểm tra khi click chuột trái và có thể bắn
         {
-            ThrowObject();
+            StartCoroutine(ShootWithDelay());
         }
+    }
+
+    IEnumerator ShootWithDelay()
+    {
+        canShoot = false; // Đánh dấu là không thể bắn cho đến khi kết thúc delay
+        ThrowObject(); // Bắn đạn ngay lập tức
+
+        yield return new WaitForSeconds(1f); // Chờ 1 giây trước khi có thể bắn tiếp
+
+        canShoot = true; // Kết thúc delay, có thể bắn lại
     }
 
     void ThrowObject()
