@@ -12,7 +12,7 @@ public class Egg : Food
     {
         if (playerController != null)
         {
-            targetPhotonView.RPC("StartGoodEgg", RpcTarget.All, 5f, 2f, 1.5f);
+            targetPhotonView.RPC("StartEggEffect", RpcTarget.All, 5f, 2f, 1.5f);
         }
     }
 
@@ -20,7 +20,7 @@ public class Egg : Food
     {
         if (playerController != null)
         {
-            targetPhotonView.RPC("StartGoodEgg", RpcTarget.All, 5f, 7f, 0.5f);
+            targetPhotonView.RPC("StartEggEffect", RpcTarget.All, 5f, 7f, 0.5f);
         }
     }
 

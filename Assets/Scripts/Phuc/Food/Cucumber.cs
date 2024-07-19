@@ -10,7 +10,10 @@ public class Cucumber : Food
 
     public override void BadSpecialEffects()
     {
-
+        if (playerController != null)
+        {
+            targetPhotonView.RPC("StartBadCucumber", RpcTarget.All, 5f);
+        }
     }
     public override void GoodSpecialEffects()
     {
