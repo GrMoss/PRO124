@@ -108,7 +108,6 @@ public class Inventory_Manager : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            inventory_Bar.UpdateInventoryBar();
             // Xây dựng chuỗi để lưu trữ thông tin kho hàng
             string inventoryInfo = "";
             foreach (var item in lisInventoryDatas)
