@@ -8,13 +8,14 @@ public class SpawnItem2 : MonoBehaviourPun
     [SerializeField] List<GameObject> itemPrefabs; // Danh sách các prefab item để spawn
     [SerializeField] float spawnRadius; // Bán kính spawn item
     [SerializeField] Color gizmoColor = Color.green; // Màu của Gizmo
-    [SerializeField] float waitForSecond = 10f;
-    [SerializeField] float timeSpawnItem = 60f; // Thời gian spawn item sau khi bị nhặt (60 giây)
+    [SerializeField] float waitForSecond = 10f; // Thời gian chờ giữa các lần spawn
+    [SerializeField] float timeSpawnItem = 60f; // Thời gian để spawn lại item sau khi bị nhặt
     [SerializeField] int maxItemsActive = 100; // Số lượng tối đa các item có thể được spawn cùng lúc
 
     private bool canSpawn = true;
     private int currentActiveItems = 0;
     private List<GameObject> spawnedItems = new List<GameObject>();
+    private Dictionary<GameObject, float> itemRespawnTimes = new Dictionary<GameObject, float>();
 
     private void Start()
     {
@@ -28,6 +29,9 @@ public class SpawnItem2 : MonoBehaviourPun
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            // Kiểm tra và spawn lại item khi thời gian respawn đã hết
+            CheckRespawnTimes();
+
             if (canSpawn && currentActiveItems < maxItemsActive)
             {
                 StartCoroutine(TimeSpawnItem());
@@ -54,7 +58,7 @@ public class SpawnItem2 : MonoBehaviourPun
     {
         SpawnRandomItem();
         canSpawn = false;
-        yield return new WaitForSeconds(timeSpawnItem);
+        yield return new WaitForSeconds(waitForSecond);
         canSpawn = true;
     }
 
@@ -63,17 +67,38 @@ public class SpawnItem2 : MonoBehaviourPun
         for (int i = 0; i < maxItemsActive; i++)
         {
             SpawnRandomItem();
-            yield return new WaitForSeconds(waitForSecond); // Thời gian chờ nhỏ để đảm bảo tất cả item được bật lên
+            yield return new WaitForSeconds(waitForSecond);
+        }
+    }
+
+    private void CheckRespawnTimes()
+    {
+        List<GameObject> itemsToRespawn = new List<GameObject>();
+
+        foreach (var item in itemRespawnTimes.Keys)
+        {
+            if (Time.time >= itemRespawnTimes[item])
+            {
+                itemsToRespawn.Add(item);
+            }
+        }
+
+        foreach (var item in itemsToRespawn)
+        {
+            itemRespawnTimes.Remove(item);
+            if (currentActiveItems < maxItemsActive)
+            {
+                SpawnRandomItem();
+            }
         }
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = gizmoColor; // Đặt màu cho Gizmo
-        Gizmos.DrawWireSphere(transform.position, spawnRadius); // Vẽ hình tròn
+        Gizmos.color = gizmoColor;
+        Gizmos.DrawWireSphere(transform.position, spawnRadius);
     }
 
-    // Hàm này được gọi khi người chơi chạm vào item
     public void OnItemTouched(GameObject item)
     {
         if (spawnedItems.Contains(item))
@@ -81,16 +106,9 @@ public class SpawnItem2 : MonoBehaviourPun
             PhotonNetwork.Destroy(item); // Xóa item khỏi mạng
             spawnedItems.Remove(item);
             currentActiveItems--;
-            StartCoroutine(RespawnItem());
-        }
-    }
 
-    private IEnumerator RespawnItem()
-    {
-        yield return new WaitForSeconds(timeSpawnItem);
-        if (currentActiveItems < maxItemsActive)
-        {
-            SpawnRandomItem();
+            // Đặt thời gian respawn cho item
+            itemRespawnTimes[item] = Time.time + timeSpawnItem;
         }
     }
 }
