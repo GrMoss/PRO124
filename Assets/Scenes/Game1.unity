@@ -1812,7 +1812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876a9a740cd31433485f2edfef7d750c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 600
+  timeRemaining: 300
   timeText: {fileID: 2083972245}
   onPanel: {fileID: 2093232824}
 --- !u!4 &280903617
