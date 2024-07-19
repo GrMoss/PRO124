@@ -10,10 +10,10 @@ public class DestroyItem : MonoBehaviour
     {
         spawnItem = FindObjectOfType<SpawnItem>();
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        // Kiểm tra xem đối tượng chạm vào có tag là "Player" và có component BoxCollider2D không
+        if (collision.gameObject.CompareTag("Player"))
         {
             spawnItem.OnItemTouched(gameObject);
         }

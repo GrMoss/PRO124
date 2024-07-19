@@ -16,9 +16,31 @@ public class ConnectToAPI : MonoBehaviour
     public TMP_InputField nameInputField;
     public TMP_InputField phoneInputField;
     public TMP_InputField emailInputField;
+    public GameObject setATButton;
+    public GameObject setATButton2;
 
-    private string urlEmailInput;
+    private bool allFieldsFilled;
+
     public static bool nextStep = true;
+
+    private void Update()
+    {
+        Debug.Log(" allFieldsFilled: " + allFieldsFilled);
+        allFieldsFilled = !string.IsNullOrEmpty(nameInputField.text) &&
+                          !string.IsNullOrEmpty(emailInputField.text) &&
+                          !string.IsNullOrEmpty(phoneInputField.text);
+
+        if (allFieldsFilled)
+        {
+            setATButton2.SetActive(true);
+            setATButton.SetActive(false);
+        }
+        else
+        {
+            setATButton2.SetActive(false);
+            setATButton.SetActive(true);
+        }
+    }
 
     public void StartButton()
     {
@@ -37,6 +59,13 @@ public class ConnectToAPI : MonoBehaviour
         string email = emailInputField.text;
         string location = "HCM";
 
+        // Kiểm tra các giá trị đầu vào
+        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(phone) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(location))
+        {
+            Debug.LogWarning("Một hoặc nhiều trường dữ liệu bị bỏ trống.");
+            yield break;
+        }
+
         APIData userData = new APIData(name, phone, email, location);
 
         string jsonStringRequest = JsonConvert.SerializeObject(userData);
@@ -46,33 +75,60 @@ public class ConnectToAPI : MonoBehaviour
         request.uploadHandler = new UploadHandlerRaw(bodyRaw);
         request.downloadHandler = new DownloadHandlerBuffer();
         request.SetRequestHeader("Content-Type", "application/json");
+
         yield return request.SendWebRequest();
 
-        if (request.responseCode == 200)
+        switch (request.responseCode)
         {
-            Debug.Log("Người dùng được thêm thành công.");
-            //request.Dispose();
+            case 200:
+                Debug.Log("Người dùng được thêm thành công.");
+                break;
+            case 400:
+                Debug.Log("Yêu cầu không hợp lệ.");
+                break;
+            case 500:
+                Debug.Log("Số điện thoại đã được sử dụng.");
+                break;
+            case 422:
+                Debug.LogError("Yêu cầu gặp lỗi: Unprocessable Entity (422). Kiểm tra dữ liệu đầu vào.");
+                if (request.downloadHandler != null)
+                {
+                    Debug.LogError("Lỗi từ API: " + request.downloadHandler.text);
+                }
+                break;
+            default:
+                Debug.LogError("Yêu cầu gặp lỗi: " + request.error);
+                break;
         }
-        else if (request.responseCode == 400)
-        {
-            Debug.Log("Yêu cầu không hợp lệ.");
-        }
-        else if (request.responseCode == 500)
-        {
-            Debug.Log("Số điện thoại đã được sử dụng.");
-        }
-        else
-        {
-            Debug.Log("Gửi dử liệu không thành công.");
-        }
+
     }
+
 
     private bool IsValidEmail(string email)
     {
-        // Kiểm tra xem email có chứa ký tự '@' không
-        // và có ít nhất một ký tự trước và sau ký tự '@'
-        return email.Contains("@") && email.IndexOf("@") > 0 && email.IndexOf("@") < email.Length - 1;
+        // Kiểm tra xem email có chứa ký tự '@' và có ít nhất một ký tự trước và sau '@'
+        int atIndex = email.IndexOf('@');
+        if (atIndex <= 0 || atIndex >= email.Length - 1)
+        {
+            return false;
+        }
+
+        // Kiểm tra phần đuôi của email phải là ".com"
+        string domain = email.Substring(atIndex + 1);
+        if (!domain.EndsWith(".com"))
+        {
+            return false;
+        }
+
+        // Kiểm tra độ dài tối thiểu của phần domain (ít nhất là "a.com")
+        if (domain.Length < 5)
+        {
+            return false;
+        }
+
+        return true;
     }
+
 
     private bool IsValidPhone(string phone)
     {
@@ -95,17 +151,6 @@ public class ConnectToAPI : MonoBehaviour
             nameInputField.textComponent.color = Color.black;
         }
 
-        // Kiểm tra định dạng email
-        if (!IsValidEmail(emailInputField.text))
-        {
-            emailInputField.textComponent.color = Color.red;
-            hasError = true;
-        }
-        else
-        {
-            emailInputField.textComponent.color = Color.black;
-        }
-
         // Kiểm tra định dạng số điện thoại
         if (!IsValidPhone(phoneInputField.text))
         {
@@ -117,11 +162,21 @@ public class ConnectToAPI : MonoBehaviour
             phoneInputField.textComponent.color = Color.black;
         }
 
+        // Kiểm tra định dạng email
+        if (!IsValidEmail(emailInputField.text))
+        {
+            emailInputField.textComponent.color = Color.red;
+            hasError = true;
+        }
+        else
+        {
+            emailInputField.textComponent.color = Color.black;
+        }
+
         // Nếu không có lỗi, thực hiện gửi dữ liệu
         if (!hasError)
         {
             nextStep = true;
         }
     }
-
 }
