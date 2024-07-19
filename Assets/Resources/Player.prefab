@@ -4174,6 +4174,7 @@ GameObject:
   - component: {fileID: 5831669840042339318}
   - component: {fileID: 6801644119773632294}
   - component: {fileID: 5150181398974131710}
+  - component: {fileID: 2928010950753447156}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4265,7 +4266,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.001333721, y: 0.089815654}
+  m_Offset: {x: 0.00051414967, y: 0.15486278}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4276,7 +4277,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29395962, y: 0.23284362}
+  m_Size: {x: 0.396208, y: 0.3629379}
   m_EdgeRadius: 0
 --- !u!114 &6104401279075716470
 MonoBehaviour:
@@ -4528,6 +4529,20 @@ MonoBehaviour:
   - {fileID: 2000274291057323806}
   - {fileID: 1222711704768601378}
   - {fileID: 1222711704768601378}
+--- !u!114 &2928010950753447156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673446536752421944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3711bdc4d2d354ce48867486266d1616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 0000000001000000020000000300000004000000050000000600000007000000
+  quantity: 1
 --- !u!1 &1749639941398265387
 GameObject:
   m_ObjectHideFlags: 0
@@ -12259,7 +12274,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2483600325694806406}
   - component: {fileID: 5340820673962084000}
-  - component: {fileID: 8842888740395594012}
   m_Layer: 0
   m_Name: Hitbox
   m_TagString: PlayerHitBox
@@ -12317,20 +12331,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.4463197}
   m_Size: {x: 0.6, y: 1.1073606}
   m_Direction: 0
---- !u!114 &8842888740395594012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5281962237158851057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3711bdc4d2d354ce48867486266d1616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemID: 0000000001000000020000000300000004000000050000000600000007000000
-  quantity: 1
 --- !u!1 &5329664221961407134
 GameObject:
   m_ObjectHideFlags: 0

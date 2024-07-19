@@ -16,8 +16,25 @@ public class GetItem : MonoBehaviourPun
         //inventory_Bar = FindObjectOfType<Inventory_Bar>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (photonView.IsMine)
+    //    {
+    //        for (int i = 0; i < itemID.Length; i++)
+    //        {
+    //            if (collision.gameObject.CompareTag(i.ToString()))
+    //            {
+    //                // Thêm vật phẩm vào túi của người chơi hiện tại
+    //                inventory_Manager.AddItemInList(itemID[i], quantity);
+    //                break; // Thoát khỏi vòng lặp sau khi thêm vật phẩm
+    //            }
+    //        }
+    //    }
+    //}
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (photonView.IsMine)
         {
             for (int i = 0; i < itemID.Length; i++)
