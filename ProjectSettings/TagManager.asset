@@ -72,6 +72,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackGround
+    uniqueID: 1475675811
+    locked: 0
   - name: BG
     uniqueID: 3847560135
     locked: 0
@@ -80,7 +83,4 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 2265588551
-    locked: 0
-  - name: BackGround
-    uniqueID: 1475675811
     locked: 0
