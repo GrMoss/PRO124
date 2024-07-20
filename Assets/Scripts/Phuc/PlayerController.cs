@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour
 
             if (isTurnHealth)
             {
+                isTurnHealth = false;
                 sliderMain.SetActive(true);
             }
 

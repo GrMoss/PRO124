@@ -9,10 +9,9 @@ public class OnOff : MonoBehaviourPun
     [SerializeField] GameObject inventoryBar;
     private void Update()
     {
-        if (PhotonScript.showBXH)
+        if (Timer.TimeOver)
         {
             healthBar.SetActive(false);
-            inventoryBar.SetActive(false);
         }
     }
 }
