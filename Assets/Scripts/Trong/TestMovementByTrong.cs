@@ -9,11 +9,12 @@ public class TestMovementByTrong : MonoBehaviour
 {
     Rigidbody2D rb;
     public float speed = 6f;
-    bool isMoving;
+    public bool isMoving;
     bool isFainted;
     float recoverTime = 5f;
     Animator animator;
     SpriteRenderer sr;
+    public float moveX, moveY;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,7 +24,6 @@ public class TestMovementByTrong : MonoBehaviour
     }
     private void Update()
     {
-        Moving();
         //Animation
 
         animator.SetBool("IsMoving", isMoving);
@@ -50,16 +50,22 @@ public class TestMovementByTrong : MonoBehaviour
         }
         animator.SetBool("IsFainted", isFainted);
     }
+    private void FixedUpdate()
+    {
+
+        Moving();
+    }
     void Moving()
     {
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-        Vector2 moving = new Vector2(x, y);
+        moveX = Input.GetAxisRaw("Horizontal");
+        moveY = Input.GetAxisRaw("Vertical");
+        Vector2 moving = new Vector2(moveX, moveY);
         rb.velocity = moving * speed * Time.deltaTime;
-        if (Mathf.Abs(x) > 0.1f || Mathf.Abs(y) > 0.1f)
+        if (Mathf.Abs(moveX) > 0.1f || Mathf.Abs(moveY) > 0.1f)
         {
             isMoving = true;
-            Flip(x);
+            if (Mathf.Abs(moveX) > 0.1f)
+                Flip(moveX);
         }
         else isMoving = false;
     }
