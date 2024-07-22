@@ -123,6 +123,94 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &13862646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 13862647}
+  - component: {fileID: 13862650}
+  - component: {fileID: 13862649}
+  - component: {fileID: 13862648}
+  m_Layer: 5
+  m_Name: Scrolling-Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &13862647
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13862646}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8639.999}
+  m_LocalScale: {x: 108, y: 108, z: 108}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1623578695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 37.537437, y: 25.999998}
+  m_SizeDelta: {x: 24.929932, y: 18.130005}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &13862648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13862646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b35acf461926b452fbd57046baf9c032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _img: {fileID: 13862649}
+  _x: 0.01
+  _y: 0.01
+--- !u!114 &13862649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13862646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 8322780c831a04587837ef5814c08a70, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &13862650
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13862646}
+  m_CullTransparentMesh: 1
 --- !u!1001 &54547301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -376,8 +464,8 @@ MonoBehaviour:
   stringArray:
   - "B\u1EA5m ph\xEDm [A] [S] [D] [W] \u0111\u1EC3 di chuy\u1EC3n t\u1EDBi v\u1ECB
     tr\xED X."
-  timeBtwnChars: 0.2
-  timeBtwnWords: 0.05
+  timeBtwnChars: 0.11
+  timeBtwnWords: 0.01
 --- !u!1 &81052902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2328,7 +2416,7 @@ MonoBehaviour:
   stringArray:
   - "CH\xDAC M\u1EEANG B\u1EA0N \u0110\xC3 HO\xC0N TH\xC0NH H\u01AF\u1EDANG D\u1EAAN"
   timeBtwnChars: 0.5
-  timeBtwnWords: 0.2
+  timeBtwnWords: 0.005
 --- !u!1 &944829159
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,7 +2512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dan: {fileID: 3302168835374250081, guid: f8ff56c80adb291458608ff5e9f23798, type: 3}
-  Panel: {fileID: 1623578694}
+  Panel: {fileID: 1757625765}
   Last: {fileID: 1596587698}
   bar: {fileID: 2047023182}
 --- !u!1 &946781571
@@ -2812,7 +2900,7 @@ MonoBehaviour:
   - "H\xE3y di chuy\u1EC3n t\u1EDBi b\u1EBFp ho\u1EB7c \u0111\u1ED1ng l\u1EEDa \u0111\u1EC3
     n\u1EA5u \u0103n."
   timeBtwnChars: 0.2
-  timeBtwnWords: 0.2
+  timeBtwnWords: 0.005
 --- !u!1 &1061693367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3099,7 +3187,7 @@ MonoBehaviour:
   - "Click chu\u1ED9t tr\xE1i v\u1EC1 h\u01B0\u1EDBng nh\xE2n v\u1EADt \u0111\u1EC3
     t\u1EA5n c\xF4ng."
   timeBtwnChars: 0.5
-  timeBtwnWords: 0.2
+  timeBtwnWords: 0.005
 --- !u!1 &1108996168
 GameObject:
   m_ObjectHideFlags: 0
@@ -3196,9 +3284,9 @@ RectTransform:
   m_Children:
   - {fileID: 946781572}
   - {fileID: 1983043102}
-  - {fileID: 1757625766}
   - {fileID: 1186979637}
   - {fileID: 1596587699}
+  - {fileID: 1757625766}
   - {fileID: 1623578695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4347,19 +4435,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1186979636}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2047023182}
+      - m_Target: {fileID: 1623578694}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -5530,6 +5606,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 13862647}
   - {fileID: 760426438}
   - {fileID: 927965435}
   m_Father: {fileID: 1108996172}
@@ -5942,7 +6019,7 @@ MonoBehaviour:
   - "Di chuy\u1EC3n \u0111\u1EBFn nh\u1EEFng c\xE2y \u1EDBt \u0111\u1EC3 nh\u1EB7t
     v\u1EADt ph\u1EA9m."
   timeBtwnChars: 0.2
-  timeBtwnWords: 0.2
+  timeBtwnWords: 0.005
 --- !u!1 &1757625765
 GameObject:
   m_ObjectHideFlags: 0
@@ -9379,7 +9456,7 @@ MonoBehaviour:
   - "\u0110\u1EC3 c\u1EA7m v\u1EADt ph\u1EA9m tr\xEAn tay. Click v\xE0o v\u1EADt
     ph\u1EA9m mu\u1ED1n ch\u1ECDn tr\xEAn thanh bar."
   timeBtwnChars: 0.2
-  timeBtwnWords: 0.2
+  timeBtwnWords: 0.005
 --- !u!1 &2097090935
 GameObject:
   m_ObjectHideFlags: 0
@@ -9474,7 +9551,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1757625765}
+      - m_Target: {fileID: 1186979636}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -9497,6 +9574,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2047023182}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2097090938
 MonoBehaviour:
