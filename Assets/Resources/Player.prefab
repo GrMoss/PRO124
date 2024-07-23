@@ -2365,6 +2365,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myName: {fileID: 6957652611632606033}
   myID: {fileID: 6903585598850195347}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  isUniqueName: 0
 --- !u!114 &1540501234698940648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18972,9 +18974,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   afterImagePrefab: {fileID: 7238016907162989368, guid: 6de8529922662cd45add384fefb4783d, type: 3}
   afterImageLifetime: 0.3
-  afterImageSpawnRate: 0.8
+  afterImageSpawnRate: 0.14
   afterImageColor: {r: 1, g: 1, b: 1, a: 0.5}
   parentPlayer: {fileID: 1673446536752421944}
+  myName: {fileID: 1245390212755142305}
 --- !u!1001 &492384274411112720
 PrefabInstance:
   m_ObjectHideFlags: 0
