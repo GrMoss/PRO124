@@ -27,7 +27,7 @@ public class GetItem : MonoBehaviourPun
                 {
                     // Thêm vật phẩm vào túi của người chơi hiện tại
                     inventory_Manager.AddItemInList(itemID[i], quantity);
-                    //inventory_Bar.UpdateInventoryBar();
+                    inventory_Bar.UpdateInventoryBar();
                     break; // Thoát khỏi vòng lặp sau khi thêm vật phẩm
                 }
             }
