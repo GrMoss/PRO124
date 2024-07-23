@@ -1,51 +1,54 @@
 using UnityEngine;
 using System.Collections;
+using Photon.Pun;
 
-public class AfterImageEffect : MonoBehaviour
+public class AfterImageEffect : MonoBehaviourPun
 {
     public GameObject afterImagePrefab;
     public float afterImageLifetime = 0.5f;
     public float afterImageSpawnRate = 0.1f;
     public Color afterImageColor = new Color(1f, 1f, 1f, 0.5f);
+    public GameObject parentPlayer;
 
     private float spawnCooldown;
     PlayerController playerController;
 
-    TestMovementByTrong testMove;
-
     private void Start()
     {
-        playerController = GetComponent<PlayerController>();
-        testMove = GetComponent<TestMovementByTrong>();
+        playerController = GetComponentInParent<PlayerController>();
     }
     void LateUpdate()
     {
-        if (testMove.isMoving)
+        if (photonView.IsMine)
         {
-            if (spawnCooldown > 0)
+            if (playerController.moveSpeed > 4f)
             {
-                spawnCooldown -= Time.deltaTime;
-            }
-            else
-            {
-                SpawnAfterImage();
-                spawnCooldown = afterImageSpawnRate;
+                if (Mathf.Abs(playerController.moveVector.x) > 0.1f || Mathf.Abs(playerController.moveVector.y) > 0.1f)
+                {
+                    if (spawnCooldown > 0)
+                    {
+                        spawnCooldown -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        photonView.RPC("SpawnAfterImage", RpcTarget.AllBuffered);
+                        spawnCooldown = afterImageSpawnRate;
+                    }
+                }
             }
         }
         
     }
 
+    [PunRPC]
     void SpawnAfterImage()
     {
         GameObject afterImage = Instantiate(afterImagePrefab, transform.position, transform.rotation);
         SpriteRenderer sr = afterImage.GetComponent<SpriteRenderer>();
         SpriteRenderer playerSR = GetComponent<SpriteRenderer>();
-
         sr.sprite = playerSR.sprite;
         sr.color = afterImageColor;
-        if (testMove.moveX < 0) sr.flipX = true;
-        else sr.flipX = false;
-
+        afterImage.transform.localScale = parentPlayer.transform.localScale;
         StartCoroutine(FadeAfterImage(sr));
         Destroy(afterImage, afterImageLifetime + 0.5f);
     }

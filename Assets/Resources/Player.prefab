@@ -4271,6 +4271,7 @@ MonoBehaviour:
   healthBackground: {fileID: 4150149996787924614}
   healthFill: {fileID: 7020580203821079411}
   name: {fileID: 6957652611632606033}
+  moveVector: {x: 0, y: 0}
   moveSpeed: 4
   view: {fileID: 6903585598850195347}
   hitBox: {fileID: 5281962237158851057}
@@ -18795,6 +18796,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3710178234435892791}
   - component: {fileID: 8283548682830721434}
+  - component: {fileID: 2766945174102103816}
+  - component: {fileID: 1423201249020406219}
   m_Layer: 0
   m_Name: Player_Sprite
   m_TagString: Untagged
@@ -18869,6 +18872,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!114 &2766945174102103816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9148960496560693992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1423201249020406219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9148960496560693992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610af1ef81fa2fc47afb37931d3d0ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  afterImagePrefab: {fileID: 7238016907162989368, guid: 6de8529922662cd45add384fefb4783d, type: 3}
+  afterImageLifetime: 0.2
+  afterImageSpawnRate: 0.05
+  afterImageColor: {r: 1, g: 1, b: 1, a: 0.5}
+  parentPlayer: {fileID: 1673446536752421944}
 --- !u!1001 &1103215665496495046
 PrefabInstance:
   m_ObjectHideFlags: 0
