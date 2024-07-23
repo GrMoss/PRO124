@@ -21,7 +21,7 @@ public class AfterImageEffect : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            if (playerController.moveSpeed > 4f)
+            if (playerController.moveSpeed > 4.1f)
             {
                 if (Mathf.Abs(playerController.moveVector.x) > 0.1f || Mathf.Abs(playerController.moveVector.y) > 0.1f)
                 {

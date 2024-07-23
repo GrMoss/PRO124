@@ -7494,6 +7494,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 84
       objectReference: {fileID: 0}
+    - target: {fileID: 2766945174102103816, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
+      propertyPath: sceneViewId
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 2774309277108576148, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
       propertyPath: sceneViewId
       value: 85
@@ -8201,7 +8205,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1245390212755142305, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1aa2ef0433b36e84cbcd5d96c4a7b32c, type: 3}
 --- !u!1001 &5193509249156231091
 PrefabInstance:
@@ -11571,6 +11578,7 @@ MonoBehaviour:
   afterImageLifetime: 0.2
   afterImageSpawnRate: 0.05
   afterImageColor: {r: 1, g: 1, b: 1, a: 0.5}
+  parentPlayer: {fileID: 0}
 --- !u!1001 &9084468491364362903
 PrefabInstance:
   m_ObjectHideFlags: 0

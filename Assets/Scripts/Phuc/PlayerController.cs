@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
     private float effectCucumber = 1;
     private bool isBread = false;
 
+    //Particle System
+    private SpecialEffects spef;
     private void Awake()
     {
         input = new InputSystem();
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         aniController = GetComponent<PlayerAnimatorController>();
         audi = FindObjectOfType<PlayerAudio>();
+        spef = GetComponentInChildren<SpecialEffects>();
 
         if (view.IsMine)
         {
@@ -264,6 +267,7 @@ public class PlayerController : MonoBehaviour
     public void StartBadBread(float time)
     {
         StartCoroutine(BadBread(time));
+        spef.HitBread();
     }
 
     private IEnumerator BadBread(float time)
@@ -277,6 +281,7 @@ public class PlayerController : MonoBehaviour
     public void StartGoodBread(float time)
     {
         StartCoroutine(GoodBread(time));
+        spef.EatBread();
     }
 
     private IEnumerator GoodBread(float time)
@@ -291,6 +296,7 @@ public class PlayerController : MonoBehaviour
     public void StartBadCucumber(float time)
     {
         StartCoroutine(BadCucumber(time));
+        spef.HitCumcumber();
     }
 
     private IEnumerator BadCucumber(float time)
@@ -304,6 +310,7 @@ public class PlayerController : MonoBehaviour
     public void StartGoodCucumber(float time, float moveSpeed, float blur)
     {
         StartCoroutine(GoodCucumber(time, moveSpeed, blur));
+        spef.EatCucumber();
     }
 
     private IEnumerator GoodCucumber(float time,float moveSpeed, float blur)
@@ -354,6 +361,7 @@ public class PlayerController : MonoBehaviour
     {
         if(!isCarrot)
         StartCoroutine(GoodCarrot(time, duration, size));
+        spef.EatCarrot();
     }
 
     private IEnumerator GoodCarrot(float time, float duration, float size)
@@ -391,6 +399,15 @@ public class PlayerController : MonoBehaviour
     {
         if (!isEgg)
         StartCoroutine(EggEffect(time, moveSpeed, scale));
+        if (scale <= 0.5f)
+        {
+            spef.EatEgg();
+        }
+        else
+        {
+            spef.HitEgg();
+        }
+
     }
 
     private IEnumerator EggEffect(float time, float moveSpeed, float scale)
@@ -409,6 +426,11 @@ public class PlayerController : MonoBehaviour
     public void StartGoodChilli(float time, float moveSpeed, float attackSpeed)
     {
         StartCoroutine(GoodChilli(time, moveSpeed, attackSpeed));
+
+        if (attackSpeed < 1f)
+            spef.EatPepper();
+        else
+            spef.HitPepper();
     }
 
     private IEnumerator GoodChilli(float time, float moveSpeed, float attackSpeed)
@@ -418,6 +440,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(time);
         this.moveSpeed = 4;
         GetComponentInChildren<Shooting>().timeBetweenFiring = 1f;
+
     }
 
     [PunRPC]
