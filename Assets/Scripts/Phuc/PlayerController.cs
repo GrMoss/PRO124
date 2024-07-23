@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public TMP_Text name;
 
     private InputSystem input;
-    private Vector2 moveVector = Vector2.zero;
+    [HideInInspector] public Vector2 moveVector = Vector2.zero;
     private Rigidbody2D rb;
     public float moveSpeed;
     public PhotonView view;
