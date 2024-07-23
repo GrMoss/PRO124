@@ -26,7 +26,7 @@ public class AfterImageEffect : MonoBehaviourPun
         {
             if (playerController.moveSpeed > 4.1f)
             {
-                if (Mathf.Abs(playerController.moveVector.x) > 0.1f || Mathf.Abs(playerController.moveVector.y) > 0.1f)
+                if (Mathf.Abs(playerController.rb.velocity.x) > 0.1f || Mathf.Abs(playerController.rb.velocity.y) > 0.1f)
                 {
                     if (spawnCooldown > 0)
                     {
