@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private InputSystem input;
     [HideInInspector] public Vector2 moveVector = Vector2.zero;
-    private Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
     public float moveSpeed;
     public PhotonView view;
     public GameObject hitBox;
