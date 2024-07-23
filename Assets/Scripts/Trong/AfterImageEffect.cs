@@ -12,10 +12,13 @@ public class AfterImageEffect : MonoBehaviourPun
 
     private float spawnCooldown;
     PlayerController playerController;
+    public GameObject myName;
+    ShowPlayerName showPlayerName;
 
     private void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
+        showPlayerName = myName.GetComponent<ShowPlayerName>();
     }
     void LateUpdate()
     {
@@ -47,7 +50,15 @@ public class AfterImageEffect : MonoBehaviourPun
         SpriteRenderer sr = afterImage.GetComponent<SpriteRenderer>();
         SpriteRenderer playerSR = GetComponent<SpriteRenderer>();
         sr.sprite = playerSR.sprite;
-        sr.color = afterImageColor;
+        if (showPlayerName.isUniqueName)
+        {
+            sr.color = showPlayerName.color - new Color(0, 0, 0, 0.25f);
+        }
+        else
+        {
+            sr.color = afterImageColor;
+        }
+        
         afterImage.transform.localScale = parentPlayer.transform.localScale;
         StartCoroutine(FadeAfterImage(sr));
         Destroy(afterImage, afterImageLifetime + 0.5f);

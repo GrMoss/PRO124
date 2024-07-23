@@ -9,7 +9,8 @@ public class ShowPlayerName : MonoBehaviourPun
 {
     public TMP_Text myName;
     public PhotonView myID;
-    Color color;
+    [HideInInspector] public Color color;
+    [HideInInspector] public bool isUniqueName;
     void Start()
     {
         Renderer renderer = myName.GetComponent<Renderer>();
@@ -32,6 +33,7 @@ public class ShowPlayerName : MonoBehaviourPun
         {
             if (PhotonNetwork.NickName.ToUpper() == "RAINBOW" || PhotonNetwork.NickName.ToUpper().ToUpper() == "UNICORN" || PhotonNetwork.NickName.ToUpper().ToUpper() == "RAINBOW UNICORN")
             {
+                isUniqueName = true;
                 float r = Mathf.Sin(Time.time) * 0.5f + 0.5f;
                 float g = Mathf.Sin(Time.time + 2.0f) * 0.5f + 0.5f;
                 float b = Mathf.Sin(Time.time + 4.0f) * 0.5f + 0.5f;
