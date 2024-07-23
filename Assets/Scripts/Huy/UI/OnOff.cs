@@ -5,13 +5,12 @@ using Photon.Pun;
 
 public class OnOff : MonoBehaviourPun
 {
-    [SerializeField] GameObject healthBar;
-    [SerializeField] GameObject inventoryBar;
+    public PhotonView health;
     private void Update()
     {
         if (Timer.TimeOver)
         {
-            healthBar.SetActive(false);
+            health.RPC("TurnOffHealth", RpcTarget.All);
         }
     }
 }

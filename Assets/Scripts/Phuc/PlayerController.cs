@@ -233,6 +233,12 @@ public class PlayerController : MonoBehaviour
         isTurnHealth = true;
     }
 
+    [PunRPC]
+    public void TurnOffHealth()
+    {
+        sliderMain.SetActive(false);
+    }
+
     public void SetTransparency(float alpha255)
     {
         if (effectCarrot != null)
