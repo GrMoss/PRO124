@@ -4275,6 +4275,7 @@ MonoBehaviour:
   healthFill: {fileID: 7020580203821079411}
   name: {fileID: 6957652611632606033}
   moveVector: {x: 0, y: 0}
+  rb: {fileID: 0}
   moveSpeed: 4
   view: {fileID: 6903585598850195347}
   hitBox: {fileID: 5281962237158851057}

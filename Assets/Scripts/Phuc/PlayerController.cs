@@ -266,21 +266,29 @@ public class PlayerController : MonoBehaviour
     [PunRPC]
     public void StartBadBread(float time)
     {
-        StartCoroutine(BadBread(time));
+        if (!isBread)
+            StartCoroutine(BadBread(time));
         spef.HitBread();
     }
 
     private IEnumerator BadBread(float time)
     {
-        GetComponentInChildren<Shooting>().SetCanFire(false);
+        view.RPC("TurnOffShooting", RpcTarget.All, false);
         yield return new WaitForSeconds(time);
-        GetComponentInChildren<Shooting>().SetCanFire(true);
+        view.RPC("TurnOffShooting", RpcTarget.All, true);
+    }
+
+    [PunRPC]
+    private void TurnOffShooting(bool x)
+    {
+        GetComponentInChildren<Shooting>().SetCanFire(x);
     }
 
     [PunRPC]
     public void StartGoodBread(float time)
     {
-        StartCoroutine(GoodBread(time));
+        if (!isBread)
+            StartCoroutine(GoodBread(time));
         spef.EatBread();
     }
 
@@ -295,7 +303,8 @@ public class PlayerController : MonoBehaviour
     [PunRPC]
     public void StartBadCucumber(float time)
     {
-        StartCoroutine(BadCucumber(time));
+        if (!isBread)
+            StartCoroutine(BadCucumber(time));
         spef.HitCumcumber();
     }
 
@@ -309,7 +318,8 @@ public class PlayerController : MonoBehaviour
     [PunRPC]
     public void StartGoodCucumber(float time, float moveSpeed, float blur)
     {
-        StartCoroutine(GoodCucumber(time, moveSpeed, blur));
+        if (!isBread)
+            StartCoroutine(GoodCucumber(time, moveSpeed, blur));
         spef.EatCucumber();
     }
 
@@ -346,7 +356,8 @@ public class PlayerController : MonoBehaviour
     [PunRPC]
     public void StartBadCarrot(float time, float blur)
     {
-        StartCoroutine(BadCarrot(time, blur));
+        if (!isBread)
+            StartCoroutine(BadCarrot(time, blur));
     }
 
     private IEnumerator BadCarrot(float time, float blur)
@@ -359,7 +370,7 @@ public class PlayerController : MonoBehaviour
     [PunRPC]
     public void StartGoodCarrot(float time, float duration, float size)
     {
-        if(!isCarrot)
+        if(!isCarrot && !isBread)
         StartCoroutine(GoodCarrot(time, duration, size));
         spef.EatCarrot();
     }
@@ -397,7 +408,7 @@ public class PlayerController : MonoBehaviour
     [PunRPC]
     public void StartEggEffect(float time, float moveSpeed, float scale)
     {
-        if (!isEgg)
+        if (!isEgg && !isBread)
         StartCoroutine(EggEffect(time, moveSpeed, scale));
         if (scale <= 0.5f)
         {
@@ -425,7 +436,8 @@ public class PlayerController : MonoBehaviour
     [PunRPC]
     public void StartGoodChilli(float time, float moveSpeed, float attackSpeed)
     {
-        StartCoroutine(GoodChilli(time, moveSpeed, attackSpeed));
+        if (!isBread)
+            StartCoroutine(GoodChilli(time, moveSpeed, attackSpeed));
 
         if (attackSpeed < 1f)
             spef.EatPepper();
@@ -446,13 +458,16 @@ public class PlayerController : MonoBehaviour
     [PunRPC]
     public void StartBadChilli(float time, int damage)
     {
-        if (bleedingTimeRemaining > 0)
+        if (!isBread)
         {
-            bleedingTimeRemaining = time;
-        }
-        else
-        {
-            StartCoroutine(BadChilli(time, damage));
+            if (bleedingTimeRemaining > 0)
+            {
+                bleedingTimeRemaining = time;
+            }
+            else
+            {
+                StartCoroutine(BadChilli(time, damage));
+            }
         }
     }
 
