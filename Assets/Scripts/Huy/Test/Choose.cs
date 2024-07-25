@@ -41,6 +41,12 @@ public class Choose : MonoBehaviourPunCallbacks
     // Thoát khỏi phòng
     public void LeaveRoom()
     {
+        StartCoroutine (Leaving());
+    }
+
+    IEnumerator Leaving()
+    {
+        yield return new WaitForSeconds(2f); ;
         Debug.Log("Đang thoát khỏi phòng.");
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene("Home");
