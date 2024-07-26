@@ -273,15 +273,9 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator BadBread(float time)
     {
-        view.RPC("TurnOffShooting", RpcTarget.All, false);
+        rotatePoint.SetActive(false);
         yield return new WaitForSeconds(time);
-        view.RPC("TurnOffShooting", RpcTarget.All, true);
-    }
-
-    [PunRPC]
-    private void TurnOffShooting(bool x)
-    {
-        GetComponentInChildren<Shooting>().SetCanFire(x);
+        rotatePoint.SetActive(true);
     }
 
     [PunRPC]
