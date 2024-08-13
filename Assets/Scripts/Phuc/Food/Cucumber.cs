@@ -19,7 +19,7 @@ public class Cucumber : Food
     {
         if (playerController != null)
         {
-            targetPhotonView.RPC("StartGoodCucumber", RpcTarget.All, 5f, 5f, 0f);
+            targetPhotonView.RPC("StartGoodCucumber", RpcTarget.All, 5f, 4f, 0f);
         }
     }
 
