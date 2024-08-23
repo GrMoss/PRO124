@@ -27,10 +27,7 @@ public class Inventory_Bar : MonoBehaviourPun
 
     private void FixedUpdate()
     {
-        if (photonView.IsMine)
-        {
-            inventoryBar.SetActive(lobbyManager.offLobby);
-        }
+        inventoryBar.SetActive(lobbyManager.offLobby);
     }
 
 
@@ -49,26 +46,23 @@ public class Inventory_Bar : MonoBehaviourPun
                 {
                     itemSlotComponent.itemID = item.ItemID;
                     itemSlotComponent.OnItemSelected += HandleItemSelected;
-                }
-                else
-                {
+                }else
+                { 
                     Debug.LogError("Không tìm thấy thành phần ItemSlot trên slot.");
                 }
 
                 TMP_Text quantityText = slot[i].transform.Find("Quantity").GetComponent<TMP_Text>();
                 Image itemImage = slot[i].transform.Find("ItemImage").GetComponent<Image>();
-
-                if (quantityText != null)
-                {
+                if (quantityText != null) 
+                { 
                     quantityText.text = item.QuantityItem.ToString();
-                }
-                else
+                }else
                 {
                     Debug.LogError("Không tìm thấy thành phần TMP_Text cho Quantity.");
                 }
-
+                
                 if (itemImage != null)
-                {
+                { 
                     itemImage.sprite = item.ImageItem;
                 }
                 else
@@ -83,7 +77,6 @@ public class Inventory_Bar : MonoBehaviourPun
                 slot[i].SetActive(false);
             }
         }
-
     }
 
     private void HandleItemSelected(int itemID)
