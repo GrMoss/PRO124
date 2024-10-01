@@ -46,7 +46,7 @@ public class Choose : MonoBehaviourPunCallbacks
 
     IEnumerator Leaving()
     {
-        yield return new WaitForSeconds(2f); ;
+        yield return new WaitForSeconds(0f);
         Debug.Log("Đang thoát khỏi phòng.");
         PhotonNetwork.LeaveRoom();
         SceneManager.LoadScene("Home");
